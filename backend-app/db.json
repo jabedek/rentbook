@@ -1,0 +1,35 @@
+{
+  "orders": [
+    {
+      "id": 5678,
+      "clientId": 1234,
+      "bookId": 12,
+      "startDate": "DD-MM-YYYY",
+      "returnDate": "DD-MM-YYYY",
+      "actualReturnDate": "DD-MM-YYYY"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1234,
+      "name": "John",
+      "lastname": "Wick",
+      "ordersHistory": [
+        {
+          "orderId": 5678,
+          "latePaymentAmount": 0
+        }
+      ]
+    }
+  ],
+  "books": [
+    {
+      "id": 12,
+      "title": "Harry Potter",
+      "author": "J. K. Rowling",
+      "available": "false",
+      "holdedByClient": 1234
+    }
+  ],
+  "users": [{ "id": 4321, "roles": "ADMIN", "displayName": "admin-admin" }]
+}
