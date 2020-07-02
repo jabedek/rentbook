@@ -3,5 +3,5 @@ export interface IBook {
   title: string;
   author: string;
   available: boolean;
-  holdByClient?: number;
+  heldByClient?: number;
 }

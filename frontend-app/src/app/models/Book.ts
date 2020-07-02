@@ -1,12 +1,25 @@
-/*
-db.json "books" entity:
-      "id": 12,
-      "title": "Harry Potter",
-      "author": "J. K. Rowling",
-      "available": "false",
-      "holdedByClient": 1234
-*/
-
 import { IBook } from '../interfaces/IBook';
 
-export class Book {}
+export class Book implements IBook {
+  id: number;
+  title: string;
+  author: string;
+  available: boolean;
+  heldByClient?: number;
+
+  constructor(
+    title: string,
+    author: string,
+    available: boolean,
+    heldByClient: number,
+    id?: number
+  ) {
+    this.title = title;
+    this.author = author;
+    this.available = available;
+    this.heldByClient = heldByClient;
+    if (id) {
+      this.id = id;
+    }
+  }
+}
