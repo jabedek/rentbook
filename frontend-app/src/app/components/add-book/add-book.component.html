@@ -1,1 +1,11 @@
-<p>add-book works!</p>
+<form class="form" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    name="title"
+    [(ngModel)]="title"
+    placeholder="Add Todo..."
+  />
+  <!-- Below {{title}} is available thry ngModel we've set. Also it is bound only to this input -->
+  <!-- {{ title }} -->
+  <input type="submit" value="Submit" class="btn" />
+</form>

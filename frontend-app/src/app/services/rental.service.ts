@@ -27,6 +27,11 @@ export class RentalService {
     return this.http.get<Book[]>(`${this.rentalURL}/${this.booksTable}`);
   }
 
+  deleteBook(book: Book): Observable<Book> {
+    const url = `${this.rentalURL}/${this.booksTable}/${book.id}`;
+    return this.http.delete<Book>(url, httpOptions);
+  }
+
   // Add Book
   addBook(book: Book): Observable<Book> {
     return this.http.post<Book>(

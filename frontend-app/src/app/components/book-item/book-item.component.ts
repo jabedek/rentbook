@@ -13,7 +13,8 @@ export class BookItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onDelete(book) {
+  onDelete(book: Book) {
+    console.log('deleting me:', book.title);
     this.deleteBook.emit(book);
   }
 }
