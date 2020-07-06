@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IBook } from 'src/app/interfaces/IBook';
 import { Book } from 'src/app/models/Book';
 import { RentalService } from 'src/app/services/rental.service';
@@ -10,6 +10,8 @@ import { UUID } from 'angular2-uuid';
   styleUrls: ['./add-book.component.scss'],
 })
 export class AddBookComponent implements OnInit, IBook {
+  @Output() addBook: EventEmitter<any> = new EventEmitter();
+
   title: string;
   author: string;
   genre: string;
@@ -21,13 +23,6 @@ export class AddBookComponent implements OnInit, IBook {
 
   ngOnInit(): void {}
 
-  addBook(book: Book) {
-    this.rentalService.addBook(book).subscribe(
-      (result) => console.log(result),
-      (err) => console.log(err)
-    );
-  }
-
   onSubmit() {
     const book: Book = {
       id: UUID.UUID(),
@@ -38,6 +33,6 @@ export class AddBookComponent implements OnInit, IBook {
       heldByClient: null,
     };
 
-    this.addBook(book);
+    this.addBook.emit(book);
   }
 }

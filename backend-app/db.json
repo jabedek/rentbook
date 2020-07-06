@@ -15,18 +15,26 @@
   ],
   "books": [
     {
-      "id": "38e70723-ecf5-5575-e1d0-1a16f9a846b0",
-      "title": "Coś",
-      "author": "Tam",
-      "genre": "Dupa",
+      "id": "a62e1729-16bc-393e-560a-c980374b5dfa",
+      "title": "asdasd",
+      "author": "asdsdadsa",
+      "genre": "adsdasdas",
       "available": true,
       "heldByClient": null
     },
     {
-      "id": "fb3b4ab5-1570-fcb2-2994-2d1828c20948",
-      "title": "HP",
-      "author": "JK Rowling",
-      "genre": "fantasy",
+      "id": "e3ee1b2d-a629-48fc-85d4-eb8ff6c3a4b2",
+      "title": "asdasd",
+      "author": "asdsdadsa",
+      "genre": "adsdasdas",
+      "available": true,
+      "heldByClient": null
+    },
+    {
+      "id": "b77244f7-6d90-0079-3b43-7fab68cdf40e",
+      "title": "asd",
+      "author": "asdsad",
+      "genre": "asddsa",
       "available": true,
       "heldByClient": null
     }

@@ -1,4 +1,8 @@
-<div>
-  {{ book.title }} {{ book.author }} {{ book.id }}
-  <button (click)="onDelete(book)">x</button>
-</div>
+<mat-card class="book-item">
+  <mat-card-title>{{ book.title }}</mat-card-title>
+  <mat-card-subtitle>{{ book.genre }}</mat-card-subtitle>
+  <mat-card-content>{{ book.author }}</mat-card-content>
+  <button mat-flat-button color="primary" (click)="onRent(book)">
+    Rent
+  </button>
+</mat-card>

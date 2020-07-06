@@ -15,12 +15,8 @@ export class BooksComponent implements OnInit {
     this.rentalService.getBooks().subscribe((books) => (this.books = books));
   }
 
-  deleteBook(book: Book) {
-    this.books = this.books.filter((b) => {
-      return book.id !== b.id;
-    });
-
-    this.rentalService.deleteBook(book).subscribe();
+  rentBook(book: Book) {
+    // TODO
   }
 
   ngOnInit(): void {

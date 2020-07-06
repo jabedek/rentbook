@@ -1,11 +1,16 @@
 <header class="header">
-  <mat-toolbar color="primary">
-    <p class="mat-title title">Book Rental</p>
+  <mat-toolbar color="primary" class="nav">
+    <div class="mat-title title">Book Rental</div>
     <nav>
-      <button mat-button routerLink="/">Home</button>
-      <button mat-button routerLink="/rental">Rent a book</button>
-      <button mat-button routerLink="/admin/add-book">Add a book</button>
-      <button mat-button routerLink="/about">About this page</button>
+      <button class="nav__item" mat-button routerLink="/">Home</button>
+      <button class="nav__item" mat-button routerLink="/rental">
+        Rent a book
+      </button>
+
+      <button class="nav__item" mat-button routerLink="/admin/books-details">
+        Books details
+      </button>
+      <button class="nav__item" mat-button routerLink="/about">About</button>
     </nav>
   </mat-toolbar>
 </header>

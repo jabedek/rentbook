@@ -9,11 +9,11 @@ import { Book } from '../../../models/Book';
 export class BookItemComponent implements OnInit {
   @Input() book: Book;
 
-  @Output() deleteBook: EventEmitter<Book> = new EventEmitter();
+  @Output() rentBook: EventEmitter<Book> = new EventEmitter();
 
   ngOnInit(): void {}
 
-  onDelete(book: Book) {
-    this.deleteBook.emit(book);
+  onRent(book: Book) {
+    this.rentBook.emit(book);
   }
 }
