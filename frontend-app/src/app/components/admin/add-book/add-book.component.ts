@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IBook } from 'src/app/interfaces/IBook';
-import { RentalService } from 'src/app/services/rental.service';
 import { Book } from 'src/app/models/Book';
+import { RentalService } from 'src/app/services/rental.service';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-add-book',
@@ -13,7 +14,7 @@ export class AddBookComponent implements OnInit, IBook {
   author: string;
   genre: string;
   available: boolean;
-  id: number;
+  id: string;
   heldByClient: number | null | undefined;
 
   constructor(private rentalService: RentalService) {}
@@ -21,17 +22,20 @@ export class AddBookComponent implements OnInit, IBook {
   ngOnInit(): void {}
 
   addBook(book: Book) {
-    this.rentalService.addBook(book).subscribe();
+    this.rentalService.addBook(book).subscribe(
+      (result) => console.log(result),
+      (err) => console.log(err)
+    );
   }
 
   onSubmit() {
-    const book = {
+    const book: Book = {
+      id: UUID.UUID(),
       title: this.title,
       author: this.author,
-      available: this.available,
       genre: this.genre,
-      id: this.id,
-      heldByClient: this.heldByClient,
+      available: true,
+      heldByClient: null,
     };
 
     this.addBook(book);
