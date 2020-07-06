@@ -11,13 +11,22 @@ export class BooksComponent implements OnInit {
   books: Book[];
   constructor(private rentalService: RentalService) {}
 
-  bookToAdd = new Book('JS for Dummies', 'E. A. Vander Veer', true, 3);
+  bookToAdd = new Book('A', 'A', false, 5);
+
+  getBooks() {
+    this.rentalService.getBooks().subscribe((books) => (this.books = books));
+  }
+
+  addBook(book: Book) {
+    this.rentalService
+      .addBook(this.bookToAdd)
+      .subscribe((book) => this.books.push(book));
+  }
+
+  deleteBook(book: Book) {}
 
   ngOnInit(): void {
     // Get all Books on-load
-    this.rentalService.getBooks().subscribe((books) => (this.books = books));
+    this.getBooks();
   }
 }
-// this.rentalService
-//   .addBook(this.bookToAdd)
-//   .subscribe((book) => this.books.push(book));

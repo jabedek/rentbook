@@ -28,11 +28,11 @@ export class RentalService {
   }
 
   // Add Book
-  // addBook(book: Book): Observable<Book> {
-  //   return this.http.post<Book>(
-  //     `${this.rentalURL}/${this.booksTable}`,
-  //     book,
-  //     httpOptions
-  //   );
-  // }
+  addBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(
+      `${this.rentalURL}/${this.booksTable}`,
+      book,
+      httpOptions
+    );
+  }
 }

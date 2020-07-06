@@ -1,3 +1,7 @@
-<ul *ngFor="let book of books">
+<app-book-item
+  *ngFor="let book of books"
+  [book]="book"
+  (deleteBook)="deleteBook($event)"
+>
   <li>{{ book.title }}</li>
-</ul>
+</app-book-item>
