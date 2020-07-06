@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/common/layout/header/header.compon
 import { HomeComponent } from './components/main/home/home.component';
 import { LandingComponent } from './components/main/landing/landing.component';
 import { AboutComponent } from './components/about/about/about.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { AboutComponent } from './components/about/about/about.component';
     LandingComponent,
     AboutComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

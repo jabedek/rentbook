@@ -1,14 +1,5 @@
 {
-  "orders": [
-    {
-      "id": 5678,
-      "clientId": 1234,
-      "bookId": 12,
-      "startDate": "DD-MM-YYYY",
-      "returnDate": "DD-MM-YYYY",
-      "actualReturnDate": "DD-MM-YYYY"
-    }
-  ],
+  "orders": [],
   "clients": [
     {
       "id": 1234,
@@ -24,13 +15,6 @@
   ],
   "books": [
     {
-      "title": "Harry Potter",
-      "author": "J. K. Rowling",
-      "available": false,
-      "id": 0,
-      "heldByClient": 1234
-    },
-    {
       "title": "The Lord of the Rings",
       "author": "J. R. R. Tolkien",
       "available": true,
@@ -43,10 +27,19 @@
       "id": 2
     },
     {
-      "title": "RANDOM",
-      "author": "RANDOM",
+      "title": "asdasd",
+      "author": "dasdas",
+      "genre": "adsdas",
+      "id": 6,
+      "heldByClient": 6
+    },
+    {
+      "title": "asd",
+      "author": "asdasda",
       "available": true,
-      "id": 3
+      "genre": "ssdads",
+      "id": 7,
+      "heldByClient": 6
     }
   ],
   "users": [
