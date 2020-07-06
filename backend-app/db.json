@@ -15,18 +15,18 @@
   ],
   "books": [
     {
-      "id": "a703900e-ca2b-e7ad-03de-5cc0fa46f1ab",
-      "title": "The Lord of the Rings",
-      "author": "J. R. R. Tolkien",
-      "genre": "fantasy",
+      "id": "38e70723-ecf5-5575-e1d0-1a16f9a846b0",
+      "title": "Coś",
+      "author": "Tam",
+      "genre": "Dupa",
       "available": true,
       "heldByClient": null
     },
     {
-      "id": "81de0010-9dbc-554c-8310-991d913e9ab6",
-      "title": "JavaScript for Dummies",
-      "author": "E. A. Vander Veer",
-      "genre": "learning",
+      "id": "fb3b4ab5-1570-fcb2-2994-2d1828c20948",
+      "title": "HP",
+      "author": "JK Rowling",
+      "genre": "fantasy",
       "available": true,
       "heldByClient": null
     }
