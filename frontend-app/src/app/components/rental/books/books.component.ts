@@ -16,8 +16,6 @@ export class BooksComponent implements OnInit {
   }
 
   deleteBook(book: Book) {
-    console.log('delete a book');
-
     this.books = this.books.filter((b) => {
       return book.id !== b.id;
     });
@@ -26,8 +24,6 @@ export class BooksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Get all Books on-load
     this.getBooks();
-    // this.addBook(new Book('A', 'A', false, 5))
   }
 }

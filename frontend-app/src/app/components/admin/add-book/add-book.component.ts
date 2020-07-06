@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IBook } from 'src/app/interfaces/IBook';
 import { RentalService } from 'src/app/services/rental.service';
 import { Book } from 'src/app/models/Book';
@@ -9,9 +9,6 @@ import { Book } from 'src/app/models/Book';
   styleUrls: ['./add-book.component.scss'],
 })
 export class AddBookComponent implements OnInit, IBook {
-  // Set 'addBook' event emitter (emitting to parent component with book object)
-  // @Output() addBook: EventEmitter<any> = new EventEmitter();
-
   title: string;
   author: string;
   genre: string;
@@ -24,8 +21,6 @@ export class AddBookComponent implements OnInit, IBook {
   ngOnInit(): void {}
 
   addBook(book: Book) {
-    console.log('>>', book);
-
     this.rentalService.addBook(book).subscribe();
   }
 
@@ -38,8 +33,6 @@ export class AddBookComponent implements OnInit, IBook {
       id: this.id,
       heldByClient: this.heldByClient,
     };
-
-    console.log(book);
 
     this.addBook(book);
   }
