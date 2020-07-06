@@ -15,10 +15,6 @@ export class BooksComponent implements OnInit {
     this.rentalService.getBooks().subscribe((books) => (this.books = books));
   }
 
-  addBook(book: Book) {
-    this.rentalService.addBook(book).subscribe((book) => this.books.push(book));
-  }
-
   deleteBook(book: Book) {
     console.log('delete a book');
 

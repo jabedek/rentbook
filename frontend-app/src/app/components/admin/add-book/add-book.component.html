@@ -1,9 +1,19 @@
 <form class="form" (ngSubmit)="onSubmit()">
+  <input type="text" name="title" [(ngModel)]="title" placeholder="Title" />
+  <input type="text" name="author" [(ngModel)]="author" placeholder="Author" />
+  <input type="text" name="genre" [(ngModel)]="genre" placeholder="Genre" />
+  <input type="number" name="id" [(ngModel)]="id" placeholder="Book Id" />
   <input
-    type="text"
-    name="title"
-    [(ngModel)]="title"
-    placeholder="Add Book..."
+    type="number"
+    name="heldByClient"
+    [(ngModel)]="heldByClient"
+    placeholder="Holder Id"
+  />
+  <input
+    type="checkbox"
+    name="available"
+    [(ngModel)]="available"
+    placeholder="Availability"
   />
   <input type="submit" value="Submit" class="btn" />
 </form>

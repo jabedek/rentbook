@@ -1,11 +1,12 @@
 import { IBook } from '../interfaces/IBook';
 
-export class Book {
+export class Book implements IBook {
   id: number;
   title: string;
   author: string;
+  genre: string;
   available: boolean;
-  heldByClient?: number;
+  heldByClient: number | null | undefined;
 
   constructor(
     title: string,
