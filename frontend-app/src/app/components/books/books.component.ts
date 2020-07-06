@@ -9,9 +9,15 @@ import { RentalService } from '../../services/rental.service';
 })
 export class BooksComponent implements OnInit {
   books: Book[];
-  constructor(private service: RentalService) {}
+  constructor(private rentalService: RentalService) {}
+
+  bookToAdd = new Book('JS for Dummies', 'E. A. Vander Veer', true, 3);
 
   ngOnInit(): void {
-    this.service.getBooks().subscribe((books) => (this.books = books));
+    // Get all Books on-load
+    this.rentalService.getBooks().subscribe((books) => (this.books = books));
   }
 }
+// this.rentalService
+//   .addBook(this.bookToAdd)
+//   .subscribe((book) => this.books.push(book));

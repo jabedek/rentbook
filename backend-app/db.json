@@ -24,18 +24,30 @@
   ],
   "books": [
     {
-      "id": 1,
       "title": "Harry Potter",
       "author": "J. K. Rowling",
       "available": false,
+      "id": 0,
       "heldByClient": 1234
     },
     {
-      "id": 2,
-      "title": "LOTR",
-      "author": "Tolkien",
-      "available": true
+      "title": "The Lord of the Rings",
+      "author": "J. R. R. Tolkien",
+      "available": true,
+      "id": 1
+    },
+    {
+      "title": "JavaScript for Dummies",
+      "author": "E. A. Vander Veer",
+      "available": true,
+      "id": 2
     }
   ],
-  "users": [{ "id": 4321, "roles": "ADMIN", "displayName": "admin-admin" }]
+  "users": [
+    {
+      "id": 4321,
+      "roles": "ADMIN",
+      "displayName": "admin-admin"
+    }
+  ]
 }

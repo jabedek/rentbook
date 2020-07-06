@@ -11,8 +11,8 @@ export class Book {
     title: string,
     author: string,
     available: boolean,
-    heldByClient: number,
-    id?: number
+    id: number,
+    heldByClient?: number
   ) {
     this.title = title;
     this.author = author;

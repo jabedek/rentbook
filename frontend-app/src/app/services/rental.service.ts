@@ -3,11 +3,17 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from '../models/Book';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
+
 @Injectable({
   providedIn: 'root',
 })
 export class RentalService {
-  rentalURL: string = 'http://localhost:3000/';
+  rentalURL: string = 'http://localhost:3000';
 
   booksTable: string = 'books';
   clientsTable: string = 'clients';
@@ -16,13 +22,17 @@ export class RentalService {
 
   constructor(private http: HttpClient) {}
 
-  // Get any Table
-  getTable(table: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.rentalURL}${table}`);
+  // Get Books table
+  getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.rentalURL}/${this.booksTable}`);
   }
 
-  // Get Books
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.rentalURL}${this.booksTable}`);
-  }
+  // Add Book
+  // addBook(book: Book): Observable<Book> {
+  //   return this.http.post<Book>(
+  //     `${this.rentalURL}/${this.booksTable}`,
+  //     book,
+  //     httpOptions
+  //   );
+  // }
 }
