@@ -13,7 +13,7 @@
     {
       "id": 1234,
       "name": "John",
-      "lastname": "Doe",
+      "lastname": "Wick",
       "ordersHistory": [
         {
           "orderId": 5678,
@@ -24,11 +24,17 @@
   ],
   "books": [
     {
-      "id": 12,
+      "id": 1,
       "title": "Harry Potter",
       "author": "J. K. Rowling",
-      "available": "false",
+      "available": false,
       "heldByClient": 1234
+    },
+    {
+      "id": 2,
+      "title": "LOTR",
+      "author": "Tolkien",
+      "available": true
     }
   ],
   "users": [{ "id": 4321, "roles": "ADMIN", "displayName": "admin-admin" }]

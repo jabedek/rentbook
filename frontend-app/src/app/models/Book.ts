@@ -1,6 +1,6 @@
 import { IBook } from '../interfaces/IBook';
 
-export class Book implements IBook {
+export class Book {
   id: number;
   title: string;
   author: string;
