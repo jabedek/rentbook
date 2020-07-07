@@ -4,5 +4,5 @@ export interface IBook {
   author: string;
   genre: string;
   available: boolean;
-  heldByClient: number | null | undefined;
+  heldByClient: string | null | undefined;
 }

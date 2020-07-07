@@ -1,0 +1,16 @@
+.books-details-wrapper {
+  display: flex;
+}
+
+.books-details-table {
+  width: 50vw;
+
+  &__column {
+    font-weight: 500;
+    padding: 1em 0;
+
+    &--id {
+      font-size: 0.5em;
+    }
+  }
+}

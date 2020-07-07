@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Book } from '../../../models/Book';
 import { RentalService } from '../../../services/rental.service';
 
@@ -9,6 +9,7 @@ import { RentalService } from '../../../services/rental.service';
 })
 export class BooksComponent implements OnInit {
   books: Book[];
+
   constructor(private rentalService: RentalService) {}
 
   getBooks() {

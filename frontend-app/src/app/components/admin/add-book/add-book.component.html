@@ -66,7 +66,7 @@
         [(ngModel)]="genre"
         type="text"
         [style.height.vh]="10"
-        [ngStyle]="{ 'font-size.px': 40 }"
+        [ngStyle]="{ 'font-size.px': 35 }"
       />
       <mat-hint align="end"
         >{{ inputGenre.value?.length || 0 }}/{{
@@ -78,6 +78,13 @@
         >category</mat-icon
       >
     </mat-form-field>
+
+    <p
+      class="mat-subheading-2 add-book-form__warning"
+      [style.visibility]="warningVisibility"
+    >
+      Please provide details.
+    </p>
 
     <button
       mat-raised-button

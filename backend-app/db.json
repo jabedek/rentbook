@@ -15,28 +15,20 @@
   ],
   "books": [
     {
-      "id": "e3ee1b2d-a629-48fc-85d4-eb8ff6c3a4b2",
-      "title": "asdasd",
-      "author": "asdsdadsa",
-      "genre": "adsdasdas",
+      "id": "d0e009dc-6f8d-06e3-a4b3-94ecf7e747f0",
+      "title": "asdsda",
+      "author": "sa",
+      "genre": "sad",
       "available": true,
-      "heldByClient": null
+      "heldByClient": "252defc5-5e65-0331-1b2c-fe19a70c4334"
     },
     {
-      "id": "b77244f7-6d90-0079-3b43-7fab68cdf40e",
-      "title": "asd",
-      "author": "asdsad",
-      "genre": "asddsa",
+      "id": "d483fb4e-6a4a-01f5-1fe8-cc6fc0b5ed48",
+      "title": "asdsda\nassasdsd\nds\ndd",
+      "author": "sa",
+      "genre": "sad",
       "available": true,
-      "heldByClient": null
-    },
-    {
-      "id": "3e92be71-7489-8d42-7055-dce55f8eb50a",
-      "title": "coś tam",
-      "author": "coś tam",
-      "genre": "coś tam",
-      "available": true,
-      "heldByClient": null
+      "heldByClient": "e7b39874-e2d2-8db9-a86a-0d52c79eb803"
     }
   ],
   "users": [

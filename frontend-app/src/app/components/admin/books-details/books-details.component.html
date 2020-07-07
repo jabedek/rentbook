@@ -1,7 +1,79 @@
-<app-add-book (addBook)="addBook($event)"></app-add-book>
-<app-book-details-item
-  *ngFor="let book of books"
-  [book]="book"
-  (deleteBook)="deleteBook($event)"
->
-</app-book-details-item>
+<div class="book-details-wrapper">
+  <app-add-book (addBook)="addBook($event)"></app-add-book>
+
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    class="mat-elevation-z8 books-details-table"
+  >
+    <!-- Title Column -->
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+      <td mat-cell *matCellDef="let book" class="books-details-table__column">
+        {{ book.title }}
+      </td>
+    </ng-container>
+
+    <!-- Author Column -->
+    <ng-container matColumnDef="Author">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Author</th>
+      <td mat-cell *matCellDef="let book" class="books-details-table__column">
+        {{ book.author }}
+      </td>
+    </ng-container>
+
+    <!-- Genre Column -->
+    <ng-container matColumnDef="Genre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Genre</th>
+      <td mat-cell *matCellDef="let book" class="books-details-table__column">
+        {{ book.genre }}
+      </td>
+    </ng-container>
+
+    <!-- Available Column -->
+    <ng-container matColumnDef="Available">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Available</th>
+      <td mat-cell *matCellDef="let book" class="books-details-table__column">
+        {{ book.available }}
+      </td>
+    </ng-container>
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td
+        mat-cell
+        *matCellDef="let book"
+        class="books-details-table__column books-details-table__column--id"
+      >
+        {{ book.id }}
+      </td>
+    </ng-container>
+
+    <!-- HeldByClient Column -->
+    <ng-container matColumnDef="HeldByClient">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>HeldByClient</th>
+      <td
+        mat-cell
+        *matCellDef="let book"
+        class="books-details-table__column books-details-table__column--id"
+      >
+        {{ book.heldByClient || "-" }}
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+      <td mat-cell *matCellDef="let book">
+        <button mat-mini-fab color="warn" (click)="deleteBook(book)">
+          x
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

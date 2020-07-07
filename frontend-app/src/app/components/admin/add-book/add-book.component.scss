@@ -1,6 +1,18 @@
+@import "~@angular/material/theming";
+
+// Copy the palettes from your selected theme (usually theme.scss).
+$app-primary: mat-palette($mat-indigo);
+$app-accent: mat-palette($mat-pink);
+$app-warn: mat-palette($mat-red);
+
+// Create your Sass color vars (will be available in all the project)
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+
 .add-book-wrapper {
   padding: 0.5em;
-  float: right;
+  // float: right;
 }
 
 .add-book-form {
@@ -16,5 +28,11 @@
   &__submit {
     font-size: 1.5rem;
     padding: 0.5em 0.85em;
+  }
+
+  &__warning {
+    visibility: hidden;
+    color: $warn;
+    margin-bottom: 2em;
   }
 }

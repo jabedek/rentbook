@@ -6,7 +6,7 @@ export class Book implements IBook {
   author: string;
   genre: string;
   available: boolean;
-  heldByClient: number | null | undefined;
+  heldByClient: string | null | undefined;
 
   constructor(
     id: string,
@@ -14,7 +14,7 @@ export class Book implements IBook {
     author: string,
     genre: string,
     available: boolean,
-    heldByClient: number | null | undefined
+    heldByClient: string | null | undefined
   ) {
     this.id = id;
     this.title = title;

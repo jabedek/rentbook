@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/Input';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/Card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/Table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 const material = [
@@ -17,6 +19,8 @@ const material = [
   MatInputModule,
   MatToolbarModule,
   MatGridListModule,
+  MatListModule,
+  MatTableModule,
 ];
 
 @NgModule({
