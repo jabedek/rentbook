@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/Input';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/Card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 const material = [
@@ -15,6 +16,7 @@ const material = [
   MatCardModule,
   MatInputModule,
   MatToolbarModule,
+  MatGridListModule,
 ];
 
 @NgModule({

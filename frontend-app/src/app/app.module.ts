@@ -16,28 +16,35 @@ import { LandingComponent } from './components/main/landing/landing.component';
 import { AboutComponent } from './components/about/about/about.component';
 import { BooksDetailsComponent } from './components/admin/books-details/books-details.component';
 import { BookDetailsItemComponent } from './components/admin/book-details-item/book-details-item.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+
+const components = [
+  AppComponent,
+  BooksComponent,
+  BookItemComponent,
+  AddBookComponent,
+  HeaderComponent,
+  HomeComponent,
+  LandingComponent,
+  AboutComponent,
+  BooksDetailsComponent,
+  BookDetailsItemComponent,
+];
+
+const modules = [
+  BrowserModule,
+  HttpClientModule,
+  AppRoutingModule,
+  FormsModule,
+  BrowserAnimationsModule,
+  MaterialModule,
+  FlexLayoutModule,
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BooksComponent,
-    BookItemComponent,
-    AddBookComponent,
-    HeaderComponent,
-    HomeComponent,
-    LandingComponent,
-    AboutComponent,
-    BooksDetailsComponent,
-    BookDetailsItemComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-  ],
+  declarations: [components, CreateAccountComponent],
+  imports: [modules],
   providers: [],
   bootstrap: [AppComponent],
 })

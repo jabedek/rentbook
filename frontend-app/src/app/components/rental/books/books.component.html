@@ -1,6 +1,26 @@
-<app-book-item
-  *ngFor="let book of books"
-  [book]="book"
-  (rentBook)="rentBook($event)"
->
-</app-book-item>
+<div>
+  <mat-grid-list cols="5" rowHeight="40vh">
+    <!-- <mat-grid-tile>
+      <app-book-item
+        *ngFor="let book of books"
+        [book]="book"
+        (rentBook)="rentBook($event)"
+      >
+      </app-book-item>
+    </mat-grid-tile> -->
+
+    <mat-grid-tile
+      *ngFor="let book of books"
+      [book]="book"
+      (rentBook)="rentBook($event)"
+    >
+      <app-book-item [book]="book" (rentBook)="rentBook($event)">
+      </app-book-item>
+    </mat-grid-tile>
+
+    <!-- <mat-grid-tile>Tile 1</mat-grid-tile>
+    <mat-grid-tile>Tile 2</mat-grid-tile>
+    <mat-grid-tile>Tile 3</mat-grid-tile>
+    <mat-grid-tile>Tile 4</mat-grid-tile> -->
+  </mat-grid-list>
+</div>

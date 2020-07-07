@@ -1,5 +1,20 @@
-.book-form {
+.add-book-wrapper {
+  padding: 0.5em;
+  float: right;
+}
+
+.add-book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &__item {
     font-size: 1.5rem;
+    margin-bottom: 0.5em;
+  }
+
+  &__submit {
+    font-size: 1.5rem;
+    padding: 0.5em 0.85em;
   }
 }

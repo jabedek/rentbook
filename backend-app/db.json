@@ -15,14 +15,6 @@
   ],
   "books": [
     {
-      "id": "a62e1729-16bc-393e-560a-c980374b5dfa",
-      "title": "asdasd",
-      "author": "asdsdadsa",
-      "genre": "adsdasdas",
-      "available": true,
-      "heldByClient": null
-    },
-    {
       "id": "e3ee1b2d-a629-48fc-85d4-eb8ff6c3a4b2",
       "title": "asdasd",
       "author": "asdsdadsa",
@@ -35,6 +27,14 @@
       "title": "asd",
       "author": "asdsad",
       "genre": "asddsa",
+      "available": true,
+      "heldByClient": null
+    },
+    {
+      "id": "3e92be71-7489-8d42-7055-dce55f8eb50a",
+      "title": "coś tam",
+      "author": "coś tam",
+      "genre": "coś tam",
       "available": true,
       "heldByClient": null
     }

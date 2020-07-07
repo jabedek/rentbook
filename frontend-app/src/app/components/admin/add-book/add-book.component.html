@@ -1,68 +1,91 @@
-<form class="form" (ngSubmit)="onSubmit()">
-  <input type="text" name="title" [(ngModel)]="title" placeholder="Title" />
-  <input type="text" name="author" [(ngModel)]="author" placeholder="Author" />
-  <input type="text" name="genre" [(ngModel)]="genre" placeholder="Genre" />
+<div class="add-book-wrapper">
+  <form class="add-book-form" (ngSubmit)="onSubmit()">
+    <mat-form-field
+      appearance="fill"
+      class="add-book-form__item"
+      [style.width.vw]="40"
+    >
+      <mat-label>Title</mat-label>
+      <textarea
+        required
+        matInput
+        #inputTitle
+        maxlength="120"
+        name="title"
+        [(ngModel)]="title"
+        [style.height.vh]="10"
+      ></textarea>
+      <mat-hint align="end"
+        >{{ inputTitle.value?.length || 0 }}/{{
+          inputTitle.maxLength
+        }}</mat-hint
+      >
+      <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
+        >title</mat-icon
+      >
+    </mat-form-field>
 
-  <input type="submit" value="Submit" class="btn" />
-</form>
+    <mat-form-field
+      appearance="fill"
+      class="add-book-form__item"
+      [style.width.vw]="40"
+    >
+      <mat-label>Author</mat-label>
+      <textarea
+        required
+        matInput
+        #inputAuthor
+        maxlength="70"
+        name="author"
+        [(ngModel)]="author"
+        [style.height.vh]="10"
+      ></textarea>
+      <mat-hint align="end"
+        >{{ inputAuthor.value?.length || 0 }}/{{
+          inputAuthor.maxLength
+        }}</mat-hint
+      >
+      <!-- <example-tel-input required></example-tel-input> -->
+      <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
+        >how_to_reg</mat-icon
+      >
+    </mat-form-field>
 
-<mat-form-field appearance="fill" class="book-form__item" [style.width.vw]="40">
-  <mat-label>Title</mat-label>
-  <textarea
-    required
-    matInput
-    #inputTitle
-    maxlength="120"
-    name="title"
-    [(ngModel)]="title"
-    [style.height.vh]="10"
-  ></textarea>
-  <mat-hint align="end"
-    >{{ inputTitle.value?.length || 0 }}/{{ inputTitle.maxLength }}</mat-hint
-  >
-  <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
-    >title</mat-icon
-  >
-</mat-form-field>
+    <mat-form-field
+      appearance="fill"
+      class="add-book-form__item"
+      [style.width.vw]="40"
+    >
+      <mat-label>Genre</mat-label>
+      <input
+        required
+        matInput
+        #inputGenre
+        maxlength="25"
+        name="genre"
+        [(ngModel)]="genre"
+        type="text"
+        [style.height.vh]="10"
+        [ngStyle]="{ 'font-size.px': 40 }"
+      />
+      <mat-hint align="end"
+        >{{ inputGenre.value?.length || 0 }}/{{
+          inputGenre.maxLength
+        }}</mat-hint
+      >
+      <!-- <example-tel-input required></example-tel-input> -->
+      <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
+        >category</mat-icon
+      >
+    </mat-form-field>
 
-<mat-form-field appearance="fill" class="book-form__item" [style.width.vw]="40">
-  <mat-label>Author</mat-label>
-  <textarea
-    required
-    matInput
-    #inputAuthor
-    maxlength="70"
-    name="author"
-    [(ngModel)]="author"
-    [style.height.vh]="10"
-  ></textarea>
-  <mat-hint align="end"
-    >{{ inputAuthor.value?.length || 0 }}/{{ inputAuthor.maxLength }}</mat-hint
-  >
-  <!-- <example-tel-input required></example-tel-input> -->
-  <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
-    >how_to_reg</mat-icon
-  >
-</mat-form-field>
-
-<mat-form-field appearance="fill" class="book-form__item" [style.width.vw]="40">
-  <mat-label>Genre</mat-label>
-  <input
-    required
-    matInput
-    #inputGenre
-    maxlength="25"
-    name="genre"
-    [(ngModel)]="genre"
-    type="text"
-    [style.height.vh]="10"
-    [ngStyle]="{ 'font-size.px': 40 }"
-  />
-  <mat-hint align="end"
-    >{{ inputGenre.value?.length || 0 }}/{{ inputGenre.maxLength }}</mat-hint
-  >
-  <!-- <example-tel-input required></example-tel-input> -->
-  <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
-    >category</mat-icon
-  >
-</mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      class="add-book-form__submit"
+    >
+      SUBMIT
+    </button>
+  </form>
+</div>

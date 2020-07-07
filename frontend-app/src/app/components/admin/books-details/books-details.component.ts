@@ -19,7 +19,6 @@ export class BooksDetailsComponent implements OnInit {
     this.books = this.books.filter((b) => {
       return book.id !== b.id;
     });
-
     this.rentalService.deleteBook(book).subscribe();
   }
 
