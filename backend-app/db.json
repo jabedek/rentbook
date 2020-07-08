@@ -15,12 +15,36 @@
   ],
   "books": [
     {
-      "id": "be4d0abd-59ce-ae55-dbf4-9b3e0abf6372",
-      "title": "mj",
-      "author": "jm",
-      "genre": "sad",
+      "id": "17560f16-e20f-000a-37aa-e4e1b45c5f1e",
+      "title": "adsdas",
+      "author": "adsads",
+      "genre": "adsadsadsads",
       "available": true,
-      "heldByClient": "2285b934-c920-7fe3-3815-26fe716a85ec"
+      "heldByClient": "015e9969-491b-5219-2a69-0cbf75eebdcd"
+    },
+    {
+      "id": "3a8c164b-29c1-63b9-b885-96a0323a1419",
+      "title": "ryjj",
+      "author": "yyjtjyt",
+      "genre": "jytytjjyt",
+      "available": true,
+      "heldByClient": "4336371a-d0b3-0ba2-b4b5-68dfcc468b7c"
+    },
+    {
+      "id": "f67da47a-77be-a7bf-8583-847f4737d931",
+      "title": "rthrth",
+      "author": "rthtrh",
+      "genre": "rhtrhtrhtrhtrh",
+      "available": true,
+      "heldByClient": "ac20d6db-0feb-a0f2-e303-da553786226b"
+    },
+    {
+      "id": "d2e4f65c-67af-3a42-c172-1f22c4630aa6",
+      "title": "asd",
+      "author": "asdsad",
+      "genre": "adsasd",
+      "available": true,
+      "heldByClient": "72098816-4523-a644-80d7-f4a2e443c763"
     }
   ],
   "users": [

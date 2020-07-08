@@ -1,4 +1,8 @@
+@import "../../../material/theming.scss";
+
 .title {
+  // font-family: "Poppins", sans-serif;
+  font: 1.8rem "Poppins";
   margin: 0 1.5em 0 0;
 }
 
@@ -7,5 +11,9 @@
 
   &__item {
     margin-right: 1rem;
+
+    &--admin {
+      // color: $warn;
+    }
   }
 }

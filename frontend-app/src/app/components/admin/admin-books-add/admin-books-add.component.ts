@@ -50,7 +50,7 @@ export class AdminBooksAddComponent implements OnInit {
       (book) => {
         console.log(book);
 
-        this.result = `Book "${book.title}" was added succesully. New id: ${book.id}`;
+        this.result = `Book "${book.title}" was added succesfully and its ID is: [${book.id}].`;
 
         // this.lastAddedBook = book;
         // this.resultVisibility = 'visible';
