@@ -1,14 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IBook } from 'src/app/interfaces/IBook';
 import { Book } from 'src/app/models/Book';
 import { UUID } from 'angular2-uuid';
 
 @Component({
-  selector: 'app-add-book',
-  templateUrl: './add-book.component.html',
-  styleUrls: ['./add-book.component.scss'],
+  selector: 'app-admin-books-add',
+  templateUrl: './admin-books-add.component.html',
+  styleUrls: ['./admin-books-add.component.scss'],
 })
-export class AddBookComponent implements OnInit {
+export class AdminBooksAddComponent implements OnInit {
   @Output() addBook: EventEmitter<any> = new EventEmitter();
 
   title: string = '';

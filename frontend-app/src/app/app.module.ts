@@ -5,31 +5,26 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/common/header/header.component';
 import { BooksComponent } from './components/rental/books/books.component';
+import { BooksRentComponent } from './components/rental/books-rent/books-rent.component';
 import { BookItemComponent } from './components/rental/book-item/book-item.component';
-import { AddBookComponent } from './components/admin/add-book/add-book.component';
-import { HeaderComponent } from './components/common/layout/header/header.component';
-import { HomeComponent } from './components/main/home/home.component';
+import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
+import { AdminBooksAddComponent } from './components/admin/admin-books-add/admin-books-add.component';
 import { LandingComponent } from './components/main/landing/landing.component';
-import { AboutComponent } from './components/about/about/about.component';
-import { BooksDetailsComponent } from './components/admin/books-details/books-details.component';
-import { BookDetailsItemComponent } from './components/admin/book-details-item/book-details-item.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 const components = [
   AppComponent,
   BooksComponent,
+  BooksRentComponent,
   BookItemComponent,
-  AddBookComponent,
+  AdminBooksComponent,
+  AdminBooksAddComponent,
   HeaderComponent,
-  HomeComponent,
   LandingComponent,
-  AboutComponent,
-  BooksDetailsComponent,
-  BookDetailsItemComponent,
 ];
 
 const modules = [
@@ -43,7 +38,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [components, CreateAccountComponent],
+  declarations: [components, LandingComponent],
   imports: [modules],
   providers: [],
   bootstrap: [AppComponent],
