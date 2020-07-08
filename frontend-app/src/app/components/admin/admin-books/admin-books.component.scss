@@ -1,18 +1,26 @@
 .books-details-wrapper {
-  width: 100vw;
+  width: 100%;
+  padding: 2em 0;
   flex-wrap: nowrap;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .books-details-table {
-  width: 100%;
+  width: 90%;
 
   &__column {
     font-weight: 500;
-    padding: 1em 0;
+    padding: 1.5em 0;
+    font-size: 0.85rem;
+
+    &--title {
+      width: 5vw;
+    }
 
     &--id {
-      font-size: 0.75em;
+      font-size: 0.7rem;
     }
   }
 }

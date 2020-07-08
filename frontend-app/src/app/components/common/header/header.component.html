@@ -1,5 +1,5 @@
 <header class="header">
-  <mat-toolbar color="primary" class="nav">
+  <mat-toolbar [color]="color" class="nav">
     <div class="mat-title title">Book Rental</div>
     <nav>
       <button class="nav__item" mat-button routerLink="/">Home</button>
@@ -8,7 +8,11 @@
       </button>
 
       <button class="nav__item" mat-button routerLink="/admin/books">
-        Admin section
+        Admin Books
+      </button>
+
+      <button class="nav__item" mat-button routerLink="/admin/books/add">
+        Admin Add Book
       </button>
     </nav>
   </mat-toolbar>

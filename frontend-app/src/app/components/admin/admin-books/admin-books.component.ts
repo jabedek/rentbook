@@ -11,9 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class AdminBooksComponent implements OnInit {
   books: Book[];
-
   dataSource;
-
   displayedColumns: string[] = [
     'Title',
     'Author',
@@ -30,7 +28,7 @@ export class AdminBooksComponent implements OnInit {
       this.books = books;
       console.log(this.books);
 
-      // this.dataSource = new MatTableDataSource(this.books);
+      this.dataSource = new MatTableDataSource(this.books);
     });
   }
   deleteBook(book: Book) {
@@ -39,6 +37,7 @@ export class AdminBooksComponent implements OnInit {
       return book.id !== b.id;
     });
 
+    // Update mat-table in template
     this.dataSource = new MatTableDataSource(this.books);
 
     // Delete from server
@@ -50,6 +49,6 @@ export class AdminBooksComponent implements OnInit {
     console.log('books-list-admin');
     this.getBooks();
 
-    this.dataSource.sort = this.sort;
+    // this.dataSource.sort = this.sort;
   }
 }

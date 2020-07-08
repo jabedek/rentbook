@@ -1,4 +1,5 @@
-<div class="book-details-wrapper">
+<app-header [color]="'accent'"></app-header>
+<div class="books-details-wrapper">
   <!-- <app-admin-add-book (addBook)="addBook($event)"></app-admin-add-book> -->
 
   <table
@@ -10,7 +11,11 @@
     <!-- Title Column -->
     <ng-container matColumnDef="Title">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
-      <td mat-cell *matCellDef="let book" class="books-details-table__column">
+      <td
+        mat-cell
+        *matCellDef="let book"
+        class="books-details-table__column books-details-table__column--title"
+      >
         {{ book.title }}
       </td>
     </ng-container>

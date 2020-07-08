@@ -1,5 +1,6 @@
+<app-header [color]="'accent'"></app-header>
 <div class="add-book-wrapper">
-  <form class="add-book-form" (ngSubmit)="onSubmit()">
+  <form class="add-book-form" #addBookForm (ngSubmit)="onSubmit()">
     <mat-form-field
       appearance="fill"
       class="add-book-form__item"
@@ -86,13 +87,29 @@
       Please provide details.
     </p>
 
-    <button
-      mat-raised-button
-      color="accent"
-      type="submit"
-      class="add-book-form__submit"
-    >
-      SUBMIT
-    </button>
+    <section>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="clearForm(addBookForm)"
+        class="add-book-form__action"
+        type="button"
+      >
+        CLEAR
+      </button>
+
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        class="add-book-form__action"
+      >
+        SUBMIT
+      </button>
+    </section>
+
+    <p class="mat-subheading-2 add-book-form__result">
+      {{ result }}
+    </p>
   </form>
 </div>

@@ -15,60 +15,12 @@
   ],
   "books": [
     {
-      "id": "1d2949b4-2aa9-fb73-c617-c7be21a27b88",
-      "title": "123",
-      "author": "123",
-      "genre": "123",
+      "id": "be4d0abd-59ce-ae55-dbf4-9b3e0abf6372",
+      "title": "mj",
+      "author": "jm",
+      "genre": "sad",
       "available": true,
-      "heldByClient": "2881ce8e-f28c-bf2b-fae6-706be9b01480"
-    },
-    {
-      "id": "132bd031-2db6-2f20-266f-1ce7835e4bf9",
-      "title": "asd",
-      "author": "sda",
-      "genre": "sa",
-      "available": true,
-      "heldByClient": "6b2d510d-72c7-34e6-e499-0cab89d370be"
-    },
-    {
-      "id": "09b47115-fd4b-33d4-016e-c916e69e1fe2",
-      "title": "sda",
-      "author": "sda",
-      "genre": "sda",
-      "available": true,
-      "heldByClient": "28dda692-866a-4a50-95b2-6ba21a841422"
-    },
-    {
-      "id": "0ffb65bc-d7b6-16ec-b266-2cf4a5275495",
-      "title": "sda",
-      "author": "sda",
-      "genre": "sda",
-      "available": true,
-      "heldByClient": "0d4e2c58-b907-ba36-f8f8-ff9ca5600a65"
-    },
-    {
-      "id": "2c808e02-f5d2-04a1-0438-d8bed38d7637",
-      "title": "sda11",
-      "author": "sda",
-      "genre": "sda",
-      "available": true,
-      "heldByClient": "e91af8d0-904e-917d-c091-93419e395ef3"
-    },
-    {
-      "id": "6294de86-3ea1-49ef-272a-e3d0e7df4dea",
-      "title": "666666",
-      "author": "666",
-      "genre": "66",
-      "available": true,
-      "heldByClient": "afc9080c-eef2-9ef0-370e-865a83a14e8f"
-    },
-    {
-      "id": "cda63c87-6ad2-7de3-f158-cf6a8d852c40",
-      "title": "6666",
-      "author": "66",
-      "genre": "66",
-      "available": true,
-      "heldByClient": "5aa32df9-5ed2-531a-8f4f-cfe627e8f8bd"
+      "heldByClient": "2285b934-c920-7fe3-3815-26fe716a85ec"
     }
   ],
   "users": [
