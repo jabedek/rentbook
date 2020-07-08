@@ -21,6 +21,14 @@
       "genre": "ads",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "9a636972-0cad-f0e6-f233-96a5b340d687",
+      "title": "yttyjtyj",
+      "author": "yj",
+      "genre": "tyjtyj",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "users": [

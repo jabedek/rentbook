@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/Book';
 import { UUID } from 'angular2-uuid';
-import { RentalService } from '../../../services/rental.service';
+import { BooksService } from '../../../services/books.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ export class AdminBooksAddComponent implements OnInit {
   warningVisibility: string = 'hidden';
   result: string = '';
 
-  constructor(private rentalService: RentalService) {}
+  constructor(private booksService: BooksService) {}
 
   isFormValid(): boolean {
     if (!this.title.length || !this.author.length || !this.genre.length) {
@@ -41,7 +41,7 @@ export class AdminBooksAddComponent implements OnInit {
   }
 
   addBook(book: Book) {
-    this.rentalService.addBook(book).subscribe(
+    this.booksService.addBook(book).subscribe(
       (book) => {
         this.result = `Book "${book.title}" was added succesfully and its ID is: [${book.id}].`;
       },
