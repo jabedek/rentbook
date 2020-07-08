@@ -49,6 +49,7 @@ export class AdminBooksComponent implements OnInit {
     console.log('books-list-admin');
     this.getBooks();
 
+    // TODO: sorting functions
     // this.dataSource.sort = this.sort;
   }
 }
