@@ -1,16 +1,62 @@
 <header class="header">
-  <mat-toolbar [color]="color" class="nav">
+  <mat-toolbar [color]="backgroundColor" class="nav">
     <div class="mat-title title">Book Rental</div>
     <nav>
-      <button class="nav__item" mat-button routerLink="/">Home</button>
-      <button class="nav__item" mat-button routerLink="/rental/books">
+      <button
+        class="nav__item"
+        mat-button
+        [routerLink]="['']"
+        routerLinkActive="router-link-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </button>
+      <button
+        class="nav__item"
+        mat-button
+        [routerLink]="['rental/books']"
+        routerLinkActive="router-link-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Rental section
+      </button>
+
+      <button
+        class="nav__item"
+        mat-button
+        [routerLink]="['account/login']"
+        routerLinkActive="router-link-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Log in
+      </button>
+
+      <button
+        class="nav__item"
+        mat-button
+        [routerLink]="['account/register']"
+        routerLinkActive="router-link-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Register a new account
+      </button>
+
+      <button
+        class="nav__item"
+        mat-button
+        [routerLink]="['account/password-reset']"
+        routerLinkActive="router-link-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Reset your password
       </button>
 
       <button
         class="nav__item nav__item--admin"
         mat-button
-        routerLink="/admin/books"
+        [routerLink]="['admin/books']"
+        routerLinkActive="router-link-active router-link-active--admin"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         Admin Books
       </button>
@@ -18,7 +64,9 @@
       <button
         class="nav__item nav__item--admin"
         mat-button
-        routerLink="/admin/books/add"
+        [routerLink]="['admin/books/add']"
+        routerLinkActive="router-link-active router-link-active--admin"
+        [routerLinkActiveOptions]="{ exact: true }"
       >
         Admin Add Book
       </button>

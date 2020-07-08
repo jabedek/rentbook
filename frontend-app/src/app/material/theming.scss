@@ -5,7 +5,14 @@ $app-primary: mat-palette($mat-indigo);
 $app-accent: mat-palette($mat-pink);
 $app-warn: mat-palette($mat-red);
 
+// moje
+$app-active-link-primary: mat-palette($mat-green, A200);
+$app-active-link-secondary: mat-palette($mat-pink, A200);
+
 // Create your Sass color vars (will be available in all the project)
 $primary: mat-color($app-primary);
 $accent: mat-color($app-accent);
 $warn: mat-color($app-warn);
+
+$active-link-primary: mat-color($app-active-link-primary);
+$active-link-secondary: mat-color($app-active-link-secondary);

@@ -17,3 +17,11 @@
     }
   }
 }
+
+.router-link-active {
+  color: $active-link-primary;
+
+  &--admin {
+    color: $active-link-secondary;
+  }
+}
