@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/Book';
-import { RentalService } from 'src/app/services/rental.service';
+import { BooksService } from 'src/app/services/books.service';
 
 @Component({
   selector: 'app-books',
@@ -10,11 +10,11 @@ import { RentalService } from 'src/app/services/rental.service';
 export class BooksComponent implements OnInit {
   books: Book[];
 
-  constructor(private rentalService: RentalService) {}
+  constructor(private booksService: BooksService) {}
 
   getBooks() {
-    this.rentalService.getBooks().subscribe((books) => (this.books = books));
-    // this.books = this.rentalService.getBooks();
+    this.booksService.getBooks().subscribe((books) => (this.books = books));
+    // this.books = this.booksService.getBooks();
   }
 
   rentBook(book: Book) {

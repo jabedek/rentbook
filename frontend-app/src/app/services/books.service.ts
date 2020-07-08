@@ -15,24 +15,24 @@ const httpOptions = {
 })
 export class BooksService {
   rentalURL: string = 'http://localhost:3000';
-  booksTable: string = 'books';
+  tableName: string = 'books';
 
   constructor(private http: HttpClient) {}
 
   // Get Books table
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.rentalURL}/${this.booksTable}`);
+    return this.http.get<Book[]>(`${this.rentalURL}/${this.tableName}`);
   }
 
   deleteBook(book: Book): Observable<Book> {
-    const url = `${this.rentalURL}/${this.booksTable}/${book.id}`;
+    const url = `${this.rentalURL}/${this.tableName}/${book.id}`;
     return this.http.delete<Book>(url, httpOptions);
   }
 
   // Add Book
   addBook(book: Book): Observable<Book> {
     return this.http.post<Book>(
-      `${this.rentalURL}/${this.booksTable}`,
+      `${this.rentalURL}/${this.tableName}`,
       book,
       httpOptions
     );
