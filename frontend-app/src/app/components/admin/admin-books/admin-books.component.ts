@@ -23,14 +23,23 @@ export class AdminBooksComponent implements OnInit {
   ];
 
   constructor(private rentalService: RentalService) {}
+
   getBooks() {
     this.rentalService.getBooks().subscribe((books) => {
       this.books = books;
-      console.log(this.books);
+      // console.log(this.books);
+
+      if (!this.books.length) {
+        // this.books = this.rentalService.populateBooks();
+      }
 
       this.dataSource = new MatTableDataSource(this.books);
     });
+
+    // this.books = this.rentalService.getBooks();
+    // this.dataSource = new MatTableDataSource(this.books);
   }
+
   deleteBook(book: Book) {
     // Delete from UI
     this.books = this.books.filter((b) => {
@@ -46,7 +55,6 @@ export class AdminBooksComponent implements OnInit {
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   ngOnInit(): void {
-    console.log('books-list-admin');
     this.getBooks();
 
     // TODO: sorting functions

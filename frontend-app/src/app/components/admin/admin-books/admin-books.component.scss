@@ -1,4 +1,4 @@
-.books-details-wrapper {
+.admin-books-wrapper {
   width: 100%;
   padding: 2em 0;
   flex-wrap: nowrap;
@@ -7,11 +7,10 @@
   align-items: center;
 }
 
-.books-details-table {
+.admin-books-table {
   width: 90%;
 
   &__column {
-    font-weight: 500;
     padding: 1.5em 0;
     font-size: 0.85rem;
 
@@ -21,6 +20,7 @@
 
     &--id {
       font-size: 0.7rem;
+      font-weight: 500;
     }
   }
 }

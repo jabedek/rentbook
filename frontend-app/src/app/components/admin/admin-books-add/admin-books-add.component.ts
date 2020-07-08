@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/Book';
 import { UUID } from 'angular2-uuid';
 import { RentalService } from '../../../services/rental.service';
@@ -10,16 +10,12 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./admin-books-add.component.scss'],
 })
 export class AdminBooksAddComponent implements OnInit {
-  // @Output() addBook: EventEmitter<any> = new EventEmitter();
-
   title: string = '';
   author: string = '';
   genre: string = '';
 
   warningVisibility: string = 'hidden';
   result: string = '';
-  // resultVisibility: string = 'hidden';
-  // lastAddedBook: Book;
 
   constructor(private rentalService: RentalService) {}
 
@@ -40,24 +36,17 @@ export class AdminBooksAddComponent implements OnInit {
     this.genre = '';
     this.warningVisibility = 'hidden';
     this.result = '';
-    // this.resultVisibility = 'hidden';
-    // this.lastAddedBook = null;
+
     form.reset();
   }
 
   addBook(book: Book) {
     this.rentalService.addBook(book).subscribe(
       (book) => {
-        console.log(book);
-
         this.result = `Book "${book.title}" was added succesfully and its ID is: [${book.id}].`;
-
-        // this.lastAddedBook = book;
-        // this.resultVisibility = 'visible';
       },
 
       (err) => {
-        console.log(err);
         this.result = err;
       }
     );
@@ -74,7 +63,7 @@ export class AdminBooksAddComponent implements OnInit {
         author: this.author,
         genre: this.genre,
         available: true,
-        heldByClient: UUID.UUID(),
+        heldByClient: `00000000-0000-0000-0000-000000000000`,
       };
 
       this.addBook(book);
