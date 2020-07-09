@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/common/header/header.component';
@@ -42,6 +43,7 @@ const modules = [
   BrowserAnimationsModule,
   FlexLayoutModule,
   MaterialModule,
+  ReactiveFormsModule,
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/Table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const material = [
   MatButtonModule,
@@ -21,10 +22,11 @@ const material = [
   MatGridListModule,
   MatListModule,
   MatTableModule,
+  MatStepperModule,
 ];
 
 @NgModule({
-  imports: [material],
-  exports: [material],
+  imports: material,
+  exports: material,
 })
 export class MaterialModule {}

@@ -21,7 +21,6 @@ export class AdminBooksAddComponent implements OnInit {
 
   isFormValid(): boolean {
     if (!this.title.length || !this.author.length || !this.genre.length) {
-      console.log('INVALID');
       this.warningVisibility = 'visible';
       return false;
     } else {
@@ -53,10 +52,7 @@ export class AdminBooksAddComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('submitting');
-
-    const isValid = this.isFormValid();
-    if (isValid) {
+    if (this.isFormValid()) {
       const book: Book = {
         id: UUID.UUID(),
         title: this.title,

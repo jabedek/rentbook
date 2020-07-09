@@ -27,17 +27,12 @@ export class AdminBooksComponent implements OnInit {
   getBooks() {
     this.booksService.getBooks().subscribe((books) => {
       this.books = books;
-      // console.log(this.books);
 
       if (!this.books.length) {
-        // this.books = this.booksService.populateBooks();
       }
 
       this.dataSource = new MatTableDataSource(this.books);
     });
-
-    // this.books = this.booksService.getBooks();
-    // this.dataSource = new MatTableDataSource(this.books);
   }
 
   deleteBook(book: Book) {

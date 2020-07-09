@@ -1,1 +1,65 @@
-<p>register works!</p>
+<div class="account-form-wrapper">
+  <form
+    class="account-form"
+    [formGroup]="accountForm"
+    (ngSubmit)="onSubmit(accountForm.value)"
+  >
+    <mat-form-field appearance="fill">
+      <input
+        #inputEmail
+        matInput
+        placeholder="Email"
+        formControlName="email"
+        minLength="10"
+        maxlength="60"
+      />
+      <mat-hint align="start">min symbols: {{ inputEmail.minLength }}</mat-hint>
+      <mat-hint align="end"
+        >{{ inputEmail.value?.length || 0 }}/{{
+          inputEmail.maxLength
+        }}</mat-hint
+      >
+      <mat-icon fontSet="material-icons-outlined" matSuffix color="primary"
+        >alternate_email</mat-icon
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <input
+        #inputPassword
+        matInput
+        placeholder="Password"
+        formControlName="password"
+        minLength="8"
+        maxlength="30"
+      />
+      <mat-hint align="start"
+        >min symbols: {{ inputPassword.minLength }}</mat-hint
+      >
+      <mat-hint align="end"
+        >{{ inputPassword.value?.length || 0 }}/{{
+          inputPassword.maxLength
+        }}</mat-hint
+      >
+      <mat-icon fontSet="material-icons-outlined" matSuffix color="primary"
+        >security</mat-icon
+      >
+    </mat-form-field>
+
+    <!-- 
+      <div>
+        <mat-checkbox formControlName="validate" value="1">Name min. 3 characters</mat-checkbox>
+      </div> -->
+
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!accountForm.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

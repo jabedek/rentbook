@@ -14,8 +14,8 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class BooksService {
-  rentalURL: string = 'http://localhost:3000';
-  tableName: string = 'books';
+  private rentalURL: string = 'http://localhost:3000';
+  private tableName: string = 'books';
 
   constructor(private http: HttpClient) {}
 
