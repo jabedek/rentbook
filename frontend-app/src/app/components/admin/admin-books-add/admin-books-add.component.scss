@@ -2,6 +2,7 @@
 
 .add-book-wrapper {
   padding: 2rem;
+  width: 100%;
 }
 
 .add-book-form {
@@ -10,7 +11,7 @@
   align-items: center;
 
   &__item {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5em;
   }
 
@@ -25,9 +26,7 @@
   }
 
   &__result {
-    // visibility: hidden;
     color: $primary;
-    margin-top: 4rem;
     text-align: center;
   }
 }

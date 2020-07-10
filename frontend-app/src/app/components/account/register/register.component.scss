@@ -1,10 +1,48 @@
-.account-form-wrapper {
-  width: 100%;
-}
+@import "../../../assets/styles/mixins.scss";
+@import "../../../material/theming.scss";
 
-.account-form {
-  //   width: 75%;
+.register-form-wrapper {
+  @include component-wrapper;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: center;
+  justify-content: center;
+
+  //   height: 93vh;
+  //   width: 100%;
+}
+
+.register-card {
+  width: 40%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__content {
+    height: 100%;
+    padding: 0.5em;
+  }
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+  height: 100%;
+
+  &__item {
+    margin: 1em 0;
+  }
+
+  &__warning {
+    visibility: hidden;
+    color: $warn;
+    margin-bottom: 2rem;
+  }
 }

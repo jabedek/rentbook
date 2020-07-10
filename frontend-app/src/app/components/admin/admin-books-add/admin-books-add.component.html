@@ -1,5 +1,125 @@
 <!-- <app-header [backgroundColor]="'accent'"></app-header> -->
 <div class="add-book-wrapper">
+  <mat-card class="add-book-card">
+    <mat-card-content class="add-book-card__content">
+      <form
+        class="add-book-form"
+        [formGroup]="addBookForm"
+        (ngSubmit)="onSubmit(addBookForm.value)"
+      >
+        <!-- Title input -->
+        <mat-form-field
+          appearance="fill"
+          [style.width.vw]="30"
+          class="add-book-form__item"
+        >
+          <mat-label>Title</mat-label>
+          <textarea
+            required
+            matInput
+            rows="1"
+            #inputTitle
+            maxlength="100"
+            formControlName="title"
+            name="title"
+          ></textarea>
+          <mat-hint align="end"
+            >{{ inputTitle.value?.length || 0 }}/{{
+              inputTitle.maxLength
+            }}</mat-hint
+          >
+          <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
+            >title</mat-icon
+          >
+        </mat-form-field>
+
+        <!-- Author input -->
+        <mat-form-field
+          appearance="fill"
+          [style.width.vw]="30"
+          class="add-book-form__item"
+        >
+          <mat-label>Author</mat-label>
+          <textarea
+            required
+            matInput
+            rows="1"
+            #inputAuthor
+            maxlength="70"
+            formControlName="author"
+            name="author"
+          ></textarea>
+          <mat-hint align="end"
+            >{{ inputAuthor.value?.length || 0 }}/{{
+              inputAuthor.maxLength
+            }}</mat-hint
+          >
+          <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
+            >how_to_reg</mat-icon
+          >
+        </mat-form-field>
+
+        <!-- Genre input -->
+        <mat-form-field
+          appearance="fill"
+          [style.width.vw]="30"
+          class="add-book-form__item"
+        >
+          <mat-label>Genre</mat-label>
+          <input
+            type="text"
+            required
+            matInput
+            #inputGenre
+            minlength="2"
+            maxlength="20"
+            formControlName="genre"
+            name="genre"
+          />
+          <mat-hint align="end"
+            >{{ inputGenre.value?.length || 0 }}/{{
+              inputGenre.maxLength
+            }}</mat-hint
+          >
+          <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
+            >category</mat-icon
+          >
+        </mat-form-field>
+
+        <p
+          class="mat-subheading-2 add-book-form__warning"
+          [style.visibility]="warningVisibility"
+        >
+          Please provide details.
+        </p>
+        <section>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="addBookForm.reset()"
+            class="add-book-form__action"
+            type="button"
+          >
+            CLEAR
+          </button>
+
+          <button
+            mat-raised-button
+            color="accent"
+            type="submit"
+            class="add-book-form__action"
+            [disabled]="!addBookForm.valid"
+          >
+            SUBMIT
+          </button>
+        </section>
+        <p class="mat-subheading-2 add-book-form__result">
+          {{ result }}
+        </p>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <!--   
   <form class="add-book-form" #addBookForm (ngSubmit)="onSubmit()">
     <mat-form-field
       appearance="fill"
@@ -46,7 +166,6 @@
           inputAuthor.maxLength
         }}</mat-hint
       >
-      <!-- <example-tel-input required></example-tel-input> -->
       <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
         >how_to_reg</mat-icon
       >
@@ -74,7 +193,6 @@
           inputGenre.maxLength
         }}</mat-hint
       >
-      <!-- <example-tel-input required></example-tel-input> -->
       <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
         >category</mat-icon
       >
@@ -103,6 +221,7 @@
         color="accent"
         type="submit"
         class="add-book-form__action"
+        [disabled]="!addBookForm.valid"
       >
         SUBMIT
       </button>
@@ -111,5 +230,5 @@
     <p class="mat-subheading-2 add-book-form__result">
       {{ result }}
     </p>
-  </form>
+  </form> -->
 </div>

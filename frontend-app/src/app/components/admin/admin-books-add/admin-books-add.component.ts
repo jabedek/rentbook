@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from 'src/app/models/Book';
-import { UUID } from 'angular2-uuid';
-import { BooksService } from '../../../services/books.service';
 import { NgForm } from '@angular/forms';
+
+import { FormBuilder, Validators } from '@angular/forms';
+import { UUID } from 'angular2-uuid';
+
+import { Book } from 'src/app/models/Book';
+import { BooksService } from '../../../services/books.service';
 
 @Component({
   selector: 'app-admin-books-add',
@@ -10,34 +13,23 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./admin-books-add.component.scss'],
 })
 export class AdminBooksAddComponent implements OnInit {
-  title: string = '';
-  author: string = '';
-  genre: string = '';
+  addBookForm = this.formBuilder.group({
+    title: ['', Validators.required],
+    author: ['', Validators.required],
+    genre: ['', Validators.required],
+  });
+
+  // title: string = '';
+  // author: string = '';
+  // genre: string = '';
 
   warningVisibility: string = 'hidden';
   result: string = '';
 
-  constructor(private booksService: BooksService) {}
-
-  isFormValid(): boolean {
-    if (!this.title.length || !this.author.length || !this.genre.length) {
-      this.warningVisibility = 'visible';
-      return false;
-    } else {
-      this.warningVisibility = 'hidden';
-      return true;
-    }
-  }
-
-  clearForm(form: NgForm): void {
-    this.title = '';
-    this.author = '';
-    this.genre = '';
-    this.warningVisibility = 'hidden';
-    this.result = '';
-
-    form.reset();
-  }
+  constructor(
+    private booksService: BooksService,
+    private formBuilder: FormBuilder
+  ) {}
 
   addBook(book: Book) {
     this.booksService.addBook(book).subscribe(
@@ -51,19 +43,17 @@ export class AdminBooksAddComponent implements OnInit {
     );
   }
 
-  onSubmit() {
-    if (this.isFormValid()) {
-      const book: Book = {
-        id: UUID.UUID(),
-        title: this.title,
-        author: this.author,
-        genre: this.genre,
-        available: true,
-        heldByClient: `00000000-0000-0000-0000-000000000000`,
-      };
+  onSubmit(formValue) {
+    const book: Book = {
+      id: UUID.UUID(),
+      title: formValue.title,
+      author: formValue.author,
+      genre: formValue.genre,
+      available: true,
+      heldByClient: `00000000-0000-0000-0000-000000000000`,
+    };
 
-      this.addBook(book);
-    }
+    this.addBook(book);
   }
 
   ngOnInit(): void {}

@@ -1,27 +1,98 @@
 {
   "books": [
     {
-      "id": "8d2a565e-4af8-fe62-e4db-571a5cc3574b",
-      "title": "elodasadsds",
-      "author": "asdadsads",
-      "genre": "asasd",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
       "id": "30a75451-b8bb-348f-7073-757885998a22",
       "title": "5466",
       "author": "456456",
       "genre": "456456456",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "7fdcebc8-d95a-dee1-a453-c6ad2ddd0a4a",
+      "title": "sadsad",
+      "author": "sadsadas",
+      "genre": "sdasad",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "b12cf4cf-e8a9-26e2-0b47-39d404abb0c1",
+      "title": "00",
+      "author": "000",
+      "genre": "000",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "f8a55a12-dd28-9a23-5b51-1f04986227cc",
+      "title": "RARAR",
+      "author": "RARA",
+      "genre": "RARAR",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "c7805c76-ef6f-ca36-753d-77bfa731c0bf",
+      "title": "p''",
+      "author": "p'p",
+      "genre": "'p'",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "fdd539d8-c733-c972-6427-e86b93372fac",
+      "title": "asdsda",
+      "author": "asdasd",
+      "genre": "asdsad",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "29018908-f5a7-8b64-fcf8-2eb22fae2220",
+      "title": "asd",
+      "author": "asd",
+      "genre": "asd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "2fb7877e-3d07-8c2f-70c7-fcce0d0228f2",
+      "title": "sad",
+      "author": "asd",
+      "genre": "ads",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "e0cd25d9-a287-66da-4bc8-05f82c5fd3d5",
+      "title": "ert",
+      "author": "etr",
+      "genre": "ret",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "users": [
     {
-      "id": "f1d9f2d7-37c2-ba0b-8255-85ae6454868e",
-      "email": "mailo@random.com",
-      "password": "pwd000"
+      "id": "2d2f15a9-7955-7198-a74f-a493d13e0070",
+      "email": "sdasda",
+      "password": "sdasdasda"
+    },
+    {
+      "id": "9ed61ff5-806e-bebe-0792-f9bf0fad04fc",
+      "email": "asd",
+      "password": "sdad"
+    },
+    {
+      "id": "15517e40-06d3-86fa-d29c-3078156bf0bb",
+      "email": "sasdasdasda",
+      "password": "sdasdasda"
+    },
+    {
+      "id": "81c6ad0c-025f-c377-332a-b61fe8f484de",
+      "email": "dasdasdas",
+      "password": "asdasdasd"
     }
   ]
 }

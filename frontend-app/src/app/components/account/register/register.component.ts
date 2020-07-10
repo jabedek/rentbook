@@ -15,23 +15,29 @@ export class RegisterComponent implements OnInit {
     password: ['', Validators.required],
   });
 
+  warningVisibility: string = 'hidden';
+  result: string = '';
+
   constructor(
     private usersService: UsersService,
     private formBuilder: FormBuilder
   ) {}
 
   onSubmit(formValue) {
-    console.log('submitting');
+    const registrationDetails: User = { id: UUID.UUID(), ...formValue };
+    console.log('submitting', registrationDetails);
+
+    this.addUser(registrationDetails);
 
     // console.log(this.accountForm.value);
   }
 
-  addUser() {
-    const user: User = {
-      id: UUID.UUID(),
-      email: 'mailo@random.com',
-      password: 'pwd000',
-    };
+  addUser(user: User) {
+    // const user: User = {
+    //   id: UUID.UUID(),
+    //   email: 'mailo@random.com',
+    //   password: 'pwd000',
+    // };
 
     this.usersService.addUser(user).subscribe(
       (user) => console.log('>', user),
@@ -54,6 +60,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    this.addUser();
+    // this.addUser();
   }
 }
