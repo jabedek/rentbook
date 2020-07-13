@@ -1,17 +1,16 @@
 @import "../../../assets/styles/mixins.scss";
 @import "../../../material/theming.scss";
 
-.register-form-wrapper {
-  @include component-wrapper;
-
+.register-wrapper {
+  // @include component-wrapper;
+  height: 100%;
+  border: 1px solid orange;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: center;
   justify-content: center;
-
-  //   height: 93vh;
-  //   width: 100%;
 }
 
 .register-card {

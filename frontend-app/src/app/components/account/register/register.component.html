@@ -1,10 +1,10 @@
-<div class="register-form-wrapper">
-  <mat-card class="register-card">
-    <mat-card-content class="register-card__content">
+<div class="register-wrapper">
+  <mat-card class="!register-card">
+    <mat-card-content class="!register-card__content">
       <form
         class="register-form"
-        [formGroup]="accountForm"
-        (ngSubmit)="onSubmit(accountForm.value)"
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit(registerForm.value)"
       >
         <mat-form-field
           appearance="outline"
@@ -72,7 +72,7 @@
             mat-raised-button
             color="primary"
             type="submit"
-            [disabled]="!accountForm.valid"
+            [disabled]="!registerForm.valid"
           >
             SUBMIT
           </button>

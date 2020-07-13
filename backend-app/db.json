@@ -1,22 +1,6 @@
 {
   "books": [
     {
-      "id": "30a75451-b8bb-348f-7073-757885998a22",
-      "title": "5466",
-      "author": "456456",
-      "genre": "456456456",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "7fdcebc8-d95a-dee1-a453-c6ad2ddd0a4a",
-      "title": "sadsad",
-      "author": "sadsadas",
-      "genre": "sdasad",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
       "id": "b12cf4cf-e8a9-26e2-0b47-39d404abb0c1",
       "title": "00",
       "author": "000",
@@ -25,50 +9,18 @@
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "f8a55a12-dd28-9a23-5b51-1f04986227cc",
-      "title": "RARAR",
-      "author": "RARA",
-      "genre": "RARAR",
+      "id": "df29bd62-a19c-8780-cc29-c132594a2733",
+      "title": "jhghhghg",
+      "author": "ghhghg",
+      "genre": "hghgjjj",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "c7805c76-ef6f-ca36-753d-77bfa731c0bf",
-      "title": "p''",
-      "author": "p'p",
-      "genre": "'p'",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "fdd539d8-c733-c972-6427-e86b93372fac",
-      "title": "asdsda",
-      "author": "asdasd",
-      "genre": "asdsad",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "29018908-f5a7-8b64-fcf8-2eb22fae2220",
-      "title": "asd",
-      "author": "asd",
-      "genre": "asd",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "2fb7877e-3d07-8c2f-70c7-fcce0d0228f2",
-      "title": "sad",
-      "author": "asd",
-      "genre": "ads",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "e0cd25d9-a287-66da-4bc8-05f82c5fd3d5",
-      "title": "ert",
-      "author": "etr",
-      "genre": "ret",
+      "id": "0b436f81-2cb3-52b9-9943-caa342ff0af2",
+      "title": "76575567",
+      "author": "576576",
+      "genre": "756567567",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
@@ -93,6 +45,16 @@
       "id": "81c6ad0c-025f-c377-332a-b61fe8f484de",
       "email": "dasdasdas",
       "password": "asdasdasd"
+    },
+    {
+      "id": "dab0047b-8fdd-440f-bd00-697445f1f5fb",
+      "email": "asd",
+      "password": "asdasd"
+    },
+    {
+      "id": "6861a8b4-75d1-fa38-8441-4c318daf4c2c",
+      "email": "asdsdsad",
+      "password": "sadassadsda"
     }
   ]
 }

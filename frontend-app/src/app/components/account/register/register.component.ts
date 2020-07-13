@@ -10,7 +10,7 @@ import { UUID } from 'angular2-uuid';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  accountForm = this.formBuilder.group({
+  registerForm = this.formBuilder.group({
     email: ['', Validators.required],
     password: ['', Validators.required],
   });
@@ -25,20 +25,10 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(formValue) {
     const registrationDetails: User = { id: UUID.UUID(), ...formValue };
-    console.log('submitting', registrationDetails);
-
     this.addUser(registrationDetails);
-
-    // console.log(this.accountForm.value);
   }
 
   addUser(user: User) {
-    // const user: User = {
-    //   id: UUID.UUID(),
-    //   email: 'mailo@random.com',
-    //   password: 'pwd000',
-    // };
-
     this.usersService.addUser(user).subscribe(
       (user) => console.log('>', user),
       (err) => console.log(err)
@@ -60,6 +50,5 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    // this.addUser();
   }
 }
