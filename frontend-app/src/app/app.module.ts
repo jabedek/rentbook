@@ -15,7 +15,8 @@ import { BooksRentComponent } from './components/rental/books-rent/books-rent.co
 import { BookItemComponent } from './components/rental/book-item/book-item.component';
 import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
 import { AdminBooksAddComponent } from './components/admin/admin-books-add/admin-books-add.component';
-import { LandingComponent } from './components/main/landing/landing.component';
+import { HomeComponent } from './components/main/home/home.component';
+import { SectionHeaderComponent } from './components/common/section-header/section-header.component';
 
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
@@ -29,10 +30,11 @@ const mainComponents = [
   AdminBooksComponent,
   AdminBooksAddComponent,
   HeaderComponent,
-  LandingComponent,
+  HomeComponent,
   RegisterComponent,
   LoginComponent,
   PasswordResetComponent,
+  SectionHeaderComponent,
 ];
 
 const modules = [

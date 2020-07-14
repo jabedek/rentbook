@@ -1,7 +1,13 @@
+<app-section-header [text]="'Log in'"></app-section-header>
 <div class="login-wrapper">
-  <mat-card class="register-card">
-    <mat-card-content class="register-card__content">
-      <form class="login-form" [formGroup]="loginForm">
+  <mat-card class="login-card" [class.mat-elevation-z3]="'true'">
+    <mat-card-content class="login-card__content">
+      <form
+        class="login-form"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit(loginForm.value)"
+      >
+        <mat-card-title class="login-card__title">Login form</mat-card-title>
         <mat-form-field
           appearance="outline"
           [style.width.vw]="30"
@@ -13,7 +19,7 @@
             matInput
             placeholder="Email"
             formControlName="email"
-            minLength="10"
+            minLength="5"
             maxlength="60"
           />
           <mat-hint align="start"
@@ -77,7 +83,7 @@
         <p class="mat-subheading-2 add-book-form__result">
           {{ result }}
         </p>
-      </form></mat-card-content
-    ></mat-card
-  >
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>

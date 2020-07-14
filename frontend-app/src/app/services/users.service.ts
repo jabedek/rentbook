@@ -21,13 +21,24 @@ export class UsersService {
 
   // Get Users table
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.rentalURL}/${this.tableName}`);
+    const url = `${this.rentalURL}/${this.tableName}`;
+    return this.http.get<User[]>(url);
   }
 
   // Get User by property's value
   getUser(searchKey: string, searchValue: string): Observable<User> {
-    return this.http.get<User>(
-      `${this.rentalURL}/${this.tableName}?${searchKey}=${searchValue}`
+    const url = `${this.rentalURL}/${this.tableName}?${searchKey}=${searchValue}`;
+    return this.http.get<User>(url);
+  }
+
+  authenticate(loginDetails) {
+    const result = this.getUser('email', loginDetails.email).subscribe(
+      (user) => {
+        return user;
+      },
+      (err) => {
+        return err;
+      }
     );
   }
 

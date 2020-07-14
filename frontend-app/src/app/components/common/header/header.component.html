@@ -1,75 +1,87 @@
-<header class="header">
-  <mat-toolbar [color]="backgroundColor" class="nav">
-    <div class="mat-title title">Rentbook</div>
-    <nav>
-      <button
-        class="nav__item"
-        mat-button
-        [routerLink]="['']"
-        routerLinkActive="router-link-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        Home
-      </button>
-      <button
-        class="nav__item"
-        mat-button
-        [routerLink]="['rental/books']"
-        routerLinkActive="router-link-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        Rental section
-      </button>
+<!-- 
+  The other speciality about using brackets specifically for routerLink
+  is that you can pass dynamic parameters to the link you're 
+  navigating to:
 
-      <button
-        class="nav__item"
-        mat-button
-        [routerLink]="['account/login']"
-        routerLinkActive="router-link-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        Log in
-      </button>
+  #ts:
+  export class myComponent {
+        private dynamicParameter = '129';
+        public routerLinkVariable = "/home"
 
-      <button
-        class="nav__item"
-        mat-button
-        [routerLink]="['account/register']"
-        routerLinkActive="router-link-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        Register a new account
-      </button>
+  #html:
+  <a [routerLink]="[routerLinkVariable,dynamicParameter]"></a>
+ -->
 
-      <button
-        class="nav__item"
-        mat-button
-        [routerLink]="['account/password-reset']"
-        routerLinkActive="router-link-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        Reset your password
-      </button>
+<mat-toolbar [color]="backgroundColor" class="nav">
+  <div class="mat-title title">Rentbook</div>
+  <nav>
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['']"
+      routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Home
+    </button>
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['rental/books']"
+      routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Rental
+    </button>
 
-      <button
-        class="nav__item"
-        mat-button
-        [routerLink]="['admin/books']"
-        routerLinkActive=" router-link-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        admin: Books
-      </button>
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['account/login']"
+      routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Log in
+    </button>
 
-      <button
-        class="nav__item"
-        mat-button
-        [routerLink]="['admin/books/add']"
-        routerLinkActive=" router-link-active"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        admin: Add Book
-      </button>
-    </nav>
-  </mat-toolbar>
-</header>
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['account/register']"
+      routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Register new account
+    </button>
+
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['account/password-reset']"
+      routerLinkActive="router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      Reset your password
+    </button>
+
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['admin/books']"
+      routerLinkActive=" router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      admin: Books
+    </button>
+
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['admin/books/add']"
+      routerLinkActive=" router-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      admin: Add Book
+    </button>
+  </nav>
+</mat-toolbar>

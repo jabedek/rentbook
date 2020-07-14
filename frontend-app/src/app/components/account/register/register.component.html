@@ -1,11 +1,16 @@
+<app-section-header [text]="'Register new account'"></app-section-header>
 <div class="register-wrapper">
-  <mat-card class="!register-card">
-    <mat-card-content class="!register-card__content">
+  <mat-card class="register-card" [class.mat-elevation-z3]="'true'">
+    <mat-card-content class="register-card__content">
       <form
         class="register-form"
         [formGroup]="registerForm"
         (ngSubmit)="onSubmit(registerForm.value)"
       >
+        <mat-card-title class="register-card__title">
+          Register form
+        </mat-card-title>
+
         <mat-form-field
           appearance="outline"
           [style.width.vw]="30"
@@ -17,7 +22,7 @@
             matInput
             placeholder="Email"
             formControlName="email"
-            minLength="10"
+            minLength="5"
             maxlength="60"
           />
           <mat-hint align="start"
@@ -81,7 +86,7 @@
         <p class="mat-subheading-2 add-book-form__result">
           {{ result }}
         </p>
-      </form></mat-card-content
-    ></mat-card
-  >
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>

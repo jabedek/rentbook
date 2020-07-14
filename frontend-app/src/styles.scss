@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~normalize.css";
+@import "./app/assets/styles/theme.scss";
 
 html,
 body {
   height: 100%;
   width: 100%;
+  @include angular-material-theme($custom-theme-light);
 }
 body {
   margin: 0;

@@ -1,0 +1,26 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+// // custom from internet
+$custom-theme-primary: mat-palette($mat-deep-purple);
+$custom-theme-accent: mat-palette($mat-brown, 400);
+$custom-theme-warn: mat-palette($mat-red);
+
+$custom-theme-light: mat-light-theme(
+  $custom-theme-primary,
+  $custom-theme-accent,
+  $custom-theme-warn
+);
+
+// custom by me
+$primary: mat-color($custom-theme-primary);
+$accent: mat-color($custom-theme-accent);
+$warn: mat-color($custom-theme-warn);
+
+$wrapper-bg-main: mat-color($custom-theme-primary, 50);
+
+$subheader-bg: mat-color($custom-theme-primary, 600);
+$active-link-primary: mat-color(mat-palette($mat-amber, A200));
+
+// fonts and links colors
+$main-font-color: #fff;

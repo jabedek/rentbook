@@ -23,6 +23,62 @@
       "genre": "756567567",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "20035d10-25ce-f10d-0be9-7245fd27e270",
+      "title": "asda",
+      "author": "asdasd",
+      "genre": "asdasd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "fef8d389-1fe4-95b0-d1bf-16b2d1cf582c",
+      "title": "asdasd",
+      "author": "asddas",
+      "genre": "dasasd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "0f8e6508-173d-8ece-60a4-d9a06c58c780",
+      "title": "asdsa",
+      "author": "sdasadsa",
+      "genre": "dsadsda",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "f11bf015-da29-aacc-e6dc-076dd016ff0f",
+      "title": "sdadsa",
+      "author": "sdasda",
+      "genre": "sdasdasda",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "653123c1-4da6-1c77-33aa-6c9dd90572d5",
+      "title": "JUJU",
+      "author": "sdaJUJUJU",
+      "genre": "JUaUJ",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "b9c82074-3200-9770-25d7-2bcb3869d456",
+      "title": "JUJU",
+      "author": "sdaJUJUJU",
+      "genre": "JUaUJ",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "49eec9a3-81d1-9d9c-7239-774c84365754",
+      "title": "RTH",
+      "author": "RTH",
+      "genre": "RTH",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "users": [
@@ -55,6 +111,11 @@
       "id": "6861a8b4-75d1-fa38-8441-4c318daf4c2c",
       "email": "asdsdsad",
       "password": "sadassadsda"
+    },
+    {
+      "id": "26876fbe-a484-6fde-99d2-8209e6283970",
+      "email": "rrr@rrr.rrr",
+      "password": "123"
     }
   ]
 }

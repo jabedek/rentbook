@@ -1,8 +1,9 @@
-@import "../../../material/theming.scss";
+@import "../../../assets/styles/_mixins.scss";
+@import "../../../assets/styles/theme.scss";
 
 .add-book-wrapper {
+  @include component-wrapper;
   padding: 2rem;
-  width: 100%;
 }
 
 .add-book-form {

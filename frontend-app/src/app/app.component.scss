@@ -1,8 +1,11 @@
 app-root {
   width: 100vw;
   height: 100vh;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   border: 2px solid red;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }

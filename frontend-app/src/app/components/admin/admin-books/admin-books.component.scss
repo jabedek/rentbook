@@ -1,10 +1,11 @@
+@import "../../../assets/styles/_mixins.scss";
+@import "../../../assets/styles/theme.scss";
+
 .admin-books-wrapper {
-  width: 100%;
-  padding: 2em 0;
-  flex-wrap: nowrap;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include component-wrapper;
+  justify-content: flex-start;
+
+  padding: 2rem 0;
 }
 
 .admin-books-table {

@@ -1,10 +1,12 @@
+<app-section-header [text]="'admin: Books'"></app-section-header>
 <!-- <app-header [backgroundColor]="'accent'"></app-header> -->
 <div class="admin-books-wrapper">
   <table
     mat-table
     [dataSource]="dataSource"
     matSort
-    class="mat-elevation-z8 admin-books-table"
+    [class.mat-elevation-z3]="'true'"
+    class="admin-books-table"
   >
     <!-- Title Column -->
     <ng-container matColumnDef="Title">

@@ -1,6 +1,6 @@
-<!-- <app-header [backgroundColor]="'accent'"></app-header> -->
+<app-section-header [text]="'admin: Add book'"></app-section-header>
 <div class="add-book-wrapper">
-  <mat-card class="add-book-card">
+  <mat-card class="add-book-card" [class.mat-elevation-z3]="'true'">
     <mat-card-content class="add-book-card__content">
       <form
         class="add-book-form"
@@ -95,7 +95,7 @@
         <section>
           <button
             mat-raised-button
-            color="primary"
+            color="accent"
             (click)="addBookForm.reset()"
             class="add-book-form__action"
             type="button"
@@ -105,7 +105,7 @@
 
           <button
             mat-raised-button
-            color="accent"
+            color="primary"
             type="submit"
             class="add-book-form__action"
             [disabled]="!addBookForm.valid"

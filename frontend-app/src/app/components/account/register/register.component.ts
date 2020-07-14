@@ -24,8 +24,7 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   onSubmit(formValue) {
-    const registrationDetails: User = { id: UUID.UUID(), ...formValue };
-    this.addUser(registrationDetails);
+    this.addUser({ id: UUID.UUID(), ...formValue });
   }
 
   addUser(user: User) {

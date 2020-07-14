@@ -23,30 +23,16 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
-  // onSubmit(formValue) {
-  //   const registrationDetails: User = { id: UUID.UUID(), ...formValue };
-  //   this.addUser(registrationDetails);
-  // }
+  authUser(email: string, password: string) {
+    this.usersService.authenticate({
+      email,
+      password,
+    });
+  }
 
-  // addUser(user: User) {
-  //   this.usersService.addUser(user).subscribe(
-  //     (user) => console.log('>', user),
-  //     (err) => console.log(err)
-  //   );
-  // }
-
-  // getUsers() {
-  //   this.usersService.getUsers().subscribe(
-  //     (users) => console.log(users),
-  //     (err) => console.log(err)
-  //   );
-  // }
-
-  // getUserByProperty() {
-  //   this.usersService
-  //     .getUser('id', '00000000-0000-0000-0000-000000000000')
-  //     .subscribe((user) => console.info(user));
-  // }
+  onSubmit(formValue) {
+    this.authUser(formValue.email, formValue.password);
+  }
 
   ngOnInit(): void {
     // this.getUsers();

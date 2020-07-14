@@ -1,0 +1,17 @@
+@import "../../../assets/styles/theme.scss";
+
+// ## Utils
+@mixin component-wrapper {
+  height: 86vh; // 86 because headers takes up 14vh
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background: $wrapper-bg-main;
+}
+
+// ## RWD
+// TODO

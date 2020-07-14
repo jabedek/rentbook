@@ -1,3 +1,5 @@
+@import "../../../assets/styles/theme.scss";
+
 mat-grid-list {
-  background: #f0f2fa;
+  background: $wrapper-bg-main;
 }
