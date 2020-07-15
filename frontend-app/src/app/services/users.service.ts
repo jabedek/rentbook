@@ -20,7 +20,7 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
 
-  // Get Users table
+  // Get Users table and return it
   getUsers(): User[] {
     const url = `${this.rentalURL}/${this.tableName}`;
 
@@ -32,7 +32,7 @@ export class UsersService {
     return this.users;
   }
 
-  // Get User by property's value
+  // Get Users table (filtered out on server side)
   getUsersByProperty(
     searchKey: string,
     searchValue: string
@@ -42,16 +42,24 @@ export class UsersService {
     return this.http.get<User[]>(url);
   }
 
-  authenticate({ email, password }): User[] | null {
-    let authUser: User[] | null;
+  authenticate({ email, password }): User | null {
+    let authUser: User | null;
 
-    const result = this.getUsersByProperty('email', email).subscribe(
+    console.log('provided details:', email, password);
+
+    // Get all users with provided email (ideally should return null or one)
+    this.getUsersByProperty('email', email).subscribe(
       (users) => {
+        // If there are user(s) found with provided email,
+        // find a user with matching password and return it
         if (users.length) {
-          console.log('login: ', users);
-          authUser = users.filter((user) => user.password === password);
-          // users.filter((user) => {});
+          let matchingUser = users.find((user) => user.password === password);
+
+          if (matchingUser) {
+            authUser = matchingUser;
+          } else authUser = null;
         } else {
+          // If there are no user(s) found, return null
           authUser = null;
         }
       },

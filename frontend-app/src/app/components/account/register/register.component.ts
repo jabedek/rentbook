@@ -11,7 +11,7 @@ import { UUID } from 'angular2-uuid';
 })
 export class RegisterComponent implements OnInit {
   registerForm = this.formBuilder.group({
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
 
