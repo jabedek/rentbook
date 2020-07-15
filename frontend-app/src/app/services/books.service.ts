@@ -18,13 +18,23 @@ export class BooksService {
   private rentalURL: string = 'http://localhost:3000';
   private tableName: string = 'books';
 
+  books: Book[];
+
   constructor(private http: HttpClient) {}
 
-  // Get Books table
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.rentalURL}/${this.tableName}`);
+  // Get Books
+  getBooks(): Book[] {
+    const url = `${this.rentalURL}/${this.tableName}`;
+    this.http.get<Book[]>(url).subscribe((books) => {
+      this.books = books;
+    });
+    console.log(this.books);
+
+    return this.books;
+    // return this.http.get<Book[]>(url);
   }
 
+  // Delete
   deleteBook(book: Book): Observable<Book> {
     const url = `${this.rentalURL}/${this.tableName}/${book.id}`;
     return this.http.delete<Book>(url, httpOptions);
@@ -32,11 +42,8 @@ export class BooksService {
 
   // Add Book
   addBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(
-      `${this.rentalURL}/${this.tableName}`,
-      book,
-      httpOptions
-    );
+    const url = `${this.rentalURL}/${this.tableName}`;
+    return this.http.post<Book>(url, book, httpOptions);
   }
 
   populateBooks(): Book[] {

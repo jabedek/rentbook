@@ -1,0 +1,40 @@
+<p>crud-table works!</p>
+<div *ngFor="let item of bookItem | keyvalue">
+  Key: <b>{{ item.key }}</b> and Value: <b>{{ item.value }}</b>
+</div>
+<br />
+<div *ngFor="let item of userItem | keyvalue">
+  Key: <b>{{ item.key }}</b> and Value: <b>{{ item.value }}</b>
+</div>
+
+<!-- ONLY BOOK TABLE - SCHEME -->
+<!-- <table
+  mat-table
+  [dataSource]="dataSource"
+  matSort
+  [class.mat-elevation-z3]="'true'"
+  class="admin-books-table"
+>
+  <ng-container matColumnDef="Title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+    <td
+      mat-cell
+      *matCellDef="let book"
+      class="admin-books-table__column admin-books-table__column--title"
+    >
+      {{ book.title }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+    <td mat-cell *matCellDef="let book">
+      <button mat-mini-fab color="warn" (click)="deleteBook(book)">
+        x
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table> -->

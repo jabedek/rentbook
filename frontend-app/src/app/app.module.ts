@@ -21,6 +21,7 @@ import { SectionHeaderComponent } from './components/common/section-header/secti
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
+import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
 
 const mainComponents = [
   AppComponent,
@@ -35,6 +36,7 @@ const mainComponents = [
   LoginComponent,
   PasswordResetComponent,
   SectionHeaderComponent,
+  CrudTableComponent,
 ];
 
 const modules = [

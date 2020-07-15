@@ -12,9 +12,15 @@ export class BooksComponent implements OnInit {
 
   constructor(private booksService: BooksService) {}
 
+  // getBooks() {
+  //   this.booksService.getBooks().subscribe((books) => (this.books = books));
+  //   // this.books = this.booksService.getBooks();
+  // }
+
   getBooks() {
-    this.booksService.getBooks().subscribe((books) => (this.books = books));
-    // this.books = this.booksService.getBooks();
+    this.books = this.booksService.getBooks();
+
+    // this.dataSource = new MatTableDataSource(this.books);
   }
 
   rentBook(book: Book) {

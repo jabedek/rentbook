@@ -9,10 +9,10 @@ import { AdminBooksAddComponent } from './components/admin/admin-books-add/admin
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
-import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
 
 const routes: Routes = [
-  { path: '**', component: PageNotFoundComponent },
   { path: '', component: HomeComponent },
   { path: 'rental/books', component: BooksComponent },
   { path: 'rental/books/rent', component: BooksRentComponent },
@@ -21,6 +21,8 @@ const routes: Routes = [
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },
   { path: 'account/password-reset', component: PasswordResetComponent },
+  { path: 'crud-table', component: CrudTableComponent },
+  { path: '**', component: PageNotFoundComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

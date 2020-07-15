@@ -24,15 +24,21 @@ export class AdminBooksComponent implements OnInit {
 
   constructor(private booksService: BooksService) {}
 
+  // getBooks() {
+  //   this.booksService.getBooks().subscribe((books) => {
+  //     this.books = books;
+
+  //     if (!this.books.length) {
+  //     }
+
+  //     this.dataSource = new MatTableDataSource(this.books);
+  //   });
+  // }
+
   getBooks() {
-    this.booksService.getBooks().subscribe((books) => {
-      this.books = books;
+    this.books = this.booksService.getBooks();
 
-      if (!this.books.length) {
-      }
-
-      this.dataSource = new MatTableDataSource(this.books);
-    });
+    this.dataSource = new MatTableDataSource(this.books);
   }
 
   deleteBook(book: Book) {

@@ -34,20 +34,11 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  getUsers() {
-    this.usersService.getUsers().subscribe(
-      (users) => console.log(users),
-      (err) => console.log(err)
-    );
-  }
-
   getUserByProperty() {
     this.usersService
       .getUser('id', '00000000-0000-0000-0000-000000000000')
       .subscribe((user) => console.info(user));
   }
 
-  ngOnInit(): void {
-    this.getUsers();
-  }
+  ngOnInit(): void {}
 }

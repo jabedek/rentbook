@@ -17,12 +17,19 @@ export class UsersService {
   private rentalURL: string = 'http://localhost:3000';
   private tableName: string = 'users';
 
+  users: User[];
+
   constructor(private http: HttpClient) {}
 
   // Get Users table
-  getUsers(): Observable<User[]> {
+  getUsers(): User[] {
     const url = `${this.rentalURL}/${this.tableName}`;
-    return this.http.get<User[]>(url);
+    this.http.get<User[]>(url).subscribe((users) => {
+      this.users = users;
+    });
+    console.log(this.users);
+
+    return this.users;
   }
 
   // Get User by property's value
@@ -43,10 +50,7 @@ export class UsersService {
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(
-      `${this.rentalURL}/${this.tableName}`,
-      user,
-      httpOptions
-    );
+    const url = `${this.rentalURL}/${this.tableName}`;
+    return this.http.post<User>(url, user, httpOptions);
   }
 }
