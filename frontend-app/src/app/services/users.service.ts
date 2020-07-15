@@ -42,22 +42,25 @@ export class UsersService {
     return this.http.get<User[]>(url);
   }
 
-  authenticate({ email, password }) {
+  authenticate({ email, password }): User[] | null {
+    let authUser: User[] | null;
+
     const result = this.getUsersByProperty('email', email).subscribe(
       (users) => {
-        if (users) {
+        if (users.length) {
           console.log('login: ', users);
+          authUser = users.filter((user) => user.password === password);
           // users.filter((user) => {});
+        } else {
+          authUser = null;
         }
-
-        return users;
       },
       (err) => {
         console.log(err);
-
-        return err;
       }
     );
+
+    return authUser;
   }
 
   addUser(user: User): Observable<User> {

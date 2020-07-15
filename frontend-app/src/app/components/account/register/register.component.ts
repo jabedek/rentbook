@@ -28,28 +28,25 @@ export class RegisterComponent implements OnInit {
   }
 
   addUser(user: User) {
-    let matchingPwd: User[] | null;
+    // Check if there is already an account using provided email address
     this.usersService.getUsersByProperty('email', user.email).subscribe(
       (users) => {
-        console.log(users);
-
+        // If email is already in use, display warning message
+        // If it is not, add new user and display success message
+        // If there are errors, display them
         if (users.length) {
-          matchingPwd = users.filter((u) => u.password === user.password);
-          console.log(matchingPwd);
+          this.result = 'This email address is already in use.';
         } else {
-          matchingPwd = null;
+          this.usersService.addUser(user).subscribe(
+            (user) => {
+              this.result = `User ${user.email} has been created and his id is: [${user.id}]`;
+            },
+            (err) => (this.result += `Error: ${err}`)
+          );
         }
       },
-      (err) => {
-        console.log(err);
-      }
+      (err) => (this.result += `Error: ${err}`)
     );
-
-    //
-    // this.usersService.addUser(user).subscribe(
-    //   (user) => console.log('>', user),
-    //   (err) => console.log(err)
-    // );
   }
 
   ngOnInit(): void {}
