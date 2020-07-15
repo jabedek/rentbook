@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/User';
-import { UUID } from 'angular2-uuid';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,6 +23,7 @@ export class UsersService {
   // Get Users table
   getUsers(): User[] {
     const url = `${this.rentalURL}/${this.tableName}`;
+
     this.http.get<User[]>(url).subscribe((users) => {
       this.users = users;
     });
@@ -33,17 +33,28 @@ export class UsersService {
   }
 
   // Get User by property's value
-  getUser(searchKey: string, searchValue: string): Observable<User> {
+  getUsersByProperty(
+    searchKey: string,
+    searchValue: string
+  ): Observable<User[]> {
     const url = `${this.rentalURL}/${this.tableName}?${searchKey}=${searchValue}`;
-    return this.http.get<User>(url);
+
+    return this.http.get<User[]>(url);
   }
 
-  authenticate(loginDetails) {
-    const result = this.getUser('email', loginDetails.email).subscribe(
-      (user) => {
-        return user;
+  authenticate({ email, password }) {
+    const result = this.getUsersByProperty('email', email).subscribe(
+      (users) => {
+        if (users) {
+          console.log('login: ', users);
+          // users.filter((user) => {});
+        }
+
+        return users;
       },
       (err) => {
+        console.log(err);
+
         return err;
       }
     );
@@ -51,6 +62,7 @@ export class UsersService {
 
   addUser(user: User): Observable<User> {
     const url = `${this.rentalURL}/${this.tableName}`;
+
     return this.http.post<User>(url, user, httpOptions);
   }
 }

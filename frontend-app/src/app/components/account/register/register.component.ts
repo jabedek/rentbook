@@ -28,16 +28,28 @@ export class RegisterComponent implements OnInit {
   }
 
   addUser(user: User) {
-    this.usersService.addUser(user).subscribe(
-      (user) => console.log('>', user),
-      (err) => console.log(err)
-    );
-  }
+    let matchingPwd: User[] | null;
+    this.usersService.getUsersByProperty('email', user.email).subscribe(
+      (users) => {
+        console.log(users);
 
-  getUserByProperty() {
-    this.usersService
-      .getUser('id', '00000000-0000-0000-0000-000000000000')
-      .subscribe((user) => console.info(user));
+        if (users.length) {
+          matchingPwd = users.filter((u) => u.password === user.password);
+          console.log(matchingPwd);
+        } else {
+          matchingPwd = null;
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
+    //
+    // this.usersService.addUser(user).subscribe(
+    //   (user) => console.log('>', user),
+    //   (err) => console.log(err)
+    // );
   }
 
   ngOnInit(): void {}
