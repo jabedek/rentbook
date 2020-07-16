@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/Toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/Input';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/Menu';
 import { MatCardModule } from '@angular/material/Card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
@@ -23,6 +24,7 @@ const material = [
   MatListModule,
   MatTableModule,
   MatStepperModule,
+  MatMenuModule,
 ];
 
 @NgModule({

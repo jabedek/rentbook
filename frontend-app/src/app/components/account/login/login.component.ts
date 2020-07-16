@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from '../../../services/users.service';
-import { eventDispatcher, store } from '../../../store/reducer';
-import { ActionTypes } from '../../../store/actions';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +30,5 @@ export class LoginComponent implements OnInit {
     this.usersService.authenticate(loginDetails);
   }
 
-  ngOnInit(): void {
-    // this.getUsers();
-  }
+  ngOnInit(): void {}
 }

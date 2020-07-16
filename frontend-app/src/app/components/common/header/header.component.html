@@ -16,94 +16,50 @@
   <div class="mat-title title">Rentbook</div>
   <p *ngIf="user">{{ user.email || null }}</p>
   <nav>
-    <button
-      class="nav__item"
-      mat-button
-      [routerLink]="['']"
-      routerLinkActive="router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
+    <button class="nav__item" mat-button [routerLink]="['']">
       Home
     </button>
-    <button
-      class="nav__item"
-      mat-button
-      [routerLink]="['rental/books']"
-      routerLinkActive="router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
+    <button class="nav__item" mat-button [routerLink]="['rental/books']">
       Rental
     </button>
 
-    <button
-      class="nav__item"
-      mat-button
-      [routerLink]="['account/login']"
-      routerLinkActive="router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      Log in
+    <!-- Account Menu -->
+    <button class="nav__item" mat-stroked-button [matMenuTriggerFor]="account">
+      Account
     </button>
+    <mat-menu #account="matMenu">
+      <button mat-menu-item [routerLink]="['account/login']">
+        Log in
+      </button>
+      <button mat-menu-item [routerLink]="['account/register']">
+        Register new account
+      </button>
 
-    <button
-      class="nav__item"
-      mat-button
-      [routerLink]="['account/register']"
-      routerLinkActive="router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      Register new account
+      <button mat-menu-item [routerLink]="['account/password-reset']">
+        Reset your password
+      </button>
+
+      <button mat-menu-item (click)="logout()" [routerLink]="['']">
+        Log out
+      </button>
+    </mat-menu>
+
+    <!-- Admin Menu -->
+    <button class="nav__item" mat-stroked-button [matMenuTriggerFor]="admin">
+      Admin
     </button>
+    <mat-menu #admin="matMenu">
+      <button mat-menu-item [routerLink]="['admin/books']">
+        admin: Books
+      </button>
 
-    <button
-      class="nav__item"
-      mat-button
-      [routerLink]="['account/password-reset']"
-      routerLinkActive="router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      Reset your password
-    </button>
+      <button mat-menu-item [routerLink]="['admin/books/add']">
+        admin: Add Book
+      </button>
+    </mat-menu>
 
-    <button
-      class="nav__item"
-      mat-button
-      [routerLink]="['admin/books']"
-      routerLinkActive=" router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      admin: Books
-    </button>
-
-    <button
-      class="nav__item"
-      mat-button
-      [routerLink]="['admin/books/add']"
-      routerLinkActive=" router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      admin: Add Book
-    </button>
-
-    <button
-      class="nav__item"
-      mat-button
-      [routerLink]="['crud-table']"
-      routerLinkActive="router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
+    <button class="nav__item" mat-button [routerLink]="['crud-table']">
       crud table testing
-    </button>
-
-    <button
-      class="nav__item"
-      mat-button
-      (click)="logout()"
-      [routerLink]="['']"
-      routerLinkActive="!router-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
-      log out & state testing
     </button>
   </nav>
 </mat-toolbar>
