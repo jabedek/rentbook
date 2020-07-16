@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/User';
+import { eventDispatcher, store } from '../store/reducer';
+import { ActionTypes } from '../store/actions';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -45,8 +47,6 @@ export class UsersService {
   authenticate({ email, password }): User | null {
     let authUser: User | null;
 
-    console.log('provided details:', email, password);
-
     // Get all users with provided email (ideally should return null or one)
     this.getUsersByProperty('email', email).subscribe(
       (users) => {
@@ -57,6 +57,12 @@ export class UsersService {
 
           if (matchingUser) {
             authUser = matchingUser;
+
+            // Save user to global state
+            eventDispatcher.next({
+              type: ActionTypes.USER_LOGIN,
+              payload: authUser,
+            });
           } else authUser = null;
         } else {
           // If there are no user(s) found, return null

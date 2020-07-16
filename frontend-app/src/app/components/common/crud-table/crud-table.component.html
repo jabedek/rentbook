@@ -1,40 +1,15 @@
-<p>crud-table works!</p>
-<div *ngFor="let item of bookItem | keyvalue">
-  Key: <b>{{ item.key }}</b> and Value: <b>{{ item.value }}</b>
+<div class="crud-wrapper">
+  <table mat-table [dataSource]="dataSource" [class.mat-elevation-z3]="'true'">
+    <!-- Provide a column list as inputs -->
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+    <!-- Loop over data-items and render them -->
+    <ng-container *ngFor="let item of items; let i = index" matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell>
+        cos2
+      </td>
+    </ng-container>
+  </table>
 </div>
-<br />
-<div *ngFor="let item of userItem | keyvalue">
-  Key: <b>{{ item.key }}</b> and Value: <b>{{ item.value }}</b>
-</div>
-
-<!-- ONLY BOOK TABLE - SCHEME -->
-<!-- <table
-  mat-table
-  [dataSource]="dataSource"
-  matSort
-  [class.mat-elevation-z3]="'true'"
-  class="admin-books-table"
->
-  <ng-container matColumnDef="Title">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
-    <td
-      mat-cell
-      *matCellDef="let book"
-      class="admin-books-table__column admin-books-table__column--title"
-    >
-      {{ book.title }}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="Actions">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
-    <td mat-cell *matCellDef="let book">
-      <button mat-mini-fab color="warn" (click)="deleteBook(book)">
-        x
-      </button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table> -->

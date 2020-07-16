@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UsersService } from '../../../services/users.service';
-import { User } from 'src/app/models/User';
-import { UUID } from 'angular2-uuid';
+import { eventDispatcher, store } from '../../../store/reducer';
+import { ActionTypes } from '../../../store/actions';
 
 @Component({
   selector: 'app-login',
@@ -23,15 +23,13 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
-  authUser(email: string, password: string) {
-    this.usersService.authenticate({
-      email,
-      password,
-    });
-  }
-
   onSubmit(formValue) {
-    this.authUser(formValue.email, formValue.password);
+    const loginDetails = {
+      email: formValue.email,
+      password: formValue.password,
+    };
+
+    this.usersService.authenticate(loginDetails);
   }
 
   ngOnInit(): void {

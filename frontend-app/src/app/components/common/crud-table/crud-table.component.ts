@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Book } from '../../../models/Book';
-import { User } from '../../../models/User';
-import { BooksService } from '../../../services/books.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 @Component({
@@ -11,74 +9,49 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class CrudTableComponent implements OnInit {
   // TODO" Type input for this component (Passing types <T>)
-  books: Book[];
-  items: [];
+  // books: Book[];
+  items: any[] = [
+    {
+      id: '123-456',
+      // title: 'LOTR',
+      // author: 'JRR TOLKIEN',
+      // genre: 'FANTASY',
+      // available: true,
+      // heldByClient: '000-000',
+    },
+  ];
   dataSource;
-  columns: string[] = [];
-
-  userItem = {
-    id: '789-678',
-    email: 'LOTR',
-    password: 'JRR TOLKIEN',
-  };
-
-  bookItem = {
-    id: '123-456',
-    title: 'LOTR',
-    author: 'JRR TOLKIEN',
-    genre: 'FANTASY',
-    available: true,
-    heldByClient: '000-000',
-  };
+  columnsToDisplay: string[] = [];
 
   mapItemPropsToColumns(item) {
-    this.columns = Object.keys(item);
-    console.log(this.columns);
+    this.columnsToDisplay = [...Object.keys(item), 'actions'];
 
-    // if (props.length) {
-    //   this.columns = props.map((prop) => {
-    //     return prop.charAt(0).toUpperCase() + prop.slice(1);
-    //   });
-    //   console.log(this.columns);
-    // }
+    this.columnsToDisplay = ['id'];
+
+    this.dataSource = new MatTableDataSource(this.items);
   }
 
-  // displayedColumns: string[] = [
-  //   'Title',
-  //   'Author',
-  //   'Genre',
-  //   'Available',
-  //   'Id',
-  //   'HeldByClient',
-  //   'Actions',
-  // ];
-
-  constructor(private booksService: BooksService) {}
-
-  getBooks() {
-    // this.booksService.getBooks().subscribe((books) => {
-    //   this.books = books;
-    //   if (!this.books.length) {
-    //   }
-    //   this.dataSource = new MatTableDataSource(this.books);
-    // });
-  }
-
-  deleteBook(book: Book) {
-    // Delete from UI
-    this.books = this.books.filter((b) => {
-      return book.id !== b.id;
-    });
-
-    // Update mat-table in template
-    this.dataSource = new MatTableDataSource(this.books);
-
-    // Delete from server
-    this.booksService.deleteBook(book).subscribe();
-  }
+  constructor() {}
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   ngOnInit(): void {
-    this.mapItemPropsToColumns(this.userItem);
+    // let userItem = {
+    //   id: '789-678',
+    //   email: 'LOTR',
+    //   password: 'JRR TOLKIEN',
+    // };
+
+    // let bookItem = {
+    //   id: '123-456',
+    //   title: 'LOTR',
+    //   author: 'JRR TOLKIEN',
+    //   genre: 'FANTASY',
+    //   available: true,
+    //   heldByClient: '000-000',
+    // };
+
+    // this.items.push(bookItem);
+
+    this.mapItemPropsToColumns(this.items[0]);
   }
 }
