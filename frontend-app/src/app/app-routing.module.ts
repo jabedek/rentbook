@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'account/register', component: RegisterComponent },
   { path: 'account/password-reset', component: PasswordResetComponent },
   { path: 'crud-table', component: CrudTableComponent },
-  { path: '**', component: PageNotFoundComponent, pathMatch: 'full' },
+  // { path: '**', component: PageNotFoundComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

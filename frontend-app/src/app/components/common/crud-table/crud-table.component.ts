@@ -7,26 +7,24 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './crud-table.component.html',
   styleUrls: ['./crud-table.component.scss'],
 })
+// TODO" Type input for this component (Passing types <T>)
 export class CrudTableComponent implements OnInit {
-  // TODO" Type input for this component (Passing types <T>)
-  // books: Book[];
   items: any[] = [
     {
       id: '123-456',
-      // title: 'LOTR',
-      // author: 'JRR TOLKIEN',
-      // genre: 'FANTASY',
-      // available: true,
-      // heldByClient: '000-000',
+      title: 'LOTR',
+      author: 'JRR TOLKIEN',
+      genre: 'FANTASY',
+      available: true,
+      heldByClient: '000-000',
     },
   ];
+
   dataSource;
-  columnsToDisplay: string[] = [];
+  displayedColumns: string[];
 
-  mapItemPropsToColumns(item) {
-    this.columnsToDisplay = [...Object.keys(item), 'actions'];
-
-    this.columnsToDisplay = ['id'];
+  mapItemPropsToColumns() {
+    this.displayedColumns = [...Object.keys(this.items[0]), 'actions'];
 
     this.dataSource = new MatTableDataSource(this.items);
   }
@@ -34,24 +32,8 @@ export class CrudTableComponent implements OnInit {
   constructor() {}
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+
   ngOnInit(): void {
-    // let userItem = {
-    //   id: '789-678',
-    //   email: 'LOTR',
-    //   password: 'JRR TOLKIEN',
-    // };
-
-    // let bookItem = {
-    //   id: '123-456',
-    //   title: 'LOTR',
-    //   author: 'JRR TOLKIEN',
-    //   genre: 'FANTASY',
-    //   available: true,
-    //   heldByClient: '000-000',
-    // };
-
-    // this.items.push(bookItem);
-
-    this.mapItemPropsToColumns(this.items[0]);
+    this.mapItemPropsToColumns();
   }
 }

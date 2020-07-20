@@ -1,0 +1,23 @@
+@import "../../../assets/styles/_mixins.scss";
+
+.crud-table-wrapper {
+  @include component-wrapper;
+  justify-content: flex-start;
+
+  padding: 2rem 0;
+}
+
+.crud-table {
+  width: 90%;
+
+  &__column {
+    padding: 1.5em 0;
+    font-size: 0.85rem;
+    // text-align: center;
+
+    &--id {
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+  }
+}

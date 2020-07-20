@@ -1,15 +1,27 @@
-<div class="crud-wrapper">
-  <table mat-table [dataSource]="dataSource" [class.mat-elevation-z3]="'true'">
-    <!-- Provide a column list as inputs -->
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-
-    <!-- Loop over data-items and render them -->
-    <ng-container *ngFor="let item of items; let i = index" matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell>
-        cos2
-      </td>
+<app-section-header [text]="'crud table'"></app-section-header>
+<!-- 
+  TODO: 
+  - wyłapywanie kolumn które zawierają id żeby zmienić stylowanie 
+  - wyłapywanie kolumny actions żeby wrzucić przyciski 
+-->
+<div class="crud-table-wrapper">
+  <mat-table
+    *ngIf="dataSource"
+    [dataSource]="dataSource"
+    class="crud-table"
+    matSort
+    [class.mat-elevation-z3]="'true'"
+  >
+    <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{
+        col | titlecase
+      }}</mat-header-cell>
+      <mat-cell *matCellDef="let object" class="crud-table__column">{{
+        object[col]
+      }}</mat-cell>
     </ng-container>
-  </table>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
 </div>

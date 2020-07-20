@@ -9,10 +9,10 @@
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "b9c82074-3200-9770-25d7-2bcb3869d456",
-      "title": "JUJU",
-      "author": "sdaJUJUJU",
-      "genre": "JUaUJ",
+      "id": "55cfe510-1f1d-47ff-433c-ec8e0f6c23dd",
+      "title": "saddsa",
+      "author": "sasdsd",
+      "genre": "ssdada",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
@@ -22,6 +22,11 @@
       "id": "fa70a05c-87cc-10e6-3c16-1f1754cabe51",
       "email": "aaa@aaa.aaa",
       "password": "aaa"
+    },
+    {
+      "id": "d94b7c78-9e2a-e2e6-4303-c3ad99a6040e",
+      "email": "a@a.a",
+      "password": "a"
     }
   ]
 }
