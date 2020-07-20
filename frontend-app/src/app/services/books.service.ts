@@ -18,19 +18,13 @@ export class BooksService {
   private rentalURL: string = 'http://localhost:3000';
   private tableName: string = 'books';
 
-  books: Book[];
 
   constructor(private http: HttpClient) {}
 
   // Get Books
-  getBooks(): Book[] {
+  getBooks():  Observable<Book[]> {
     const url = `${this.rentalURL}/${this.tableName}`;
-    this.http.get<Book[]>(url).subscribe((books) => {
-      this.books = books;
-    });
-    console.log(this.books);
-
-    return this.books;
+    return this.http.get<Book[]>(url);
     // return this.http.get<Book[]>(url);
   }
 

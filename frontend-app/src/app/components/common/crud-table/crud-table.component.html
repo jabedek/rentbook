@@ -1,7 +1,7 @@
 <app-section-header [text]="'crud table'"></app-section-header>
 <!-- 
   TODO: 
-  - wyłapywanie kolumn które zawierają id żeby zmienić stylowanie 
+  - wyłapywanie kolumn które zawierają id żeby zmienić ich stylowanie 
   - wyłapywanie kolumny actions żeby wrzucić przyciski 
 -->
 <div class="crud-table-wrapper">
@@ -13,9 +13,9 @@
     [class.mat-elevation-z3]="'true'"
   >
     <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>{{
-        col | titlecase
-      }}</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ col | titlecase }}</mat-header-cell
+      >
       <mat-cell *matCellDef="let object" class="crud-table__column">{{
         object[col]
       }}</mat-cell>

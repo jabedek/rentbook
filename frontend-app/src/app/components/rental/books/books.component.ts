@@ -18,7 +18,10 @@ export class BooksComponent implements OnInit {
   // }
 
   getBooks() {
-    this.books = this.booksService.getBooks();
+    this.booksService.getBooks().subscribe(
+      (books) => (this.books = books),
+      (err) => console.log(err)
+    );
 
     // this.dataSource = new MatTableDataSource(this.books);
   }
