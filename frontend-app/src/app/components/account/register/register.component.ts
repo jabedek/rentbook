@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UsersService } from '../../../services/users.service';
+import { UsersCrudService } from '../../../services/users-crud.service';
 import { User } from 'src/app/models/User';
 import { UUID } from 'angular2-uuid';
 
@@ -12,14 +12,13 @@ import { UUID } from 'angular2-uuid';
 export class RegisterComponent implements OnInit {
   registerForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
-  warningVisibility: string = 'hidden';
-  result: string = '';
+  resultMessage: string = '';
 
   constructor(
-    private usersService: UsersService,
+    private usersService: UsersCrudService,
     private formBuilder: FormBuilder
   ) {}
 
@@ -29,23 +28,23 @@ export class RegisterComponent implements OnInit {
 
   addUser(user: User) {
     // Check if there is already an account using provided email address
-    this.usersService.getUsersByProperty('email', user.email).subscribe(
+    // If email is already in use, display warning message
+    // If it is not, add new user and display success message
+    // If there are errors, display error message
+    this.usersService.readByProperty('email', user.email).subscribe(
       (users) => {
-        // If email is already in use, display warning message
-        // If it is not, add new user and display success message
-        // If there are errors, display them
         if (users.length) {
-          this.result = 'This email address is already in use.';
+          this.resultMessage = 'This email address is already in use.';
         } else {
-          this.usersService.addUser(user).subscribe(
+          this.usersService.create(user).subscribe(
             (user) => {
-              this.result = `User ${user.email} has been created and his id is: [${user.id}]`;
+              this.resultMessage = `User ${user.email} has been created and his id is: [${user.id}]`;
             },
-            (err) => (this.result += `Error: ${err}`)
+            (err) => (this.resultMessage += `Error: ${err}`)
           );
         }
       },
-      (err) => (this.result += `Error: ${err}`)
+      (err) => (this.resultMessage += `Error: ${err}`)
     );
   }
 

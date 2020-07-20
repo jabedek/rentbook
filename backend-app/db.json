@@ -1,18 +1,18 @@
 {
   "books": [
     {
-      "id": "df29bd62-a19c-8780-cc29-c132594a2733",
-      "title": "jhghhghg",
-      "author": "ghhghg",
-      "genre": "hghgjjj",
+      "id": "a59d23c0-397e-98bc-0999-01fda755ca81",
+      "title": "sad",
+      "author": "d",
+      "genre": "dsad",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "55cfe510-1f1d-47ff-433c-ec8e0f6c23dd",
-      "title": "saddsa",
-      "author": "sasdsd",
-      "genre": "ssdada",
+      "id": "953b7d0f-448b-49d9-d96a-e6cce91e8457",
+      "title": "sad",
+      "author": "d",
+      "genre": "dsad",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
@@ -27,6 +27,41 @@
       "id": "d94b7c78-9e2a-e2e6-4303-c3ad99a6040e",
       "email": "a@a.a",
       "password": "a"
+    },
+    {
+      "id": "88b279cc-5c80-f6e1-135e-e205185dbc3d",
+      "email": "asdsada@a",
+      "password": "adsasdaaa"
+    },
+    {
+      "id": "7cf22363-75bd-b5a0-a375-42558beeb470",
+      "email": null,
+      "password": null
+    },
+    {
+      "id": "d901648f-cebe-8f91-3f38-7ebb6afdea15",
+      "email": "aaa@aaa.aaaa",
+      "password": "aaaaaaaaa"
+    },
+    {
+      "id": "cb0fd4bc-c7bc-134c-2853-b0bb827bccd5",
+      "email": "aaa@aaa.aaaaa",
+      "password": "aaaaaaaaa"
+    },
+    {
+      "id": "4446d2f1-8ed7-4423-cd3a-95867afa7544",
+      "email": "aaa@aaa.aaaaaaa",
+      "password": "aaaaaaaaa"
+    },
+    {
+      "id": "136d00e4-f658-231b-c88c-9bed7c4967e6",
+      "email": "aaa@aaa.aaaaaaaaa",
+      "password": "aaaaaaaaa"
+    },
+    {
+      "id": "065bb232-7c81-23ae-7c13-a0c799a08af1",
+      "email": "Ww@w.w",
+      "password": "wdwddwdwdwd"
     }
   ]
 }

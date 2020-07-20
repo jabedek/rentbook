@@ -3,8 +3,9 @@
 
 // // custom from internet
 $custom-theme-primary: mat-palette($mat-deep-purple);
-$custom-theme-accent: mat-palette($mat-brown, 400);
+$custom-theme-accent: mat-palette($mat-brown, A400);
 $custom-theme-warn: mat-palette($mat-red);
+$custom-theme-admin: mat-palette($mat-yellow, A400);
 
 $custom-theme-light: mat-light-theme(
   $custom-theme-primary,
@@ -16,6 +17,7 @@ $custom-theme-light: mat-light-theme(
 $primary: mat-color($custom-theme-primary);
 $accent: mat-color($custom-theme-accent);
 $warn: mat-color($custom-theme-warn);
+$admin: mat-color($custom-theme-admin);
 
 $wrapper-bg-main: mat-color($custom-theme-primary, 50);
 

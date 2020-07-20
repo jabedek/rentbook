@@ -19,12 +19,9 @@
             matInput
             placeholder="Email"
             formControlName="email"
-            minLength="5"
             maxlength="60"
           />
-          <mat-hint align="start"
-            >min symbols: {{ inputEmail.minLength }}</mat-hint
-          >
+
           <mat-hint align="end"
             >{{ inputEmail.value?.length || 0 }}/{{
               inputEmail.maxLength
@@ -44,14 +41,12 @@
           <input
             #inputPassword
             matInput
+            type="password"
             placeholder="Password"
             formControlName="password"
-            minLength="8"
             maxlength="30"
           />
-          <mat-hint align="start"
-            >min symbols: {{ inputPassword.minLength }}</mat-hint
-          >
+
           <mat-hint align="end"
             >{{ inputPassword.value?.length || 0 }}/{{
               inputPassword.maxLength
@@ -62,14 +57,20 @@
           >
         </mat-form-field>
 
-        <p
-          class="mat-subheading-2 add-book-form__warning"
-          [style.visibility]="warningVisibility"
-        >
-          Please provide details.
+        <p class="mat-subheading-2 login-form__result">
+          {{ resultMessage }}
         </p>
 
-        <div>
+        <div class="login-form__buttons">
+          <button
+            mat-raised-button
+            color="accent"
+            type="button"
+            (click)="loginForm.reset()"
+          >
+            CLEAR
+          </button>
+
           <button
             mat-raised-button
             color="primary"
@@ -79,10 +80,6 @@
             SUBMIT
           </button>
         </div>
-
-        <p class="mat-subheading-2 add-book-form__result">
-          {{ result }}
-        </p>
       </form>
     </mat-card-content>
   </mat-card>

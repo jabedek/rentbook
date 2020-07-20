@@ -15,6 +15,7 @@ import { BooksRentComponent } from './components/rental/books-rent/books-rent.co
 import { BookItemComponent } from './components/rental/book-item/book-item.component';
 import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
 import { AdminBooksAddComponent } from './components/admin/admin-books-add/admin-books-add.component';
+import { AdminBooksCrudComponent } from './components/admin/admin-books-crud/admin-books-crud.component';
 import { HomeComponent } from './components/main/home/home.component';
 import { SectionHeaderComponent } from './components/common/section-header/section-header.component';
 
@@ -22,6 +23,7 @@ import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
 import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
+import { AddItemDialogComponent } from './components/common/dialogs/add-item-dialog/add-item-dialog.component';
 
 const mainComponents = [
   AppComponent,
@@ -30,6 +32,7 @@ const mainComponents = [
   BookItemComponent,
   AdminBooksComponent,
   AdminBooksAddComponent,
+  AdminBooksCrudComponent,
   HeaderComponent,
   HomeComponent,
   RegisterComponent,
@@ -37,6 +40,7 @@ const mainComponents = [
   PasswordResetComponent,
   SectionHeaderComponent,
   CrudTableComponent,
+  AddItemDialogComponent,
 ];
 
 const modules = [

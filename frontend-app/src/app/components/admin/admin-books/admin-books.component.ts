@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Book } from '../../../models/Book';
-import { BooksService } from '../../../services/books.service';
+import { BooksCrudService } from '../../../services/books-crud.service';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -22,7 +22,7 @@ export class AdminBooksComponent implements OnInit {
     'Actions',
   ];
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksCrudService) {}
 
   // getBooks() {
   //   this.booksService.getBooks().subscribe((books) => {
@@ -36,7 +36,7 @@ export class AdminBooksComponent implements OnInit {
   // }
 
   getBooks() {
-    this.booksService.getBooks().subscribe(
+    this.booksService.read().subscribe(
       (books) => {
         this.books = books;
         this.dataSource = new MatTableDataSource(this.books);
@@ -55,7 +55,7 @@ export class AdminBooksComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.books);
 
     // Delete from server
-    this.booksService.deleteBook(book).subscribe();
+    this.booksService.delete(book.id).subscribe();
   }
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;

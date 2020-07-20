@@ -11,12 +11,16 @@ import { RegisterComponent } from './components/account/register/register.compon
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
+import { AdminBooksCrudComponent } from './components/admin/admin-books-crud/admin-books-crud.component';
+import { WhateverComponent } from './components/whatever/whatever.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'rental/books', component: BooksComponent },
   { path: 'rental/books/rent', component: BooksRentComponent },
   { path: 'admin/books', component: AdminBooksComponent },
+  { path: 'admin/books/crud', component: AdminBooksCrudComponent },
+  { path: 'admin/books/crud2', component: WhateverComponent },
   { path: 'admin/books/add', component: AdminBooksAddComponent },
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },

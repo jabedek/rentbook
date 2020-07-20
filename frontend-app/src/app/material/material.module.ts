@@ -6,11 +6,13 @@ import { MatInputModule } from '@angular/material/Input';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/Menu';
 import { MatCardModule } from '@angular/material/Card';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/Table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const material = [
   MatButtonModule,
@@ -25,6 +27,8 @@ const material = [
   MatTableModule,
   MatStepperModule,
   MatMenuModule,
+  MatChipsModule,
+  MatDialogModule,
 ];
 
 @NgModule({

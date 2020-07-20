@@ -11,14 +11,17 @@ import { User } from 'src/app/models/User';
 export class HeaderComponent implements OnInit, OnChanges {
   @Input() backgroundColor: string = 'primary';
   @Input() user: User = null;
+  accountButtonText: string = 'Account';
 
   logout() {
+    this.accountButtonText = 'Account';
     eventDispatcher.next({ type: ActionTypes.USER_LOGOUT });
   }
 
   constructor() {
     store.subscribe((state) => {
       this.user = state.loggedUser;
+      this.accountButtonText = this.user.email;
     });
   }
 
@@ -26,7 +29,5 @@ export class HeaderComponent implements OnInit, OnChanges {
     eventDispatcher.next({ type: ActionTypes.USER_GET_USER });
   }
 
-  ngOnChanges() {
-    console.log('CHANGE:', this.user);
-  }
+  ngOnChanges() {}
 }

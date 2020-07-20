@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/Book';
-import { BooksService } from 'src/app/services/books.service';
+import { BooksCrudService } from 'src/app/services/books-crud.service';
 
 @Component({
   selector: 'app-books',
@@ -10,20 +10,13 @@ import { BooksService } from 'src/app/services/books.service';
 export class BooksComponent implements OnInit {
   books: Book[];
 
-  constructor(private booksService: BooksService) {}
-
-  // getBooks() {
-  //   this.booksService.getBooks().subscribe((books) => (this.books = books));
-  //   // this.books = this.booksService.getBooks();
-  // }
+  constructor(private booksService: BooksCrudService) {}
 
   getBooks() {
-    this.booksService.getBooks().subscribe(
+    this.booksService.read().subscribe(
       (books) => (this.books = books),
       (err) => console.log(err)
     );
-
-    // this.dataSource = new MatTableDataSource(this.books);
   }
 
   rentBook(book: Book) {

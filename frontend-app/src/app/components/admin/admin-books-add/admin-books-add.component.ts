@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 
 import { Book } from 'src/app/models/Book';
-import { BooksService } from '../../../services/books.service';
+import { BooksCrudService } from '../../../services/books-crud.service';
 
 @Component({
   selector: 'app-admin-books-add',
@@ -27,12 +27,12 @@ export class AdminBooksAddComponent implements OnInit {
   result: string = '';
 
   constructor(
-    private booksService: BooksService,
+    private booksService: BooksCrudService,
     private formBuilder: FormBuilder
   ) {}
 
   addBook(book: Book) {
-    this.booksService.addBook(book).subscribe(
+    this.booksService.create(book).subscribe(
       (book) => {
         this.result = `Book "${book.title}" was added succesfully and its ID is: [${book.id}].`;
       },

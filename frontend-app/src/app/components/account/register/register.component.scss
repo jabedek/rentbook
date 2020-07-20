@@ -35,9 +35,17 @@
     margin: 1em 0;
   }
 
-  &__warning {
-    visibility: hidden;
-    color: $warn;
-    margin-bottom: 2rem;
+  &__result {
+    color: $primary;
+    text-align: center;
+    height: 5%;
+    margin-bottom: 1em;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+    margin-top: 1em;
   }
 }

@@ -4,24 +4,64 @@
   - wyłapywanie kolumn które zawierają id żeby zmienić ich stylowanie 
   - wyłapywanie kolumny actions żeby wrzucić przyciski 
 -->
-<div class="crud-table-wrapper">
+<div class="table-wrapper">
+  <app-add-item-dialog class="btn-add-row"></app-add-item-dialog>
+
   <mat-table
     *ngIf="dataSource"
     [dataSource]="dataSource"
-    class="crud-table"
+    class="table"
     matSort
     [class.mat-elevation-z3]="'true'"
   >
     <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-        {{ col | titlecase }}</mat-header-cell
-      >
-      <mat-cell *matCellDef="let object" class="crud-table__column">{{
-        object[col]
-      }}</mat-cell>
+      <mat-header-cell *matHeaderCellDef>
+        {{ col | titlecase }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let object" class="cell" [ngSwitch]="col">
+        <span *ngSwitchDefault class="cell__content"> {{ object[col] }}</span>
+
+        <span *ngSwitchCase="'id'" class="cell__content cell__content--id">
+          {{ object[col] }}</span
+        >
+        <span
+          *ngSwitchCase="'heldByClient'"
+          class="cell__content cell__content--id"
+        >
+          {{ object[col] }}</span
+        >
+        <span *ngSwitchCase="'actions'" class="cell__content">
+          <button
+            mat-mini-fab
+            color="primary"
+            type="button"
+            class="cell__button"
+          >
+            <mat-icon fontSet="material-icons-outlined" matSuffix
+              >edit</mat-icon
+            >
+          </button>
+
+          <button
+            mat-mini-fab
+            color="warn"
+            type="button"
+            (click)="onDelete(object)"
+            class="cell__button"
+          >
+            <mat-icon fontSet="material-icons-outlined" matSuffix
+              >delete</mat-icon
+            >
+          </button></span
+        >
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      class="table__row"
+    ></mat-row>
   </mat-table>
 </div>

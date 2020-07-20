@@ -11,6 +11,7 @@
           Register form
         </mat-card-title>
 
+        <!-- Email input -->
         <mat-form-field
           appearance="outline"
           [style.width.vw]="30"
@@ -65,14 +66,20 @@
           >
         </mat-form-field>
 
-        <p
-          class="mat-subheading-2 add-book-form__warning"
-          [style.visibility]="warningVisibility"
-        >
-          Please provide details.
+        <p class="mat-subheading-2 register-form__result">
+          {{ resultMessage }}
         </p>
 
-        <div>
+        <div class="register-form__buttons">
+          <button
+            mat-raised-button
+            color="accent"
+            type="button"
+            (click)="registerForm.reset()"
+          >
+            CLEAR
+          </button>
+
           <button
             mat-raised-button
             color="primary"
@@ -82,10 +89,6 @@
             SUBMIT
           </button>
         </div>
-
-        <p class="mat-subheading-2 add-book-form__result">
-          {{ result }}
-        </p>
       </form>
     </mat-card-content>
   </mat-card>

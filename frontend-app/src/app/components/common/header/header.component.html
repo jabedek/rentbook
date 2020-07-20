@@ -5,16 +5,18 @@
 
   #ts:
   export class myComponent {
+    public routerLinkVariable = "/home"
         private dynamicParameter = '129';
-        public routerLinkVariable = "/home"
 
   #html:
   <a [routerLink]="[routerLinkVariable,dynamicParameter]"></a>
  -->
 
 <mat-toolbar [color]="backgroundColor" class="nav">
-  <div class="mat-title title">Rentbook</div>
-  <p *ngIf="user">{{ user.email || null }}</p>
+  <div class="mat-title title">
+    Rentbook
+  </div>
+
   <nav>
     <button class="nav__item" mat-button [routerLink]="['']">
       Home
@@ -25,7 +27,7 @@
 
     <!-- Account Menu -->
     <button class="nav__item" mat-stroked-button [matMenuTriggerFor]="account">
-      Account
+      {{ accountButtonText }}
     </button>
     <mat-menu #account="matMenu">
       <button mat-menu-item [routerLink]="['account/login']">
@@ -45,21 +47,23 @@
     </mat-menu>
 
     <!-- Admin Menu -->
-    <button class="nav__item" mat-stroked-button [matMenuTriggerFor]="admin">
+    <button
+      class="nav__item nav__item--admin"
+      mat-raised-button
+      [matMenuTriggerFor]="admin"
+    >
       Admin
     </button>
     <mat-menu #admin="matMenu">
-      <button mat-menu-item [routerLink]="['admin/books']">
+      <button mat-menu-item [routerLink]="['admin/books/crud']">
         admin: Books
       </button>
-
       <button mat-menu-item [routerLink]="['admin/books/add']">
-        admin: Add Book
+        admin: add book
+      </button>
+      <button mat-menu-item [routerLink]="['admin/books/crud2']">
+        admin: Books2
       </button>
     </mat-menu>
-
-    <button class="nav__item" mat-button [routerLink]="['crud-table']">
-      crud table testing
-    </button>
   </nav>
 </mat-toolbar>
