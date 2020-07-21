@@ -1,5 +1,7 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddBookFormComponent } from '../../forms/add-book-form/add-book-form.component';
+// import { AdminBooksAddComponent } from 'src/app/components/admin/admin-books-add/admin-books-add.component';
 
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
@@ -18,18 +20,6 @@ export class AddItemDialogComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
-    this.dialog.open(DialogDataExampleDialog, {
-      data: {
-        animal: 'panda',
-      },
-    });
+    this.dialog.open(AddBookFormComponent);
   }
-}
-
-@Component({
-  selector: 'dialog-data-example-dialog',
-  templateUrl: 'dialog-data-example-dialog.html',
-})
-export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

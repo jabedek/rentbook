@@ -33,7 +33,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
   onDelete(item) {
     this.service.delete(item.id).subscribe(
       (data) => {
-        console.log('deleting', item.id, data);
+        // console.log('deleting', item.id, data);
 
         this.updateItems();
       },
@@ -57,7 +57,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes', changes);
+    // console.log('changes', changes);
     // this.mapItemPropsToColumns();
   }
 }

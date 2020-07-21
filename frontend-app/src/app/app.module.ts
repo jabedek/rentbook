@@ -14,8 +14,6 @@ import { BooksComponent } from './components/rental/books/books.component';
 import { BooksRentComponent } from './components/rental/books-rent/books-rent.component';
 import { BookItemComponent } from './components/rental/book-item/book-item.component';
 import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
-import { AdminBooksAddComponent } from './components/admin/admin-books-add/admin-books-add.component';
-import { AdminBooksCrudComponent } from './components/admin/admin-books-crud/admin-books-crud.component';
 import { HomeComponent } from './components/main/home/home.component';
 import { SectionHeaderComponent } from './components/common/section-header/section-header.component';
 
@@ -24,6 +22,8 @@ import { RegisterComponent } from './components/account/register/register.compon
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
 import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
 import { AddItemDialogComponent } from './components/common/dialogs/add-item-dialog/add-item-dialog.component';
+import { AddBookFormComponent } from './components/common/forms/add-book-form/add-book-form.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 
 const mainComponents = [
   AppComponent,
@@ -31,14 +31,14 @@ const mainComponents = [
   BooksRentComponent,
   BookItemComponent,
   AdminBooksComponent,
-  AdminBooksAddComponent,
-  AdminBooksCrudComponent,
+  AdminUsersComponent,
   HeaderComponent,
   HomeComponent,
   RegisterComponent,
   LoginComponent,
   PasswordResetComponent,
   SectionHeaderComponent,
+  AddBookFormComponent,
   CrudTableComponent,
   AddItemDialogComponent,
 ];

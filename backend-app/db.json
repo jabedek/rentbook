@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "id": "a59d23c0-397e-98bc-0999-01fda755ca81",
+      "id": "953b7d0f-448b-49d9-d96a-e6cce91e8457",
       "title": "sad",
       "author": "d",
       "genre": "dsad",
@@ -9,10 +9,138 @@
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "953b7d0f-448b-49d9-d96a-e6cce91e8457",
-      "title": "sad",
-      "author": "d",
+      "id": "b08813c6-08d1-4779-59c7-89076e823394",
+      "title": "sadsad",
+      "author": "dasada",
+      "genre": "asddas",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "fb109c7d-30a6-68be-b560-1a2e3da4d87c",
+      "title": "f",
+      "author": "dsfds",
+      "genre": "dsf",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "a1393f9d-5334-a965-1468-f8893f850f3d",
+      "title": "asdsad",
+      "author": "sadasdsad",
+      "genre": "dd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "7bf17b09-ebd8-ad1e-e73f-650cb49532f3",
+      "title": "asdsad",
+      "author": "asdasd",
+      "genre": "asdassdsad",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "2125a441-fb5d-74ed-5c2a-ae22600fdb46",
+      "title": "asdas",
+      "author": "dasds",
+      "genre": "dasd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "2fca1ff2-f529-634b-59ac-74768add1971",
+      "title": "sdfsd",
+      "author": "fdfds",
+      "genre": "sfsdf",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "5f180ab8-dd86-78a8-9f7a-1b7cdebed7e6",
+      "title": "asd",
+      "author": "asdasd",
+      "genre": "asdasd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "a00dcb57-4340-1294-e304-cce01d3fde46",
+      "title": "asd",
+      "author": "dsa",
       "genre": "dsad",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "63484a5f-aab3-5358-fcb7-64b6032fe7e3",
+      "title": "sads",
+      "author": "dsasd",
+      "genre": "dasd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "db7ceebb-af71-86ce-4239-d31f1065b49c",
+      "title": "das",
+      "author": "asd",
+      "genre": "asd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "4a86edfb-06a9-56c3-aeee-d533c5f8c4b3",
+      "title": "asdsda",
+      "author": "asdsaddsa",
+      "genre": "dsadsda",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "e789a57c-c8e2-c5d6-8950-0e7d1613cf18",
+      "title": "asda",
+      "author": "asd",
+      "genre": "asd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "cffd47d2-dad9-f30c-db29-a129e083714a",
+      "title": "asd",
+      "author": "asdasd",
+      "genre": "dasd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "e211f36a-c9a1-349a-3adf-e9a8600b5ab8",
+      "title": "dasdsa",
+      "author": "dasdas",
+      "genre": "dasddas",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "4902e950-cc56-0e2e-d1db-e5eac66fb60e",
+      "title": "asd",
+      "author": "da",
+      "genre": "adsas",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "4fca6d84-81d5-14ab-6773-f856b3a34b31",
+      "title": "asdsad",
+      "author": "sad",
+      "genre": "ss",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "98c76de8-f2b8-a1ed-a764-2b57b41cb52c",
+      "title": "asd",
+      "author": "asd",
+      "genre": "ddsa",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
@@ -32,21 +160,6 @@
       "id": "88b279cc-5c80-f6e1-135e-e205185dbc3d",
       "email": "asdsada@a",
       "password": "adsasdaaa"
-    },
-    {
-      "id": "7cf22363-75bd-b5a0-a375-42558beeb470",
-      "email": null,
-      "password": null
-    },
-    {
-      "id": "d901648f-cebe-8f91-3f38-7ebb6afdea15",
-      "email": "aaa@aaa.aaaa",
-      "password": "aaaaaaaaa"
-    },
-    {
-      "id": "cb0fd4bc-c7bc-134c-2853-b0bb827bccd5",
-      "email": "aaa@aaa.aaaaa",
-      "password": "aaaaaaaaa"
     },
     {
       "id": "4446d2f1-8ed7-4423-cd3a-95867afa7544",

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminBooksCrudComponent } from './admin-books-crud.component';
+import { AddBookFormComponent } from './add-book-form.component';
 
-describe('AdminBooksCrudComponent', () => {
-  let component: AdminBooksCrudComponent;
-  let fixture: ComponentFixture<AdminBooksCrudComponent>;
+describe('AddBookFormComponent', () => {
+  let component: AddBookFormComponent;
+  let fixture: ComponentFixture<AddBookFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminBooksCrudComponent ]
+      declarations: [ AddBookFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminBooksCrudComponent);
+    fixture = TestBed.createComponent(AddBookFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

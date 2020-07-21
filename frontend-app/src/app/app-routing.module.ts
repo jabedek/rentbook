@@ -4,29 +4,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/main/home/home.component';
 import { BooksComponent } from './components/rental/books/books.component';
 import { BooksRentComponent } from './components/rental/books-rent/books-rent.component';
-import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
-import { AdminBooksAddComponent } from './components/admin/admin-books-add/admin-books-add.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
-import { AdminBooksCrudComponent } from './components/admin/admin-books-crud/admin-books-crud.component';
-import { WhateverComponent } from './components/whatever/whatever.component';
+import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'rental/books', component: BooksComponent },
   { path: 'rental/books/rent', component: BooksRentComponent },
-  { path: 'admin/books', component: AdminBooksComponent },
-  { path: 'admin/books/crud', component: AdminBooksCrudComponent },
-  { path: 'admin/books/crud2', component: WhateverComponent },
-  { path: 'admin/books/add', component: AdminBooksAddComponent },
+  { path: 'admin/books/crud', component: AdminBooksComponent },
+  { path: 'admin/users/crud', component: AdminUsersComponent },
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },
   { path: 'account/password-reset', component: PasswordResetComponent },
-  { path: 'crud-table', component: CrudTableComponent },
-  // { path: '**', component: PageNotFoundComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

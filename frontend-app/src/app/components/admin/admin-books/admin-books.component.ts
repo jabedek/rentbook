@@ -1,9 +1,6 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Book } from '../../../models/Book';
 import { BooksCrudService } from '../../../services/books-crud.service';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-
 @Component({
   selector: 'app-admin-books',
   templateUrl: './admin-books.component.html',
@@ -11,37 +8,20 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class AdminBooksComponent implements OnInit {
   books: Book[];
-  dataSource;
-  displayedColumns: string[] = [
-    'Title',
-    'Author',
-    'Genre',
-    'Available',
-    'Id',
-    'HeldByClient',
-    'Actions',
-  ];
+  booksService: BooksCrudService;
 
-  constructor(private booksService: BooksCrudService) {}
-
-  // getBooks() {
-  //   this.booksService.getBooks().subscribe((books) => {
-  //     this.books = books;
-
-  //     if (!this.books.length) {
-  //     }
-
-  //     this.dataSource = new MatTableDataSource(this.books);
-  //   });
-  // }
+  constructor(service: BooksCrudService) {
+    this.booksService = service;
+  }
 
   getBooks() {
-    this.booksService.read().subscribe(
+    return this.booksService.read().subscribe(
       (books) => {
         this.books = books;
-        this.dataSource = new MatTableDataSource(this.books);
       },
-      (err) => console.log(err)
+      (err) => {
+        console.log(err);
+      }
     );
   }
 
@@ -51,18 +31,15 @@ export class AdminBooksComponent implements OnInit {
       return book.id !== b.id;
     });
 
-    // Update mat-table in template
-    this.dataSource = new MatTableDataSource(this.books);
-
     // Delete from server
     this.booksService.delete(book.id).subscribe();
+
+    this.getBooks();
   }
 
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
   ngOnInit(): void {
     this.getBooks();
-
-    // TODO: sorting functions
-    // this.dataSource.sort = this.sort;
   }
+
+  ngOnChanges(): void {}
 }

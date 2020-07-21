@@ -1,29 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { FormBuilder, Validators } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 
 import { Book } from 'src/app/models/Book';
-import { BooksCrudService } from '../../../services/books-crud.service';
+import { BooksCrudService } from '../../../../services/books-crud.service';
 
 @Component({
-  selector: 'app-admin-books-add',
-  templateUrl: './admin-books-add.component.html',
-  styleUrls: ['./admin-books-add.component.scss'],
+  selector: 'app-add-book-form',
+  templateUrl: './add-book-form.component.html',
+  styleUrls: ['./add-book-form.component.scss'],
 })
-export class AdminBooksAddComponent implements OnInit {
+export class AddBookFormComponent implements OnInit {
   addBookForm = this.formBuilder.group({
     title: ['', Validators.required],
     author: ['', Validators.required],
     genre: ['', Validators.required],
   });
 
-  // title: string = '';
-  // author: string = '';
-  // genre: string = '';
-
-  warningVisibility: string = 'hidden';
   result: string = '';
 
   constructor(
@@ -34,7 +29,7 @@ export class AdminBooksAddComponent implements OnInit {
   addBook(book: Book) {
     this.booksService.create(book).subscribe(
       (book) => {
-        this.result = `Book "${book.title}" was added succesfully and its ID is: [${book.id}].`;
+        this.result = `Book "${book.title}" was added succesfully.`;
       },
 
       (err) => {

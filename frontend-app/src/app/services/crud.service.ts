@@ -11,8 +11,8 @@ const httpOptions = {
 };
 
 interface CrudOperations<T, ID> {
-  create(t: T): Observable<T>;
-  update(id: ID, t: T): Observable<T>;
+  create(data: T): Observable<T>;
+  update(id: ID, data: T): Observable<T>;
   readOne(id: ID): Observable<T>;
   readByProperty(searchKey: string, searchValue: string): Observable<T[]>;
   read(): Observable<T[]>;
@@ -25,14 +25,14 @@ interface CrudOperations<T, ID> {
 export abstract class CrudService<T, ID> implements CrudOperations<T, ID> {
   constructor(protected _http: HttpClient, protected _base: string) {}
 
-  create(t: T): Observable<T> {
+  create(data: T): Observable<T> {
     const url = this._base;
-    return this._http.post<T>(url, t);
+    return this._http.post<T>(url, data);
   }
 
-  update(id: ID, t: T): Observable<T> {
+  update(id: ID, data: T): Observable<T> {
     const url = this._base + '/' + id;
-    return this._http.put<T>(url, t, {});
+    return this._http.put<T>(url, data, {});
   }
 
   readOne(id: ID): Observable<T> {
