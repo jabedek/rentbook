@@ -2,7 +2,7 @@
   "books": [
     {
       "id": "7bf17b09-ebd8-ad1e-e73f-650cb49532f3",
-      "title": "asdsad",
+      "title": "1233",
       "author": "asdasd",
       "genre": "asdassdsad",
       "available": true,
@@ -117,6 +117,14 @@
       "title": "dsaas",
       "author": "sadsadas",
       "genre": "dasdasd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "7e04690d-4d77-9ade-4a3e-aaa5a111736a",
+      "title": "sdasda",
+      "author": "sasdasd",
+      "genre": "asdasd",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     }

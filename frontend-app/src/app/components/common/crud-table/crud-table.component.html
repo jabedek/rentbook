@@ -1,15 +1,15 @@
-<app-section-header [text]="'crud table'"></app-section-header>
-<!-- 
-  TODO: 
-  - wyłapywanie kolumn które zawierają id żeby zmienić ich stylowanie 
-  - wyłapywanie kolumny actions żeby wrzucić przyciski 
--->
+<app-section-header [text]="'crud books'"></app-section-header>
+
 <div class="table-wrapper">
-  <app-add-item-dialog
+
+  <button
+    mat-fab
+    color="primary"
     class="btn-add-row"
-    *ngIf="items"
-    [component]="addItemDialogComponent"
-  ></app-add-item-dialog>
+    (click)="openDialog('add')"
+  >
+    <mat-icon fontSet="material-icons-outlined" matSuffix>add_box</mat-icon>
+  </button>
 
   <mat-table
     *ngIf="dataSource"
@@ -47,12 +47,24 @@
             >
           </button> -->
 
-          <app-edit-item-dialog
+          <!-- <app-edit-item-dialog
             class="btn-add-row"
             *ngIf="items"
             [item]="object"
             [component]="editItemDialogComponent"
-          ></app-edit-item-dialog>
+          ></app-edit-item-dialog> -->
+
+          <button
+            mat-mini-fab
+            color="primary"
+            class="btn-add-row"
+            type="button"
+            (click)="openDialog('edit', object)"
+          >
+            <mat-icon fontSet="material-icons-outlined" matSuffix
+              >edit</mat-icon
+            >
+          </button>
 
           <button
             mat-mini-fab

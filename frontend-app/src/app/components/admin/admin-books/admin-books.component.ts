@@ -16,8 +16,8 @@ export class AdminBooksComponent implements OnInit {
   addItemDialogComponent = AddBookFormComponent;
   editItemDialogComponent = EditBookFormComponent;
 
-  addItemDialogRef: MatDialogRef<AddBookFormComponent>;
-  editItemDialogRef: MatDialogRef<EditBookFormComponent>;
+  // addItemDialogRef: MatDialogRef<AddBookFormComponent>;
+  // editItemDialogRef: MatDialogRef<EditBookFormComponent>;
 
   constructor(service: BooksCrudService) {
     this.booksService = service;

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-crud-table',
@@ -10,6 +11,8 @@ import { MatTableDataSource } from '@angular/material/table';
 
 // TO/MAYBE DO? Type input for this component (Passing types <T>)
 export class CrudTableComponent implements OnInit {
+  constructor(public dialog: MatDialog) {}
+
   @Input() items: any[] | null;
   @Input() service: any | null = null;
   @Input() addItemDialogComponent: any; // what should be displayed after Add btn in dialog
@@ -32,6 +35,21 @@ export class CrudTableComponent implements OnInit {
       },
       (err) => console.log(err)
     );
+  }
+
+  openDialog(which, item?) {
+    console.log('dialog open');
+
+    switch (which) {
+      case 'add': {
+        this.dialog.open(this.addItemDialogComponent);
+      }
+      case 'edit': {
+        if (item) {
+          this.dialog.open(this.editItemDialogComponent, { data: item });
+        }
+      }
+    }
   }
 
   updateItems() {

@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './edit-item-dialog.component.html',
   styleUrls: ['./edit-item-dialog.component.scss'],
 })
-export class EditItemDialogComponent implements OnInit {
+export class EditItemDialogComponent {
   constructor(public dialog: MatDialog) {}
 
   @Input() component;
@@ -14,9 +14,5 @@ export class EditItemDialogComponent implements OnInit {
 
   openDialog() {
     if (this.component) this.dialog.open(this.component, { data: this.item });
-  }
-
-  ngOnInit(): void {
-    // console.log('>>', this.item);
   }
 }
