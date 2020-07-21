@@ -1,38 +1,6 @@
 {
   "books": [
     {
-      "id": "953b7d0f-448b-49d9-d96a-e6cce91e8457",
-      "title": "sad",
-      "author": "d",
-      "genre": "dsad",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "b08813c6-08d1-4779-59c7-89076e823394",
-      "title": "sadsad",
-      "author": "dasada",
-      "genre": "asddas",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "fb109c7d-30a6-68be-b560-1a2e3da4d87c",
-      "title": "f",
-      "author": "dsfds",
-      "genre": "dsf",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "a1393f9d-5334-a965-1468-f8893f850f3d",
-      "title": "asdsad",
-      "author": "sadasdsad",
-      "genre": "dd",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
       "id": "7bf17b09-ebd8-ad1e-e73f-650cb49532f3",
       "title": "asdsad",
       "author": "asdasd",
@@ -143,19 +111,17 @@
       "genre": "ddsa",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "id": "ef6724e8-27cd-d0b7-e01d-ca3bc5cadd3c",
+      "title": "dsaas",
+      "author": "sadsadas",
+      "genre": "dasdasd",
+      "available": true,
+      "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "users": [
-    {
-      "id": "fa70a05c-87cc-10e6-3c16-1f1754cabe51",
-      "email": "aaa@aaa.aaa",
-      "password": "aaa"
-    },
-    {
-      "id": "d94b7c78-9e2a-e2e6-4303-c3ad99a6040e",
-      "email": "a@a.a",
-      "password": "a"
-    },
     {
       "id": "88b279cc-5c80-f6e1-135e-e205185dbc3d",
       "email": "asdsada@a",

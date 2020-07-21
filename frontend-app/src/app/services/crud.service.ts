@@ -32,7 +32,7 @@ export abstract class CrudService<T, ID> implements CrudOperations<T, ID> {
 
   update(id: ID, data: T): Observable<T> {
     const url = this._base + '/' + id;
-    return this._http.put<T>(url, data, {});
+    return this._http.put<T>(url, data, httpOptions);
   }
 
   readOne(id: ID): Observable<T> {

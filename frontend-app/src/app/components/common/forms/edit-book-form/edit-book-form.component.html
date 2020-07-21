@@ -1,17 +1,14 @@
-<!-- <app-section-header [text]="'admin: Add book'"></app-section-header> -->
-<!-- <div class="add-book-wrapper"> -->
-
 <form
-  class="add-book-form"
-  [formGroup]="addBookForm"
-  (ngSubmit)="onSubmit(addBookForm.value)"
+  class="edit-book-form"
+  [formGroup]="editBookForm"
+  (ngSubmit)="onSubmit(editBookForm.value)"
 >
-  <mat-card-title class="add-book-form__title">Add book form</mat-card-title>
+  <mat-card-title class="edit-book-form__title">Edit book form</mat-card-title>
   <!-- Title input -->
   <mat-form-field
     appearance="fill"
     [style.width.vw]="30"
-    class="add-book-form__item"
+    class="edit-book-form__item"
   >
     <mat-label>Title</mat-label>
     <textarea
@@ -36,7 +33,7 @@
   <mat-form-field
     appearance="fill"
     [style.width.vw]="30"
-    class="add-book-form__item"
+    class="edit-book-form__item"
   >
     <mat-label>Author</mat-label>
     <textarea
@@ -63,7 +60,7 @@
   <mat-form-field
     appearance="fill"
     [style.width.vw]="30"
-    class="add-book-form__item"
+    class="edit-book-form__item"
   >
     <mat-label>Genre</mat-label>
     <input
@@ -84,7 +81,7 @@
     >
   </mat-form-field>
 
-  <p class="mat-subheading-2 add-book-form__result">
+  <p class="mat-subheading-2 edit-book-form__result">
     {{ result }}
   </p>
   <section>
@@ -92,15 +89,15 @@
       mat-raised-button
       mat-dialog-close
       color="accent"
-      class="add-book-form__action"
+      class="edit-book-form__action"
     >
       CANCEL
     </button>
     <button
       mat-raised-button
       color="accent"
-      (click)="addBookForm.reset()"
-      class="add-book-form__action"
+      (click)="editBookForm.reset()"
+      class="edit-book-form__action"
       type="button"
     >
       CLEAR
@@ -110,12 +107,10 @@
       mat-raised-button
       color="primary"
       type="submit"
-      class="add-book-form__action"
-      [disabled]="!addBookForm.valid"
+      class="edit-book-form__action"
+      [disabled]="!editBookForm.valid"
     >
       SUBMIT
     </button>
   </section>
 </form>
-
-<!-- </div> -->

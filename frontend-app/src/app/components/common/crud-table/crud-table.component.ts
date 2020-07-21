@@ -1,11 +1,4 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -14,10 +7,13 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './crud-table.component.html',
   styleUrls: ['./crud-table.component.scss'],
 })
+
 // TO/MAYBE DO? Type input for this component (Passing types <T>)
-export class CrudTableComponent implements OnInit, OnChanges {
+export class CrudTableComponent implements OnInit {
   @Input() items: any[] | null;
   @Input() service: any | null = null;
+  @Input() addItemDialogComponent: any; // what should be displayed after Add btn in dialog
+  @Input() editItemDialogComponent: any; // what should be displayed after Add btn in dialog
 
   dataSource;
   displayedColumns: string[];
@@ -25,7 +21,6 @@ export class CrudTableComponent implements OnInit, OnChanges {
   private mapItemPropsToColumns() {
     if (this.items.length) {
       this.displayedColumns = [...Object.keys(this.items[0]), 'actions'];
-
       this.dataSource = new MatTableDataSource(this.items);
     }
   }
@@ -33,8 +28,6 @@ export class CrudTableComponent implements OnInit, OnChanges {
   onDelete(item) {
     this.service.delete(item.id).subscribe(
       (data) => {
-        // console.log('deleting', item.id, data);
-
         this.updateItems();
       },
       (err) => console.log(err)
@@ -54,10 +47,5 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.updateItems();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    // console.log('changes', changes);
-    // this.mapItemPropsToColumns();
   }
 }

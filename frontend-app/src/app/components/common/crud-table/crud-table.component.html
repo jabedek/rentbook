@@ -5,7 +5,11 @@
   - wyłapywanie kolumny actions żeby wrzucić przyciski 
 -->
 <div class="table-wrapper">
-  <app-add-item-dialog class="btn-add-row"></app-add-item-dialog>
+  <app-add-item-dialog
+    class="btn-add-row"
+    *ngIf="items"
+    [component]="addItemDialogComponent"
+  ></app-add-item-dialog>
 
   <mat-table
     *ngIf="dataSource"
@@ -32,7 +36,7 @@
           {{ object[col] }}</span
         >
         <span *ngSwitchCase="'actions'" class="cell__content">
-          <button
+          <!-- <button
             mat-mini-fab
             color="primary"
             type="button"
@@ -41,7 +45,14 @@
             <mat-icon fontSet="material-icons-outlined" matSuffix
               >edit</mat-icon
             >
-          </button>
+          </button> -->
+
+          <app-edit-item-dialog
+            class="btn-add-row"
+            *ngIf="items"
+            [item]="object"
+            [component]="editItemDialogComponent"
+          ></app-edit-item-dialog>
 
           <button
             mat-mini-fab

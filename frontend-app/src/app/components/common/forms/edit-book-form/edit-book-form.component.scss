@@ -1,5 +1,5 @@
 @import "../../../../assets/styles/theme.scss";
-.add-book-form {
+.edit-book-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,9 +21,7 @@
     width: 100%;
     margin-bottom: 1em;
   }
-
   &__title {
     padding: 0.5em;
   }
-  
 }

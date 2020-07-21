@@ -22,7 +22,9 @@ import { RegisterComponent } from './components/account/register/register.compon
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
 import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
 import { AddItemDialogComponent } from './components/common/dialogs/add-item-dialog/add-item-dialog.component';
+import { EditItemDialogComponent } from './components/common/dialogs/edit-item-dialog/edit-item-dialog.component';
 import { AddBookFormComponent } from './components/common/forms/add-book-form/add-book-form.component';
+import { EditBookFormComponent } from './components/common/forms/edit-book-form/edit-book-form.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 
 const mainComponents = [
@@ -38,9 +40,11 @@ const mainComponents = [
   LoginComponent,
   PasswordResetComponent,
   SectionHeaderComponent,
-  AddBookFormComponent,
   CrudTableComponent,
+  EditItemDialogComponent,
   AddItemDialogComponent,
+  AddBookFormComponent,
+  EditBookFormComponent,
 ];
 
 const modules = [

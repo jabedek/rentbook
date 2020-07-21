@@ -1,11 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddBookFormComponent } from '../../forms/add-book-form/add-book-form.component';
-// import { AdminBooksAddComponent } from 'src/app/components/admin/admin-books-add/admin-books-add.component';
-
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
 
 /**
  * @title Injecting data when opening a dialog
@@ -19,7 +13,9 @@ export interface DialogData {
 export class AddItemDialogComponent {
   constructor(public dialog: MatDialog) {}
 
+  @Input() component;
+
   openDialog() {
-    this.dialog.open(AddBookFormComponent);
+    if (this.component) this.dialog.open(this.component);
   }
 }

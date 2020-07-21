@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 import { FormBuilder, Validators } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
@@ -23,7 +23,8 @@ export class AddBookFormComponent implements OnInit {
 
   constructor(
     private booksService: BooksCrudService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog
   ) {}
 
   addBook(book: Book) {
