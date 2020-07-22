@@ -15,10 +15,7 @@ const routes: Routes = [
   { path: 'rental/books', component: BooksComponent },
   { path: 'rental/books/rent', component: BooksRentComponent },
   { path: 'admin/books/crud', component: AdminBooksComponent },
-  {
-    path: 'admin/users/crud',
-    component: AdminUsersComponent,
-  },
+  { path: 'admin/users/crud', component: AdminUsersComponent },
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },
   { path: 'account/password-reset', component: PasswordResetComponent },

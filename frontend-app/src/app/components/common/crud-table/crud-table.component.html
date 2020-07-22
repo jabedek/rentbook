@@ -26,19 +26,21 @@
 
         <span *ngSwitchCase="'roles'" class="cell__content">
           <div *ngFor="let item of object['roles'] | keyvalue">
-            <span *ngIf="item.value"> {{ item.key }}: {{ item.value }}</span>
+            <span *ngIf="item.value" class="cell__content cell__content--id">
+              {{ item.key }}</span
+            >
           </div>
         </span>
 
         <span *ngSwitchCase="'id'" class="cell__content cell__content--id">
           {{ object[col] }}</span
         >
-        <span
+        <!-- <span
           *ngSwitchCase="'dateJoined'"
           class="cell__content cell__content--id"
         >
           {{ object[col] }}</span
-        >
+        > -->
         <span
           *ngSwitchCase="'heldByClient'"
           class="cell__content cell__content--id"

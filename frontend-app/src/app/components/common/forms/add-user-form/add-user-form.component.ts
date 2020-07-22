@@ -42,7 +42,7 @@ export class AddUserFormComponent implements OnInit {
         } else {
           this.usersService.create(user).subscribe(
             (user) => {
-              this.resultMessage = `User ${user.email} has been created and his id is: [${user.id}]`;
+              this.resultMessage = `User ${user.email} has been created successfully.]`;
             },
             (err) => (this.resultMessage += `Error: ${err}`)
           );
