@@ -13,6 +13,8 @@ import { MatTableModule } from '@angular/material/Table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const material = [
   MatButtonModule,
@@ -29,6 +31,8 @@ const material = [
   MatMenuModule,
   MatChipsModule,
   MatDialogModule,
+  MatRadioModule,
+  MatCheckboxModule,
 ];
 
 @NgModule({

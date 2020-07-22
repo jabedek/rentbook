@@ -23,7 +23,17 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   onSubmit(formValue) {
-    this.addUser({ id: UUID.UUID(), ...formValue });
+    const user: User = {
+      id: UUID.UUID(),
+      ...formValue,
+      dateJoined: new Date().toLocaleDateString(),
+
+      roles: { USER: true, ADMIN: false },
+    };
+
+    console.log('registering', user);
+
+    this.addUser(user);
   }
 
   addUser(user: User) {

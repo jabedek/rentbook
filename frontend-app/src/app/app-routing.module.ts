@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { HomeComponent } from './components/main/home/home.component';
 import { BooksComponent } from './components/rental/books/books.component';
@@ -15,7 +15,10 @@ const routes: Routes = [
   { path: 'rental/books', component: BooksComponent },
   { path: 'rental/books/rent', component: BooksRentComponent },
   { path: 'admin/books/crud', component: AdminBooksComponent },
-  { path: 'admin/users/crud', component: AdminUsersComponent },
+  {
+    path: 'admin/users/crud',
+    component: AdminUsersComponent,
+  },
   { path: 'account/login', component: LoginComponent },
   { path: 'account/register', component: RegisterComponent },
   { path: 'account/password-reset', component: PasswordResetComponent },

@@ -1,17 +1,18 @@
-<!-- <app-section-header [text]="'admin: Add book'"></app-section-header> -->
-<!-- <div class="add-book-wrapper"> -->
-
 <form
   class="add-book-form"
   [formGroup]="addBookForm"
   (ngSubmit)="onSubmit(addBookForm.value)"
 >
-  <mat-card-title class="add-book-form__title">Add book form</mat-card-title>
+  <mat-card-title class="add-book-form__title">
+    <div class="mat-title">Add a book</div></mat-card-title
+  >
+
   <!-- Title input -->
   <mat-form-field
     appearance="fill"
     [style.width.vw]="30"
     class="add-book-form__item"
+    color="accent"
   >
     <mat-label>Title</mat-label>
     <textarea
@@ -37,6 +38,7 @@
     appearance="fill"
     [style.width.vw]="30"
     class="add-book-form__item"
+    color="accent"
   >
     <mat-label>Author</mat-label>
     <textarea
@@ -64,6 +66,7 @@
     appearance="fill"
     [style.width.vw]="30"
     class="add-book-form__item"
+    color="accent"
   >
     <mat-label>Genre</mat-label>
     <input
@@ -85,7 +88,7 @@
   </mat-form-field>
 
   <p class="mat-subheading-2 add-book-form__result">
-    {{ result }}
+    {{ resultMessage }}
   </p>
   <section>
     <button
@@ -94,7 +97,7 @@
       color="accent"
       class="add-book-form__action"
     >
-      CANCEL
+      CLOSE
     </button>
     <button
       mat-raised-button

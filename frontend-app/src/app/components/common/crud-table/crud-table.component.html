@@ -1,10 +1,8 @@
-<app-section-header [text]="'crud books'"></app-section-header>
-
+<app-section-header [text]="'Admin: ' + name"></app-section-header>
 <div class="table-wrapper">
-
   <button
     mat-fab
-    color="primary"
+    color="accent"
     class="btn-add-row"
     (click)="openDialog('add')"
   >
@@ -26,7 +24,19 @@
       <mat-cell *matCellDef="let object" class="cell" [ngSwitch]="col">
         <span *ngSwitchDefault class="cell__content"> {{ object[col] }}</span>
 
+        <span *ngSwitchCase="'roles'" class="cell__content">
+          <div *ngFor="let item of object['roles'] | keyvalue">
+            <span *ngIf="item.value"> {{ item.key }}: {{ item.value }}</span>
+          </div>
+        </span>
+
         <span *ngSwitchCase="'id'" class="cell__content cell__content--id">
+          {{ object[col] }}</span
+        >
+        <span
+          *ngSwitchCase="'dateJoined'"
+          class="cell__content cell__content--id"
+        >
           {{ object[col] }}</span
         >
         <span

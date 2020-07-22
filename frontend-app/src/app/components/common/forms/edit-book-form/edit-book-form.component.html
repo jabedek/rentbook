@@ -3,7 +3,9 @@
   [formGroup]="editBookForm"
   (ngSubmit)="onSubmit(editBookForm.value)"
 >
-  <mat-card-title class="edit-book-form__title">Edit book form</mat-card-title>
+  <mat-card-title class="edit-book-form__title">
+    <div class="mat-title">Edit book</div></mat-card-title
+  >
   <!-- Title input -->
   <mat-form-field
     appearance="fill"
@@ -91,7 +93,7 @@
       color="accent"
       class="edit-book-form__action"
     >
-      CANCEL
+      CLOSE
     </button>
     <button
       mat-raised-button

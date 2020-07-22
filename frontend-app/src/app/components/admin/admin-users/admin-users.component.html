@@ -1,1 +1,6 @@
-<app-crud-table [service]="usersService"></app-crud-table>
+<app-crud-table
+  [name]="'users'"
+  [service]="usersService"
+  [addItemDialogComponent]="addItemDialogComponent"
+  [editItemDialogComponent]="editItemDialogComponent"
+></app-crud-table>

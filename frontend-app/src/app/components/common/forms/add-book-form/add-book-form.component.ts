@@ -19,7 +19,7 @@ export class AddBookFormComponent implements OnInit {
     genre: ['', Validators.required],
   });
 
-  result: string = '';
+  resultMessage: string = '';
 
   constructor(
     private booksService: BooksCrudService,
@@ -30,11 +30,11 @@ export class AddBookFormComponent implements OnInit {
   addBook(book: Book) {
     this.booksService.create(book).subscribe(
       (book) => {
-        this.result = `Book "${book.title}" was added succesfully.`;
+        this.resultMessage = `Book "${book.title}" was added succesfully.`;
       },
 
       (err) => {
-        this.result = err;
+        this.resultMessage = err;
       }
     );
   }

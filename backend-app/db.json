@@ -1,154 +1,96 @@
 {
   "books": [
     {
-      "id": "7bf17b09-ebd8-ad1e-e73f-650cb49532f3",
-      "title": "1233",
-      "author": "asdasd",
-      "genre": "asdassdsad",
+      "id": "9ef05abc-5a4c-fc7c-0dc5-cc3a56f8d236",
+      "title": "Bookdasdasd",
+      "author": "Author",
+      "genre": "Genre",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "2125a441-fb5d-74ed-5c2a-ae22600fdb46",
-      "title": "asdas",
-      "author": "dasds",
-      "genre": "dasd",
+      "id": "10d99ee7-8f85-c2c2-caed-f7e51e0560c1",
+      "title": "Book",
+      "author": "Author",
+      "genre": "Genre",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "2fca1ff2-f529-634b-59ac-74768add1971",
-      "title": "sdfsd",
-      "author": "fdfds",
-      "genre": "sfsdf",
+      "id": "889e2f2c-b11d-2fd5-d8f7-9f3b8c83ba53",
+      "title": "Book",
+      "author": "Author",
+      "genre": "Genre",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "5f180ab8-dd86-78a8-9f7a-1b7cdebed7e6",
-      "title": "asd",
-      "author": "asdasd",
-      "genre": "asdasd",
+      "id": "58e516f4-7bf0-f7af-8b0d-b27b0b26bc7a",
+      "title": "Book",
+      "author": "Author",
+      "genre": "Genre",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "id": "a00dcb57-4340-1294-e304-cce01d3fde46",
-      "title": "asd",
-      "author": "dsa",
-      "genre": "dsad",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "63484a5f-aab3-5358-fcb7-64b6032fe7e3",
-      "title": "sads",
-      "author": "dsasd",
-      "genre": "dasd",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "db7ceebb-af71-86ce-4239-d31f1065b49c",
-      "title": "das",
-      "author": "asd",
-      "genre": "asd",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "4a86edfb-06a9-56c3-aeee-d533c5f8c4b3",
-      "title": "asdsda",
-      "author": "asdsaddsa",
-      "genre": "dsadsda",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "e789a57c-c8e2-c5d6-8950-0e7d1613cf18",
-      "title": "asda",
-      "author": "asd",
-      "genre": "asd",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "cffd47d2-dad9-f30c-db29-a129e083714a",
-      "title": "asd",
-      "author": "asdasd",
-      "genre": "dasd",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "e211f36a-c9a1-349a-3adf-e9a8600b5ab8",
-      "title": "dasdsa",
-      "author": "dasdas",
-      "genre": "dasddas",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "4902e950-cc56-0e2e-d1db-e5eac66fb60e",
-      "title": "asd",
-      "author": "da",
-      "genre": "adsas",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "4fca6d84-81d5-14ab-6773-f856b3a34b31",
+      "id": "d626e089-e32d-611e-30e1-5787af6d057e",
       "title": "asdsad",
-      "author": "sad",
-      "genre": "ss",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "98c76de8-f2b8-a1ed-a764-2b57b41cb52c",
-      "title": "asd",
-      "author": "asd",
-      "genre": "ddsa",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "ef6724e8-27cd-d0b7-e01d-ca3bc5cadd3c",
-      "title": "dsaas",
-      "author": "sadsadas",
-      "genre": "dasdasd",
-      "available": true,
-      "heldByClient": "00000000-0000-0000-0000-000000000000"
-    },
-    {
-      "id": "7e04690d-4d77-9ade-4a3e-aaa5a111736a",
-      "title": "sdasda",
-      "author": "sasdasd",
-      "genre": "asdasd",
+      "author": "dsasdsda",
+      "genre": "sadsdaasdasd",
       "available": true,
       "heldByClient": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "users": [
     {
-      "id": "88b279cc-5c80-f6e1-135e-e205185dbc3d",
-      "email": "asdsada@a",
-      "password": "adsasdaaa"
+      "id": "55b28846-1b39-181f-dc1c-b34dbaca007e",
+      "email": "def1asdad",
+      "password": "ewfwef",
+      "dateJoined": "22.07.2020, 00:18:09",
+      "roles": {
+        "USER": true,
+        "ADMIN": true
+      }
     },
     {
-      "id": "4446d2f1-8ed7-4423-cd3a-95867afa7544",
-      "email": "aaa@aaa.aaaaaaa",
-      "password": "aaaaaaaaa"
+      "id": "a1306c30-f392-0c93-0823-5bdccf1e9b09",
+      "email": "ada",
+      "password": "dasdasdd",
+      "dateJoined": "22.07.2020, 00:18:16",
+      "roles": {
+        "USER": true,
+        "ADMIN": true
+      }
     },
     {
-      "id": "136d00e4-f658-231b-c88c-9bed7c4967e6",
-      "email": "aaa@aaa.aaaaaaaaa",
-      "password": "aaaaaaaaa"
+      "id": "281314be-2995-e6b7-435f-91524c116674",
+      "email": "sadas",
+      "password": "ddasdsad",
+      "dateJoined": "22.07.2020, 00:18:22",
+      "roles": {
+        "USER": false,
+        "ADMIN": true
+      }
     },
     {
-      "id": "065bb232-7c81-23ae-7c13-a0c799a08af1",
-      "email": "Ww@w.w",
-      "password": "wdwddwdwdwd"
+      "id": "57e2f306-1bd7-85d1-b878-abb489ff74ce",
+      "email": "a@a.a",
+      "password": "a",
+      "dateJoined": "22.07.2020, 00:18:45",
+      "roles": {
+        "USER": true,
+        "ADMIN": true
+      }
+    },
+    {
+      "id": "b173f675-8701-6f34-6d98-06b6b46e3974",
+      "email": "dd@d",
+      "password": "dasdsdsaddsadsad",
+      "dateJoined": "22.07.2020",
+      "roles": {
+        "USER": true,
+        "ADMIN": true
+      }
     }
   ]
 }

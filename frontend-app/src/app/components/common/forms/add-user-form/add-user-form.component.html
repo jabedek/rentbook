@@ -1,0 +1,111 @@
+<form
+  class="add-user-form"
+  [formGroup]="addUserForm"
+  (ngSubmit)="onSubmit(addUserForm.value)"
+>
+  <mat-card-title class="add-user-form__title">
+    <div class="mat-title">Create new user</div>
+  </mat-card-title>
+
+  <!-- Email input -->
+  <mat-form-field
+    appearance="fill"
+    [style.width.vw]="30"
+    class="add-user-form__item"
+    color="accent"
+  >
+    <mat-label>Email</mat-label>
+    <input
+      required
+      matInput
+      #inputEmail
+      minlength="1"
+      maxlength="100"
+      formControlName="email"
+      name="email"
+    />
+    <mat-hint align="end"
+      >{{ inputEmail.value?.length || 0 }}/{{ inputEmail.maxLength }}</mat-hint
+    >
+    <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
+      >alternate_email</mat-icon
+    >
+  </mat-form-field>
+
+  <!-- Password input -->
+  <mat-form-field
+    appearance="fill"
+    [style.width.vw]="30"
+    class="add-user-form__item"
+    color="accent"
+  >
+    <mat-label>Password</mat-label>
+    <input
+      required
+      matInput
+      #inputPassword
+      minlength="1"
+      maxlength="70"
+      formControlName="password"
+      name="password"
+    />
+    <mat-hint align="end"
+      >{{ inputPassword.value?.length || 0 }}/{{
+        inputPassword.maxLength
+      }}</mat-hint
+    >
+    <mat-icon fontSet="material-icons-outlined" matSuffix color="accent"
+      >security</mat-icon
+    >
+  </mat-form-field>
+
+  <mat-radio-group #inputRoles [formGroup]="rolesForm" class="roles-form">
+    <mat-checkbox
+      class="roles-form__input"
+      formControlName="role_USER"
+      value="USER"
+      ><span class="mat-subheading-1">USER</span></mat-checkbox
+    >
+    <mat-checkbox
+      class="roles-form__input"
+      formControlName="role_ADMIN"
+      value="ADMIN"
+      ><span class="mat-subheading-1">ADMIN</span></mat-checkbox
+    >
+  </mat-radio-group>
+
+  <p class="mat-subheading-2 add-user-form__result">
+    {{ resultMessage }}
+  </p>
+  <section>
+    <button
+      mat-raised-button
+      mat-dialog-close
+      color="accent"
+      class="add-user-form__action"
+    >
+      CLOSE
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="addUserForm.reset()"
+      class="add-user-form__action"
+      type="button"
+    >
+      CLEAR
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      class="add-user-form__action"
+      [disabled]="!addUserForm.valid"
+    >
+      SUBMIT
+    </button>
+  </section>
+</form>
+
+<!-- </div> -->
