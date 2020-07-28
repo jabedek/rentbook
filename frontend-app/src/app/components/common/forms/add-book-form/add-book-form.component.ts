@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { FormBuilder, Validators } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 
 import { Book } from 'src/app/models/Book';
-import { BooksCrudService } from '../../../../services/books-crud.service';
+import { CrudService } from '../../../../services/crud.service';
 
 @Component({
   selector: 'app-add-book-form',
@@ -14,7 +14,7 @@ import { BooksCrudService } from '../../../../services/books-crud.service';
 })
 export class AddBookFormComponent implements OnInit {
   addBookForm = this.formBuilder.group({
-    title: ['', Validators.required],
+    title: ['', [Validators.required]],
     author: ['', Validators.required],
     genre: ['', Validators.required],
   });
@@ -22,13 +22,13 @@ export class AddBookFormComponent implements OnInit {
   resultMessage: string = '';
 
   constructor(
-    private booksService: BooksCrudService,
+    private booksService: CrudService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog
   ) {}
 
   addBook(book: Book) {
-    this.booksService.create(book).subscribe(
+    this.booksService.create('http://localhost:3000/books', book).subscribe(
       (book) => {
         this.resultMessage = `Book "${book.title}" was added succesfully.`;
       },

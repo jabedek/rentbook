@@ -1,13 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
-import { UUID } from 'angular2-uuid';
 
 import { Book } from 'src/app/models/Book';
-import { BooksCrudService } from '../../../../services/books-crud.service';
+import { CrudService } from '../../../../services/crud.service';
 
 @Component({
   selector: 'app-edit-book-form',
@@ -24,14 +23,14 @@ export class EditBookFormComponent implements OnInit {
   result: string = '';
 
   constructor(
-    private booksService: BooksCrudService,
+    private booksService: CrudService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   editBook(book: Book) {
-    this.booksService.update(book.id, book).subscribe(
+    this.booksService.update('localhost:3000/books', book.id, book).subscribe(
       (book) => {
         this.result = `Book "${book.title}" was successfully updated.`;
       },

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -10,48 +10,56 @@ const httpOptions = {
   }),
 };
 
-interface CrudOperations<T, ID> {
-  create(data: T): Observable<T>;
-  update(id: ID, data: T): Observable<T>;
-  readOne(id: ID): Observable<T>;
-  readByProperty(searchKey: string, searchValue: string): Observable<T[]>;
-  read(): Observable<T[]>;
-  delete(id: ID): Observable<any>;
+interface CrudOperations {
+  create(baseURL: string, data): Observable<any>;
+  update(baseURL: string, id: string, data): Observable<any>;
+  read(baseURL: string): Observable<any[]>;
+  readOne(baseURL: string, id: string): Observable<any>;
+  readByProperty(
+    baseURL: string,
+    searchKey: string,
+    searchValue: string
+  ): Observable<any[]>;
+  delete(baseURL: string, id: string): Observable<any>;
 }
 
 @Injectable({
   providedIn: 'root',
 })
-export abstract class CrudService<T, ID> implements CrudOperations<T, ID> {
-  constructor(protected _http: HttpClient, protected _base: string) {}
+export class CrudService implements CrudOperations {
+  constructor(protected _http: HttpClient) {}
 
-  create(data: T): Observable<T> {
-    const url = this._base;
-    return this._http.post<T>(url, data);
+  create(baseURL: string, data): Observable<any> {
+    const url = baseURL;
+    return this._http.post<any>(url, data);
   }
 
-  update(id: ID, data: T): Observable<T> {
-    const url = this._base + '/' + id;
-    return this._http.put<T>(url, data, httpOptions);
+  update(baseURL: string, id: string, data): Observable<any> {
+    const url = baseURL + '/' + id;
+    return this._http.put<any>(url, data, httpOptions);
   }
 
-  readOne(id: ID): Observable<T> {
-    const url = this._base + '/' + id;
-    return this._http.get<T>(url);
+  readOne(baseURL: string, id: string): Observable<any> {
+    const url = baseURL + '/' + id;
+    return this._http.get<any>(url);
   }
 
-  readByProperty(searchKey: string, searchValue: string): Observable<T[]> {
-    const url = `${this._base}?${searchKey}=${searchValue}`;
-    return this._http.get<T[]>(url);
+  readByProperty(
+    baseURL: string,
+    searchKey: string,
+    searchValue: string
+  ): Observable<any[]> {
+    const url = `${baseURL}?${searchKey}=${searchValue}`;
+    return this._http.get<any[]>(url);
   }
 
-  read(): Observable<T[]> {
-    const url = this._base;
-    return this._http.get<T[]>(url);
+  read(baseURL: string): Observable<any[]> {
+    const url = baseURL;
+    return this._http.get<any[]>(url);
   }
 
-  delete(id: ID): Observable<T> {
-    const url = this._base + '/' + id;
-    return this._http.delete<T>(url, httpOptions);
+  delete(baseURL: string, id: string): Observable<any> {
+    const url = baseURL + '/' + id;
+    return this._http.delete<any>(url, httpOptions);
   }
 }

@@ -6,49 +6,47 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
+import { DynamicFormComponent } from './../forms/dynamic-form/dynamic-form.component';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CrudService } from '../../../services/crud.service';
+import { ITableConfig } from '../../../interfaces';
 
 @Component({
   selector: 'app-crud-table',
   templateUrl: './crud-table.component.html',
   styleUrls: ['./crud-table.component.scss'],
+  providers: [CrudService],
 })
 
 // TO/MAYBE DO? Type input for this component (Passing types <T>)
 export class CrudTableComponent implements OnInit, OnChanges {
-  constructor(public dialog: MatDialog) {}
-
+  @Input() config: ITableConfig;
   items: any[] | null;
-  @Input() name: string;
-  @Input() service: any | null = null;
-  @Input() addItemDialogComponent: any; // what should be displayed after Add btn in dialog
-  @Input() editItemDialogComponent: any; // what should be displayed after Add btn in dialog
-
   dataSource;
   displayedColumns: string[];
 
+  constructor(public dialog: MatDialog, private service: CrudService) {}
+
   private mapItemPropsToColumns() {
     if (this.items.length) {
-      this.displayedColumns = [...Object.keys(this.items[0]), 'actions'];
+      this.displayedColumns = [
+        ...Object.keys(this.items[0]),
+        ...this.config.columns,
+      ];
     }
     this.dataSource = new MatTableDataSource(this.items);
   }
 
   onDelete(item) {
-    // Delete from UI
-    console.log('crud-table: deleting ui');
     this.items = this.items.filter((i) => {
       return item.id !== i.id;
     });
 
     this.mapItemPropsToColumns();
-    // console.log('crud-tale: items', this.items);
 
-    // delete from server
-    console.log('crud-table: deleting server');
-    this.service.delete(item.id).subscribe(
+    this.service.delete(this.config.url, item.id).subscribe(
       () => {
         this.fetchItems();
       },
@@ -62,29 +60,35 @@ export class CrudTableComponent implements OnInit, OnChanges {
     }
   }
 
-  openDialog(which, item?) {
-    console.log(this.dialog);
+  openDialog(mode, item?) {
+    console.log('openDialog', mode, item);
 
-    switch (which) {
-      case 'add': {
-        const dialogRef = this.dialog.open(this.addItemDialogComponent);
-        dialogRef.afterClosed().subscribe(() => this.fetchItems());
-      }
-      case 'edit': {
-        if (item) {
-          const dialogRef = this.dialog.open(this.editItemDialogComponent, {
-            data: item,
-          });
-          dialogRef.afterClosed().subscribe(() => this.fetchItems());
-        }
-      }
-    }
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      mode,
+      item,
+    };
+
+    const dialogRef = this.dialog.open(DynamicFormComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(() => this.fetchItems());
+
+    // this.dialog
+    //   .open(DynamicFormComponent, dialogConfig)
+    //   .afterClosed()
+    //   .subscribe(() => this.fetchItems());
+
+    // this.dialog.open(DynamicFormComponent);
   }
 
   fetchItems() {
     if (this.service) {
-      this.service.read().subscribe((data) => {
+      console.log(this.config);
+      this.service.read(this.config.url).subscribe((data) => {
         if (data.length) {
+          console.log(data);
           this.items = data;
         } else {
           this.items = [];

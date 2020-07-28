@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UsersCrudService } from '../../../services/users-crud.service';
+import { CrudService } from '../../../services/crud.service';
 import { User } from 'src/app/models/User';
 import { UUID } from 'angular2-uuid';
 
@@ -8,6 +8,7 @@ import { UUID } from 'angular2-uuid';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  providers: [CrudService],
 })
 export class RegisterComponent implements OnInit {
   registerForm = this.formBuilder.group({
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   resultMessage: string = '';
 
   constructor(
-    private usersService: UsersCrudService,
+    private usersService: CrudService,
     private formBuilder: FormBuilder
   ) {}
 
@@ -41,21 +42,25 @@ export class RegisterComponent implements OnInit {
     // If email is already in use, display warning message
     // If it is not, add new user and display success message
     // If there are errors, display error message
-    this.usersService.readByProperty('email', user.email).subscribe(
-      (users) => {
-        if (users.length) {
-          this.resultMessage = 'This email address is already in use.';
-        } else {
-          this.usersService.create(user).subscribe(
-            (user) => {
-              this.resultMessage = `User ${user.email} has been created and his id is: [${user.id}]`;
-            },
-            (err) => (this.resultMessage += `Error: ${err}`)
-          );
-        }
-      },
-      (err) => (this.resultMessage += `Error: ${err}`)
-    );
+    this.usersService
+      .readByProperty('http://localhost:3000/users', 'email', user.email)
+      .subscribe(
+        (users) => {
+          if (users.length) {
+            this.resultMessage = 'This email address is already in use.';
+          } else {
+            this.usersService
+              .create('http://localhost:3000/users', user)
+              .subscribe(
+                (user) => {
+                  this.resultMessage = `User ${user.email} has been created and his id is: [${user.id}]`;
+                },
+                (err) => (this.resultMessage += `Error: ${err}`)
+              );
+          }
+        },
+        (err) => (this.resultMessage += `Error: ${err}`)
+      );
   }
 
   ngOnInit(): void {}

@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { FormBuilder, Validators } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 
 import { User } from 'src/app/models/User';
-import { UsersCrudService } from '../../../../services/users-crud.service';
+import { CrudService } from '../../../../services/crud.service';
 
 @Component({
   selector: 'app-add-user-form',
@@ -25,7 +25,7 @@ export class AddUserFormComponent implements OnInit {
   resultMessage: string = '';
 
   constructor(
-    private usersService: UsersCrudService,
+    private usersService: CrudService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog
   ) {}
@@ -35,21 +35,23 @@ export class AddUserFormComponent implements OnInit {
     // If email is already in use, display warning message
     // If it is not, add new user and display success message
     // If there are errors, display error message
-    this.usersService.readByProperty('email', user.email).subscribe(
-      (users) => {
-        if (users.length) {
-          this.resultMessage = 'This email address is already in use.';
-        } else {
-          this.usersService.create(user).subscribe(
-            (user) => {
-              this.resultMessage = `User ${user.email} has been created successfully.]`;
-            },
-            (err) => (this.resultMessage += `Error: ${err}`)
-          );
-        }
-      },
-      (err) => (this.resultMessage += `Error: ${err}`)
-    );
+    this.usersService
+      .readByProperty('localhost:3000/users', 'email', user.email)
+      .subscribe(
+        (users) => {
+          if (users.length) {
+            this.resultMessage = 'This email address is already in use.';
+          } else {
+            this.usersService.create('localhost:3000/users', user).subscribe(
+              (user) => {
+                this.resultMessage = `User ${user.email} has been created successfully.]`;
+              },
+              (err) => (this.resultMessage += `Error: ${err}`)
+            );
+          }
+        },
+        (err) => (this.resultMessage += `Error: ${err}`)
+      );
   }
 
   onSubmit(formValue) {

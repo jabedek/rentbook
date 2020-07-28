@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/Book';
-import { BooksCrudService } from 'src/app/services/books-crud.service';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-books',
@@ -10,17 +10,13 @@ import { BooksCrudService } from 'src/app/services/books-crud.service';
 export class BooksComponent implements OnInit {
   books: Book[];
 
-  constructor(private booksService: BooksCrudService) {}
+  constructor(private booksService: CrudService) {}
 
   getBooks() {
-    this.booksService.read().subscribe(
+    this.booksService.read('http://localhost:3000/books').subscribe(
       (books) => (this.books = books),
       (err) => console.log(err)
     );
-  }
-
-  rentBook(book: Book) {
-    // TODO
   }
 
   ngOnInit(): void {

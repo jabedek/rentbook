@@ -1,20 +1,19 @@
 import { Component } from '@angular/core';
-import { BooksCrudService } from '../../../services/books-crud.service';
-import { AddBookFormComponent } from '../../common/forms/add-book-form/add-book-form.component';
-import { EditBookFormComponent } from '../../common/forms/edit-book-form/edit-book-form.component';
+import { ITableConfig } from '../../../interfaces';
 
 @Component({
   selector: 'app-admin-books',
   templateUrl: './admin-books.component.html',
   styleUrls: ['./admin-books.component.scss'],
+  providers: [],
 })
 export class AdminBooksComponent {
-  booksService: BooksCrudService;
-
-  addItemDialogComponent = AddBookFormComponent;
-  editItemDialogComponent = EditBookFormComponent;
-
-  constructor(service: BooksCrudService) {
-    this.booksService = service;
-  }
+  config: ITableConfig = {
+    name: 'books',
+    url: `http://localhost:3000/books`,
+    filterable: true,
+    orderable: true,
+    modals: true,
+    columns: ['actions'],
+  };
 }

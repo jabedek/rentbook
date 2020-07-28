@@ -1,13 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
-import { UUID } from 'angular2-uuid';
 
 import { User } from 'src/app/models/User';
-import { UsersCrudService } from '../../../../services/users-crud.service';
+import { CrudService } from '../../../../services/crud.service';
 
 @Component({
   selector: 'app-edit-user-form',
@@ -19,6 +18,7 @@ export class EditUserFormComponent implements OnInit {
     email: [this.data.email, Validators.required],
     password: [this.data.password, Validators.required],
   });
+
   rolesForm = this.formBuilder.group({
     role_USER: [this.data.roles.USER, Validators.required],
     role_ADMIN: [this.data.roles.ADMIN, Validators.required],
@@ -26,14 +26,14 @@ export class EditUserFormComponent implements OnInit {
   result: string = '';
 
   constructor(
-    private usersService: UsersCrudService,
+    private usersService: CrudService,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   editUser(user: User) {
-    this.usersService.update(user.id, user).subscribe(
+    this.usersService.update('localhost:3000/users', user.id, user).subscribe(
       (user) => {
         this.result = `User "${user.email}" was successfully updated.`;
       },

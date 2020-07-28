@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
+// import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,6 +26,26 @@ import { AddBookFormComponent } from './components/common/forms/add-book-form/ad
 import { EditBookFormComponent } from './components/common/forms/edit-book-form/edit-book-form.component';
 import { AddUserFormComponent } from './components/common/forms/add-user-form/add-user-form.component';
 import { EditUserFormComponent } from './components/common/forms/edit-user-form/edit-user-form.component';
+import { DynamicFormQuestionComponent } from './components/common/forms/dynamic-form-question/dynamic-form-question.component';
+import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
+
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/Toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/Input';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/Menu';
+import { MatCardModule } from '@angular/material/Card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/Table';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -46,6 +66,8 @@ import { EditUserFormComponent } from './components/common/forms/edit-user-form/
     EditBookFormComponent,
     AddUserFormComponent,
     EditUserFormComponent,
+    DynamicFormQuestionComponent,
+    DynamicFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,8 +76,24 @@ import { EditUserFormComponent } from './components/common/forms/edit-user-form/
     FormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule,
+    MatDialogModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatIconModule,
+    MatBadgeModule,
+    MatCardModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatListModule,
+    MatTableModule,
+    MatStepperModule,
+    MatMenuModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

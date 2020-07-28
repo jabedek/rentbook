@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { UsersCrudService } from '../../../services/users-crud.service';
-import { AddUserFormComponent } from '../../common/forms/add-user-form/add-user-form.component';
-import { EditUserFormComponent } from '../../common/forms/edit-user-form/edit-user-form.component';
+import { ITableConfig } from '../../../interfaces';
 
 @Component({
   selector: 'app-admin-users',
@@ -9,12 +7,20 @@ import { EditUserFormComponent } from '../../common/forms/edit-user-form/edit-us
   styleUrls: ['./admin-users.component.scss'],
 })
 export class AdminUsersComponent {
-  usersService: UsersCrudService;
+  config: ITableConfig = {
+    name: 'users',
+    url: `http://localhost:3000/users`,
+    filterable: true,
+    orderable: true,
+    modals: true,
+    columns: ['actions'],
+  };
+  // usersService: UsersCrudService;
 
-  addItemDialogComponent = AddUserFormComponent;
-  editItemDialogComponent = EditUserFormComponent;
+  // addItemDialogComponent = AddUserFormComponent;
+  // editItemDialogComponent = EditUserFormComponent;
 
-  constructor(service: UsersCrudService) {
-    this.usersService = service;
-  }
+  // constructor(service: UsersCrudService) {
+  //   this.usersService = service;
+  // }
 }
