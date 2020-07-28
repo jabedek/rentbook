@@ -29,7 +29,6 @@ import { EditUserFormComponent } from './components/common/forms/edit-user-form/
 import { DynamicFormQuestionComponent } from './components/common/forms/dynamic-form-question/dynamic-form-question.component';
 import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
 
-import { MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/Toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -46,6 +45,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -94,8 +94,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatDialogModule,
     MatRadioModule,
     MatCheckboxModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [MatDialog],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

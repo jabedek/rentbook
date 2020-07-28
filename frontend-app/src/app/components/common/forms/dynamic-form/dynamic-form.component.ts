@@ -18,7 +18,7 @@ import { QuestionControlService } from '../../../../services/question-control.se
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  providers: [QuestionControlService, CrudService, MatDialogRef],
+  providers: [QuestionControlService, CrudService],
 })
 export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<string>[] = [];
@@ -29,10 +29,10 @@ export class DynamicFormComponent implements OnInit {
 
   constructor(
     private service: CrudService,
-    private qcs: QuestionControlService,
-    public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+    private qcs: QuestionControlService
+  ) // public dialog: MatDialog,
+  // @Inject(MAT_DIALOG_DATA) public data: any
+  {}
 
   // editUser(user) {
   //   this.service.update('http://localhost:3000/users', user.id, user).subscribe(
