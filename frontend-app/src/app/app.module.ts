@@ -98,5 +98,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
   ],
   providers: [MatDialog],
   bootstrap: [AppComponent],
+  entryComponents: [DynamicFormComponent],
 })
 export class AppModule {}

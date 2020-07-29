@@ -1,13 +1,14 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
+<app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
 <div class="table-wrapper">
-  <button
+  <!-- <button
     mat-fab
     color="accent"
     class="btn-add-row"
-    (click)="openDialog('add')"
+    (click)="newRow()"
   >
     <mat-icon fontSet="material-icons-outlined" matSuffix>add_box</mat-icon>
-  </button>
+  </button> -->
 
   <mat-table
     *ngIf="dataSource"
@@ -35,12 +36,7 @@
         <span *ngSwitchCase="'id'" class="cell__content cell__content--id">
           {{ object[col] }}</span
         >
-        <!-- <span
-          *ngSwitchCase="'dateJoined'"
-          class="cell__content cell__content--id"
-        >
-          {{ object[col] }}</span
-        > -->
+
         <span
           *ngSwitchCase="'heldByClient'"
           class="cell__content cell__content--id"
@@ -48,24 +44,6 @@
           {{ object[col] }}</span
         >
         <span *ngSwitchCase="'actions'" class="cell__content">
-          <!-- <button
-            mat-mini-fab
-            color="primary"
-            type="button"
-            class="cell__button"
-          >
-            <mat-icon fontSet="material-icons-outlined" matSuffix
-              >edit</mat-icon
-            >
-          </button> -->
-
-          <!-- <app-edit-item-dialog
-            class="btn-add-row"
-            *ngIf="items"
-            [item]="object"
-            [component]="editItemDialogComponent"
-          ></app-edit-item-dialog> -->
-
           <button
             mat-mini-fab
             color="primary"

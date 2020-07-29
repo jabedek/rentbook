@@ -11,23 +11,34 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CrudService } from '../../../services/crud.service';
+import { QuestionService } from '../../../services/question.service';
 import { ITableConfig } from '../../../interfaces';
+import { QuestionBase } from '../../../models/dynamic-questions/QuestionBase';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-crud-table',
   templateUrl: './crud-table.component.html',
   styleUrls: ['./crud-table.component.scss'],
-  providers: [CrudService],
+  providers: [CrudService, QuestionService],
 })
 
 // TO/MAYBE DO? Type input for this component (Passing types <T>)
 export class CrudTableComponent implements OnInit, OnChanges {
+  questions$: Observable<QuestionBase<any>[]> = null;
+
   @Input() config: ITableConfig;
-  items: any[] | null;
+  items: any[] | null = [];
   dataSource;
   displayedColumns: string[];
 
-  constructor(public dialog: MatDialog, private service: CrudService) {}
+  constructor(
+    public dialog: MatDialog,
+    private crudService: CrudService,
+    private questionService: QuestionService
+  ) {
+    // this.questions$ = this.questionService.getQuestions();
+  }
 
   private mapItemPropsToColumns() {
     if (this.items.length) {
@@ -37,6 +48,8 @@ export class CrudTableComponent implements OnInit, OnChanges {
       ];
     }
     this.dataSource = new MatTableDataSource(this.items);
+
+    //
   }
 
   onDelete(item) {
@@ -46,7 +59,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
     this.mapItemPropsToColumns();
 
-    this.service.delete(this.config.url, item.id).subscribe(
+    this.crudService.delete(this.config.url, item.id).subscribe(
       () => {
         this.fetchItems();
       },
@@ -61,35 +74,25 @@ export class CrudTableComponent implements OnInit, OnChanges {
   }
 
   openDialog(mode, item?) {
-    console.log('openDialog', mode, item);
-
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.data = {
-      mode,
-      item,
-    };
-
-    const dialogRef = this.dialog.open(DynamicFormComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(() => this.fetchItems());
-
-    // this.dialog
-    //   .open(DynamicFormComponent, dialogConfig)
-    //   .afterClosed()
-    //   .subscribe(() => this.fetchItems());
-
-    // this.dialog.open(DynamicFormComponent);
+    // console.log('openDialog', mode, item);
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.disableClose = false;
+    // dialogConfig.autoFocus = true;
+    // dialogConfig.data = {
+    //   mode,
+    //   item,
+    // };
+    // const dialogRef = this.dialog.open(DynamicFormComponent, dialogConfig);
+    // dialogRef.afterClosed().subscribe(() => this.fetchItems());
   }
 
   fetchItems() {
-    if (this.service) {
-      console.log(this.config);
-      this.service.read(this.config.url).subscribe((data) => {
-        if (data.length) {
-          console.log(data);
+    if (this.crudService) {
+      this.crudService.read(this.config.url).subscribe((data) => {
+        if (data.length > 0) {
           this.items = data;
+
+          this.questionService.mapItemToQuestions(this.items[0]);
         } else {
           this.items = [];
         }
@@ -102,13 +105,14 @@ export class CrudTableComponent implements OnInit, OnChanges {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   ngOnInit(): void {
-    if (this.service) {
-      this.fetchItems();
-    }
+    this.fetchItems();
+    // if (this.items.length > 0) {
+    //   this.questions$ = this.questionService.mapItemToQuestions(this.items[0]);
+    // }
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('crud-table: changes');
-    console.log(changes);
+    // console.log('crud-table: changes');
+    // console.log(changes);
   }
 }

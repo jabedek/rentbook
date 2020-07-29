@@ -5,11 +5,6 @@ The DynamicFormComponent component presents a list of questions by binding each 
 
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-} from '@angular/material/dialog';
 
 import { QuestionBase } from '../../../../models/dynamic-questions/QuestionBase';
 import { CrudService } from './../../../../services/crud.service';
@@ -25,27 +20,17 @@ export class DynamicFormComponent implements OnInit {
   form: FormGroup;
   payLoad = '';
 
-  resultMessage: string = '';
+  resultMessage: string = 'random';
 
   constructor(
     private service: CrudService,
     private qcs: QuestionControlService
-  ) // public dialog: MatDialog,
-  // @Inject(MAT_DIALOG_DATA) public data: any
-  {}
-
-  // editUser(user) {
-  //   this.service.update('http://localhost:3000/users', user.id, user).subscribe(
-  //     (user) => {
-  //       this.result = `User "${user.email}" was successfully updated.`;
-  //     },
-  //     (err) => (this.result = err)
-  //   );
-  // }
+  ) {}
 
   ngOnInit() {
+    // console.log('dynamic form:', this.questions);
+
     this.form = this.qcs.toFormGroup(this.questions);
-    // console.log('data', this.dialog);
   }
 
   onSubmit() {
