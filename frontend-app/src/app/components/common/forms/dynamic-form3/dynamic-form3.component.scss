@@ -1,3 +1,43 @@
 .dynamic-form {
+  margin: 1em;
+  padding: 1em;
+  background: #fff;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 8vh;
+  width: 100%;
+
+  &__inputs {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__label {
+    margin-right: 0.5em;
+    font-size: 0.75rem;
+  }
+
+  &__item {
+    height: 100%;
+    padding: 0;
+    width: 5vw;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+
+    &--radio {
+      height: 100%;
+    }
+  }
 }

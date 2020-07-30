@@ -1,13 +1,15 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
 
 <div class="table-wrapper">
-  <app-dynamic-form3
-    *ngIf="this.config.formTemplate"
-    [formConfig]="initForm()"
-    [templateObject]=""
-    (createItem)="onCreate($event)"
-  >
-  </app-dynamic-form3>
+  <section class="table-form">
+    <app-dynamic-form3
+      *ngIf="this.config.formTemplate"
+      [formConfig]="initForm()"
+      [currentlyEdited]="currentlyEdited"
+      (createItem)="onCreate($event)"
+    >
+    </app-dynamic-form3>
+  </section>
 
   <mat-table
     *ngIf="dataSource"
@@ -40,7 +42,7 @@
             color="primary"
             class="btn-add-row"
             type="button"
-            (click)="openDialog('edit', object)"
+            (click)="setCurrentlyEdited(object)"
           >
             <mat-icon fontSet="material-icons-outlined" matSuffix
               >edit</mat-icon

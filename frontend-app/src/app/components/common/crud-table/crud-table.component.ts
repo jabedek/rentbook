@@ -27,15 +27,19 @@ export class CrudTableComponent implements OnInit, OnChanges {
   items: any[] | null = [];
   dataSource;
   displayedColumns: string[];
+  currentlyEdited: any = null;
 
   constructor(public dialog: MatDialog, private crudService: CrudService) {
     // this.questions$ = this.questionService.getQuestions();
   }
 
+  setCurrentlyEdited(event) {
+    console.log(event);
+  }
+
   initForm() {
     let configObject = {
       templateObject: this.config.formTemplate,
-      data: this.items[0],
     };
     return configObject;
   }

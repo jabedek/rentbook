@@ -1,14 +1,43 @@
 {
   "books": [
     {
-      "id": "d3cb7c0f-f9b7-d416-6cf1-231c67d6119e",
+      "id": "ceeec388-05c5-f793-238a-29713161477f",
       "title": "",
       "author": "",
       "genre": "",
-      "available": "false",
-      "heldByClient": "sdsadsadsadsad",
+      "available": "",
+      "heldByClient": "",
       "dateAdded": "30.07.2020"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "8b4963a2-8e4c-47e9-88d2-f191a2968d1a",
+      "dateAdded": "30.07.2020",
+      "email": "a@a",
+      "password": "12345678",
+      "role": "asdsadasd"
+    },
+    {
+      "id": "46389ffb-e2ec-c642-66d9-3f9e240a15ed",
+      "dateAdded": "30.07.2020",
+      "email": "sadsa",
+      "password": "sadsa",
+      "role": "sdadasd"
+    },
+    {
+      "id": "9f05e30f-a0a5-d74e-f6fc-e3ae61c5b6d5",
+      "dateAdded": "30.07.2020",
+      "email": "sadsadsadd",
+      "password": "sadsadsad",
+      "role": "sadsadsadsad"
+    },
+    {
+      "id": "ba0e1939-b335-3970-2a32-aff0538c8b79",
+      "email": "a@asdsdasd",
+      "password": "dsdsdaasdasd",
+      "role": "USER",
+      "dateAdded": "30.07.2020"
+    }
+  ]
 }

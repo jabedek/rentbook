@@ -1,5 +1,12 @@
 import { UUID } from 'angular2-uuid';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+} from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -16,17 +23,14 @@ import { configureNewItem } from '../../../../utils';
   styleUrls: ['./dynamic-form3.component.scss'],
   providers: [{ provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'check' }],
 })
-export class DynamicForm3Component implements OnInit {
+export class DynamicForm3Component implements OnInit, OnChanges {
   @Input('formConfig') config: any;
+  @Input() currentlyEdited: any;
   @Output() createItem = new EventEmitter();
   formGroup: FormGroup;
 
   inputConfigs: any = [];
   constructor(private formBuilder: FormBuilder) {}
-
-  ngOnInit() {
-    this.createFormTemplate();
-  }
 
   mapPropsToInputs() {
     let templateObject = this.config.templateObject;
@@ -40,7 +44,6 @@ export class DynamicForm3Component implements OnInit {
         label: key,
         type: 'text',
         options: [],
-        data: this.config.data,
       };
 
       if (typeof templateObject[key] === 'string') {
@@ -63,6 +66,10 @@ export class DynamicForm3Component implements OnInit {
       inputTemplates.push(template);
     }
     return inputTemplates;
+  }
+
+  radioClick(event) {
+    console.log(event);
   }
 
   createFormTemplate() {
@@ -94,10 +101,19 @@ export class DynamicForm3Component implements OnInit {
   onSubmit(formGroup) {
     console.log('submitting');
 
-    const data = configureNewItem(formGroup);
+    const itemData = configureNewItem(formGroup);
 
-    console.log('data', data);
+    console.log('itemData', itemData);
 
-    this.createItem.emit(data);
+    this.createItem.emit(itemData);
+  }
+
+  ngOnInit() {
+    this.createFormTemplate();
+    console.log('init', this.currentlyEdited);
+  }
+
+  ngOnChanges(changes) {
+    console.log('changes', this.currentlyEdited);
   }
 }

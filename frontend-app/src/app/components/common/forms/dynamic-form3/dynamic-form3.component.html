@@ -2,21 +2,25 @@
   [formGroup]="formGroup"
   (ngSubmit)="onSubmit(formGroup.value)"
   class="dynamic-form"
+  [class.mat-elevation-z3]="'true'"
+  [ngStyle]="{ width: '100%' }"
 >
-  <div *ngFor="let form_elem of inputConfigs">
-    <div [ngSwitch]="form_elem.label">
-      <!-- Don't render columns with automated values -->
-      <div *ngSwitchCase="'id'"></div>
-      <div *ngSwitchCase="'dateAdded'"></div>
+  <section class="dynamic-form__inputs">
+    <div *ngFor="let form_elem of inputConfigs">
+      <div [ngSwitch]="form_elem.label">
+        <!-- Don't render inputs with automated values -->
 
-      <!-- Render other columns -->
-      <div *ngSwitchDefault>
-        <mat-label>{{ form_elem.label | titlecase }}</mat-label>
-        <div [ngSwitch]="form_elem.type">
-          <div *ngSwitchCase="'text'">
+        <div *ngSwitchCase="'id'"></div>
+        <div *ngSwitchCase="'dateAdded'"></div>
+
+        <!-- Render other inputs -->
+        <div *ngSwitchDefault>
+          <div [ngSwitch]="form_elem.type">
+            <!-- text input -->
             <mat-form-field
+              *ngSwitchCase="'text'"
               appearance="outline"
-              [style.width.vw]="30"
+              [ngStyle]="{ 'margin-bottom': '-1.25em', width: '10vw' }"
               class="dynamic-form__item"
             >
               <input
@@ -27,17 +31,23 @@
                 formControlName="{{ form_elem.label }}"
               />
             </mat-form-field>
-          </div>
 
-          <div *ngSwitchCase="'number'">
-            <input type="number" formControlName="{{ form_elem.label }}" />
-          </div>
+            <!-- number input -->
+            <mat-form-field
+              *ngSwitchCase="'number'"
+              appearance="outline"
+              [style.width.vw]="10"
+              class="dynamic-form__item"
+            >
+              <input type="number" formControlName="{{ form_elem.label }}" />
+            </mat-form-field>
 
-          <div *ngSwitchCase="'select'">
+            <!-- select input -->
             <mat-form-field
               appearance="outline"
-              [style.width.vw]="30"
+              [style.width.vw]="10"
               class="dynamic-form__item"
+              *ngSwitchCase="'select'"
             >
               <select formControlName="{{ form_elem.label }}">
                 <option *ngFor="let opt of form_elem.options">
@@ -45,27 +55,33 @@
                 </option>
               </select>
             </mat-form-field>
-          </div>
 
-          <div *ngSwitchCase="'radio'">
+            <!-- radio input -->
             <mat-radio-group
               appearance="outline"
-              [style.width.vw]="30"
+              [style.width.vw]="10"
               formControlName="{{ form_elem.label }}"
+              class="dynamic-form__item"
+              *ngSwitchCase="'radio'"
             >
-              <section>
-                <mat-radio-button value="true">Yes</mat-radio-button>
-                <mat-radio-button value="false">No</mat-radio-button>
-              </section>
-            </mat-radio-group>
-          </div>
-          <div *ngSwitchCase="'checkbox'">
-            <mat-radio-group formControlName="{{ form_elem.label }}">
+              <mat-label class="dynamic-form__label"
+                >{{ form_elem.label | uppercase }}:
+              </mat-label>
+
+              <mat-radio-button value="true"> Yes </mat-radio-button>
+              <mat-radio-button value="false"> No </mat-radio-button>
             </mat-radio-group>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <input type="submit" value="save" />
+  </section>
+  <button
+    mat-mini-fab
+    color="accent"
+    class="dynamic-form__submit"
+    type="submit"
+  >
+    <mat-icon fontSet="material-icons-outlined" matSuffix>add</mat-icon>
+  </button>
 </form>
