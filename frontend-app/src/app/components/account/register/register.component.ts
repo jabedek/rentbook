@@ -1,8 +1,7 @@
+import { CrudService } from 'src/app/services/crud.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { CrudService } from '../../../services/crud.service';
-import { User } from 'src/app/models/User';
-import { UUID } from 'angular2-uuid';
+import { configureNewItem } from '../../../utils';
 
 @Component({
   selector: 'app-register',
@@ -24,43 +23,11 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   onSubmit(formValue) {
-    const user: User = {
-      id: UUID.UUID(),
-      ...formValue,
-      dateJoined: new Date().toLocaleDateString(),
+    const user = configureNewItem({ ...formValue, role: 'USER' });
 
-      roles: { USER: true, ADMIN: false },
-    };
-
-    console.log('registering', user);
-
-    this.addUser(user);
-  }
-
-  addUser(user: User) {
-    // Check if there is already an account using provided email address
-    // If email is already in use, display warning message
-    // If it is not, add new user and display success message
-    // If there are errors, display error message
     this.usersService
-      .readByProperty('http://localhost:3000/users', 'email', user.email)
-      .subscribe(
-        (users) => {
-          if (users.length) {
-            this.resultMessage = 'This email address is already in use.';
-          } else {
-            this.usersService
-              .create('http://localhost:3000/users', user)
-              .subscribe(
-                (user) => {
-                  this.resultMessage = `User ${user.email} has been created and his id is: [${user.id}]`;
-                },
-                (err) => (this.resultMessage += `Error: ${err}`)
-              );
-          }
-        },
-        (err) => (this.resultMessage += `Error: ${err}`)
-      );
+      .create('http://localhost:3000/users', user)
+      .subscribe((err) => console.log(err));
   }
 
   ngOnInit(): void {}

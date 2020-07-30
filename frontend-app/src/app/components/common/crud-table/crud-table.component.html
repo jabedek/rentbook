@@ -1,14 +1,13 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
-<app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
+
 <div class="table-wrapper">
-  <!-- <button
-    mat-fab
-    color="accent"
-    class="btn-add-row"
-    (click)="newRow()"
+  <app-dynamic-form3
+    *ngIf="this.config.formTemplate"
+    [formConfig]="initForm()"
+    [templateObject]=""
+    (createItem)="onCreate($event)"
   >
-    <mat-icon fontSet="material-icons-outlined" matSuffix>add_box</mat-icon>
-  </button> -->
+  </app-dynamic-form3>
 
   <mat-table
     *ngIf="dataSource"
@@ -24,14 +23,6 @@
 
       <mat-cell *matCellDef="let object" class="cell" [ngSwitch]="col">
         <span *ngSwitchDefault class="cell__content"> {{ object[col] }}</span>
-
-        <span *ngSwitchCase="'roles'" class="cell__content">
-          <div *ngFor="let item of object['roles'] | keyvalue">
-            <span *ngIf="item.value" class="cell__content cell__content--id">
-              {{ item.key }}</span
-            >
-          </div>
-        </span>
 
         <span *ngSwitchCase="'id'" class="cell__content cell__content--id">
           {{ object[col] }}</span

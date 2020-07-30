@@ -49,11 +49,12 @@ export class EditUserFormComponent implements OnInit {
       id: this.data.id,
       email: formValue.email,
       password: formValue.password,
-      dateJoined: this.data.dateJoined,
-      roles: {
-        USER: this.rolesForm.value.role_USER,
-        ADMIN: this.rolesForm.value.role_ADMIN,
-      },
+      dateAdded: this.data.dateAdded,
+      role: formValue.role,
+      // roles: {
+      //   USER: this.rolesForm.value.role_USER,
+      //   ADMIN: this.rolesForm.value.role_ADMIN,
+      // },
     };
 
     this.editUser(item);

@@ -1,0 +1,71 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit(formGroup.value)"
+  class="dynamic-form"
+>
+  <div *ngFor="let form_elem of inputConfigs">
+    <div [ngSwitch]="form_elem.label">
+      <!-- Don't render columns with automated values -->
+      <div *ngSwitchCase="'id'"></div>
+      <div *ngSwitchCase="'dateAdded'"></div>
+
+      <!-- Render other columns -->
+      <div *ngSwitchDefault>
+        <mat-label>{{ form_elem.label | titlecase }}</mat-label>
+        <div [ngSwitch]="form_elem.type">
+          <div *ngSwitchCase="'text'">
+            <mat-form-field
+              appearance="outline"
+              [style.width.vw]="30"
+              class="dynamic-form__item"
+            >
+              <input
+                matInput
+                placeholder="{{ form_elem.label | titlecase }}"
+                type="text"
+                maxlength="60"
+                formControlName="{{ form_elem.label }}"
+              />
+            </mat-form-field>
+          </div>
+
+          <div *ngSwitchCase="'number'">
+            <input type="number" formControlName="{{ form_elem.label }}" />
+          </div>
+
+          <div *ngSwitchCase="'select'">
+            <mat-form-field
+              appearance="outline"
+              [style.width.vw]="30"
+              class="dynamic-form__item"
+            >
+              <select formControlName="{{ form_elem.label }}">
+                <option *ngFor="let opt of form_elem.options">
+                  {{ opt }}
+                </option>
+              </select>
+            </mat-form-field>
+          </div>
+
+          <div *ngSwitchCase="'radio'">
+            <mat-radio-group
+              appearance="outline"
+              [style.width.vw]="30"
+              formControlName="{{ form_elem.label }}"
+            >
+              <section>
+                <mat-radio-button value="true">Yes</mat-radio-button>
+                <mat-radio-button value="false">No</mat-radio-button>
+              </section>
+            </mat-radio-group>
+          </div>
+          <div *ngSwitchCase="'checkbox'">
+            <mat-radio-group formControlName="{{ form_elem.label }}">
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="submit" value="save" />
+</form>

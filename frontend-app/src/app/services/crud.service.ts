@@ -1,4 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
+import { UUID } from 'angular2-uuid';
 
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

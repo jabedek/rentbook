@@ -1,24 +1,14 @@
 {
   "books": [
     {
-      "id": "000",
-      "title": "xyz",
-      "author": "xyz",
-      "genre": "xyz",
-      "available": true,
-      "heldByClient": "000"
+      "id": "d3cb7c0f-f9b7-d416-6cf1-231c67d6119e",
+      "title": "",
+      "author": "",
+      "genre": "",
+      "available": "false",
+      "heldByClient": "sdsadsadsadsad",
+      "dateAdded": "30.07.2020"
     }
   ],
-  "users": [
-    {
-      "id": "9e277c18-7f6e-440a-a90a-5afc400f6662",
-      "email": "a@a",
-      "password": "aaaaaaaa",
-      "dateJoined": "28.07.2020",
-      "roles": {
-        "USER": true,
-        "ADMIN": false
-      }
-    }
-  ]
+  "users": []
 }

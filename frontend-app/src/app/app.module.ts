@@ -26,8 +26,6 @@ import { AddBookFormComponent } from './components/common/forms/add-book-form/ad
 import { EditBookFormComponent } from './components/common/forms/edit-book-form/edit-book-form.component';
 import { AddUserFormComponent } from './components/common/forms/add-user-form/add-user-form.component';
 import { EditUserFormComponent } from './components/common/forms/edit-user-form/edit-user-form.component';
-import { DynamicFormQuestionComponent } from './components/common/forms/dynamic-form-question/dynamic-form-question.component';
-import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/Toolbar';
@@ -46,6 +44,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DynamicForm3Component } from './components/common/forms/dynamic-form3/dynamic-form3.component';
 
 @NgModule({
   declarations: [
@@ -66,8 +65,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
     EditBookFormComponent,
     AddUserFormComponent,
     EditUserFormComponent,
-    DynamicFormQuestionComponent,
-    DynamicFormComponent,
+
+    DynamicForm3Component,
   ],
   imports: [
     BrowserModule,
@@ -96,8 +95,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
     MatCheckboxModule,
     MatDialogModule,
   ],
-  providers: [MatDialog],
+  providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DynamicFormComponent],
+  entryComponents: [],
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ITableConfig } from '../../../interfaces';
+import { Book } from 'src/app/models/Book';
 
 @Component({
   selector: 'app-admin-books',
@@ -8,8 +9,18 @@ import { ITableConfig } from '../../../interfaces';
   providers: [],
 })
 export class AdminBooksComponent {
+  formTemplate: Book = {
+    id: '',
+    title: '',
+    author: '',
+    genre: '',
+    available: false,
+    heldByClient: '',
+  };
+
   config: ITableConfig = {
     name: 'books',
+    formTemplate: this.formTemplate,
     url: `http://localhost:3000/books`,
     filterable: true,
     orderable: true,

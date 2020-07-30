@@ -5,4 +5,5 @@ export interface ITableConfig {
   orderable: boolean;
   modals: boolean;
   columns: string[];
+  formTemplate: any;
 }
