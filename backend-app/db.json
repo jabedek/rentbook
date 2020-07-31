@@ -8,36 +8,27 @@
       "available": "",
       "heldByClient": "",
       "dateAdded": "30.07.2020"
+    },
+    {
+      "id": "2ba490cf-d68c-8897-d61b-cd603712c5c2",
+      "title": "",
+      "author": "",
+      "genre": "",
+      "available": "",
+      "heldByClient": "",
+      "dateAdded": "31.07.2020"
     }
   ],
   "users": [
     {
-      "id": "8b4963a2-8e4c-47e9-88d2-f191a2968d1a",
-      "dateAdded": "30.07.2020",
-      "email": "a@a",
-      "password": "12345678",
-      "role": "asdsadasd"
-    },
-    {
-      "id": "46389ffb-e2ec-c642-66d9-3f9e240a15ed",
-      "dateAdded": "30.07.2020",
-      "email": "sadsa",
-      "password": "sadsa",
-      "role": "sdadasd"
-    },
-    {
-      "id": "9f05e30f-a0a5-d74e-f6fc-e3ae61c5b6d5",
-      "dateAdded": "30.07.2020",
-      "email": "sadsadsadd",
-      "password": "sadsadsad",
-      "role": "sadsadsadsad"
-    },
-    {
-      "id": "ba0e1939-b335-3970-2a32-aff0538c8b79",
-      "email": "a@asdsdasd",
-      "password": "dsdsdaasdasd",
-      "role": "USER",
-      "dateAdded": "30.07.2020"
+      "id": "ceaf5758-12c6-7e79-e092-c8803b6d3a67",
+      "email": "a@d",
+      "password": "dwdwqddqwdqwd",
+      "roles": {
+        "role_ADMIN": false,
+        "role_USER": true
+      },
+      "dateAdded": "31.07.2020"
     }
   ]
 }

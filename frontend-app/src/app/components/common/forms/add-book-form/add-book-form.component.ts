@@ -4,8 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 
-import { Book } from 'src/app/models/Book';
 import { CrudService } from '../../../../services/crud.service';
+import { IBook } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-add-book-form',
@@ -27,7 +27,7 @@ export class AddBookFormComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  addBook(book: Book) {
+  addBook(book: IBook) {
     this.booksService.create('http://localhost:3000/books', book).subscribe(
       (book) => {
         this.resultMessage = `Book "${book.title}" was added succesfully.`;
@@ -40,7 +40,7 @@ export class AddBookFormComponent implements OnInit {
   }
 
   onSubmit(formValue) {
-    const book: Book = {
+    const book: IBook = {
       id: UUID.UUID(),
       title: formValue.title,
       author: formValue.author,

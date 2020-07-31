@@ -4,8 +4,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 
-import { User } from 'src/app/models/User';
+// import { User } from 'src/app/models/User';
 import { CrudService } from '../../../../services/crud.service';
+import { IUser } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-add-user-form',
@@ -30,7 +31,7 @@ export class AddUserFormComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  addUser(user: User) {
+  addUser(user: IUser) {
     // Check if there is already an account using provided email address
     // If email is already in use, display warning message
     // If it is not, add new user and display success message
@@ -55,20 +56,18 @@ export class AddUserFormComponent implements OnInit {
   }
 
   onSubmit(formValue) {
-    console.log(this.rolesForm.value);
-
-    const user: User = {
-      id: UUID.UUID(),
-      ...formValue,
-      dateJoined: new Date().toLocaleString(),
-      roles: {
-        USER: this.rolesForm.value.role_USER,
-        ADMIN: this.rolesForm.value.role_ADMIN,
-      },
-    };
-
-    console.log('registering', user);
-    this.addUser(user);
+    // console.log(this.rolesForm.value);
+    // const user: User = {
+    //   id: UUID.UUID(),
+    //   ...formValue,
+    //   dateJoined: new Date().toLocaleString(),
+    //   roles: {
+    //     USER: this.rolesForm.value.role_USER,
+    //     ADMIN: this.rolesForm.value.role_ADMIN,
+    //   },
+    // };
+    // console.log('registering', user);
+    // this.addUser(user);
   }
 
   ngOnInit(): void {}

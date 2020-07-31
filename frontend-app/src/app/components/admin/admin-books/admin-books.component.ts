@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ITableConfig } from '../../../interfaces';
-import { Book } from 'src/app/models/Book';
+import { ITableConfig, IBook } from '../../../interfaces';
 
 @Component({
   selector: 'app-admin-books',
@@ -9,7 +8,7 @@ import { Book } from 'src/app/models/Book';
   providers: [],
 })
 export class AdminBooksComponent {
-  formTemplate: Book = {
+  formTemplate: IBook = {
     id: '',
     title: '',
     author: '',

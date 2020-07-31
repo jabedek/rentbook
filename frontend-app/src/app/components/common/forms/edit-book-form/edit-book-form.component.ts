@@ -5,8 +5,8 @@ import { Inject } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { Book } from 'src/app/models/Book';
 import { CrudService } from '../../../../services/crud.service';
+import { IBook } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-edit-book-form',
@@ -29,7 +29,7 @@ export class EditBookFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  editBook(book: Book) {
+  editBook(book: IBook) {
     this.booksService.update('localhost:3000/books', book.id, book).subscribe(
       (book) => {
         this.result = `Book "${book.title}" was successfully updated.`;

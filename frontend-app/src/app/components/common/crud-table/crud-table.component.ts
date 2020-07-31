@@ -10,7 +10,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { CrudService } from '../../../services/crud.service';
-import { ITableConfig } from '../../../interfaces';
+import { ITableConfig, IUser, IBook } from '../../../interfaces';
 
 @Component({
   selector: 'app-crud-table',
@@ -24,16 +24,17 @@ export class CrudTableComponent implements OnInit, OnChanges {
   // questions$: Observable<QuestionBase<any>[]> = null;
 
   @Input() config: ITableConfig;
-  items: any[] | null = [];
+  items = [];
   dataSource;
   displayedColumns: string[];
-  currentlyEdited: any = null;
+  currentlyEdited: null | IUser | IBook = null;
 
   constructor(public dialog: MatDialog, private crudService: CrudService) {
     // this.questions$ = this.questionService.getQuestions();
   }
 
-  setCurrentlyEdited(event) {
+  setCurrentlyEdited(event: IUser | IBook) {
+    this.currentlyEdited = event;
     console.log(event);
   }
 
@@ -53,7 +54,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     this.dataSource = new MatTableDataSource(this.items);
   }
 
-  onCreate(item) {
+  onCreate(item: IUser | IBook) {
     this.items.push(item);
     this.mapItemPropsToColumns();
     this.crudService.create(this.config.url, item).subscribe(() => {
@@ -61,7 +62,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     });
   }
 
-  onDelete(item) {
+  onDelete(item: IUser | IBook) {
     this.items = this.items.filter((i) => {
       return item.id !== i.id;
     });

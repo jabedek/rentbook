@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CrudService } from '../../../services/crud.service';
 
-import { User } from 'src/app/models/User';
 import { eventDispatcher } from '../../../store/reducer';
 import { ActionTypes } from '../../../store/actions';
+import { IUser } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   auth(loginDetails) {
-    let authUser: User | null;
+    let authUser: IUser | null;
     this.usersService
       .readByProperty(
         'http://localhost:3000/users',

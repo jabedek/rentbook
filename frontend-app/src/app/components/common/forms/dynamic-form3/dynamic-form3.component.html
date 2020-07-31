@@ -1,6 +1,25 @@
+<form [formGroup]="testForm">
+  <div formGroupName="roles">
+    <h3>Address</h3>
+
+    <!-- <div *ngFor="let item of roles | keyvalue">
+      Object Key:{{ item.key }} and Object Value:{{ item.value }}
+    </div> -->
+    <label>
+      <input type="checkbox" formControlName="role_USER" />
+    </label>
+
+    <label>
+      City:
+      <input type="checkbox" formControlName="role_ADMIN" />
+    </label>
+  </div>
+  <button type="submit" [disabled]="!testForm.valid">Submit</button>
+</form>
+
 <form
-  [formGroup]="formGroup"
-  (ngSubmit)="onSubmit(formGroup.value)"
+  [formGroup]="mainForm"
+  (ngSubmit)="onSubmit(mainForm.value)"
   class="dynamic-form"
   [class.mat-elevation-z3]="'true'"
   [ngStyle]="{ width: '100%' }"
@@ -27,6 +46,7 @@
                 matInput
                 placeholder="{{ form_elem.label | titlecase }}"
                 type="text"
+                value="{{ form_elem.value }}"
                 maxlength="60"
                 formControlName="{{ form_elem.label }}"
               />
@@ -44,10 +64,10 @@
 
             <!-- select input -->
             <mat-form-field
+              *ngSwitchCase="'select'"
               appearance="outline"
               [style.width.vw]="10"
               class="dynamic-form__item"
-              *ngSwitchCase="'select'"
             >
               <select formControlName="{{ form_elem.label }}">
                 <option *ngFor="let opt of form_elem.options">
@@ -58,11 +78,11 @@
 
             <!-- radio input -->
             <mat-radio-group
+              *ngSwitchCase="'radio'"
               appearance="outline"
               [style.width.vw]="10"
               formControlName="{{ form_elem.label }}"
               class="dynamic-form__item"
-              *ngSwitchCase="'radio'"
             >
               <mat-label class="dynamic-form__label"
                 >{{ form_elem.label | uppercase }}:
@@ -71,6 +91,18 @@
               <mat-radio-button value="true"> Yes </mat-radio-button>
               <mat-radio-button value="false"> No </mat-radio-button>
             </mat-radio-group>
+
+            <!-- checkbox input -->
+            <mat-form-field
+              *ngSwitchCase="'checkbox'"
+              appearance="outline"
+              [style.width.vw]="10"
+              formControlName="{{ form_elem.label }}"
+              class="dynamic-form__item"
+            >
+              Option
+              <input type="checkbox" />
+            </mat-form-field>
           </div>
         </div>
       </div>

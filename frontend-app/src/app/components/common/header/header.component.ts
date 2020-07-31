@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { eventDispatcher, store } from '../../../store/reducer';
 import { ActionTypes } from '../../../store/actions';
-import { User } from 'src/app/models/User';
+import { IUser } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ import { User } from 'src/app/models/User';
 })
 export class HeaderComponent implements OnInit, OnChanges {
   @Input() backgroundColor: string = 'primary';
-  @Input() user: User = null;
+  @Input() user: IUser = null;
   accountButtonText: string = 'Account';
 
   logout() {

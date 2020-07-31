@@ -1,7 +1,9 @@
+import { Subscription } from 'rxjs';
 import { CrudService } from 'src/app/services/crud.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { configureNewItem } from '../../../utils';
+import { IUser } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +11,7 @@ import { configureNewItem } from '../../../utils';
   styleUrls: ['./register.component.scss'],
   providers: [CrudService],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   registerForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
@@ -23,12 +25,20 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   onSubmit(formValue) {
-    const user = configureNewItem({ ...formValue, role: 'USER' });
+    const user: IUser = configureNewItem({
+      ...formValue,
+      roles: { role_ADMIN: false, role_USER: true },
+    });
 
     this.usersService
       .create('http://localhost:3000/users', user)
-      .subscribe((err) => console.log(err));
+      .subscribe((err) => console.log(err))
+      .unsubscribe();
   }
 
   ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    // this.userService.un
+  }
 }

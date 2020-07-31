@@ -3,5 +3,5 @@ export interface IUser {
   email: string;
   password: string;
   dateAdded: string;
-  role: string;
+  roles: { role_USER: boolean; role_ADMIN: boolean };
 }

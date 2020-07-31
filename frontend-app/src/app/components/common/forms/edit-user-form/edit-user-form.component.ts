@@ -5,8 +5,8 @@ import { Inject } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { User } from 'src/app/models/User';
 import { CrudService } from '../../../../services/crud.service';
+import { IUser } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-edit-user-form',
@@ -32,7 +32,7 @@ export class EditUserFormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  editUser(user: User) {
+  editUser(user: IUser) {
     this.usersService.update('localhost:3000/users', user.id, user).subscribe(
       (user) => {
         this.result = `User "${user.email}" was successfully updated.`;
@@ -45,12 +45,12 @@ export class EditUserFormComponent implements OnInit {
     console.log('edit', formValue);
     console.log('roles', this.rolesForm.value);
 
-    const item: User = {
+    const item: IUser = {
       id: this.data.id,
       email: formValue.email,
       password: formValue.password,
       dateAdded: this.data.dateAdded,
-      role: formValue.role,
+      roles: { role_ADMIN: false, role_USER: true },
       // roles: {
       //   USER: this.rolesForm.value.role_USER,
       //   ADMIN: this.rolesForm.value.role_ADMIN,

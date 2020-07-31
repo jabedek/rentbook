@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ITableConfig } from '../../../interfaces';
-import { User } from 'src/app/models/User';
+import { ITableConfig, IUser } from '../../../interfaces';
 
 @Component({
   selector: 'app-admin-users',
@@ -8,12 +7,12 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./admin-users.component.scss'],
 })
 export class AdminUsersComponent {
-  formTemplate: User = {
+  formTemplate: IUser = {
     id: '',
     dateAdded: '',
     email: '',
     password: '',
-    role: '',
+    roles: { role_ADMIN: false, role_USER: true },
   };
 
   config: ITableConfig = {
