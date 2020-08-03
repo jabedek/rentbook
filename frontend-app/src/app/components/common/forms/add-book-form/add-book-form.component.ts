@@ -46,7 +46,6 @@ export class AddBookFormComponent implements OnInit {
       author: formValue.author,
       genre: formValue.genre,
       available: true,
-      heldByClient: `00000000-0000-0000-0000-000000000000`,
     };
 
     this.addBook(book);

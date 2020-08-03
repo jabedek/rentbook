@@ -1,0 +1,16 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let control of controlsNames">
+      [{{ control }}]:
+      <div *ngIf="!isTemplateAnObject(control)">
+        <input formControlName="{{ control }}" />
+      </div>
+
+      <div *ngIf="isTemplateAnObject(control)">
+        <form formGroupName="roles">
+          <input formControlName="role_ADMIN" />
+        </form>
+      </div>
+    </div>
+  </form>
+</div>

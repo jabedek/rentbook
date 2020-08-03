@@ -38,18 +38,13 @@ export class CrudTableComponent implements OnInit, OnChanges {
     console.log(event);
   }
 
-  initForm() {
-    let configObject = {
-      templateObject: this.config.formTemplate,
-    };
-    return configObject;
-  }
-
   private mapItemPropsToColumns() {
-    this.displayedColumns = [
-      ...Object.keys(this.config.formTemplate),
-      ...this.config.columns,
-    ];
+    this.displayedColumns = this.config.columns.map((col) => col.label);
+
+    // [
+    //   ...Object.keys(this.config.formTemplate),
+    //   ...this.config.columns,
+    // ];
 
     this.dataSource = new MatTableDataSource(this.items);
   }
@@ -99,6 +94,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.fetchItems();
+    this.currentlyEdited = this.config.formTemplate;
   }
 
   ngOnChanges(changes: SimpleChanges) {}

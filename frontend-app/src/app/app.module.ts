@@ -45,6 +45,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DynamicForm3Component } from './components/common/forms/dynamic-form3/dynamic-form3.component';
+import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,8 @@ import { DynamicForm3Component } from './components/common/forms/dynamic-form3/d
     EditUserFormComponent,
 
     DynamicForm3Component,
+
+    DynamicFormComponent,
   ],
   imports: [
     BrowserModule,

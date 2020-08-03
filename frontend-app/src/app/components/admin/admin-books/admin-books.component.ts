@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ITableConfig, IBook } from '../../../interfaces';
+import { ITableConfig } from '../../../interfaces';
 
 @Component({
   selector: 'app-admin-books',
@@ -8,22 +8,70 @@ import { ITableConfig, IBook } from '../../../interfaces';
   providers: [],
 })
 export class AdminBooksComponent {
-  formTemplate: IBook = {
-    id: '',
-    title: '',
-    author: '',
-    genre: '',
-    available: false,
-    heldByClient: '',
-  };
-
   config: ITableConfig = {
     name: 'books',
-    formTemplate: this.formTemplate,
     url: `http://localhost:3000/books`,
-    filterable: true,
-    orderable: true,
     modals: true,
-    columns: ['actions'],
+    columns: [
+      {
+        name: 'id',
+        label: 'ID',
+        inputType: 'text',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [{ name: 'required', value: true }],
+      },
+
+      {
+        name: 'title',
+        label: 'Title',
+        inputType: 'text',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [{ name: 'required', value: true }],
+      },
+
+      {
+        name: 'author',
+        label: 'Author',
+        inputType: 'text',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [{ name: 'required', value: true }],
+      },
+
+      {
+        name: 'genre',
+        label: 'Genre',
+        inputType: 'text',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [{ name: 'required', value: true }],
+      },
+
+      {
+        name: 'available',
+        label: 'Available',
+        inputType: 'radio',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [{ name: 'required', value: true }],
+      },
+
+      {
+        name: 'dataAdded',
+        label: 'Added on',
+        inputType: 'radio',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [{ name: 'required', value: true }],
+      },
+    ],
   };
 }

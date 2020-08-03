@@ -1,7 +1,12 @@
+export interface IRole {
+  role: string;
+  value: boolean;
+}
+
 export interface IUser {
   id: string;
   email: string;
   password: string;
   dateAdded: string;
-  roles: { role_USER: boolean; role_ADMIN: boolean };
+  roles: IRole[];
 }

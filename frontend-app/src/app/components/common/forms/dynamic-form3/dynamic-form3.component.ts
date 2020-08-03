@@ -27,7 +27,7 @@ import { IUser, IBook } from 'src/app/interfaces';
 })
 export class DynamicForm3Component implements OnInit, OnChanges {
   editable: null | IUser | IBook; // if null then it's Create mode
-  @Input('formConfig') config: any;
+  @Input() formTemplate: any;
   @Input() currentlyEdited: any;
   @Output() createItem = new EventEmitter();
   mainForm: FormGroup;
@@ -151,7 +151,7 @@ export class DynamicForm3Component implements OnInit, OnChanges {
   ngOnInit() {
     // this.initTestForm();
 
-    const item = this.currentlyEdited || this.config.templateObject;
+    const item = this.currentlyEdited || this.formTemplate.templateObject;
 
     this.createFormTemplate(item);
     this.mainForm.valueChanges.subscribe((data) => {

@@ -6,7 +6,6 @@
       "author": "",
       "genre": "",
       "available": "",
-      "heldByClient": "",
       "dateAdded": "30.07.2020"
     },
     {
@@ -15,20 +14,8 @@
       "author": "",
       "genre": "",
       "available": "",
-      "heldByClient": "",
       "dateAdded": "31.07.2020"
     }
   ],
-  "users": [
-    {
-      "id": "ceaf5758-12c6-7e79-e092-c8803b6d3a67",
-      "email": "a@d",
-      "password": "dwdwqddqwdqwd",
-      "roles": {
-        "role_ADMIN": false,
-        "role_USER": true
-      },
-      "dateAdded": "31.07.2020"
-    }
-  ]
+  "users": []
 }

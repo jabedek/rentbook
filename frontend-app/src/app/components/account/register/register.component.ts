@@ -1,3 +1,4 @@
+import { IRole } from './../../../interfaces/user';
 import { Subscription } from 'rxjs';
 import { CrudService } from 'src/app/services/crud.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -25,9 +26,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ) {}
 
   onSubmit(formValue) {
+    const roles: IRole[] = [
+      { role: 'USER', value: true },
+      { role: 'ADMIN', value: false },
+    ];
+
     const user: IUser = configureNewItem({
       ...formValue,
-      roles: { role_ADMIN: false, role_USER: true },
+      roles,
     });
 
     this.usersService

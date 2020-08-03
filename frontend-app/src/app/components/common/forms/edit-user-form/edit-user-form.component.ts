@@ -1,3 +1,4 @@
+import { IRole } from './../../../../interfaces/user';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -45,16 +46,17 @@ export class EditUserFormComponent implements OnInit {
     console.log('edit', formValue);
     console.log('roles', this.rolesForm.value);
 
+    const roles: IRole[] = [
+      { role: 'USER', value: true },
+      { role: 'ADMIN', value: false },
+    ];
+
     const item: IUser = {
       id: this.data.id,
       email: formValue.email,
       password: formValue.password,
       dateAdded: this.data.dateAdded,
-      roles: { role_ADMIN: false, role_USER: true },
-      // roles: {
-      //   USER: this.rolesForm.value.role_USER,
-      //   ADMIN: this.rolesForm.value.role_ADMIN,
-      // },
+      roles,
     };
 
     this.editUser(item);

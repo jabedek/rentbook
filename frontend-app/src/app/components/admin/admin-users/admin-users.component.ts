@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ITableConfig, IUser } from '../../../interfaces';
+import { ITableConfig } from '../../../interfaces';
 
 @Component({
   selector: 'app-admin-users',
@@ -7,21 +7,43 @@ import { ITableConfig, IUser } from '../../../interfaces';
   styleUrls: ['./admin-users.component.scss'],
 })
 export class AdminUsersComponent {
-  formTemplate: IUser = {
-    id: '',
-    dateAdded: '',
-    email: '',
-    password: '',
-    roles: { role_ADMIN: false, role_USER: true },
-  };
-
   config: ITableConfig = {
     name: 'users',
-    formTemplate: this.formTemplate,
     url: `http://localhost:3000/users`,
-    filterable: true,
-    orderable: true,
     modals: true,
-    columns: ['actions'],
+
+    columns: [
+      {
+        name: 'id',
+        label: 'ID',
+        inputType: 'text',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [{ name: 'required', value: true }],
+      },
+      {
+        name: 'name',
+        label: 'Name',
+        inputType: 'text',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [{ name: 'required', value: true }],
+      },
+
+      {
+        name: 'email',
+        label: 'Email',
+        inputType: 'email',
+        editable: false,
+        orderable: false,
+        filterable: true,
+        validate: [
+          { name: 'required', value: true },
+          { name: 'email', value: true },
+        ],
+      },
+    ],
   };
 }

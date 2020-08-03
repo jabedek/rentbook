@@ -2,13 +2,16 @@
 
 <div class="table-wrapper">
   <section class="table-form">
-    <app-dynamic-form3
+    <!-- <app-dynamic-form3
+      
       *ngIf="this.config.formTemplate"
-      [formConfig]="initForm()"
+      [formTemplate]="config.formTemplate"
       [currentlyEdited]="currentlyEdited"
       (createItem)="onCreate($event)"
     >
-    </app-dynamic-form3>
+    </app-dynamic-form3> -->
+
+    <app-dynamic-form [templateItem]="config.formTemplate"></app-dynamic-form>
   </section>
 
   <mat-table
