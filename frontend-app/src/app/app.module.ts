@@ -22,10 +22,10 @@ import { RegisterComponent } from './components/account/register/register.compon
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
 import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
-import { AddBookFormComponent } from './components/common/forms/add-book-form/add-book-form.component';
-import { EditBookFormComponent } from './components/common/forms/edit-book-form/edit-book-form.component';
-import { AddUserFormComponent } from './components/common/forms/add-user-form/add-user-form.component';
-import { EditUserFormComponent } from './components/common/forms/edit-user-form/edit-user-form.component';
+// import { AddBookFormComponent } from './components/common/forms/add-book-form/add-book-form.component';
+// import { EditBookFormComponent } from './components/common/forms/edit-book-form/edit-book-form.component';
+// import { AddUserFormComponent } from './components/common/forms/add-user-form/add-user-form.component';
+// import { EditUserFormComponent } from './components/common/forms/edit-user-form/edit-user-form.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/Toolbar';
@@ -62,10 +62,10 @@ import { DynamicFormComponent } from './components/common/forms/dynamic-form/dyn
     PasswordResetComponent,
     SectionHeaderComponent,
     CrudTableComponent,
-    AddBookFormComponent,
-    EditBookFormComponent,
-    AddUserFormComponent,
-    EditUserFormComponent,
+    // AddBookFormComponent,
+    // EditBookFormComponent,
+    // AddUserFormComponent,
+    // EditUserFormComponent,
 
     DynamicForm3Component,
 

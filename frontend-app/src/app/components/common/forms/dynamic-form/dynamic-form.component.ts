@@ -5,9 +5,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
-import { IUser, IBook } from 'src/app/interfaces';
+import { IUser, IBook, ITableColumn } from 'src/app/interfaces';
+import { filter } from 'rxjs/operators';
 
-type BackendTypes = IUser | IBook;
+type BackendData = IUser | IBook;
 
 @Component({
   selector: 'app-dynamic-form',
@@ -15,68 +16,36 @@ type BackendTypes = IUser | IBook;
   styleUrls: ['./dynamic-form.component.scss'],
 })
 export class DynamicFormComponent implements OnInit {
-  @Input() templateItem: null | BackendTypes;
+  @Input() columns: ITableColumn[];
+  @Input() item: null | BackendData;
 
-  templateData = [];
-  controlsNames;
-  options;
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
   setupForm() {
-    let itemKeys = Object.keys(this.templateItem);
+    // console.log(this.columns);
+    // console.log(this.item);
 
-    itemKeys.forEach((key) => {
-      let template = {
-        label: key,
-        value: [this.templateItem[key]],
-        type: this.determineInputType(key, this.templateItem[key]),
-        order: 0,
-      };
+    let group = {};
 
-      if (template.type === 'object') {
-        template.value = [{}];
-        Object.keys(template.value);
-      }
-
-      this.templateData.push(template);
-      console.log(this.templateData);
+    this.columns.forEach((col) => {
+      group[col.name] = new FormControl('', Validators.required);
     });
+
+    // console.log(group);
+    this.form = this.fb.group(group);
+    console.log(this.form);
   }
 
-  onSubmit() {}
+  onSubmit(stuff) {}
 
-  isTemplateAnObject(control) {
-    const result = typeof this.form.controls[control].value === 'object';
-
-    return result;
-  }
-
-  determineInputType(label: string, value) {
-    let resultType: string = '';
-
-    if (typeof value === 'string') {
-      resultType = label === 'email' ? 'email' : 'text';
-    }
-
-    if (typeof value === 'number') {
-      resultType = 'number';
-    }
-
-    if (typeof value === 'boolean') {
-      resultType = 'radio';
-    }
-
-    if (typeof value === 'object') {
-      resultType = 'select';
-    }
-
-    return resultType;
-  }
+  onChange(event) {}
 
   ngOnInit(): void {
-    console.log(this.templateItem);
     this.setupForm();
+    this.form.valueChanges.subscribe((data) =>
+      console.log('Data', JSON.stringify(data))
+    );
   }
 }

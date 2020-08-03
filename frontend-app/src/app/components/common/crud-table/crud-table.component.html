@@ -1,76 +1,28 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
-
 <div class="table-wrapper">
-  <section class="table-form">
-    <!-- <app-dynamic-form3
-      
-      *ngIf="this.config.formTemplate"
-      [formTemplate]="config.formTemplate"
-      [currentlyEdited]="currentlyEdited"
-      (createItem)="onCreate($event)"
-    >
-    </app-dynamic-form3> -->
+  <app-dynamic-form [columns]="config.columns" [item]="{}"></app-dynamic-form>
 
-    <app-dynamic-form [templateItem]="config.formTemplate"></app-dynamic-form>
-  </section>
-
-  <mat-table
-    *ngIf="dataSource"
-    [dataSource]="dataSource"
-    class="table"
-    matSort
-    [class.mat-elevation-z3]="'true'"
-  >
-    <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
-      <mat-header-cell *matHeaderCellDef>
-        {{ col | titlecase }}
-      </mat-header-cell>
-
-      <mat-cell *matCellDef="let object" class="cell" [ngSwitch]="col">
-        <span *ngSwitchDefault class="cell__content"> {{ object[col] }}</span>
-
-        <span *ngSwitchCase="'id'" class="cell__content cell__content--id">
-          {{ object[col] }}</span
-        >
-
-        <span
-          *ngSwitchCase="'heldByClient'"
-          class="cell__content cell__content--id"
-        >
-          {{ object[col] }}</span
-        >
-        <span *ngSwitchCase="'actions'" class="cell__content">
-          <button
-            mat-mini-fab
-            color="primary"
-            class="btn-add-row"
-            type="button"
-            (click)="setCurrentlyEdited(object)"
-          >
-            <mat-icon fontSet="material-icons-outlined" matSuffix
-              >edit</mat-icon
-            >
-          </button>
-
-          <button
-            mat-mini-fab
-            color="warn"
-            type="button"
-            (click)="onDelete(object)"
-            class="cell__button"
-          >
-            <mat-icon fontSet="material-icons-outlined" matSuffix
-              >delete</mat-icon
-            >
-          </button></span
-        >
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row
-      *matRowDef="let row; columns: displayedColumns"
-      class="table__row"
-    ></mat-row>
-  </mat-table>
+  <table class="table">
+    <thead class="table__head">
+      <tr class="table__row">
+        <th class="table__header" *ngFor="let col of config.columns">
+          {{ col.label }}
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table__body">
+      <tr class="table__row" *ngFor="let item of items">
+        <td *ngFor="let col of config.columns">
+          <div *ngIf="col.inputType !== 'select'">{{ item[col.name] }}</div>
+          <div *ngIf="col.inputType === 'select'">
+            <div>
+              <p *ngFor="let option of col.options">
+                <span>{{ item[option.label] }}</span>
+              </p>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

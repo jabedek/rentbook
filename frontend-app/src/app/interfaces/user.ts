@@ -1,12 +1,9 @@
-export interface IRole {
-  role: string;
-  value: boolean;
-}
+import { ISelectOption } from './table';
 
 export interface IUser {
   id: string;
   email: string;
   password: string;
-  dateAdded: string;
-  roles: IRole[];
+  nextPayment: Date;
+  role: string;
 }

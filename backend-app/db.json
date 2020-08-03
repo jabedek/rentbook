@@ -3,7 +3,7 @@
     {
       "id": "ceeec388-05c5-f793-238a-29713161477f",
       "title": "",
-      "author": "",
+      "author": "jk",
       "genre": "",
       "available": "",
       "dateAdded": "30.07.2020"
@@ -17,5 +17,20 @@
       "dateAdded": "31.07.2020"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "e17d3c3d-010b-4cd7-bae4-1fd7c8bf7753",
+      "email": "dwddwd@dwdd",
+      "password": "dwdwdwdwqdwqd",
+      "role": "USER",
+      "nextPayment": "2020-08-03T23:17:49.113Z"
+    },
+    {
+      "id": "20e0f668-08f5-17e9-a25e-7ed407a878ff",
+      "email": "aaa@aaa.aaa",
+      "password": "asdsaasdadsds",
+      "role": "USER",
+      "nextPayment": "2020-08-03T23:31:49.928Z"
+    }
+  ]
 }

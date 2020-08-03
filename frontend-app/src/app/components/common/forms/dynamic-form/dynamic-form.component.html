@@ -1,15 +1,20 @@
-<div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let control of controlsNames">
-      [{{ control }}]:
-      <div *ngIf="!isTemplateAnObject(control)">
-        <input formControlName="{{ control }}" />
-      </div>
+<div *ngIf="columns">
+  <form [formGroup]="form" *ngFor="let col of columns">
+    {{ col.label }}
 
-      <div *ngIf="isTemplateAnObject(control)">
-        <form formGroupName="roles">
-          <input formControlName="role_ADMIN" />
-        </form>
+    <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
+      <input type="text" formControlName="{{ col.name }}" />
+    </div>
+    <div *ngIf="col.inputType === 'date' || col.inputType === 'number'">
+      <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
+    </div>
+    <div *ngIf="col.inputType === 'select'">
+      <div>
+        <select formControlName="{{ col.name }}">
+          <option *ngFor="let opt of col.options" [value]="opt.value">
+            {{ opt.value }}
+          </option>
+        </select>
       </div>
     </div>
   </form>

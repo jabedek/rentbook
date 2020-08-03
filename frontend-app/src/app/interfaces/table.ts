@@ -1,18 +1,27 @@
-import { IValidator } from './IValidator';
+export interface ISelectOption {
+  label: string;
+  value: string;
+}
 
-export interface IColumn {
+export interface IValidator {
+  label: string;
+  value: boolean;
+}
+
+export interface ITableColumn {
   label: string;
   name: string;
   inputType: string;
   editable: boolean;
   orderable: boolean;
   filterable: boolean;
-  validate: IValidator[] | [];
+  validators: IValidator[] | [];
+  options?: ISelectOption[];
 }
 
 export interface ITableConfig {
   name: string;
   url: string;
   modals: boolean;
-  columns: IColumn[];
+  columns: ITableColumn[];
 }

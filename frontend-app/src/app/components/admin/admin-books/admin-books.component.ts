@@ -18,9 +18,10 @@ export class AdminBooksComponent {
         label: 'ID',
         inputType: 'text',
         editable: false,
+        options: [],
         orderable: false,
         filterable: true,
-        validate: [{ name: 'required', value: true }],
+        validators: [{ label: 'required', value: true }],
       },
 
       {
@@ -28,9 +29,10 @@ export class AdminBooksComponent {
         label: 'Title',
         inputType: 'text',
         editable: false,
+        options: [],
         orderable: false,
         filterable: true,
-        validate: [{ name: 'required', value: true }],
+        validators: [{ label: 'required', value: true }],
       },
 
       {
@@ -38,9 +40,10 @@ export class AdminBooksComponent {
         label: 'Author',
         inputType: 'text',
         editable: false,
+        options: [],
         orderable: false,
         filterable: true,
-        validate: [{ name: 'required', value: true }],
+        validators: [{ label: 'required', value: true }],
       },
 
       {
@@ -48,9 +51,10 @@ export class AdminBooksComponent {
         label: 'Genre',
         inputType: 'text',
         editable: false,
+        options: [],
         orderable: false,
         filterable: true,
-        validate: [{ name: 'required', value: true }],
+        validators: [{ label: 'required', value: true }],
       },
 
       {
@@ -58,9 +62,10 @@ export class AdminBooksComponent {
         label: 'Available',
         inputType: 'radio',
         editable: false,
+        options: [],
         orderable: false,
         filterable: true,
-        validate: [{ name: 'required', value: true }],
+        validators: [{ label: 'required', value: true }],
       },
 
       {
@@ -68,9 +73,10 @@ export class AdminBooksComponent {
         label: 'Added on',
         inputType: 'radio',
         editable: false,
+        options: [],
         orderable: false,
         filterable: true,
-        validate: [{ name: 'required', value: true }],
+        validators: [{ label: 'required', value: true }],
       },
     ],
   };

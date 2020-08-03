@@ -35,7 +35,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
   setCurrentlyEdited(event: IUser | IBook) {
     this.currentlyEdited = event;
-    console.log(event);
+    // console.log(event);
   }
 
   private mapItemPropsToColumns() {
@@ -81,6 +81,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
       this.crudService.read(this.config.url).subscribe((data) => {
         if (data.length > 0) {
           this.items = data;
+          console.log(this.items);
         } else {
           this.items = [];
         }
@@ -94,7 +95,6 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.fetchItems();
-    this.currentlyEdited = this.config.formTemplate;
   }
 
   ngOnChanges(changes: SimpleChanges) {}

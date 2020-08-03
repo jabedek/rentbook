@@ -1,4 +1,3 @@
-import { IRole } from './../../../interfaces/user';
 import { Subscription } from 'rxjs';
 import { CrudService } from 'src/app/services/crud.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -20,31 +19,36 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   resultMessage: string = '';
 
+  usersServiceSub: Subscription;
+
   constructor(
     private usersService: CrudService,
     private formBuilder: FormBuilder
   ) {}
 
   onSubmit(formValue) {
-    const roles: IRole[] = [
-      { role: 'USER', value: true },
-      { role: 'ADMIN', value: false },
-    ];
+    const role = 'USER';
 
     const user: IUser = configureNewItem({
       ...formValue,
-      roles,
+      role,
+      nextPayment: new Date(),
     });
 
-    this.usersService
+    console.log('submit');
+
+    this.usersServiceSub = this.usersService
       .create('http://localhost:3000/users', user)
-      .subscribe((err) => console.log(err))
-      .unsubscribe();
+      .subscribe(
+        (data) => console.log(data),
+        (err) => console.log(err)
+      );
   }
 
   ngOnInit(): void {}
 
   ngOnDestroy(): void {
     // this.userService.un
+    this.usersServiceSub.unsubscribe();
   }
 }

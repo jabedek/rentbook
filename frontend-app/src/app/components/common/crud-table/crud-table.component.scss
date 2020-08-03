@@ -6,43 +6,70 @@
   overflow: scroll;
 }
 
-.btn-add-row {
-  margin: 1em;
-  position: relative;
-  align-self: flex-end;
-}
-
 .table {
-  margin: 0.8rem 0;
-  width: 90%;
+  border: 2px solid black;
+  width: 80%;
+  padding: 0.2em;
+
+  &__head,
+  &__header {
+    border: 1px solid white;
+  }
 
   &__row {
-    height: 6vh;
+    border: 1px solid red;
+    padding: 0.2em;
+  }
+
+  &__data {
+    border: 1px solid grey;
+  }
+
+  &__head,
+  &__data {
+    width: 2rem;
+    text-align: left;
+    border: 1px solid black;
   }
 }
 
-.cell {
-  margin: 0;
-  height: 100%;
-  flex-direction: row;
+// .btn-add-row {
+//   margin: 1em;
+//   position: relative;
+//   align-self: flex-end;
+// }
 
-  align-items: center;
-  align-content: center;
+// .table {
+//   margin: 0.8rem 0;
+//   width: 90%;
 
-  &__content {
-    font-size: 0.8rem;
+//   &__row {
+//     height: 6vh;
+//   }
+// }
 
-    &--id {
-      font-size: 0.65rem;
-      font-weight: 500;
-    }
-  }
+// .cell {
+//   margin: 0;
+//   height: 100%;
+//   flex-direction: row;
 
-  &__button {
-    // margin: 0 0.5rem;
-  }
-}
+//   align-items: center;
+//   align-content: center;
 
-.table-form {
-  width: 50%;
-}
+//   &__content {
+//     font-size: 0.8rem;
+
+//     &--id {
+//       font-size: 0.65rem;
+//       font-weight: 500;
+//     }
+//   }
+
+//   &__button {
+//     // margin: 0 0.5rem;
+//   }
+// }
+
+// .table-form {
+//   width: 50%;
+// }
