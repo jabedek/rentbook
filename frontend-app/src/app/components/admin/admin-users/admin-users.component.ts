@@ -17,11 +17,22 @@ export class AdminUsersComponent {
         name: 'id',
         label: 'ID',
         inputType: 'text',
-        editable: true,
+        editable: false,
         options: [],
         orderable: false,
         filterable: true,
-        validators: [{ label: 'required', value: true }],
+        validators: [],
+      },
+
+      {
+        name: 'dateAdded',
+        label: 'Joined on',
+        inputType: 'date',
+        editable: false,
+        options: [],
+        orderable: false,
+        filterable: true,
+        validators: [],
       },
       {
         name: 'password',
@@ -31,7 +42,10 @@ export class AdminUsersComponent {
         options: [],
         orderable: false,
         filterable: true,
-        validators: [{ label: 'required', value: true }],
+        validators: [
+          { label: 'required', value: true, parameters: [] },
+          { label: 'minLength', value: true, parameters: ['8'] },
+        ],
       },
 
       {
@@ -43,8 +57,17 @@ export class AdminUsersComponent {
         orderable: false,
         filterable: true,
         validators: [
-          { label: 'required', value: true },
-          { label: 'email', value: true },
+          { label: 'required', value: true, parameters: [] },
+          {
+            label: 'email',
+            value: true,
+            parameters: [],
+          },
+          {
+            label: 'pattern',
+            value: true,
+            parameters: ['^[a-zA-Z0-9._%+-]+@[a-zA-Z]+$'],
+          },
         ],
       },
       {
@@ -55,8 +78,9 @@ export class AdminUsersComponent {
         options: [],
         orderable: false,
         filterable: true,
-        validators: [{ label: 'required', value: true }],
+        validators: [{ label: 'required', value: true, parameters: [] }],
       },
+
       {
         name: 'role',
         label: 'Role',
@@ -64,7 +88,7 @@ export class AdminUsersComponent {
         editable: true,
         orderable: false,
         filterable: true,
-        validators: [{ label: 'required', value: true }],
+        validators: [{ label: 'required', value: true, parameters: [] }],
         options: [
           { label: 'role', value: 'ADMIN' },
           { label: 'role', value: 'USER' },

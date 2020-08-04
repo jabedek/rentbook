@@ -6,6 +6,7 @@ export interface ISelectOption {
 export interface IValidator {
   label: string;
   value: boolean;
+  parameters: any[]; // for i.e. regex or min-max values
 }
 
 export interface ITableColumn {

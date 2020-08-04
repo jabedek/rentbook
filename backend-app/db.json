@@ -5,32 +5,25 @@
       "title": "",
       "author": "jk",
       "genre": "",
-      "available": "",
       "dateAdded": "30.07.2020"
-    },
-    {
-      "id": "2ba490cf-d68c-8897-d61b-cd603712c5c2",
-      "title": "",
-      "author": "",
-      "genre": "",
-      "available": "",
-      "dateAdded": "31.07.2020"
     }
   ],
   "users": [
     {
-      "id": "e17d3c3d-010b-4cd7-bae4-1fd7c8bf7753",
-      "email": "dwddwd@dwdd",
-      "password": "dwdwdwdwqdwqd",
+      "id": "0c0eca5f-6856-42ae-b5c2-dec00e62afe0",
+      "email": "a@a",
+      "password": "12345678",
       "role": "USER",
-      "nextPayment": "2020-08-03T23:17:49.113Z"
+      "dateAdded": "2020-08-04T10:03:48.834Z",
+      "nextPayment": "2020-08-04T10:03:48.834Z"
     },
     {
-      "id": "20e0f668-08f5-17e9-a25e-7ed407a878ff",
-      "email": "aaa@aaa.aaa",
-      "password": "asdsaasdadsds",
+      "id": "57f1cb03-89e9-069a-d5d9-2de1d2ceeafb",
+      "email": "b@b",
+      "password": "1234500987654",
       "role": "USER",
-      "nextPayment": "2020-08-03T23:31:49.928Z"
+      "dateAdded": "2020-08-04T10:04:09.122Z",
+      "nextPayment": "2020-08-04T10:04:09.122Z"
     }
   ]
 }

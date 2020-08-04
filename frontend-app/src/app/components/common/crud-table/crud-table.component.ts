@@ -1,3 +1,4 @@
+import { BackendData } from './../../../types/BackendData';
 import {
   Component,
   OnInit,
@@ -27,29 +28,17 @@ export class CrudTableComponent implements OnInit, OnChanges {
   items = [];
   dataSource;
   displayedColumns: string[];
-  currentlyEdited: null | IUser | IBook = null;
+  currentlyEdited: null | BackendData = null;
 
-  constructor(public dialog: MatDialog, private crudService: CrudService) {
-    // this.questions$ = this.questionService.getQuestions();
-  }
-
-  setCurrentlyEdited(event: IUser | IBook) {
-    this.currentlyEdited = event;
-    // console.log(event);
-  }
+  constructor(public dialog: MatDialog, private crudService: CrudService) {}
 
   private mapItemPropsToColumns() {
     this.displayedColumns = this.config.columns.map((col) => col.label);
 
-    // [
-    //   ...Object.keys(this.config.formTemplate),
-    //   ...this.config.columns,
-    // ];
-
     this.dataSource = new MatTableDataSource(this.items);
   }
 
-  onCreate(item: IUser | IBook) {
+  onCreate(item: BackendData) {
     this.items.push(item);
     this.mapItemPropsToColumns();
     this.crudService.create(this.config.url, item).subscribe(() => {
@@ -57,7 +46,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     });
   }
 
-  onDelete(item: IUser | IBook) {
+  onDelete(item: BackendData) {
     this.items = this.items.filter((i) => {
       return item.id !== i.id;
     });
@@ -76,12 +65,16 @@ export class CrudTableComponent implements OnInit, OnChanges {
     }
   }
 
+  onEdit(item: BackendData) {
+    this.currentlyEdited = item;
+  }
+
   fetchItems() {
     if (this.crudService) {
       this.crudService.read(this.config.url).subscribe((data) => {
         if (data.length > 0) {
           this.items = data;
-          console.log(this.items);
+          console.log('items fetched:', this.items);
         } else {
           this.items = [];
         }

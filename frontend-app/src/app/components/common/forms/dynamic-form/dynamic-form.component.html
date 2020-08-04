@@ -2,20 +2,28 @@
   <form [formGroup]="form" *ngFor="let col of columns">
     {{ col.label }}
 
-    <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
-      <input type="text" formControlName="{{ col.name }}" />
-    </div>
-    <div *ngIf="col.inputType === 'date' || col.inputType === 'number'">
-      <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-    </div>
-    <div *ngIf="col.inputType === 'select'">
-      <div>
-        <select formControlName="{{ col.name }}">
-          <option *ngFor="let opt of col.options" [value]="opt.value">
-            {{ opt.value }}
-          </option>
-        </select>
+    <section *ngIf="col.editable">
+      <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
+        <input type="text" formControlName="{{ col.name }}" />
       </div>
-    </div>
+
+      <div *ngIf="col.inputType === 'date' || col.inputType === 'number'">
+        <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
+      </div>
+
+      <div *ngIf="col.inputType === 'select'">
+        <div>
+          <select formControlName="{{ col.name }}">
+            <option *ngFor="let opt of col.options" [value]="opt.value">
+              {{ opt.value }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section *ngIf="!col.editable">
+      [automatic value - can not be edited]
+    </section>
   </form>
 </div>

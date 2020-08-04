@@ -2,8 +2,8 @@ import { Subscription } from 'rxjs';
 import { CrudService } from 'src/app/services/crud.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { configureNewItem } from '../../../utils';
 import { IUser } from 'src/app/interfaces';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-register',
@@ -27,13 +27,14 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ) {}
 
   onSubmit(formValue) {
-    const role = 'USER';
-
-    const user: IUser = configureNewItem({
+    const user: IUser = {
+      id: '',
       ...formValue,
-      role,
+      role: 'USER',
+      dateAdded: new Date(),
       nextPayment: new Date(),
-    });
+    };
+    user.id = UUID.UUID();
 
     console.log('submit');
 

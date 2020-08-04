@@ -44,7 +44,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { DynamicForm3Component } from './components/common/forms/dynamic-form3/dynamic-form3.component';
 import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
 
 @NgModule({
@@ -62,12 +61,6 @@ import { DynamicFormComponent } from './components/common/forms/dynamic-form/dyn
     PasswordResetComponent,
     SectionHeaderComponent,
     CrudTableComponent,
-    // AddBookFormComponent,
-    // EditBookFormComponent,
-    // AddUserFormComponent,
-    // EditUserFormComponent,
-
-    DynamicForm3Component,
 
     DynamicFormComponent,
   ],
