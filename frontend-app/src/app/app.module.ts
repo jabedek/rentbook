@@ -26,7 +26,7 @@ import { AdminUsersComponent } from './components/admin/admin-users/admin-users.
 // import { EditBookFormComponent } from './components/common/forms/edit-book-form/edit-book-form.component';
 // import { AddUserFormComponent } from './components/common/forms/add-user-form/add-user-form.component';
 // import { EditUserFormComponent } from './components/common/forms/edit-user-form/edit-user-form.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/Toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -45,6 +45,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -90,8 +91,10 @@ import { DynamicFormComponent } from './components/common/forms/dynamic-form/dyn
     MatRadioModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
   entryComponents: [],
 })

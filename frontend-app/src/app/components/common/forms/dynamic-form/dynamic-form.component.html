@@ -3,23 +3,43 @@
     <div *ngFor="let col of columns">
       <section *ngIf="col.editable">
         {{ col.label }}
-        <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
-          <input type="text" formControlName="{{ col.name }}" />
-        </div>
+        <mat-form-field
+          appearance="outline"
+          *ngIf="col.inputType === 'text' || col.inputType === 'email'"
+        >
+          <input matInput type="text" formControlName="{{ col.name }}" />
+        </mat-form-field>
 
-        <div *ngIf="col.inputType === 'date' || col.inputType === 'number'">
-          <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-        </div>
+        <mat-form-field appearance="outline" *ngIf="col.inputType === 'number'">
+          <input
+            matInput
+            type="{{ col.inputType }}"
+            formControlName="{{ col.name }}"
+          />
+        </mat-form-field>
 
-        <div *ngIf="col.inputType === 'select'">
-          <div>
-            <select formControlName="{{ col.name }}">
-              <option *ngFor="let opt of col.options" [value]="opt.value">
-                {{ opt.value }}
-              </option>
-            </select>
-          </div>
-        </div>
+        <mat-form-field appearance="outline" *ngIf="col.inputType === 'date'">
+          <!-- <input
+            matInput
+            type="{{ col.inputType }}"
+            formControlName="{{ col.name }}"
+          /> -->
+
+          <input matInput [matDatepicker]="picker1" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" *ngIf="col.inputType === 'select'">
+          <select matNativeControl formControlName="{{ col.name }}">
+            <option *ngFor="let opt of col.options" [value]="opt.value">
+              {{ opt.value }}
+            </option>
+          </select>
+        </mat-form-field>
       </section>
 
       <section *ngIf="!col.editable">
