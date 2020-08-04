@@ -1,3 +1,4 @@
+import { BackendData } from './../types/BackendData';
 import { Injectable, Inject } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
@@ -12,8 +13,8 @@ const httpOptions = {
 };
 
 interface CrudOperations {
-  create(baseURL: string, data): Observable<any>;
-  update(baseURL: string, id: string, data): Observable<any>;
+  create(baseURL: string, data: BackendData): Observable<any>;
+  update(baseURL: string, id: string, data: BackendData): Observable<any>;
   read(baseURL: string): Observable<any[]>;
   readOne(baseURL: string, id: string): Observable<any>;
   readByProperty(
@@ -30,12 +31,12 @@ interface CrudOperations {
 export class CrudService implements CrudOperations {
   constructor(protected _http: HttpClient) {}
 
-  create(baseURL: string, data): Observable<any> {
+  create(baseURL: string, data: BackendData): Observable<any> {
     const url = baseURL;
-    return this._http.post<any>(url, data);
+    return this._http.post<any>(url, this.prepackNewItem(data));
   }
 
-  update(baseURL: string, id: string, data): Observable<any> {
+  update(baseURL: string, id: string, data: BackendData): Observable<any> {
     const url = baseURL + '/' + id;
     return this._http.put<any>(url, data, httpOptions);
   }
@@ -62,5 +63,19 @@ export class CrudService implements CrudOperations {
   delete(baseURL: string, id: string): Observable<any> {
     const url = baseURL + '/' + id;
     return this._http.delete<any>(url, httpOptions);
+  }
+
+  private prepackNewItem(item): BackendData {
+    let prepackedItem: BackendData = {
+      id: '',
+      ...item,
+      dateAdded: new Date(),
+    };
+
+    prepackedItem.id = UUID.UUID();
+
+    console.log(prepackedItem);
+
+    return prepackedItem;
   }
 }

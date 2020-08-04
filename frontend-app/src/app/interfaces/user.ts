@@ -5,6 +5,6 @@ export interface IUser {
   email: string;
   password: string;
   nextPayment: Date;
-  dateAdded: Date;
+  dateAdded: string;
   role: string;
 }

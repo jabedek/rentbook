@@ -1,27 +1,38 @@
 import { BackendData } from './../../../../types/BackendData';
-import { IValidator } from './../../../../interfaces/table';
 import {
   FormBuilder,
   FormGroup,
   FormControl,
   Validators,
 } from '@angular/forms';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { IUser, IBook, ITableColumn } from 'src/app/interfaces';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  EventEmitter,
+  Output,
+  OnDestroy,
+} from '@angular/core';
+import { ITableColumn } from 'src/app/interfaces';
 import { filter } from 'rxjs/operators';
-
-// type BackendData = IUser | IBook;
+import { UUID } from 'angular2-uuid';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.scss'],
 })
-export class DynamicFormComponent implements OnInit, OnChanges {
+export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[];
-  @Input() item: null | BackendData;
+  @Input('item') inputData: null | BackendData;
+  @Output('createItem') createItem = new EventEmitter<BackendData>();
+  @Output('unpickItem') unpickItem = new EventEmitter();
+  @Output('updateItem') updateItem = new EventEmitter<BackendData>();
 
   form: FormGroup;
+  formSub: Subscription;
 
   constructor(private fb: FormBuilder) {}
 
@@ -29,7 +40,11 @@ export class DynamicFormComponent implements OnInit, OnChanges {
     let group = {};
 
     this.columns.forEach((col) => {
-      group[col.name] = new FormControl('', this.setValidators(col));
+      if (col.name === 'id') {
+        group[col.name] = new FormControl(UUID.UUID(), this.setValidators(col));
+      } else {
+        group[col.name] = new FormControl('', this.setValidators(col));
+      }
     });
 
     this.form = this.fb.group(group);
@@ -59,29 +74,48 @@ export class DynamicFormComponent implements OnInit, OnChanges {
       }
     });
 
-    console.log(column.name);
-
     return validators;
   }
 
-  onSubmit(stuff) {}
+  resetForm() {
+    this.unpickItem.emit();
+    this.form.reset();
+    this.setupForm();
+  }
 
-  onChange(event) {
-    console.log('change');
+  onSubmit() {
+    if (this.form.valid) {
+      if (this.inputData) {
+        this.updateItem.emit(this.form.value);
+      } else {
+        this.createItem.emit(this.form.value);
+      }
+    }
   }
 
   ngOnInit(): void {
     this.setupForm();
-    this.form.valueChanges
-      .pipe(filter((data) => this.form.valid))
-      .subscribe((data) => console.log('Data', JSON.stringify(data)));
+    this.formSub = this.form.valueChanges
+      .pipe(
+        filter(() => {
+          return this.form.valid;
+        })
+      )
+      .subscribe((data) => {
+        // console.log('Data', JSON.stringify(data));
+        // console.log('changes in dynamic-form');
+      });
   }
 
-  ngOnChanges(changes): void {
-    console.log('changes', changes);
-
-    if (this.item) {
-      this.form.setValue(this.item);
+  ngOnChanges(): void {
+    if (this.inputData) {
+      this.form.setValue(this.inputData);
     }
+  }
+
+  ngOnDestroy(): void {
+    console.log('Destroy');
+
+    this.formSub.unsubscribe();
   }
 }

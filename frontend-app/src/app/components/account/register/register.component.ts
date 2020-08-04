@@ -28,21 +28,33 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   onSubmit(formValue) {
     const user: IUser = {
-      id: '',
       ...formValue,
       role: 'USER',
-      dateAdded: new Date(),
       nextPayment: new Date(),
     };
-    user.id = UUID.UUID();
 
     console.log('submit');
 
     this.usersServiceSub = this.usersService
-      .create('http://localhost:3000/users', user)
+      .readByProperty('http://localhost:3000/users', 'email', user.email)
       .subscribe(
-        (data) => console.log(data),
-        (err) => console.log(err)
+        (users) => {
+          if (users.length) {
+            let msg = 'This email address is already in use.';
+            this.resultMessage = msg;
+          } else {
+            this.usersService
+              .create('http://localhost:3000/users', user)
+              .subscribe(
+                (user) => {
+                  let msg = `User ${user.email} has been created and his id is: [${user.id}]`;
+                  this.resultMessage = msg;
+                },
+                (err) => (this.resultMessage += `Error: ${err}`)
+              );
+          }
+        },
+        (err) => (this.resultMessage += `Error: ${err}`)
       );
   }
 
@@ -50,6 +62,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     // this.userService.un
-    this.usersServiceSub.unsubscribe();
+    // this.usersServiceSub.unsubscribe();
   }
 }

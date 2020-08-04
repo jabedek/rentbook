@@ -19,6 +19,10 @@
   &__row {
     border: 1px solid red;
     padding: 0.2em;
+
+    &:hover {
+      background: rgba(150, 150, 150, 1);
+    }
   }
 
   &__data {

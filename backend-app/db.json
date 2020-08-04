@@ -1,29 +1,64 @@
 {
   "books": [
     {
-      "id": "ceeec388-05c5-f793-238a-29713161477f",
-      "title": "",
-      "author": "jk",
-      "genre": "",
-      "dateAdded": "30.07.2020"
+      "id": "5c018626-128b-b778-f0a8-109524c71642",
+      "dateAdded": "2020-08-04T11:54:20.376Z",
+      "title": "ss",
+      "author": "sadsadsfdsdf",
+      "genre": "sadsadfssddasdf"
+    },
+    {
+      "id": "4b49cc1e-fb95-e19d-3325-d7e898f7cb95",
+      "dateAdded": "2020-08-04T15:28:39.947Z",
+      "title": "sadsad",
+      "author": "dsad",
+      "genre": "dsadasdasd"
+    },
+    {
+      "id": "9a0d8591-d339-d5ea-6307-dbb719373ce0",
+      "dateAdded": "2020-08-04T15:28:42.149Z",
+      "title": "sadsad",
+      "author": "dsad",
+      "genre": "dsadasdasd"
+    },
+    {
+      "id": "d7adab59-65ac-f976-6436-614d21e1d367",
+      "dateAdded": "2020-08-04T15:28:43.073Z",
+      "title": "sadsad",
+      "author": "dsad",
+      "genre": "dsadasdasd"
+    },
+    {
+      "id": "0d6d7bab-9276-d737-8d38-113c7aa13ef8",
+      "dateAdded": "2020-08-04T18:38:04.387Z",
+      "title": "asdasd",
+      "author": "asda",
+      "genre": "asd"
+    },
+    {
+      "id": "627bd685-66a5-b20e-b0df-b78c06ffaa55",
+      "dateAdded": "2020-08-04T18:38:08.965Z",
+      "title": "dsad",
+      "author": "sadsdsa",
+      "genre": "das"
     }
   ],
   "users": [
     {
-      "id": "0c0eca5f-6856-42ae-b5c2-dec00e62afe0",
-      "email": "a@a",
-      "password": "12345678",
-      "role": "USER",
-      "dateAdded": "2020-08-04T10:03:48.834Z",
-      "nextPayment": "2020-08-04T10:03:48.834Z"
+      "id": "19157e56-2542-5140-f869-9dc571a0d23a",
+      "dateAdded": "2020-08-04T15:28:00.542Z",
+      "password": "aaaaaaaa",
+      "email": "ba@aa",
+      "nextPayment": "2020-03-12",
+      "role": "ADMIN"
     },
     {
-      "id": "57f1cb03-89e9-069a-d5d9-2de1d2ceeafb",
-      "email": "b@b",
-      "password": "1234500987654",
-      "role": "USER",
-      "dateAdded": "2020-08-04T10:04:09.122Z",
-      "nextPayment": "2020-08-04T10:04:09.122Z"
+      "id": "292051d0-3e4b-c98b-243a-850400ae5d24",
+      "dateAdded": "2020-08-04T15:28:10.454Z",
+      "password": "aaaaaaaa",
+      "email": "ba@aaa",
+      "nextPayment": "2020-03-12",
+      "role": "ADMIN"
     }
   ]
 }

@@ -10,6 +10,7 @@ import { ITableConfig } from '../../../interfaces';
 export class AdminBooksComponent {
   config: ITableConfig = {
     name: 'books',
+
     url: `http://localhost:3000/books`,
     modals: true,
     columns: [
@@ -26,7 +27,7 @@ export class AdminBooksComponent {
 
       {
         name: 'dateAdded',
-        label: 'Joined on',
+        label: 'Added on',
         inputType: 'date',
         editable: false,
         options: [],

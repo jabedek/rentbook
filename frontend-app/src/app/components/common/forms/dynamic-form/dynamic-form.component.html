@@ -1,29 +1,35 @@
 <div *ngIf="columns">
-  <form [formGroup]="form" *ngFor="let col of columns">
-    {{ col.label }}
-
-    <section *ngIf="col.editable">
-      <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
-        <input type="text" formControlName="{{ col.name }}" />
-      </div>
-
-      <div *ngIf="col.inputType === 'date' || col.inputType === 'number'">
-        <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-      </div>
-
-      <div *ngIf="col.inputType === 'select'">
-        <div>
-          <select formControlName="{{ col.name }}">
-            <option *ngFor="let opt of col.options" [value]="opt.value">
-              {{ opt.value }}
-            </option>
-          </select>
+  <form [formGroup]="form">
+    <div *ngFor="let col of columns">
+      <section *ngIf="col.editable">
+        {{ col.label }}
+        <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
+          <input type="text" formControlName="{{ col.name }}" />
         </div>
-      </div>
-    </section>
 
-    <section *ngIf="!col.editable">
-      [automatic value - can not be edited]
-    </section>
+        <div *ngIf="col.inputType === 'date' || col.inputType === 'number'">
+          <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
+        </div>
+
+        <div *ngIf="col.inputType === 'select'">
+          <div>
+            <select formControlName="{{ col.name }}">
+              <option *ngFor="let opt of col.options" [value]="opt.value">
+                {{ opt.value }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section *ngIf="!col.editable">
+        {{ col.label }}
+        <div>
+          [automatic value - can not be edited]
+        </div>
+      </section>
+    </div>
+    <button (click)="resetForm()" type="button">Erase</button>
+    <button (click)="onSubmit()">Submit</button>
   </form>
 </div>

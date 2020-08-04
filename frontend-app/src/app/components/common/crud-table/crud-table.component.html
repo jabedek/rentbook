@@ -3,8 +3,19 @@
   <app-dynamic-form
     [columns]="config.columns"
     [item]="currentlyEdited"
-  ></app-dynamic-form>
+    (createItem)="onCreate($event)"
+    (updateItem)="onUpdate($event)"
+    (unpickItem)="onUnpick()"
+  >
+  </app-dynamic-form>
+  <p>{{ resultMessage }}</p>
 
+  <p>
+    CURRENTLY EDITED:
+    <span *ngIf="currentlyEdited">
+      {{ currentlyEdited.id }}
+    </span>
+  </p>
   <table class="table">
     <thead class="table__head">
       <tr class="table__row">
@@ -21,7 +32,7 @@
         </td>
 
         <td>
-          <button type="button" (click)="onEdit(item)">Edit</button>
+          <button type="button" (click)="onPickItem(item)">Edit</button>
           <button type="button" (click)="onDelete(item)">Delete</button>
         </td>
       </tr>

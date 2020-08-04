@@ -2,16 +2,13 @@ import { BackendData } from './../../../types/BackendData';
 import {
   Component,
   OnInit,
-  ViewChild,
   Input,
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
 import { CrudService } from '../../../services/crud.service';
-import { ITableConfig, IUser, IBook } from '../../../interfaces';
+import { ITableConfig } from '../../../interfaces';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-crud-table',
@@ -19,29 +16,63 @@ import { ITableConfig, IUser, IBook } from '../../../interfaces';
   styleUrls: ['./crud-table.component.scss'],
   providers: [CrudService],
 })
-
-// TO/MAYBE DO? Type input for this component (Passing types <T>)
 export class CrudTableComponent implements OnInit, OnChanges {
-  // questions$: Observable<QuestionBase<any>[]> = null;
-
   @Input() config: ITableConfig;
   items = [];
-  dataSource;
   displayedColumns: string[];
   currentlyEdited: null | BackendData = null;
 
-  constructor(public dialog: MatDialog, private crudService: CrudService) {}
+  resultMessage: string = '';
 
-  private mapItemPropsToColumns() {
+  crudServiceSub: Subscription;
+
+  constructor(private crudService: CrudService) {}
+
+  private setupColumnHeaders() {
     this.displayedColumns = this.config.columns.map((col) => col.label);
-
-    this.dataSource = new MatTableDataSource(this.items);
   }
 
   onCreate(item: BackendData) {
-    this.items.push(item);
-    this.mapItemPropsToColumns();
-    this.crudService.create(this.config.url, item).subscribe(() => {
+    this.setupColumnHeaders();
+
+    if (item['email']) {
+      this.crudService
+        .readByProperty(this.config.url, 'email', item['email'])
+        .subscribe(
+          (users) => {
+            if (users.length) {
+              let msg = 'This email address is already in use.';
+              this.resultMessage = msg;
+            } else {
+              this.crudService.create(this.config.url, item).subscribe(
+                (user) => {
+                  let msg = `User ${user.email} has been created and his id is: [${user.id}]`;
+                  this.resultMessage = msg;
+                  this.fetchItems();
+                },
+                (err) => (this.resultMessage += `Error: ${err}`)
+              );
+            }
+          },
+          (err) => (this.resultMessage += `_Error: ${err}`)
+        );
+    } else {
+      this.crudService.create(this.config.url, item).subscribe(() => {
+        this.fetchItems(), (err) => console.log(err);
+      });
+    }
+
+    this.fetchItems();
+  }
+
+  onUnpick() {
+    this.currentlyEdited = null;
+  }
+
+  onUpdate(item: BackendData) {
+    this.setupColumnHeaders();
+
+    this.crudService.update(this.config.url, item.id, item).subscribe(() => {
       this.fetchItems(), (err) => console.log(err);
     });
   }
@@ -51,7 +82,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
       return item.id !== i.id;
     });
 
-    this.mapItemPropsToColumns();
+    this.setupColumnHeaders();
 
     this.crudService.delete(this.config.url, item.id).subscribe(
       () => {
@@ -65,7 +96,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     }
   }
 
-  onEdit(item: BackendData) {
+  onPickItem(item: BackendData) {
     this.currentlyEdited = item;
   }
 
@@ -74,17 +105,14 @@ export class CrudTableComponent implements OnInit, OnChanges {
       this.crudService.read(this.config.url).subscribe((data) => {
         if (data.length > 0) {
           this.items = data;
-          console.log('items fetched:', this.items);
         } else {
           this.items = [];
         }
 
-        this.mapItemPropsToColumns();
+        this.setupColumnHeaders();
       });
     }
   }
-
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   ngOnInit(): void {
     this.fetchItems();
