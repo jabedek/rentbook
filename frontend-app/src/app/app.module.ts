@@ -1,9 +1,9 @@
+import { DynamicFilterFormComponent } from './components/common/forms/dynamic-filter-form/dynamic-filter-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,10 +22,6 @@ import { RegisterComponent } from './components/account/register/register.compon
 import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
 import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
-// import { AddBookFormComponent } from './components/common/forms/add-book-form/add-book-form.component';
-// import { EditBookFormComponent } from './components/common/forms/edit-book-form/edit-book-form.component';
-// import { AddUserFormComponent } from './components/common/forms/add-user-form/add-user-form.component';
-// import { EditUserFormComponent } from './components/common/forms/edit-user-form/edit-user-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/Toolbar';
@@ -62,8 +58,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     PasswordResetComponent,
     SectionHeaderComponent,
     CrudTableComponent,
-
     DynamicFormComponent,
+    DynamicFilterFormComponent,
   ],
   imports: [
     BrowserModule,

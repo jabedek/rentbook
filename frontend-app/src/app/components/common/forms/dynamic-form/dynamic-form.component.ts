@@ -85,6 +85,7 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
 
   resetForm(): void {
     this.unpickItem.emit();
+
     this.form.reset();
     this.setupForm();
   }

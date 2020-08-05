@@ -1,5 +1,23 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
 <div class="table-wrapper">
+  Filter table form:
+  <app-dynamic-filter-form
+    [columns]="config.columns"
+    (submitItem)="onFilter($event)"
+    (resetFilter)="onResetFilter()"
+  >
+  </app-dynamic-filter-form>
+  <!-- Filter table form:
+  <app-dynamic-form
+    [columns]="config.columns"
+    [inputData]="null"
+    (submitItem)="onFilter($event)"
+    (unpickItem)="onUnpick()"
+    [labels]="{ submit: 'Filter', reset: 'Clear' }"
+  >
+  </app-dynamic-form> -->
+
+  Create form:
   <app-dynamic-form
     [columns]="config.columns"
     [inputData]="null"

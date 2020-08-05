@@ -55,6 +55,22 @@ export class CrudService implements CrudOperations {
     return this._http.get<any[]>(url);
   }
 
+  filter(baseURL: string, filterTemplate) {
+    console.log(filterTemplate);
+
+    let propertiesQuery = '';
+
+    let keys = Object.keys(filterTemplate);
+
+    keys.forEach((k) => {
+      if (filterTemplate[k]) propertiesQuery += `&${k}=${filterTemplate[k]}`;
+    });
+
+    console.log(propertiesQuery);
+    const url = `${baseURL}?${propertiesQuery}`;
+    return this._http.get<any[]>(url);
+  }
+
   read(baseURL: string): Observable<any[]> {
     const url = baseURL;
     return this._http.get<any[]>(url);
@@ -66,10 +82,13 @@ export class CrudService implements CrudOperations {
   }
 
   private prepackNewItem(item): BackendData {
+    let date = new Date().toJSON().split('T')[0];
+    console.log(date);
+
     let prepackedItem: BackendData = {
       id: '',
       ...item,
-      dateAdded: new Date(),
+      dateAdded: date,
     };
 
     prepackedItem.id = UUID.UUID();

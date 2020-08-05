@@ -22,9 +22,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
   items: BackendData[] = [];
   displayedColumns: string[];
   currentlyEdited: null | BackendData = null;
-
   status: string = '';
-
   crudServiceSub: Subscription;
 
   constructor(private crudService: CrudService) {}
@@ -33,9 +31,22 @@ export class CrudTableComponent implements OnInit, OnChanges {
     this.displayedColumns = this.config.columns.map((col) => col.label);
   }
 
+  onFilter(item: BackendData): void {
+    this.crudService.filter(this.config.url, item).subscribe((data) => {
+      console.log(data);
+      this.items = data;
+    });
+  }
+
+  onResetFilter() {
+    this.status = '';
+    this.fetchItems();
+  }
+
   onCreate(item: BackendData): void {
     this.setupColumnHeaders();
 
+    // Check if we're creating a user.
     if (item['email']) {
       this.crudService
         .readByProperty(this.config.url, 'email', item['email'])
@@ -51,11 +62,11 @@ export class CrudTableComponent implements OnInit, OnChanges {
                   this.status = msg;
                   this.fetchItems();
                 },
-                (err) => (this.status += `Error: ${err}`)
+                (err) => (this.status = `EMAIL_IN_USE Error: ${err}`)
               );
             }
           },
-          (err) => (this.status += `_Error: ${err}`)
+          (err) => (this.status += `CREATING Error: ${err}`)
         );
     } else {
       this.crudService.create(this.config.url, item).subscribe((item) => {
@@ -97,7 +108,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
         this.fetchItems();
       },
       (err) => {
-        this.status += err;
+        this.status = `DELETING Error: ${err}`;
       }
     );
 
