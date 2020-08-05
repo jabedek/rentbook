@@ -48,7 +48,7 @@
           <th
             class="table__header mat-small"
             *ngFor="let col of config.columns"
-            [class.table__data--id]="isColID(col)"
+            [class.table__data--wider]="isBigContentColumn(col)"
           >
             {{ col.label }}
           </th>
@@ -61,7 +61,7 @@
           <td
             class="table__data"
             *ngFor="let col of config.columns"
-            [class.table__data--id]="isColID(col)"
+            [class.table__data--wider]="isBigContentColumn(col)"
           >
             <div *ngIf="currentlyEdited">
               {{ item[col.name] }}

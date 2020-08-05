@@ -105,8 +105,10 @@ export class CrudTableComponent implements OnInit, OnChanges {
     this.currentlyEdited = item;
   }
 
-  isColID(col) {
-    return col.name === 'id' ? true : false;
+  isBigContentColumn(col): boolean {
+    let widerColNames = ['id', 'dateAdded'];
+
+    return !!widerColNames.find((name) => name === col.name);
   }
 
   fetchItems() {

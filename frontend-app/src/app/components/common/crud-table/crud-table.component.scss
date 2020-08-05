@@ -59,15 +59,15 @@ tbody > .table__row {
   &__data {
     height: 7vh;
 
-    width: 10vw;
+    width: 12%;
     background: rgba(255, 255, 0, 0.2);
     text-align: left;
     border-bottom: 1px solid $grey-light;
 
-    &--id {
+    &--wider {
       background: rgba(255, 0, 0, 0.2);
       font-size: smaller;
-      width: 16vw;
+      width: 18%;
     }
   }
 }
