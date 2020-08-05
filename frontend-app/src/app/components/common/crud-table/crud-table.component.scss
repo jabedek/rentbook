@@ -36,7 +36,6 @@ tbody > .table__row {
   }
 
   &__row {
-    // height: 10px;
   }
 
   &__header {
@@ -56,6 +55,10 @@ tbody > .table__row {
     }
   }
 
+  &__data-container {
+    width: 100%;
+  }
+
   &__data {
     height: 7vh;
 
@@ -63,6 +66,7 @@ tbody > .table__row {
     background: rgba(255, 255, 0, 0.2);
     text-align: left;
     border-bottom: 1px solid $grey-light;
+    border: 1px solid $grey-light;
 
     &--wider {
       background: rgba(255, 0, 0, 0.2);

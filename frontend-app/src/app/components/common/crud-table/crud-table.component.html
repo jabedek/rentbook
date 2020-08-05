@@ -1,13 +1,13 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
 <div class="table-wrapper">
-  <app-dynamic-form
+  <!-- <app-dynamic-form
     [columns]="config.columns"
     [item]="currentlyEdited"
     (createItem)="onCreate($event)"
     (updateItem)="onUpdate($event)"
     (unpickItem)="onUnpick()"
   >
-  </app-dynamic-form>
+  </app-dynamic-form> -->
   <p>{{ resultMessage }}</p>
 
   <p>
@@ -19,7 +19,7 @@
   <!-- dzialajacy table normalnie
   <table class="table">
     <thead class="table__head">
-      <tr class="table__row">
+      <tr>
         <th class="table__header" *ngFor="let col of config.columns">
           {{ col.label }}
         </th>
@@ -27,7 +27,7 @@
       </tr>
     </thead>
     <tbody class="table__body">
-      <tr class="table__row" *ngFor="let item of items">
+      <tr *ngFor="let item of items">
         <td *ngFor="let col of config.columns">
           <div>{{ item[col.name] }}</div>
         </td>
@@ -44,21 +44,64 @@
   <mat-card class="table-card" [class.mat-elevation-z3]="'true'">
     <table class="table">
       <thead class="table__head">
-        <tr class="table__row">
-          <th
-            class="table__header mat-small"
-            *ngFor="let col of config.columns"
-            [class.table__data--wider]="isBigContentColumn(col)"
-          >
-            {{ col.label }}
-          </th>
-          <th class="table__header mat-small table__data--actions">Actions</th>
+        <tr>
+          <div>
+            <th
+              class="table__header mat-small"
+              *ngFor="let col of config.columns"
+              [class.table__data--wider]="isBigContentColumn(col)"
+            >
+              {{ col.label }}
+            </th>
+            <th class="table__header mat-small table__data--actions">
+              Actions
+            </th>
+          </div>
         </tr>
       </thead>
 
       <tbody class="table__body">
-        <tr class="table__row" *ngFor="let item of items">
-          <td
+        <tr *ngFor="let item of items">
+          <section *ngIf="currentlyEdited">
+            <div *ngIf="item.id !== (currentlyEdited.id || null)">
+              <td class="table__data" *ngFor="let col of config.columns">
+                {{ item[col.name] }}
+              </td>
+              <td class="table__data">
+                <button type="button" (click)="onPickItem(item)">Edit</button>
+                <button type="button" (click)="onDelete(item)">Delete</button>
+              </td>
+            </div>
+
+            <div *ngIf="item.id === (currentlyEdited.id || null)">
+              <app-dynamic-form
+                [columns]="config.columns"
+                [inputData]="currentlyEdited"
+                (createItem)="onCreate($event)"
+                (updateItem)="onUpdate($event)"
+                (unpickItem)="onUnpick()"
+              >
+              </app-dynamic-form>
+            </div>
+          </section>
+
+          <section *ngIf="!currentlyEdited">
+            <td class="table__data" *ngFor="let col of config.columns">
+              {{ item[col.name] }}
+            </td>
+            <td class="table__data">
+              <button type="button" (click)="onPickItem(item)">Edit</button>
+              <button type="button" (click)="onDelete(item)">Delete</button>
+            </td>
+          </section>
+
+          <!-- <td class="table__data" *ngIf="currentlyEdited">
+            <div *ngFor="let col of config.columns">
+              {{ item[col.name] }}
+              <span *ngIf="item.id === currentlyEdited.id">match</span>
+            </div>
+          </td> -->
+          <!-- <td
             class="table__data"
             *ngFor="let col of config.columns"
             [class.table__data--wider]="isBigContentColumn(col)"
@@ -71,12 +114,7 @@
             <div *ngIf="!currentlyEdited">
               {{ item[col.name] }}
             </div>
-          </td>
-
-          <td class="table__data">
-            <button type="button" (click)="onPickItem(item)">Edit</button>
-            <button type="button" (click)="onDelete(item)">Delete</button>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>

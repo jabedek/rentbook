@@ -26,7 +26,7 @@ import { Subscription } from 'rxjs';
 })
 export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[];
-  @Input('item') inputData: null | BackendData;
+  @Input() inputData: null | BackendData;
   @Output('createItem') createItem = new EventEmitter<BackendData>();
   @Output('unpickItem') unpickItem = new EventEmitter();
   @Output('updateItem') updateItem = new EventEmitter<BackendData>();
@@ -105,10 +105,18 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
         // console.log('Data', JSON.stringify(data));
         // console.log('changes in dynamic-form');
       });
+
+    if (this.inputData && this.form) {
+      console.log(this.inputData);
+
+      this.form.setValue(this.inputData);
+    }
   }
 
   ngOnChanges(): void {
-    if (this.inputData) {
+    if (this.inputData && this.form) {
+      console.log(this.inputData);
+
       this.form.setValue(this.inputData);
     }
   }
