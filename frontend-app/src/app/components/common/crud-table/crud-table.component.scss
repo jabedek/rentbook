@@ -1,6 +1,11 @@
 @import "../../../assets/styles/_mixins.scss";
 @import "../../../assets/styles/theme.scss";
 
+$data-height: 7vh;
+$data-width: 14vw;
+$data-width--id: 16vw;
+$data-width--actions: 10vw;
+
 .table-wrapper {
   @include component-wrapper;
   justify-content: flex-start;
@@ -11,12 +16,19 @@
   width: 90%;
   padding: 0;
   margin: 2em 0;
+  background: #fff;
+}
+
+tbody > .table__row {
+  &:hover {
+    background: rgba(150, 150, 150, 0.2);
+  }
 }
 
 .table {
   width: 100%;
-  padding: 0em;
-  border-spacing: 10px;
+  padding: 0em 1em;
+  border-spacing: 0px;
 
   &__head {
     font-weight: 500;
@@ -25,25 +37,22 @@
 
   &__row {
     // height: 10px;
-    &:hover {
-      background: rgba(150, 150, 150, 1);
-    }
   }
 
   &__header {
     font-weight: 500;
     color: $grey-dark;
-    height: 7vh;
+    height: $data-height;
 
-    width: 10vw;
-    background: rgba(255, 255, 0, 1);
+    width: $data-width;
+    background: rgba(255, 255, 0, 0.2);
     text-align: left;
     border-bottom: 1px solid $grey-light;
 
     &--id {
       background: red;
       font-size: smaller;
-      width: 16vw;
+      width: $data-width--id;
     }
   }
 
@@ -51,12 +60,12 @@
     height: 7vh;
 
     width: 10vw;
-    background: rgba(255, 255, 0, 1);
+    background: rgba(255, 255, 0, 0.2);
     text-align: left;
     border-bottom: 1px solid $grey-light;
 
     &--id {
-      background: red;
+      background: rgba(255, 0, 0, 0.2);
       font-size: smaller;
       width: 16vw;
     }
