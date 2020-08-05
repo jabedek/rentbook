@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/services/crud.service';
-import { IBook } from 'src/app/interfaces';
+import { IBook } from 'src/app/interfaces/IBook';
 
 @Component({
   selector: 'app-books',

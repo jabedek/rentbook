@@ -1,3 +1,4 @@
+import { IValidatorTemplate } from './../../../../interfaces/table';
 import { BackendData } from './../../../../types/BackendData';
 import {
   FormBuilder,
@@ -14,10 +15,15 @@ import {
   Output,
   OnDestroy,
 } from '@angular/core';
-import { ITableColumn } from 'src/app/interfaces';
+import { ITableColumn } from 'src/app/interfaces/table';
 import { filter } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';
 import { Subscription } from 'rxjs';
+
+type buttonLabels = {
+  submit: string;
+  reset: string;
+};
 
 @Component({
   selector: 'app-dynamic-form',
@@ -27,19 +33,21 @@ import { Subscription } from 'rxjs';
 export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[];
   @Input() inputData: null | BackendData;
-  @Output('createItem') createItem = new EventEmitter<BackendData>();
+  @Input() labels: buttonLabels = { submit: 'Submit', reset: 'Erase' };
+  @Output('submitItem') submitItem = new EventEmitter<BackendData>();
   @Output('unpickItem') unpickItem = new EventEmitter();
-  @Output('updateItem') updateItem = new EventEmitter<BackendData>();
 
   form: FormGroup;
   formSub: Subscription;
 
   constructor(private fb: FormBuilder) {}
 
-  setupForm() {
+  setupForm(): void {
     let group = {};
 
     this.columns.forEach((col) => {
+      console.log(col);
+
       if (col.name === 'id') {
         group[col.name] = new FormControl(UUID.UUID(), this.setValidators(col));
       } else {
@@ -50,10 +58,10 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
     this.form = this.fb.group(group);
   }
 
-  setValidators(column) {
-    const validators = [];
+  setValidators(column: ITableColumn): Validators {
+    let validators = [];
 
-    column.validators.forEach((validator) => {
+    column.validators.forEach((validator: IValidatorTemplate) => {
       if (validator.value) {
         if (validator.label === 'required' || validator.label === 'email') {
           let valid = Validators[validator.label];
@@ -77,19 +85,15 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
     return validators;
   }
 
-  resetForm() {
+  resetForm(): void {
     this.unpickItem.emit();
     this.form.reset();
     this.setupForm();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.form.valid) {
-      if (this.inputData) {
-        this.updateItem.emit(this.form.value);
-      } else {
-        this.createItem.emit(this.form.value);
-      }
+      this.submitItem.emit(this.form.value);
     }
   }
 
@@ -101,10 +105,7 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
           return this.form.valid;
         })
       )
-      .subscribe((data) => {
-        // console.log('Data', JSON.stringify(data));
-        // console.log('changes in dynamic-form');
-      });
+      .subscribe((data) => {});
 
     if (this.inputData && this.form) {
       console.log(this.inputData);

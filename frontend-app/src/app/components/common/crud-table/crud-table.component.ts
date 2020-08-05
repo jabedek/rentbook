@@ -7,7 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { CrudService } from '../../../services/crud.service';
-import { ITableConfig } from '../../../interfaces';
+import { ITableConfig } from '../../../interfaces/table';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -65,6 +65,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     }
 
     this.fetchItems();
+    this.currentlyEdited = null;
   }
 
   onUnpick() {
@@ -79,6 +80,8 @@ export class CrudTableComponent implements OnInit, OnChanges {
       this.resultMessage = `Item ${item.id} has been updated.`;
       this.fetchItems(), (err) => console.log(err);
     });
+
+    this.currentlyEdited = null;
   }
 
   onDelete(item: BackendData) {

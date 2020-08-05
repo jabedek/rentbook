@@ -2,8 +2,7 @@ import { Subscription } from 'rxjs';
 import { CrudService } from 'src/app/services/crud.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IUser } from 'src/app/interfaces';
-import { UUID } from 'angular2-uuid';
+import { IUser } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-register',

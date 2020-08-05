@@ -47,7 +47,7 @@
     {
       "id": "19157e56-2542-5140-f869-9dc571a0d23a",
       "dateAdded": "2020-08-04T15:28:00.542Z",
-      "password": "aaaaaaaa",
+      "password": "aaaaa11134",
       "email": "ba@aaaaa",
       "nextPayment": "2020-03-12",
       "role": "ADMIN"
@@ -98,6 +98,14 @@
       "password": "uguygygug",
       "email": "f@f",
       "nextPayment": "0003-03-12",
+      "role": "ADMIN"
+    },
+    {
+      "id": "7ff0135c-5fda-e564-a493-3a401bb4582e",
+      "dateAdded": "2020-08-05T14:40:28.793Z",
+      "password": "dsfsdsdfdfsa",
+      "email": "ff@ffff",
+      "nextPayment": "51365-04-12",
       "role": "ADMIN"
     }
   ]

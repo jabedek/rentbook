@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ITableConfig } from '../../../interfaces';
+import { ITableConfig } from '../../../interfaces/table';
 
 @Component({
   selector: 'app-admin-books',

@@ -1,21 +1,15 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
 <div class="table-wrapper">
-  <!-- <app-dynamic-form
+  <app-dynamic-form
     [columns]="config.columns"
-    [item]="currentlyEdited"
-    (createItem)="onCreate($event)"
-    (updateItem)="onUpdate($event)"
+    [inputData]="null"
+    (submitItem)="onCreate($event)"
     (unpickItem)="onUnpick()"
+    [labels]="{ submit: 'Create', reset: 'Clear' }"
   >
-  </app-dynamic-form> -->
-  <p>{{ resultMessage }}</p>
+  </app-dynamic-form>
+  <p>Message: {{ resultMessage }}</p>
 
-  <p>
-    CURRENTLY EDITED:
-    <span *ngIf="currentlyEdited">
-      {{ currentlyEdited.id }}
-    </span>
-  </p>
   <!-- dzialajacy table normalnie
   <table class="table">
     <thead class="table__head">
@@ -77,9 +71,9 @@
               <app-dynamic-form
                 [columns]="config.columns"
                 [inputData]="currentlyEdited"
-                (createItem)="onCreate($event)"
-                (updateItem)="onUpdate($event)"
+                (submitItem)="onUpdate($event)"
                 (unpickItem)="onUnpick()"
+                [labels]="{ submit: 'Save', reset: 'Cancel' }"
               >
               </app-dynamic-form>
             </div>

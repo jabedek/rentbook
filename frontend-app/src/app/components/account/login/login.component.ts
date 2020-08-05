@@ -5,7 +5,7 @@ import { CrudService } from '../../../services/crud.service';
 
 import { eventDispatcher } from '../../../store/reducer';
 import { ActionTypes } from '../../../store/actions';
-import { IUser } from 'src/app/interfaces';
+import { IUser } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-login',

@@ -3,7 +3,7 @@ export interface ISelectOption {
   value: string;
 }
 
-export interface IValidator {
+export interface IValidatorTemplate {
   label: string;
   value: boolean;
   parameters: any[]; // for i.e. regex or min-max values
@@ -16,7 +16,7 @@ export interface ITableColumn {
   editable: boolean;
   orderable: boolean;
   filterable: boolean;
-  validators: IValidator[] | [];
+  validators: IValidatorTemplate[] | [];
   options?: ISelectOption[];
 }
 

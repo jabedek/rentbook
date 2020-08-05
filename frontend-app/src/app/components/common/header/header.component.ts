@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { eventDispatcher, store } from '../../../store/reducer';
 import { ActionTypes } from '../../../store/actions';
-import { IUser } from 'src/app/interfaces';
+import { IUser } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-header',

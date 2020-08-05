@@ -2,7 +2,8 @@
 
 import { Subject } from 'rxjs';
 import { ActionTypes } from './actions';
-import { IUser, IBook } from '../interfaces';
+import { IUser } from '../interfaces/user';
+import { IBook } from '../interfaces/IBook';
 
 interface InitialState {
   loggedUser: IUser | null;
