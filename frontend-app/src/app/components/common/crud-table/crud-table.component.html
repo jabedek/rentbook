@@ -41,33 +41,44 @@
   </table> -->
 
   <!-- nowy form dla edycji w tabeli jako row -->
-  <table class="table">
-    <thead class="table__head">
-      <tr class="table__row">
-        <th class="table__header" *ngFor="let col of config.columns">
-          {{ col.label }}
-        </th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody class="table__body">
-      <tr class="table__row" *ngFor="let item of items">
-        <td *ngFor="let col of config.columns">
-          <div *ngIf="currentlyEdited">
-            <div>{{ item[col.name] }}</div>
-            <span *ngIf="item.id === currentlyEdited.id">match</span>
-          </div>
+  <mat-card class="table-card" [class.mat-elevation-z3]="'true'">
+    <table class="table">
+      <thead class="table__head">
+        <tr class="table__row">
+          <th
+            class="table__header mat-small"
+            *ngFor="let col of config.columns"
+            [class.table__data--id]="isColID(col)"
+          >
+            {{ col.label }}
+          </th>
+          <th class="table__header mat-small">Actions</th>
+        </tr>
+      </thead>
 
-          <div *ngIf="!currentlyEdited">
-            <div>{{ item[col.name] }}</div>
-          </div>
-        </td>
+      <tbody class="table__body">
+        <tr class="table__row" *ngFor="let item of items">
+          <td
+            class="table__data"
+            *ngFor="let col of config.columns"
+            [class.table__data--id]="isColID(col)"
+          >
+            <div *ngIf="currentlyEdited">
+              {{ item[col.name] }}
+              <span *ngIf="item.id === currentlyEdited.id">match</span>
+            </div>
 
-        <td>
-          <button type="button" (click)="onPickItem(item)">Edit</button>
-          <button type="button" (click)="onDelete(item)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            <div *ngIf="!currentlyEdited">
+              {{ item[col.name] }}
+            </div>
+          </td>
+
+          <td class="table__data">
+            <button type="button" (click)="onPickItem(item)">Edit</button>
+            <button type="button" (click)="onDelete(item)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
 </div>

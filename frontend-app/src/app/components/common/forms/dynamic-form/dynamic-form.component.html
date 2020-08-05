@@ -51,39 +51,47 @@
 </div>
 
 <div *ngIf="columns">
-  <form [formGroup]="form">
-    <div *ngFor="let col of columns">
-      <section *ngIf="col.editable">
-        {{ col.label }}
-        <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
-          <input type="text" formControlName="{{ col.name }}" />
-        </div>
+  <mat-card [class.mat-elevation-z3]="'true'">
+    <form [formGroup]="form">
+      <div *ngFor="let col of columns">
+        <section *ngIf="col.editable">
+          {{ col.label }}
+          <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
+            <input type="text" formControlName="{{ col.name }}" />
+          </div>
 
-        <div *ngIf="col.inputType === 'number'">
-          <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-        </div>
+          <div *ngIf="col.inputType === 'number'">
+            <input
+              type="{{ col.inputType }}"
+              formControlName="{{ col.name }}"
+            />
+          </div>
 
-        <div *ngIf="col.inputType === 'date'">
-          <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-        </div>
+          <div *ngIf="col.inputType === 'date'">
+            <input
+              type="{{ col.inputType }}"
+              formControlName="{{ col.name }}"
+            />
+          </div>
 
-        <div *ngIf="col.inputType === 'select'">
-          <select formControlName="{{ col.name }}">
-            <option *ngFor="let opt of col.options" [value]="opt.value">
-              {{ opt.value }}
-            </option>
-          </select>
-        </div>
-      </section>
+          <div *ngIf="col.inputType === 'select'">
+            <select formControlName="{{ col.name }}">
+              <option *ngFor="let opt of col.options" [value]="opt.value">
+                {{ opt.value }}
+              </option>
+            </select>
+          </div>
+        </section>
 
-      <section *ngIf="!col.editable">
-        {{ col.label }}
-        <div>
-          [automatic value - can not be edited]
-        </div>
-      </section>
-    </div>
-    <button (click)="resetForm()" type="button">Erase</button>
-    <button (click)="onSubmit()">Submit</button>
-  </form>
+        <section *ngIf="!col.editable">
+          {{ col.label }}
+          <div>
+            [automatic value - can not be edited]
+          </div>
+        </section>
+      </div>
+      <button (click)="resetForm()" type="button">Erase</button>
+      <button (click)="onSubmit()">Submit</button>
+    </form>
+  </mat-card>
 </div>

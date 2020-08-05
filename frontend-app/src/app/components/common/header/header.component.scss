@@ -1,18 +1,9 @@
 @import "../../../assets/styles/theme.scss";
 
-.title {
-  font: 800 1.8rem "Poppins";
-  margin: 0 1.5em 0 0;
-
-  display: flex;
-  align-items: center;
-}
-
 .nav {
   width: 100%;
   position: relative;
   z-index: 3;
-  height: 7vh;
   box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
   justify-content: space-between;
 
@@ -23,6 +14,14 @@
       background: $admin;
     }
   }
+}
+
+.title {
+  font: 800 1.8rem "Poppins";
+  margin: 0 1.5em 0 0;
+
+  display: flex;
+  align-items: center;
 }
 
 .router-link-active {

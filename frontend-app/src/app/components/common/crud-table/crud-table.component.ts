@@ -105,6 +105,10 @@ export class CrudTableComponent implements OnInit, OnChanges {
     this.currentlyEdited = item;
   }
 
+  isColID(col) {
+    return col.name === 'id' ? true : false;
+  }
+
   fetchItems() {
     if (this.crudService) {
       this.crudService.read(this.config.url).subscribe((data) => {

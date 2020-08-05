@@ -1,4 +1,5 @@
 @import "../../../assets/styles/_mixins.scss";
+@import "../../../assets/styles/theme.scss";
 
 .table-wrapper {
   @include component-wrapper;
@@ -6,34 +7,59 @@
   overflow: scroll;
 }
 
-.table {
-  border: 2px solid black;
-  width: 80%;
-  padding: 0.2em;
+.table-card {
+  width: 90%;
+  padding: 0;
+  margin: 2em 0;
+}
 
-  &__head,
-  &__header {
-    border: 1px solid white;
+.table {
+  width: 100%;
+  padding: 0em;
+  border-spacing: 10px;
+
+  &__head {
+    font-weight: 500;
+    color: $grey-dark;
   }
 
   &__row {
-    border: 1px solid red;
-    padding: 0.2em;
-
+    // height: 10px;
     &:hover {
       background: rgba(150, 150, 150, 1);
     }
   }
 
-  &__data {
-    border: 1px solid grey;
+  &__header {
+    font-weight: 500;
+    color: $grey-dark;
+    height: 7vh;
+
+    width: 10vw;
+    background: rgba(255, 255, 0, 1);
+    text-align: left;
+    border-bottom: 1px solid $grey-light;
+
+    &--id {
+      background: red;
+      font-size: smaller;
+      width: 16vw;
+    }
   }
 
-  &__head,
   &__data {
-    width: 2rem;
+    height: 7vh;
+
+    width: 10vw;
+    background: rgba(255, 255, 0, 1);
     text-align: left;
-    border: 1px solid black;
+    border-bottom: 1px solid $grey-light;
+
+    &--id {
+      background: red;
+      font-size: smaller;
+      width: 16vw;
+    }
   }
 }
 
