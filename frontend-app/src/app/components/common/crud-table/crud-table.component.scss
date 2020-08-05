@@ -14,7 +14,7 @@ $data-width--actions: 10vw;
 
 .table-card {
   width: 90%;
-  padding: 0;
+  padding: 1em;
   margin: 2em 0;
   background: #fff;
 }
@@ -27,7 +27,6 @@ tbody > .table__row {
 
 .table {
   width: 100%;
-  padding: 0em 1em;
   border-spacing: 0px;
 
   &__head {
@@ -73,6 +72,12 @@ tbody > .table__row {
       font-size: smaller;
       width: 18%;
     }
+  }
+
+  &__status {
+    text-align: left;
+    width: 100%;
+    padding-bottom: 1rem;
   }
 }
 

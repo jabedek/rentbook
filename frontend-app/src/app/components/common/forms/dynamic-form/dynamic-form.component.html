@@ -27,7 +27,12 @@
       <section *ngIf="!col.editable">
         {{ col.label }}
         <div>
-          [automatic value - can not be edited]
+          <span *ngIf="inputData">
+            {{ inputData[col.name] }}
+          </span>
+          <span *ngIf="!inputData">
+            [automatically assigned]
+          </span>
         </div>
       </section>
     </div>
