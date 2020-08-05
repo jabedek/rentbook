@@ -16,6 +16,7 @@
       {{ currentlyEdited.id }}
     </span>
   </p>
+  <!-- dzialajacy table normalnie
   <table class="table">
     <thead class="table__head">
       <tr class="table__row">
@@ -29,6 +30,37 @@
       <tr class="table__row" *ngFor="let item of items">
         <td *ngFor="let col of config.columns">
           <div>{{ item[col.name] }}</div>
+        </td>
+
+        <td>
+          <button type="button" (click)="onPickItem(item)">Edit</button>
+          <button type="button" (click)="onDelete(item)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <!-- nowy form dla edycji w tabeli jako row -->
+  <table class="table">
+    <thead class="table__head">
+      <tr class="table__row">
+        <th class="table__header" *ngFor="let col of config.columns">
+          {{ col.label }}
+        </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="table__body">
+      <tr class="table__row" *ngFor="let item of items">
+        <td *ngFor="let col of config.columns">
+          <div *ngIf="currentlyEdited">
+            <div>{{ item[col.name] }}</div>
+            <span *ngIf="item.id === currentlyEdited.id">match</span>
+          </div>
+
+          <div *ngIf="!currentlyEdited">
+            <div>{{ item[col.name] }}</div>
+          </div>
         </td>
 
         <td>

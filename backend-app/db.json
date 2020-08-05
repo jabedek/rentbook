@@ -55,9 +55,49 @@
     {
       "id": "4f10864a-82f0-3ba2-45fd-93c9b84c9398",
       "dateAdded": "2020-08-04T18:59:38.737Z",
-      "password": "sadasddsadsa",
+      "password": "111111111",
       "email": "sadsa@dsadasd",
       "nextPayment": "2020-08-11",
+      "role": "ADMIN"
+    },
+    {
+      "id": "e7977db5-032a-89d3-897b-ddb655a0cfff",
+      "dateAdded": "2020-08-05T07:23:31.911Z",
+      "password": "asdsdasd",
+      "email": "sd@dsad",
+      "nextPayment": "2124-12-21",
+      "role": "ADMIN"
+    },
+    {
+      "id": "4c2cd12d-ab54-ff08-7986-1750ed3095ba",
+      "dateAdded": "2020-08-05T07:36:45.322Z",
+      "password": "asdsadsad",
+      "email": "sadsadsd@dasd",
+      "nextPayment": "4567-03-12",
+      "role": "ADMIN"
+    },
+    {
+      "id": "8613e80c-343d-9fe6-a6dd-075071323089",
+      "dateAdded": "2020-08-05T07:38:13.340Z",
+      "password": "dsadasddsa",
+      "email": "sad@dasd",
+      "nextPayment": "0567-04-13",
+      "role": "ADMIN"
+    },
+    {
+      "id": "88c200d3-9032-a595-7d1d-f48ea0989a38",
+      "dateAdded": "2020-08-05T07:38:54.825Z",
+      "password": "sadasdasdd",
+      "email": "sasd@Dsad",
+      "nextPayment": "5435-03-12",
+      "role": "ADMIN"
+    },
+    {
+      "id": "4bbb6ef5-8360-ab75-e2ec-4fb89fe7e957",
+      "dateAdded": "2020-08-05T07:41:44.814Z",
+      "password": "uguygygug",
+      "email": "f@f",
+      "nextPayment": "0003-03-12",
       "role": "ADMIN"
     }
   ]

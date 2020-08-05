@@ -46,7 +46,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
             } else {
               this.crudService.create(this.config.url, item).subscribe(
                 (user) => {
-                  let msg = `User ${user.email} has been created and his id is: [${user.id}]`;
+                  let msg = `User ${user.email} has been created.`;
                   this.resultMessage = msg;
                   this.fetchItems();
                 },
@@ -57,7 +57,9 @@ export class CrudTableComponent implements OnInit, OnChanges {
           (err) => (this.resultMessage += `_Error: ${err}`)
         );
     } else {
-      this.crudService.create(this.config.url, item).subscribe(() => {
+      this.crudService.create(this.config.url, item).subscribe((item) => {
+        let msg = `Item has been created.`;
+        this.resultMessage = msg;
         this.fetchItems(), (err) => console.log(err);
       });
     }
@@ -67,12 +69,14 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
   onUnpick() {
     this.currentlyEdited = null;
+    this.resultMessage = '';
   }
 
   onUpdate(item: BackendData) {
     this.setupColumnHeaders();
 
     this.crudService.update(this.config.url, item.id, item).subscribe(() => {
+      this.resultMessage = `Item ${item.id} has been updated.`;
       this.fetchItems(), (err) => console.log(err);
     });
   }
@@ -97,6 +101,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
   }
 
   onPickItem(item: BackendData) {
+    this.resultMessage = '';
     this.currentlyEdited = item;
   }
 
