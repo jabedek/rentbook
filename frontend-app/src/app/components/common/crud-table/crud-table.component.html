@@ -52,7 +52,23 @@
 
       <tbody class="table__body">
         <tr *ngFor="let item of items">
+          <!-- ## Row content if currentlyEdited is not set ## -->
+          <!-- Render regular table data if current item doesn't 
+            match currentlyEdited (displaying) -->
+          <section *ngIf="!currentlyEdited">
+            <td class="table__data" *ngFor="let col of config.columns">
+              {{ item[col.name] }}
+            </td>
+            <td class="table__data">
+              <button type="button" (click)="onPickItem(item)">Edit</button>
+              <button type="button" (click)="onDelete(item)">Delete</button>
+            </td>
+          </section>
+
+          <!-- ## Row content if currentlyEdited is set ## -->
           <section *ngIf="currentlyEdited">
+            <!-- Render regular table data if item doesn't 
+              match currentlyEdited (displaying) -->
             <div *ngIf="item.id !== (currentlyEdited.id || null)">
               <td class="table__data" *ngFor="let col of config.columns">
                 {{ item[col.name] }}
@@ -63,6 +79,8 @@
               </td>
             </div>
 
+            <!-- Insert form into row if current item matches 
+              currentlyEdited (editing) -->
             <div *ngIf="item.id === (currentlyEdited.id || null)">
               <app-dynamic-form
                 [columns]="config.columns"
@@ -73,16 +91,6 @@
               >
               </app-dynamic-form>
             </div>
-          </section>
-
-          <section *ngIf="!currentlyEdited">
-            <td class="table__data" *ngFor="let col of config.columns">
-              {{ item[col.name] }}
-            </td>
-            <td class="table__data">
-              <button type="button" (click)="onPickItem(item)">Edit</button>
-              <button type="button" (click)="onDelete(item)">Delete</button>
-            </td>
           </section>
         </tr>
       </tbody>
