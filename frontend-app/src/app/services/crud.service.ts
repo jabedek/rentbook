@@ -74,8 +74,6 @@ export class CrudService implements CrudOperations {
 
     prepackedItem.id = UUID.UUID();
 
-    console.log(prepackedItem);
-
     return prepackedItem;
   }
 }

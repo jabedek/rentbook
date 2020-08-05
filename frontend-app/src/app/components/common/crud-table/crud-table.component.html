@@ -10,31 +10,7 @@
   </app-dynamic-form>
   <p>Message: {{ resultMessage }}</p>
 
-  <!-- dzialajacy table normalnie
-  <table class="table">
-    <thead class="table__head">
-      <tr>
-        <th class="table__header" *ngFor="let col of config.columns">
-          {{ col.label }}
-        </th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody class="table__body">
-      <tr *ngFor="let item of items">
-        <td *ngFor="let col of config.columns">
-          <div>{{ item[col.name] }}</div>
-        </td>
-
-        <td>
-          <button type="button" (click)="onPickItem(item)">Edit</button>
-          <button type="button" (click)="onDelete(item)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
-
-  <!-- nowy form dla edycji w tabeli jako row -->
+ 
   <mat-card class="table-card" [class.mat-elevation-z3]="'true'">
     <table class="table">
       <thead class="table__head">
@@ -89,26 +65,7 @@
             </td>
           </section>
 
-          <!-- <td class="table__data" *ngIf="currentlyEdited">
-            <div *ngFor="let col of config.columns">
-              {{ item[col.name] }}
-              <span *ngIf="item.id === currentlyEdited.id">match</span>
-            </div>
-          </td> -->
-          <!-- <td
-            class="table__data"
-            *ngFor="let col of config.columns"
-            [class.table__data--wider]="isBigContentColumn(col)"
-          >
-            <div *ngIf="currentlyEdited">
-              {{ item[col.name] }}
-              <span *ngIf="item.id === currentlyEdited.id">match</span>
-            </div>
-
-            <div *ngIf="!currentlyEdited">
-              {{ item[col.name] }}
-            </div>
-          </td> -->
+      
         </tr>
       </tbody>
     </table>

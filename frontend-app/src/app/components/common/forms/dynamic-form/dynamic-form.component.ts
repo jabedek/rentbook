@@ -46,8 +46,6 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
     let group = {};
 
     this.columns.forEach((col) => {
-      console.log(col);
-
       if (col.name === 'id') {
         group[col.name] = new FormControl(UUID.UUID(), this.setValidators(col));
       } else {
@@ -123,8 +121,6 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('Destroy');
-
     this.formSub.unsubscribe();
   }
 }
