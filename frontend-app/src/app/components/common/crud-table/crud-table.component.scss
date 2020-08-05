@@ -1,10 +1,6 @@
 @import "../../../assets/styles/_mixins.scss";
-@import "../../../assets/styles/theme.scss";
-
-$data-height: 7vh;
-$data-width: 14vw;
-$data-width--id: 16vw;
-$data-width--actions: 10vw;
+@import "../../../assets/styles/_theme.scss";
+@import "../../../assets/styles/_constants.scss";
 
 .table-wrapper {
   @include component-wrapper;
@@ -40,17 +36,16 @@ tbody > .table__row {
   &__header {
     font-weight: 500;
     color: $grey-dark;
-    height: $data-height;
+    height: $data-cell-height;
 
-    width: $data-width;
-    background: rgba(255, 255, 0, 0.2);
+    width: $data-cell-width;
     text-align: left;
-    border-bottom: 1px solid $grey-light;
+    // border-top: 1px solid $grey-light;
 
     &--id {
-      background: red;
-      font-size: smaller;
-      width: $data-width--id;
+      font-size: $data-cell-fontSize--id;
+
+      width: $data-cell-width--id;
     }
   }
 
@@ -61,63 +56,20 @@ tbody > .table__row {
   &__data {
     height: 7vh;
 
-    width: 12%;
-    background: rgba(255, 255, 0, 0.2);
+    width: $data-cell-width;
     text-align: left;
-    border-bottom: 1px solid $grey-light;
-    border: 1px solid $grey-light;
+    border-top: 1px solid $grey-light;
 
-    &--wider {
-      background: rgba(255, 0, 0, 0.2);
-      font-size: smaller;
-      width: 18%;
+    &--id {
+      font-size: $data-cell-fontSize--id;
+
+      width: $data-cell-width--id;
     }
   }
 
   &__status {
     text-align: left;
     width: 100%;
-    padding-bottom: 1rem;
+    padding: 2rem 0 0 6rem;
   }
 }
-
-// .btn-add-row {
-//   margin: 1em;
-//   position: relative;
-//   align-self: flex-end;
-// }
-
-// .table {
-//   margin: 0.8rem 0;
-//   width: 90%;
-
-//   &__row {
-//     height: 6vh;
-//   }
-// }
-
-// .cell {
-//   margin: 0;
-//   height: 100%;
-//   flex-direction: row;
-
-//   align-items: center;
-//   align-content: center;
-
-//   &__content {
-//     font-size: 0.8rem;
-
-//     &--id {
-//       font-size: 0.65rem;
-//       font-weight: 500;
-//     }
-//   }
-
-//   &__button {
-//     // margin: 0 0.5rem;
-//   }
-// }
-
-// .table-form {
-//   width: 50%;
-// }

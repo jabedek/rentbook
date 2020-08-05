@@ -1,8 +1,30 @@
-.dynamic__form {
+@import "../../../../assets/styles/_constants.scss";
+@import "../../../../assets/styles/_theme.scss";
+
+.dynamic-form {
   display: flex;
-  width: 100%;
-  //   flex-direction: c;
+  width: 90%;
+  height: $data-cell-height;
   padding: 0;
   margin: 0;
-  background: transparent;
+  background: transparent; // original
+  background: #fff; // test
+}
+
+.control-wrapper {
+  border-top: 1px solid $grey-light;
+  // border: 1px solid red;
+  // width: 100%;
+  width: $data-cell-width;
+  &__content {
+  }
+
+  &__label {
+  }
+}
+
+.input--id {
+  font-size: $data-cell-fontSize--id;
+
+  width: $data-cell-width--id;
 }

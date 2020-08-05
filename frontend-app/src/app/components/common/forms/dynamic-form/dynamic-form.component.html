@@ -1,9 +1,19 @@
 <div *ngIf="columns">
-  <form [formGroup]="form" class="dynamic__form">
-    <div *ngFor="let col of columns">
-      <section *ngIf="col.editable">
-        {{ col.label }}
-        <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
+  <form [formGroup]="form" class="dynamic-form">
+    <div *ngFor="let col of columns" class="control-wrapper">
+      <!-- If editable, render input -->
+      <section
+        *ngIf="col.editable"
+        class="control-wrapper__content"
+        [class.input--id]="col.name === 'id'"
+      >
+        <div *ngIf="!inputData" class="control-wrapper__label">
+          {{ col.label }}
+        </div>
+        <div
+          *ngIf="col.inputType === 'text' || col.inputType === 'email'"
+          class="control-wrapper__label"
+        >
           <input type="text" formControlName="{{ col.name }}" />
         </div>
 
@@ -24,8 +34,15 @@
         </div>
       </section>
 
-      <section *ngIf="!col.editable">
-        {{ col.label }}
+      <!-- If not editable, render value and info -->
+      <section
+        *ngIf="!col.editable"
+        class="control-wrapper__content"
+        [class.input--id]="col.name === 'id'"
+      >
+        <div *ngIf="!inputData" class="control-wrapper__label">
+          {{ col.label }}
+        </div>
         <div>
           <span *ngIf="inputData">
             {{ inputData[col.name] }}
