@@ -1,45 +1,47 @@
 {
   "books": [
     {
-      "id": "dc6e02a8-59ae-c21b-e740-fd71635e0ca0",
-      "dateAdded": "2020-08-05",
-      "title": "asdsads",
-      "author": "adadasdd",
-      "genre": "ddasddsd"
+      "id": "16270f3b-cc35-9231-b6c3-08460e5eb9b0",
+      "dateAdded": "2020-08-06",
+      "title": "JHGFDS",
+      "author": "KJGFDSAJH",
+      "genre": "DFGHJKLJH"
+    },
+    {
+      "id": "77bf4e35-e04d-ab8b-4da8-2ce235b93185",
+      "dateAdded": "2020-08-06",
+      "title": "asdasdasdasd",
+      "author": "dsadasdadasdd",
+      "genre": "dsadsadasd"
+    },
+    {
+      "id": "fe17eb93-8e22-6f6a-57be-2b098bd838fc",
+      "dateAdded": "2020-08-06",
+      "title": "dsasdadasdd",
+      "author": "dsadsadsad",
+      "genre": "sadsadsadds"
+    },
+    {
+      "id": "92ec4515-5012-726a-f319-fd30d422221d",
+      "dateAdded": "2020-08-06",
+      "title": "sdfghjk",
+      "author": "sdfghjklkjhgf",
+      "genre": "dfghjklkjhgfds"
+    },
+    {
+      "id": "89e5281a-2b34-d51e-5f1a-e8661a074a32",
+      "dateAdded": "2020-08-06",
+      "title": "saddasddads",
+      "author": "ddsaddasdd",
+      "genre": "saddasdsad"
+    },
+    {
+      "id": "f5cd00e3-f7af-f83a-28d8-f21013c01b94",
+      "dateAdded": "2020-08-06",
+      "title": "saddasddads",
+      "author": "ddsaddasdd",
+      "genre": "saddasdsad"
     }
   ],
-  "users": [
-    {
-      "id": "af3e60fa-6eda-ef44-777d-f6e198218155",
-      "dateAdded": "2020-08-05",
-      "password": "aaa00a24",
-      "email": "a@a",
-      "nextPayment": "1212-12-12",
-      "role": "ADMIN"
-    },
-    {
-      "id": "e20a831e-d389-263e-d378-b4f1d4a8fd85",
-      "dateAdded": "2020-08-05",
-      "password": "aaaaaaaa",
-      "email": "c@b",
-      "nextPayment": "1111-11-11",
-      "role": "USER"
-    },
-    {
-      "id": "cdb365a9-ebc2-a206-3135-04661ead0532",
-      "dateAdded": "2020-08-06",
-      "password": "876543210",
-      "email": "h@g",
-      "nextPayment": "0007-06-15",
-      "role": "USER"
-    },
-    {
-      "id": "00cc674d-c5ff-1999-6eb1-8a27e9dacedd",
-      "dateAdded": "2020-08-06",
-      "password": "12345678",
-      "email": "gg@gg",
-      "nextPayment": "275760-03-12",
-      "role": "ADMIN"
-    }
-  ]
+  "users": []
 }

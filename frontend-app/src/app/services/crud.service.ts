@@ -77,7 +77,11 @@ export class CrudService implements CrudOperations {
     return this._http.delete<any>(url, httpOptions);
   }
 
+  // To every created item add 'id' and 'dateAdded' properties.
   private prepackNewItem(item): BackendData {
+    // Translate output JSON date "2020-08-06T12:08:29.649Z"
+    // to "2020-08-06" so that it matches Datepicker format
+    // used across the app.
     let date = new Date().toJSON().split('T')[0];
     console.log(date);
 
