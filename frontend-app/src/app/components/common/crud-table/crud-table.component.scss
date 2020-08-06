@@ -24,10 +24,10 @@ tbody > .table__row {
 .table {
   width: 100%;
   border-spacing: 0px;
+  // table-layout: fixed;
 
-  &__head {
-    font-weight: 500;
-    color: $grey-dark;
+  &__head,
+  &__body {
   }
 
   &__row {
@@ -37,37 +37,24 @@ tbody > .table__row {
   &__header {
     font-weight: 500;
     color: $grey-dark;
-    height: $data-cell-height;
-
-    width: $data-cell-width;
-    text-align: left;
-
-    &--id {
-      font-size: $data-cell-fontSize--id;
-      width: $data-cell-width--id;
-    }
-
-    &--wider {
-      width: $data-cell-width--id;
-    }
-  }
-
-  &__data-container {
-    width: 100%;
   }
 
   &__data {
-    height: $data-cell-height;
-    padding: 0.2em;
-
-    width: $data-cell-width;
-    text-align: left;
     border-top: 1px solid $grey-light;
-    // border: 1px solid black;
+  }
+
+  &__data,
+  &__header {
+    padding: 0.5em;
+    height: $data-cell-height;
+    width: $data-column-width;
+    text-align: left;
+    border: 1px solid lightcoral;
+    overflow: hidden;
+
     &--id {
       font-size: $data-cell-fontSize--id;
-
-      width: $data-cell-width--id;
+      // min-width: 150px;
     }
   }
 

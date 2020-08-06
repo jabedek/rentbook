@@ -51,6 +51,14 @@
       "email": "a@a",
       "nextPayment": "0004-03-12",
       "role": "USER"
+    },
+    {
+      "id": "3103d396-e13f-5cb5-47a9-4f878706100b",
+      "dateAdded": "2020-08-06",
+      "password": "12345678",
+      "email": "b@B",
+      "nextPayment": "0045-03-12",
+      "role": "ADMIN"
     }
   ]
 }

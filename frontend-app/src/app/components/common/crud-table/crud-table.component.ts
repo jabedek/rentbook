@@ -30,8 +30,9 @@ export class CrudTableComponent implements OnInit, OnChanges {
       this.crudService.read(this.config.url).subscribe((data) => {
         if (data.length > 0) {
           this.items = data;
+          this.status = ` items fetched successfully.`;
         } else {
-          this.items = [];
+          this.status = ` no items in table ${this.config.name}.`;
         }
 
         this.setupColumnHeaders();
@@ -136,16 +137,12 @@ export class CrudTableComponent implements OnInit, OnChanges {
   /* ## Angular hooks ## */
 
   ngOnInit(): void {
+    this.status = '';
     this.fetchItems();
-    if (!this.items.length) {
-      console.log('no items');
-      this.status = `No items in table ${this.config.name}`;
-    }
   }
 
   ngOnChanges(): void {
     if (!this.items.length) {
-      console.log('no items');
       this.status = `No items in table ${this.config.name}`;
     }
   }
