@@ -10,7 +10,7 @@ import { ITableConfig } from '../../../interfaces/table';
 export class AdminBooksComponent {
   config: ITableConfig = {
     name: 'books',
-
+    newItemOnto: 'table-end',
     url: `http://localhost:3000/books`,
     modals: true,
     columns: [

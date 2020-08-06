@@ -23,6 +23,7 @@ export interface ITableColumn {
 export interface ITableConfig {
   name: string;
   url: string;
+  newItemOnto: 'table-end' | 'table-start';
   modals: boolean;
   columns: ITableColumn[];
 }

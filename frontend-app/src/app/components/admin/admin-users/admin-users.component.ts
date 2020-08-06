@@ -9,6 +9,7 @@ import { ITableConfig } from '../../../interfaces/table';
 export class AdminUsersComponent {
   config: ITableConfig = {
     name: 'users',
+    newItemOnto: 'table-end',
     url: `http://localhost:3000/users`,
     modals: true,
 
