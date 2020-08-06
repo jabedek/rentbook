@@ -3,7 +3,6 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CrudService } from '../../../services/crud.service';
 import { ITableConfig } from '../../../interfaces/table';
 import { Subscription } from 'rxjs';
-import { isEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-crud-table',
@@ -52,6 +51,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
               (user) => {
                 this.status = `user [${user.email}] has been created.`;
                 this.items.push(user);
+                this.currentlyEdited = null;
               },
               (msg) => (this.status = `EMAIL_IN_USE Error: ${msg}`)
             );
@@ -66,6 +66,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
       () => {
         this.status = `item has been created.`;
         this.items.push(item);
+        this.currentlyEdited = null;
       },
       (msg) => (this.status = `CREATING Error: ${msg}`)
     );
@@ -76,28 +77,19 @@ export class CrudTableComponent implements OnInit, OnChanges {
     // Create item using appropriate function based on whether item is User.
     // In available backend types only User has 'email' property.
     item['email'] ? this.createUser(item) : this.createItem(item);
-
-    this.currentlyEdited = null;
   }
 
-  onUpdate(item: BackendData) {
+  onUpdate(item: BackendData): void {
     this.crudService.update(this.config.url, item.id, item).subscribe(
       () => {
         this.status = `updated item [${item.id}].`;
-        this.items = this.items.map((i: BackendData) => {
-          if (i.id === item.id) {
-            console.log(i);
-            console.log(item);
-            i = item;
-          }
-
-          return i;
-        });
+        this.items = this.items.map((i: BackendData) =>
+          i.id === item.id ? (i = item) : i
+        );
+        this.currentlyEdited = null;
       },
       (msg) => (this.status = `UPDATING Error: ${msg}`)
     );
-
-    this.currentlyEdited = null;
   }
 
   onDelete(item: BackendData): void {
@@ -128,9 +120,12 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
   /* ## Dynamic filter form handlers ## */
   onSubmitFilter(item: BackendData): void {
-    this.crudService.filter(this.config.url, item).subscribe((data) => {
-      this.items = data;
-    });
+    this.crudService.filter(this.config.url, item).subscribe(
+      (data) => {
+        this.items = data;
+      },
+      (msg) => (this.status = ` FILTERING Error: ${msg}`)
+    );
   }
 
   onResetFilter() {

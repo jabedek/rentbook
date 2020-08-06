@@ -43,5 +43,14 @@
       "genre": "saddasdsad"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "a22dfda8-b2e3-30a0-38aa-1c20896a1ed2",
+      "dateAdded": "2020-08-06",
+      "password": "12234567",
+      "email": "a@a",
+      "nextPayment": "0035-04-12",
+      "role": "USER"
+    }
+  ]
 }
