@@ -9,12 +9,14 @@
   margin: 0;
   background: transparent; // original
   background: #fff; // test
+
+  &__button {
+  }
 }
 
 .control-wrapper {
   border-top: 1px solid $grey-light;
-  // border: 1px solid red;
-  // width: 100%;
+
   width: $data-cell-width;
   &__content {
   }

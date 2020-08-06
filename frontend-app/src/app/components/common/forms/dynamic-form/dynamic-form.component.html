@@ -53,7 +53,11 @@
         </div>
       </section>
     </div>
-    <button (click)="resetForm()" type="button">{{ labels.reset }}</button>
-    <button (click)="onSubmit()">{{ labels.submit }}</button>
+    <button (click)="resetForm()" type="button" class="dynamic-form__button">
+      {{ labels.reset }}
+    </button>
+    <button (click)="onSubmit()" class="dynamic-form__button">
+      {{ labels.submit }}
+    </button>
   </form>
 </div>

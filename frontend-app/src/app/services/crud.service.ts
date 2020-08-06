@@ -56,17 +56,13 @@ export class CrudService implements CrudOperations {
   }
 
   filter(baseURL: string, filterTemplate) {
-    console.log(filterTemplate);
-
     let propertiesQuery = '';
-
     let keys = Object.keys(filterTemplate);
 
     keys.forEach((k) => {
       if (filterTemplate[k]) propertiesQuery += `&${k}=${filterTemplate[k]}`;
     });
 
-    console.log(propertiesQuery);
     const url = `${baseURL}?${propertiesQuery}`;
     return this._http.get<any[]>(url);
   }

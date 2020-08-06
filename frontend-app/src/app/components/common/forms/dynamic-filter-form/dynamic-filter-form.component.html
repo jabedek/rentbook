@@ -1,5 +1,5 @@
 <div *ngIf="columns">
-  <form [formGroup]="form" class="dynamic__form">
+  <form [formGroup]="form" class="dynamic-filter">
     <div *ngFor="let col of columns">
       {{ col.label }}
       <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">

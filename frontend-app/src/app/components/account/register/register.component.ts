@@ -26,10 +26,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ) {}
 
   onSubmit(formValue) {
+    let date = new Date().toJSON().split('T')[0];
+
     const user: IUser = {
       ...formValue,
       role: 'USER',
-      nextPayment: new Date(),
+      nextPayment: date,
     };
 
     console.log('submit');

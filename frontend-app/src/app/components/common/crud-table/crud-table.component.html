@@ -1,38 +1,33 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
 <div class="table-wrapper">
-  Filter table form:
-  <app-dynamic-filter-form
-    [columns]="config.columns"
-    (submitItem)="onFilter($event)"
-    (resetFilter)="onResetFilter()"
-  >
-  </app-dynamic-filter-form>
-  <!-- Filter table form:
-  <app-dynamic-form
-    [columns]="config.columns"
-    [inputData]="null"
-    (submitItem)="onFilter($event)"
-    (unpickItem)="onUnpick()"
-    [labels]="{ submit: 'Filter', reset: 'Clear' }"
-  >
-  </app-dynamic-form> -->
+  <mat-card>
+    Filter table form:
+    <app-dynamic-filter-form
+      [columns]="config.columns"
+      (submitItem)="onSubmitFilter($event)"
+      (resetFilter)="onResetFilter()"
+    >
+    </app-dynamic-filter-form
+  ></mat-card>
 
-  Create form:
-  <app-dynamic-form
-    [columns]="config.columns"
-    [inputData]="null"
-    (submitItem)="onCreate($event)"
-    (unpickItem)="onUnpick()"
-    [labels]="{ submit: 'Create', reset: 'Clear' }"
-  >
-  </app-dynamic-form>
+  <mat-card>
+    Create item form:
+    <app-dynamic-form
+      [columns]="config.columns"
+      [inputData]="null"
+      (submitItem)="onCreate($event)"
+      (unpickItem)="onUnpickTableItem()"
+      [labels]="{ submit: 'Create', reset: 'Clear' }"
+    >
+    </app-dynamic-form>
+  </mat-card>
 
   <p class="table__status">
     Status:
     {{ status }}
   </p>
 
-  <mat-card class="table-card" [class.mat-elevation-z3]="'true'">
+  <mat-card class="table-card" [class.mat-elevation-z1]="'true'">
     <table class="table">
       <thead class="table__head">
         <tr>
@@ -40,7 +35,7 @@
             <th
               class="table__header mat-small"
               *ngFor="let col of config.columns"
-              [class.table__header--id]="col.name === 'id'"
+              [class.table__header--wider]="col.name === 'id'"
             >
               {{ col.label }}
             </th>
@@ -52,20 +47,22 @@
       </thead>
 
       <tbody class="table__body">
-        <tr *ngFor="let item of items">
+        <tr *ngFor="let item of items" class="table__row">
           <!-- ## Row content if currentlyEdited is not set ## -->
           <!-- Render regular table data if current item doesn't 
             match currentlyEdited (displaying) -->
           <section *ngIf="!currentlyEdited">
             <td
-              class="table__data"
               *ngFor="let col of config.columns"
+              class="table__data"
               [class.table__data--id]="col.name === 'id'"
             >
               {{ item[col.name] }}
             </td>
             <td class="table__data">
-              <button type="button" (click)="onPickItem(item)">Edit</button>
+              <button type="button" (click)="onPickTableItem(item)">
+                Edit
+              </button>
               <button type="button" (click)="onDelete(item)">Delete</button>
             </td>
           </section>
@@ -83,7 +80,9 @@
                 {{ item[col.name] }}
               </td>
               <td class="table__data">
-                <button type="button" (click)="onPickItem(item)">Edit</button>
+                <button type="button" (click)="onPickTableItem(item)">
+                  Edit
+                </button>
                 <button type="button" (click)="onDelete(item)">Delete</button>
               </td>
             </div>
@@ -95,7 +94,7 @@
                 [columns]="config.columns"
                 [inputData]="currentlyEdited"
                 (submitItem)="onUpdate($event)"
-                (unpickItem)="onUnpick()"
+                (unpickItem)="onUnpickTableItem()"
                 [labels]="{ submit: 'Save', reset: 'Cancel' }"
               >
               </app-dynamic-form>

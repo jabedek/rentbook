@@ -12,7 +12,7 @@
     {
       "id": "af3e60fa-6eda-ef44-777d-f6e198218155",
       "dateAdded": "2020-08-05",
-      "password": "aaaaaaaa",
+      "password": "aaa00a24",
       "email": "a@a",
       "nextPayment": "1212-12-12",
       "role": "ADMIN"
@@ -21,8 +21,24 @@
       "id": "e20a831e-d389-263e-d378-b4f1d4a8fd85",
       "dateAdded": "2020-08-05",
       "password": "aaaaaaaa",
-      "email": "b@b",
+      "email": "c@b",
       "nextPayment": "1111-11-11",
+      "role": "USER"
+    },
+    {
+      "id": "cdb365a9-ebc2-a206-3135-04661ead0532",
+      "dateAdded": "2020-08-06",
+      "password": "876543210",
+      "email": "h@g",
+      "nextPayment": "0007-06-15",
+      "role": "USER"
+    },
+    {
+      "id": "00cc674d-c5ff-1999-6eb1-8a27e9dacedd",
+      "dateAdded": "2020-08-06",
+      "password": "12345678",
+      "email": "gg@gg",
+      "nextPayment": "275760-03-12",
       "role": "ADMIN"
     }
   ]

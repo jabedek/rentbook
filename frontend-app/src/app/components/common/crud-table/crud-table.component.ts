@@ -31,35 +31,42 @@ export class CrudTableComponent implements OnInit, OnChanges {
     this.displayedColumns = this.config.columns.map((col) => col.label);
   }
 
-  onFilter(item: BackendData): void {
-    this.crudService.filter(this.config.url, item).subscribe((data) => {
-      console.log(data);
-      this.items = data;
-    });
+  isBigContentColumn(col: ITableColumn): boolean {
+    let widerColNames = ['id', 'dateAdded'];
+
+    return !!widerColNames.find((name) => name === col.name);
   }
 
-  onResetFilter() {
-    this.status = '';
-    this.fetchItems();
+  fetchItems(): void {
+    if (this.crudService) {
+      this.crudService.read(this.config.url).subscribe((data) => {
+        if (data.length > 0) {
+          this.items = data;
+        } else {
+          this.items = [];
+        }
+
+        this.setupColumnHeaders();
+      });
+    }
   }
 
+  /* ## Dynamic form handlers (CRUD) ## */
   onCreate(item: BackendData): void {
     this.setupColumnHeaders();
 
-    // Check if we're creating a user.
+    // Check if we're creating a user and if so, check if email is available.
     if (item['email']) {
       this.crudService
         .readByProperty(this.config.url, 'email', item['email'])
         .subscribe(
           (users) => {
             if (users.length) {
-              let msg = 'this email address is already in use.';
-              this.status = msg;
+              this.status = 'this email address is already in use.';
             } else {
               this.crudService.create(this.config.url, item).subscribe(
                 (user) => {
-                  let msg = `user [${user.email}] has been created.`;
-                  this.status = msg;
+                  this.status = `user [${user.email}] has been created.`;
                   this.fetchItems();
                 },
                 (err) => (this.status = `EMAIL_IN_USE Error: ${err}`)
@@ -69,20 +76,14 @@ export class CrudTableComponent implements OnInit, OnChanges {
           (err) => (this.status += `CREATING Error: ${err}`)
         );
     } else {
-      this.crudService.create(this.config.url, item).subscribe((item) => {
-        let msg = `item has been created.`;
-        this.status = msg;
+      this.crudService.create(this.config.url, item).subscribe(() => {
+        this.status = `item has been created.`;
         this.fetchItems(), (err) => console.log(err);
       });
     }
 
     this.fetchItems();
     this.currentlyEdited = null;
-  }
-
-  onUnpick() {
-    this.currentlyEdited = null;
-    this.status = '';
   }
 
   onUpdate(item: BackendData) {
@@ -119,29 +120,26 @@ export class CrudTableComponent implements OnInit, OnChanges {
     this.status = `deleted item [${item.id}].`;
   }
 
-  onPickItem(item: BackendData): void {
+  onPickTableItem(item: BackendData): void {
     this.status = `editing item [${item.id}].`;
     this.currentlyEdited = item;
   }
 
-  isBigContentColumn(col: ITableColumn): boolean {
-    let widerColNames = ['id', 'dateAdded'];
-
-    return !!widerColNames.find((name) => name === col.name);
+  onUnpickTableItem() {
+    this.currentlyEdited = null;
+    this.status = '';
   }
 
-  fetchItems(): void {
-    if (this.crudService) {
-      this.crudService.read(this.config.url).subscribe((data) => {
-        if (data.length > 0) {
-          this.items = data;
-        } else {
-          this.items = [];
-        }
+  /* ## Dynamic filter form handlers ## */
+  onSubmitFilter(item: BackendData): void {
+    this.crudService.filter(this.config.url, item).subscribe((data) => {
+      this.items = data;
+    });
+  }
 
-        this.setupColumnHeaders();
-      });
-    }
+  onResetFilter() {
+    this.status = '';
+    this.fetchItems();
   }
 
   ngOnInit(): void {
