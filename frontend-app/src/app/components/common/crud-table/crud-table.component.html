@@ -29,79 +29,115 @@
 
   <mat-card class="table-card" [class.mat-elevation-z1]="'true'">
     <table class="table">
-      <thead class="table__head">
-        <tr>
-          <div>
-            <th
-              class="table__header mat-small"
-              *ngFor="let col of config.columns"
-              [class.table__header--wider]="col.name === 'id'"
-            >
-              {{ col.label }}
-            </th>
-            <th class="table__header mat-small table__header--actions">
-              Actions
-            </th>
-          </div>
-        </tr>
-      </thead>
+      <!-- ## Column Headers row -->
+      <tr class="table__row">
+        <div class="row__content row__content--headers mat-small">
+          <td
+            class="table__column table__column--header table__data"
+            *ngFor="let col of config.columns"
+          >
+            {{ col.label }}
+          </td>
+          <td
+            class="table__column table__column--header table__column--actions table__data"
+          >
+            Actions
+          </td>
+        </div>
+      </tr>
 
-      <tbody class="table__body">
-        <tr *ngFor="let item of items" class="table__row">
-          <!-- ## Row content if currentlyEdited is not set ## -->
-          <!-- Render regular table data if current item doesn't 
-            match currentlyEdited (displaying) -->
-          <section *ngIf="!currentlyEdited">
+      <!-- ## Item Data rows ## -->
+      <tr *ngFor="let item of items" class="table__row">
+        <!-- ## Row content if currentlyEdited is not set ## -->
+        <!-- Render regular table data (displaying) -->
+        <div *ngIf="!currentlyEdited" class="row__content">
+          <td
+            *ngFor="let col of config.columns"
+            class="table__column table__data"
+            [class.table__data--id]="col.name === 'id'"
+          >
+            {{ item[col.name] }}
+          </td>
+          <td class="table__column table__column--actions table__data">
+            <button
+              mat-mini-fab
+              color="primary"
+              type="button"
+              (click)="onPickTableItem(item)"
+            >
+              <mat-icon fontSet="material-icons-outlined" matSuffix
+                >edit</mat-icon
+              >
+            </button>
+            <button
+              mat-mini-fab
+              color="warn"
+              type="button"
+              (click)="onDelete(item)"
+            >
+              <mat-icon fontSet="material-icons-outlined" matSuffix
+                >delete</mat-icon
+              >
+            </button>
+          </td>
+        </div>
+
+        <!-- ## Row content if currentlyEdited is set ## -->
+        <div *ngIf="currentlyEdited">
+          <!-- Render regular table data if item doesn't 
+              match currentlyEdited (displaying) -->
+          <div
+            *ngIf="item.id !== (currentlyEdited.id || null)"
+            class="row__content"
+          >
             <td
+              class="table__column table__data"
               *ngFor="let col of config.columns"
-              class="table__data"
               [class.table__data--id]="col.name === 'id'"
             >
               {{ item[col.name] }}
             </td>
-            <td class="table__data">
-              <button type="button" (click)="onPickTableItem(item)">
-                Edit
+            <td class="table__column table__data table__column--actions">
+              <button
+                mat-mini-fab
+                color="primary"
+                type="button"
+                (click)="onPickTableItem(item)"
+              >
+                <mat-icon fontSet="material-icons-outlined" matSuffix
+                  >edit</mat-icon
+                >
               </button>
-              <button type="button" (click)="onDelete(item)">Delete</button>
+              <button
+                mat-mini-fab
+                color="warn"
+                type="button"
+                (click)="onDelete(item)"
+              >
+                <mat-icon fontSet="material-icons-outlined" matSuffix
+                  >delete</mat-icon
+                >
+              </button>
             </td>
-          </section>
+          </div>
 
-          <!-- ## Row content if currentlyEdited is set ## -->
-          <section *ngIf="currentlyEdited">
-            <!-- Render regular table data if item doesn't 
-              match currentlyEdited (displaying) -->
-            <div *ngIf="item.id !== (currentlyEdited.id || null)">
-              <td
-                class="table__data"
-                *ngFor="let col of config.columns"
-                [class.table__data--id]="col.name === 'id'"
-              >
-                {{ item[col.name] }}
-              </td>
-              <td class="table__data">
-                <button type="button" (click)="onPickTableItem(item)">
-                  Edit
-                </button>
-                <button type="button" (click)="onDelete(item)">Delete</button>
-              </td>
-            </div>
-
-            <!-- Insert form into row if current item matches 
-              currentlyEdited (editing) -->
-            <div *ngIf="item.id === (currentlyEdited.id || null)">
-              <app-dynamic-form
-                [columns]="config.columns"
-                [inputData]="currentlyEdited"
-                (submitItem)="onUpdate($event)"
-                (unpickItem)="onUnpickTableItem()"
-                [labels]="{ submit: 'Save', reset: 'Cancel' }"
-              >
-              </app-dynamic-form>
-            </div>
-          </section>
-        </tr>
-      </tbody>
+          <!-- ## Insert form into row if current item matches 
+              currentlyEdited (editing) ## -->
+          <div
+            *ngIf="item.id === (currentlyEdited.id || null)"
+            class="!row__content"
+          >
+            <app-dynamic-form
+              [columns]="config.columns"
+              [inputData]="currentlyEdited"
+              (submitItem)="onUpdate($event)"
+              (unpickItem)="onUnpickTableItem()"
+              [labels]="{ submit: 'Save', reset: 'Cancel' }"
+            >
+            </app-dynamic-form>
+          </div>
+        </div>
+      </tr>
     </table>
   </mat-card>
 </div>

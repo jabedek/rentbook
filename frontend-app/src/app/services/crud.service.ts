@@ -82,7 +82,8 @@ export class CrudService implements CrudOperations {
     // Translate output JSON date "2020-08-06T12:08:29.649Z"
     // to "2020-08-06" so that it matches Datepicker format
     // used across the app.
-    let date = new Date().toJSON().split('T')[0];
+    // let date = new Date().toJSON().split('T')[0];
+    let date = new Date().toJSON();
     console.log(date);
 
     let prepackedItem: BackendData = {

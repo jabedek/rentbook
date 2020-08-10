@@ -1,63 +1,94 @@
 <div *ngIf="columns">
   <form [formGroup]="form" class="dynamic-form">
-    <div *ngFor="let col of columns" class="control-wrapper">
-      <!-- If editable, render input -->
-      <section
-        *ngIf="col.editable"
-        class="control-wrapper__content"
-        [class.input--id]="col.name === 'id'"
-      >
-        <div *ngIf="!inputData" class="control-wrapper__label">
-          {{ col.label }}
-        </div>
-        <div
-          *ngIf="col.inputType === 'text' || col.inputType === 'email'"
-          class="control-wrapper__label"
+    <div class="dynamic-form__columns">
+      <div *ngFor="let col of columns" class="column">
+        <!-- If editable, render input -->
+        <section
+          *ngIf="col.editable"
+          class="column__content"
+          [class.input--id]="col.name === 'id'"
         >
-          <input type="text" formControlName="{{ col.name }}" />
-        </div>
+          <div *ngIf="!inputData" class="column__label">
+            {{ col.label }}
+          </div>
 
-        <div *ngIf="col.inputType === 'number'">
-          <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-        </div>
+          <div
+            *ngIf="col.inputType === 'text' || col.inputType === 'email'"
+            class="control-wrapper"
+          >
+            <mat-form-field class="control">
+              <input matInput type="text" formControlName="{{ col.name }}" />
+            </mat-form-field>
+          </div>
 
-        <div *ngIf="col.inputType === 'date'">
-          <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-        </div>
+          <div
+            *ngIf="col.inputType === 'date'"
+            class="control-wrapper control-wrapper--datepicker"
+          >
+            <!-- <input type="{{ col.inputType }}" formControlName="{{ col.name }}" /> -->
+            <mat-form-field appearance="fill" class="control">
+              <mat-label>Choose a date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="{{ col.name }}"
+              />
+              <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
 
-        <div *ngIf="col.inputType === 'select'">
-          <select formControlName="{{ col.name }}">
-            <option *ngFor="let opt of col.options" [value]="opt.value">
-              {{ opt.value }}
-            </option>
-          </select>
-        </div>
-      </section>
+          <div *ngIf="col.inputType === 'select'" class="control-wrapper">
+            <select formControlName="{{ col.name }}" class="control">
+              <option *ngFor="let opt of col.options" [value]="opt.value">
+                {{ opt.value }}
+              </option>
+            </select>
+          </div>
+        </section>
 
-      <!-- If not editable, render value and info -->
-      <section
-        *ngIf="!col.editable"
-        class="control-wrapper__content"
-        [class.input--id]="col.name === 'id'"
-      >
-        <div *ngIf="!inputData" class="control-wrapper__label">
-          {{ col.label }}
-        </div>
-        <div>
-          <span *ngIf="inputData">
-            {{ inputData[col.name] }}
-          </span>
-          <span *ngIf="!inputData">
-            [automatically assigned]
-          </span>
-        </div>
-      </section>
+        <!-- If not editable, render value and info -->
+        <section
+          *ngIf="!col.editable"
+          class="column__content"
+          [class.input--id]="col.name === 'id'"
+        >
+          <div *ngIf="!inputData" class="column__label">
+            {{ col.label }}
+          </div>
+          <div class="control-wrapper">
+            <span *ngIf="inputData" class="control">
+              {{ inputData[col.name] }}
+            </span>
+            <span *ngIf="!inputData" class="control">
+              [automatically assigned]
+            </span>
+          </div>
+        </section>
+      </div>
+
+      <div class="column column--actions">
+        <button
+          mat-mini-fab
+          color="primary"
+          (click)="resetForm()"
+          type="button"
+          class="dynamic-form__button"
+        >
+          <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          color="warn"
+          type="button"
+          (click)="onSubmit()"
+          class="dynamic-form__button"
+        >
+          <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon>
+        </button>
+      </div>
     </div>
-    <button (click)="resetForm()" type="button" class="dynamic-form__button">
-      {{ labels.reset }}
-    </button>
-    <button type="button" (click)="onSubmit()" class="dynamic-form__button">
-      {{ labels.submit }}
-    </button>
   </form>
 </div>

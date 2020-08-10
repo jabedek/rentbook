@@ -1,6 +1,6 @@
 @import "../../../assets/styles/_mixins.scss";
 @import "../../../assets/styles/_theme.scss";
-@import "../../../assets/styles/_constants.scss";
+@import "../../../assets/styles/_variables.scss";
 
 .table-wrapper {
   @include component-wrapper;
@@ -24,7 +24,33 @@ tbody > .table__row {
 .table {
   width: 100%;
   border-spacing: 0px;
-  // table-layout: fixed;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  &__column {
+    // width: 10%;
+    flex-basis: 200px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    &--actions {
+      justify-content: space-evenly;
+      flex-basis: 200px;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+
+    &--header {
+      font-weight: 500;
+      color: $grey-dark;
+    }
+  }
 
   &__head,
   &__body {
@@ -32,24 +58,20 @@ tbody > .table__row {
 
   &__row {
     // border: 1px solid black;
-  }
+    width: 100%;
+    padding: 0;
+    margin: 0;
 
-  &__header {
-    font-weight: 500;
-    color: $grey-dark;
+    // border: 6px solid yellowgreen;
   }
 
   &__data {
-    border-top: 1px solid $grey-light;
   }
 
   &__data,
   &__header {
-    padding: 0.5em;
     height: $data-cell-height;
-    width: $data-column-width;
     text-align: left;
-    border: 1px solid lightcoral;
     overflow: hidden;
 
     &--id {
@@ -62,5 +84,23 @@ tbody > .table__row {
     text-align: left;
     width: 100%;
     padding: 2rem 0 0 6rem;
+  }
+}
+
+.label {
+  width: 100%;
+}
+
+.row__content {
+  width: 100%;
+  display: flex;
+  border-top: 1px solid $grey-light;
+  justify-content: space-between;
+
+  align-content: center;
+  align-items: center;
+
+  &--headers {
+    border-top: none;
   }
 }

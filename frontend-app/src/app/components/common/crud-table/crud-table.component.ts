@@ -14,6 +14,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
   @Input() config: ITableConfig;
   items: BackendData[] = [];
   displayedColumns: string[];
+  width;
   currentlyEdited: null | BackendData = null;
   status: string = '';
   crudServiceSub: Subscription;
@@ -23,6 +24,8 @@ export class CrudTableComponent implements OnInit, OnChanges {
   /* ## Table functions ## */
   private setupColumnHeaders(): void {
     this.displayedColumns = this.config.columns.map((col) => col.label);
+    this.width = 100 / (this.displayedColumns.length + 1);
+    console.log(this.width);
   }
 
   fetchItems(): void {
@@ -40,7 +43,10 @@ export class CrudTableComponent implements OnInit, OnChanges {
     }
   }
 
-  createUser(user: BackendData) {
+  createUser(user: BackendData): void {
+    // let dateShortened = user.dateAdded
+    //  let date = new Date().toJSON().split('T')[0];
+
     this.crudService
       .readByProperty(this.config.url, 'email', user['email'])
       .subscribe(
@@ -62,7 +68,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
       );
   }
 
-  createItem(item: BackendData) {
+  createItem(item: BackendData): void {
     this.crudService.create(this.config.url, item).subscribe(
       () => {
         this.status = `item has been created.`;
@@ -73,7 +79,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     );
   }
 
-  /* ## Dynamic form handlers ## */
+  /* ## Form handlers ## */
   onCreate(item: BackendData): void {
     // Create item using appropriate function based on whether item is User.
     // In available backend types only User has 'email' property.
@@ -100,7 +106,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
         this.status = `deleted item [${item.id}].`;
         if (this.items.length === 0) {
-          this.status += ` No items in table ${this.config.name}.`;
+          this.status += ` no items in table ${this.config.name}.`;
         }
       },
       (msg) => {
@@ -114,12 +120,12 @@ export class CrudTableComponent implements OnInit, OnChanges {
     this.currentlyEdited = item;
   }
 
-  onUnpickTableItem() {
+  onUnpickTableItem(): void {
     this.currentlyEdited = null;
     this.status = '';
   }
 
-  /* ## Dynamic filter form handlers ## */
+  /* ## Filter handlers ## */
   onSubmitFilter(item: BackendData): void {
     this.crudService.filter(this.config.url, item).subscribe(
       (data) => {
@@ -129,7 +135,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     );
   }
 
-  onResetFilter() {
+  onResetFilter(): void {
     this.status = '';
     this.fetchItems();
   }
