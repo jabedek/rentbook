@@ -24,6 +24,8 @@ tbody > .table__row {
 .table {
   width: 100%;
   border-spacing: 0px;
+  padding: 0;
+  margin: 0;
   border-collapse: collapse;
   table-layout: fixed;
 
@@ -34,7 +36,7 @@ tbody > .table__row {
   &__column {
     // width: 10%;
     flex-basis: 200px;
-    flex-shrink: 1;
+    flex-shrink: 0;
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -52,20 +54,10 @@ tbody > .table__row {
     }
   }
 
-  &__head,
-  &__body {
-  }
-
   &__row {
-    // border: 1px solid black;
     width: 100%;
     padding: 0;
     margin: 0;
-
-    // border: 6px solid yellowgreen;
-  }
-
-  &__data {
   }
 
   &__data,
@@ -76,7 +68,6 @@ tbody > .table__row {
 
     &--id {
       font-size: $data-cell-fontSize--id;
-      // min-width: 150px;
     }
   }
 

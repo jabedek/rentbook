@@ -9,11 +9,12 @@
   padding: 0;
   margin: 0;
   background: #fff;
+  overflow: hidden;
 
-  &__columns {
+  &__row {
     width: 100%;
-    height: 100%;
-
+    padding: 0;
+    margin: 0;
     display: flex;
     align-items: center;
     align-content: center;
@@ -24,53 +25,68 @@
   font-size: $data-cell-fontSize--id;
 }
 
-.column {
-  flex-basis: 200px;
-  flex-shrink: 1;
-  flex-grow: 1;
+.row__content {
   display: flex;
-  align-items: center;
   align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
   height: $data-cell-height;
-  text-align: left;
+  width: 100%;
+}
 
-  &__label {
-  }
+.column {
+  flex: 1 0 200px;
 
-  &__content {
-    padding: 0;
-    margin: 0;
-  }
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: $data-cell-height;
+
+  margin: 0;
+  padding: 0;
 
   &--actions {
     justify-content: space-evenly;
-    flex-basis: 200px;
-    flex-shrink: 0;
-    flex-grow: 0;
-  }
-}
-
-.control-wrapper {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  align-content: center;
-
-  border: 3px solid red;
-
-  &--datepicker {
-    // width: 70%;
-    // flex-basis: 150px;
-    // flex-shrink: 1;
-    // height: $data-cell-height;
+    flex-basis: 0 0 200px;
   }
 }
 
 .control {
-  width: 100%;
   height: $data-cell-height;
-  border: 1px solid black;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+
+  &--nonedit {
+    align-self: flex-end;
+    font-style: italic;
+    font-size: $data-cell-fontSize--id;
+  }
+
+  &--datepicker {
+  }
+
+  &--select {
+    height: initial;
+  }
+
+  &__date-input {
+    // width: 90%;
+  }
+}
+
+.picker-toggler {
+  height: 0;
+}
+
+.picker {
+  height: 0;
+}
+
+.icon {
+  height: 0;
 }

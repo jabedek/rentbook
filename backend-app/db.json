@@ -38,12 +38,20 @@
   ],
   "users": [
     {
-      "id": "c765b891-1706-c6f2-3ead-dbe27a5a3744",
-      "dateAdded": "2020-08-10T07:32:15.480Z",
-      "password": "asdfghjklkjhgfdgdgdf",
-      "email": "asdf@sds",
-      "nextPayment": "2020-08-10T22:00:00.000Z",
-      "role": "ADMIN"
+      "id": "554dc322-d084-3c9d-b68d-4518706dc270",
+      "dateAdded": "2020-08-10T10:19:50.112Z",
+      "password": "123456789",
+      "email": "a@aa",
+      "nextPayment": "2020-08-12T22:00:00.000Z",
+      "role": "USER"
+    },
+    {
+      "id": "27baac7a-d4bf-9fe4-0291-e01985b2dedf",
+      "email": "aaa@a",
+      "password": "12345678",
+      "role": "USER",
+      "nextPayment": "2020-08-10",
+      "dateAdded": "2020-08-10T18:09:06.829Z"
     }
   ]
 }
