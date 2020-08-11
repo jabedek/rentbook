@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { CrudService } from '../../../services/crud.service';
 
 import { eventDispatcher } from '../../../store/reducer';
-import { ActionTypes } from '../../../store/actions';
+import { UserActionTypes } from '../../../store/actions';
 import { IUser } from 'src/app/interfaces/user';
 
 @Component({
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
 
               // Save user to global state
               eventDispatcher.next({
-                type: ActionTypes.USER_LOGIN,
+                type: UserActionTypes.USER_LOGIN,
                 payload: authUser,
               });
 

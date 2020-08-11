@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './store2/counter.reducer';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/common/header/header.component';
@@ -42,6 +44,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { LanguagePipe } from './pipes/language.pipe';
+import { MyCounterComponent } from './my-counter/my-counter.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +65,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     CrudTableComponent,
     DynamicFormComponent,
     DynamicFilterFormComponent,
+    LanguagePipe,
+    MyCounterComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +96,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
+    StoreModule.forRoot({ count: counterReducer }),
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],

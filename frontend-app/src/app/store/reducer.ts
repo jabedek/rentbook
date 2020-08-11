@@ -1,18 +1,14 @@
+import { IStore } from './../interfaces/IStore';
 // made with https://www.telerik.com/blogs/managing-state-using-rxjs-subjects-in-angular-applications
 
 import { Subject } from 'rxjs';
-import { ActionTypes } from './actions';
+import { UserActionTypes } from './actions';
 import { IUser } from '../interfaces/user';
 import { IBook } from '../interfaces/IBook';
 
-interface InitialState {
-  loggedUser: IUser | null;
-  books: IBook[];
-}
-
-let state: InitialState = {
+let state: IStore = {
   loggedUser: null,
-  books: [],
+  language: 'PL',
 };
 
 interface Event {
@@ -20,21 +16,21 @@ interface Event {
   payload?: IUser;
 }
 
-export const store = new Subject<InitialState>();
+export const store = new Subject<IStore>();
 export const eventDispatcher = new Subject<Event>();
 
 eventDispatcher.subscribe((data: Event) => {
   switch (data.type) {
-    case ActionTypes.USER_GET_USER: {
+    case UserActionTypes.USER_GET_USER: {
       return state.loggedUser;
     }
-    case ActionTypes.USER_LOGIN: {
+    case UserActionTypes.USER_LOGIN: {
       state = { ...state, loggedUser: data.payload };
       store.next(state);
       break;
     }
 
-    case ActionTypes.USER_LOGOUT: {
+    case UserActionTypes.USER_LOGOUT: {
       state = { ...state, loggedUser: null };
       store.next(state);
       break;

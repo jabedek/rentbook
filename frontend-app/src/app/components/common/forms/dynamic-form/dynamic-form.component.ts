@@ -111,8 +111,6 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
       .subscribe((data) => {});
 
     if (this.inputData && this.form) {
-      console.log(this.inputData);
-
       this.form.setValue(this.inputData);
     }
   }

@@ -1,90 +1,79 @@
-<div *ngIf="columns">
+<div *ngIf="columns" class="wrapper">
   <form [formGroup]="form" class="dynamic-form">
-    <div class="dynamic-form__row">
-      <div *ngFor="let col of columns" class="row__content">
-        <!-- If editable, render input -->
-        <section
-          *ngIf="col.editable"
-          class="column"
-          [class.input--id]="col.name === 'id'"
-          [class.input--id]="col.dateAdded === 'id'"
+    <div *ngFor="let col of columns" class="column">
+      <!-- If editable, render input -->
+      <section
+        *ngIf="col.editable"
+        class="column__content"
+        [class.input--id]="col.name === 'id'"
+        [class.input--id]="col.dateAdded === 'id'"
+      >
+        <div *ngIf="!inputData" class="column__label">
+          {{ col.label }}
+        </div>
+
+        <mat-form-field
+          class="control"
+          *ngIf="col.inputType === 'text' || col.inputType === 'email'"
         >
-          <div *ngIf="!inputData" class="column__label">
-            {{ col.label }}
-          </div>
+          <input matInput type="text" formControlName="{{ col.name }}" />
+        </mat-form-field>
 
-          <mat-form-field
-            class="control"
-            *ngIf="col.inputType === 'text' || col.inputType === 'email'"
-          >
-            <input matInput type="text" formControlName="{{ col.name }}" />
-          </mat-form-field>
-
-          <mat-form-field
-            appearance="fill"
-            class="control control--datepicker"
-            *ngIf="col.inputType === 'date'"
-          >
-            <!-- <mat-label>Choose a date</mat-label> -->
-            <input
-              matInput
-              class="control__date-input"
-              [matDatepicker]="picker"
-              formControlName="{{ col.name }}"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-              class="picker-toggle"
-            >
-              <mat-icon class="icon" matDatepickerToggleIcon
-                >keyboard_arrow_down</mat-icon
-              >
-            </mat-datepicker-toggle>
-            <mat-datepicker #picker class="picker"></mat-datepicker>
-          </mat-form-field>
-
-          <select
+        <mat-form-field
+          [style.width.%]="70"
+          [style.fontSize.rem]="0.8"
+          *ngIf="col.inputType === 'date'"
+        >
+          <input
+            matInput
+            [matDatepicker]="picker"
             formControlName="{{ col.name }}"
-            class="control control--select"
-            *ngIf="col.inputType === 'select'"
-          >
-            <option *ngFor="let opt of col.options" [value]="opt.value">
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon class="icon" matDatepickerToggleIcon
+              >keyboard_arrow_down</mat-icon
+            >
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker class="picker" class="move"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field
+          [style.width.%]="70"
+          [style.fontSize.rem]="0.8"
+          *ngIf="col.inputType === 'select'"
+        >
+          <mat-select formControlName="{{ col.name }}">
+            <mat-option *ngFor="let opt of col.options" [value]="opt.value">
               {{ opt.value }}
-            </option>
-          </select>
-        </section>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </section>
 
-        <!-- If not editable, render value and info -->
-        <section
-          *ngIf="!col.editable"
-          class="column"
-          [class.input--id]="col.name === 'id'"
-          [class.input--id]="col.dateAdded === 'id'"
-        >
-          <div *ngIf="!inputData" class="column__label">
-            {{ col.label }}
-          </div>
+      <!-- If not editable, render value and info -->
+      <section
+        *ngIf="!col.editable"
+        class="column__content"
+        [class.input--id]="col.name === 'id'"
+        [class.input--id]="col.dateAdded === 'id'"
+      >
+        <div *ngIf="!inputData" class="column__label">
+          {{ col.label }}
+        </div>
 
-          <span class="control control--nonedit">
-            [automatically assigned]
-          </span>
-        </section>
-      </div>
+        <span class="control control--nonedit">
+          [automatically assigned]
+        </span>
+      </section>
+    </div>
 
-      <div class="column column--actions">
-        <button
-          mat-mini-fab
-          color="primary"
-          (click)="resetForm()"
-          type="button"
-        >
-          <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon>
-        </button>
-        <button mat-mini-fab color="warn" type="button" (click)="onSubmit()">
-          <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon>
-        </button>
-      </div>
+    <div class="actions">
+      <button mat-mini-fab color="primary" (click)="resetForm()" type="button">
+        <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon>
+      </button>
+      <button mat-mini-fab color="warn" type="button" (click)="onSubmit()">
+        <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon>
+      </button>
     </div>
   </form>
 </div>

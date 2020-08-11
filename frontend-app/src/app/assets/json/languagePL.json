@@ -1,0 +1,14 @@
+{
+  "password": "Hasło",
+  "nav-home": "Główna",
+  "nav-rental": "Wypożyczalnia",
+  "nav-admin": "Admin",
+  "nav-account": "Konto",
+  "account-login": "Zaloguj się",
+  "account-logout": "Wyloguj się",
+  "account-register": "Zarejestruj się",
+  "form-submit": "Wyślij",
+  "form-clear": "Wyczyść",
+  "login-form": "Formularz logowania",
+  "register-form": "Formularz rejestracji"
+}

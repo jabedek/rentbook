@@ -36,7 +36,7 @@ tbody > .table__row {
   &__column {
     // width: 10%;
     flex-basis: 200px;
-    flex-shrink: 0;
+    flex-shrink: 1;
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -54,6 +54,10 @@ tbody > .table__row {
     }
   }
 
+  &__head,
+  &__body {
+  }
+
   &__row {
     width: 100%;
     padding: 0;
@@ -68,6 +72,7 @@ tbody > .table__row {
 
     &--id {
       font-size: $data-cell-fontSize--id;
+      // min-width: 150px;
     }
   }
 
@@ -94,4 +99,15 @@ tbody > .table__row {
   &--headers {
     border-top: none;
   }
+}
+
+.form {
+  width: 100%;
+  height: $data-cell-height;
+  // border-top: 1px solid $grey-light;
+  margin: 0;
+  padding: 0;
+}
+
+.create-form {
 }

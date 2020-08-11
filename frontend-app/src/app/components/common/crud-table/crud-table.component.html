@@ -1,17 +1,21 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
 <div class="table-wrapper">
   <mat-card>
-    Filter table form:
+    <caption class="mat-subheading-title" [style.fontWeight]="500">
+      Filter
+    </caption>
     <app-dynamic-filter-form
       [columns]="config.columns"
       (submitItem)="onSubmitFilter($event)"
       (resetFilter)="onResetFilter()"
     >
-    </app-dynamic-filter-form
-  ></mat-card>
+    </app-dynamic-filter-form>
+  </mat-card>
 
-  <mat-card>
-    Create item form:
+  <mat-card clas="create-form">
+    <caption class="mat-subheading-title" [style.fontWeight]="500">
+      Create
+    </caption>
     <app-dynamic-form
       [columns]="config.columns"
       [inputData]="null"
@@ -83,13 +87,10 @@
         </div>
 
         <!-- ## Row content if currentlyEdited is set ## -->
-        <div *ngIf="currentlyEdited">
+        <div *ngIf="currentlyEdited" class="row__content">
           <!-- Render regular table data if item doesn't 
               match currentlyEdited (displaying) -->
-          <div
-            *ngIf="item.id !== (currentlyEdited.id || null)"
-            class="row__content"
-          >
+          <div *ngIf="item.id !== (currentlyEdited.id || null)">
             <td
               class="table__column table__data"
               *ngFor="let col of config.columns"
@@ -123,10 +124,7 @@
 
           <!-- ## Insert form into row if current item matches 
               currentlyEdited (editing) ## -->
-          <div
-            *ngIf="item.id === (currentlyEdited.id || null)"
-            class="!row__content"
-          >
+          <div *ngIf="item.id === (currentlyEdited.id || null)" class="form">
             <app-dynamic-form
               [columns]="config.columns"
               [inputData]="currentlyEdited"

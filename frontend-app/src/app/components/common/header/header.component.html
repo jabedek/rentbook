@@ -19,30 +19,27 @@
 
   <nav>
     <button class="nav__item" mat-button [routerLink]="['']">
-      Home
+      {{ "nav-home" | language }}
     </button>
     <button class="nav__item" mat-button [routerLink]="['rental/books']">
-      Rental
+      {{ "nav-rental" | language }}
     </button>
 
     <!-- Account Menu -->
     <button class="nav__item" mat-stroked-button [matMenuTriggerFor]="account">
-      {{ accountButtonText }}
+      <div *ngIf="username">{{ username }}</div>
+      <div *ngIf="!username">{{ "nav-account" | language }}</div>
     </button>
     <mat-menu #account="matMenu">
       <button mat-menu-item [routerLink]="['account/login']">
-        Log in
+        {{ "account-login" | language }}
       </button>
       <button mat-menu-item [routerLink]="['account/register']">
-        Register new account
+        {{ "account-register" | language }}
       </button>
 
-      <!-- <button mat-menu-item [routerLink]="['account/password-reset']">
-        Reset your password
-      </button> -->
-
       <button mat-menu-item (click)="logout()" [routerLink]="['']">
-        Log out
+        {{ "account-logout" | language }}
       </button>
     </mat-menu>
 
@@ -52,7 +49,7 @@
       mat-raised-button
       [matMenuTriggerFor]="admin"
     >
-      Admin
+      {{ "nav-admin" | language }}
     </button>
     <mat-menu #admin="matMenu">
       <button mat-menu-item [routerLink]="['admin/books/crud']">

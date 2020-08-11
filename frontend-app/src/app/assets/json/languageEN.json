@@ -1,0 +1,14 @@
+{
+  "password": "Password",
+  "nav-home": "Main",
+  "nav-rental": "Rental",
+  "nav-admin": "Admin",
+  "nav-account": "Account",
+  "account-login": "Log in",
+  "account-logout": "Log out",
+  "account-register": "Register new account",
+  "form-submit": "Send",
+  "form-clear": "Clear",
+  "login-form": "Login form",
+  "register-form": "Register form"
+}

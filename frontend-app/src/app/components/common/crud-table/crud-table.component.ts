@@ -17,7 +17,6 @@ export class CrudTableComponent implements OnInit, OnChanges {
   width;
   currentlyEdited: null | BackendData = null;
   status: string = '';
-  crudServiceSub: Subscription;
 
   constructor(private crudService: CrudService) {}
 
@@ -44,9 +43,6 @@ export class CrudTableComponent implements OnInit, OnChanges {
   }
 
   createUser(user: BackendData): void {
-    // let dateShortened = user.dateAdded
-    //  let date = new Date().toJSON().split('T')[0];
-
     this.crudService
       .readByProperty(this.config.url, 'email', user['email'])
       .subscribe(

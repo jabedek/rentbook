@@ -1,4 +1,4 @@
-<app-section-header [text]="'Register new account'"></app-section-header>
+<app-section-header [text]="'account-register' | language"></app-section-header>
 <div class="register-wrapper">
   <mat-card class="register-card" [class.mat-elevation-z3]="'true'">
     <mat-card-content class="register-card__content">
@@ -8,7 +8,7 @@
         (ngSubmit)="onSubmit(registerForm.value)"
       >
         <mat-card-title class="register-card__title">
-          Register form
+          {{ "register-form" | language }}
         </mat-card-title>
 
         <!-- Email input -->
@@ -44,7 +44,7 @@
           appearance="outline"
           class="register-form__item"
         >
-          <mat-label>Password</mat-label>
+          <mat-label>{{ "Password" | language }}</mat-label>
           <input
             #inputPassword
             matInput
@@ -77,7 +77,7 @@
             type="button"
             (click)="registerForm.reset()"
           >
-            CLEAR
+            {{ "form-clear" | language }}
           </button>
 
           <button
@@ -86,7 +86,7 @@
             type="submit"
             [disabled]="!registerForm.valid"
           >
-            SUBMIT
+            {{ "form-submit" | language }}
           </button>
         </div>
       </form>
