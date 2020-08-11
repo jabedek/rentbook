@@ -1,5 +1,13 @@
 <div *ngIf="columns" class="wrapper">
   <form [formGroup]="form" class="dynamic-form">
+    <!-- <div *ngFor="let col of columns" class="column">
+      <div
+        *ngIf="!inputData && mode === 'create'"
+        class="mat-small column__label"
+      >
+        {{ col.label }}
+      </div>
+    </div> -->
     <div *ngFor="let col of columns" class="column">
       <!-- If editable, render input -->
       <section
@@ -8,7 +16,10 @@
         [class.input--id]="col.name === 'id'"
         [class.input--id]="col.dateAdded === 'id'"
       >
-        <div *ngIf="!inputData && mode === 'create'" class="column__label">
+        <div
+          *ngIf="!inputData && mode === 'create'"
+          class="mat-small column__label"
+        >
           {{ col.label }}
         </div>
 
@@ -68,13 +79,30 @@
       </section>
     </div>
 
-    <div class="actions">
-      <button mat-mini-fab color="primary" (click)="resetForm()" type="button">
-        <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon>
-      </button>
-      <button mat-mini-fab color="warn" type="button" (click)="onSubmit()">
-        <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon>
-      </button>
+    <div class="actions-column">
+      <div class="mat-small column__label">
+        Actions
+      </div>
+      <div class="actions">
+        <button
+          [class.mat-elevation-z3]="'true'"
+          mat-mini-fab
+          color="primary"
+          (click)="resetForm()"
+          type="button"
+        >
+          <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon>
+        </button>
+        <button
+          [class.mat-elevation-z3]="'true'"
+          mat-mini-fab
+          color="warn"
+          type="button"
+          (click)="onSubmit()"
+        >
+          <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon>
+        </button>
+      </div>
     </div>
   </form>
 </div>
