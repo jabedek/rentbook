@@ -22,6 +22,7 @@
   justify-content: space-between;
   align-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .column {
@@ -116,4 +117,89 @@
   flex-shrink: 1;
   flex-grow: 1;
   width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0px;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  &__column {
+    // width: 10%;
+    flex-basis: 200px;
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    // border: 2px solid red;
+
+    &--actions {
+      justify-content: space-evenly;
+      flex-basis: 200px;
+      flex-shrink: 0;
+      flex-grow: 0;
+    }
+
+    &--header {
+      font-weight: 500;
+      color: $grey-dark;
+    }
+  }
+
+  &__head,
+  &__body {
+  }
+
+  &__row {
+    width: 100%;
+    // border-top: 1px solid $grey-light;
+    padding: 0;
+    margin: 0;
+
+    &--headers {
+      border: none;
+    }
+  }
+
+  &__data,
+  &__header {
+    height: $data-cell-height;
+    text-align: left;
+    overflow: hidden;
+
+    &--id {
+      font-size: $data-cell-fontSize--id;
+      // min-width: 150px;
+    }
+  }
+
+  &__status {
+    text-align: left;
+    width: 100%;
+    padding: 2rem 0 0 6rem;
+  }
+}
+
+.label {
+  width: 100%;
+}
+
+.row__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  align-content: center;
+  align-items: center;
+
+  &--headers {
+    border-top: none;
+  }
 }
