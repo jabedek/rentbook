@@ -108,21 +108,22 @@ tbody > .table__row {
   // border-top: 1px solid $grey-light;
   margin: 0;
   padding: 0;
+
+  &--filter {
+    // background: rgba(240, 240, 240, 1);
+  }
 }
 
 .create-form {
   width: 90%;
-  padding: 1em 1em 2em 1em;
+  padding: 1em 1em 1em 1em;
   margin: 2em 0;
-
-  height: $data-cell-height * 2.2;
-  // height: 100%;
+  height: $data-cell-height * 3;
   background: #fff;
   display: flex;
-  // flex-direction: column;
   align-content: center;
   align-items: center;
-  // display: flex;
+  flex-wrap: wrap;
 }
 
 .create-form-wrapper {

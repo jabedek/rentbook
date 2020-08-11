@@ -1,28 +1,92 @@
-<div *ngIf="columns">
-  <form [formGroup]="form" class="dynamic-filter">
-    <div *ngFor="let col of columns">
-      {{ col.label }}
-      <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
-        <input type="text" formControlName="{{ col.name }}" />
-      </div>
-
-      <div *ngIf="col.inputType === 'number'">
-        <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-      </div>
-
-      <div *ngIf="col.inputType === 'date'">
-        <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-      </div>
-
-      <div *ngIf="col.inputType === 'select'">
-        <select formControlName="{{ col.name }}">
-          <option *ngFor="let opt of col.options" [value]="opt.value">
-            {{ opt.value }}
-          </option>
-        </select>
-      </div>
+<form [formGroup]="form" class="table" appearance="outline">
+  <tr class="table__row">
+    <div class="row__content">
+      <td
+        *ngFor="let col of columns"
+        [style.width.%]="100"
+        class="table__column table__data"
+      >
+        <!-- {{ col.label }} -->
+        <!-- <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
+      <input type="text" formControlName="{{ col.name }}" />
     </div>
-    <button (click)="resetForm()" type="button">Clear</button>
-    <button (click)="onSubmit()">Filter</button>
-  </form>
-</div>
+
+    <div *ngIf="col.inputType === 'number'">
+      <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
+    </div>
+
+    <div *ngIf="col.inputType === 'date'">
+      <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
+    </div>
+
+    <div *ngIf="col.inputType === 'select'">
+      <select formControlName="{{ col.name }}">
+        <option *ngFor="let opt of col.options" [value]="opt.value">
+          {{ opt.value }}
+        </option>
+      </select>
+    </div> -->
+        <mat-form-field
+          [style.width.%]="70"
+          *ngIf="col.inputType === 'text' || col.inputType === 'email'"
+        >
+          <input matInput type="text" formControlName="{{ col.name }}" />
+        </mat-form-field>
+
+        <mat-form-field
+          [style.width.%]="70"
+          [style.fontSize.rem]="0.8"
+          *ngIf="col.inputType === 'date'"
+        >
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="{{ col.name }}"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon class="icon" matDatepickerToggleIcon
+              >keyboard_arrow_down</mat-icon
+            >
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker class="picker" class="move"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field
+          [style.width.%]="70"
+          [style.fontSize.rem]="0.8"
+          *ngIf="col.inputType === 'select'"
+        >
+          <mat-select formControlName="{{ col.name }}">
+            <mat-option *ngFor="let opt of col.options" [value]="opt.value">
+              {{ opt.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td class="table__column table__column--actions table__data">
+        <button
+          [class.mat-elevation-z2]="'true'"
+          mat-button
+          color="primary"
+          (click)="resetForm()"
+          type="button"
+        >
+          CLEAR
+          <!-- <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon> -->
+        </button>
+        <button
+          [class.mat-elevation-z2]="'true'"
+          mat-button
+          color="warn"
+          type="button"
+          (click)="onSubmit()"
+        >
+          FILTER
+          <!-- <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon> -->
+        </button>
+      </td>
+      <!-- <button (click)="resetForm()" type="button">Clear</button>
+      <button (click)="onSubmit()">Filter</button> -->
+    </div>
+  </tr>
+</form>

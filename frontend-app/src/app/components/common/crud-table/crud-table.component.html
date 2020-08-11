@@ -1,9 +1,6 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
 <div class="table-wrapper">
-  <mat-card>
-    <caption class="mat-subheading-title" [style.fontWeight]="500">
-      Filter
-    </caption>
+  <!-- <mat-card>
     <app-dynamic-filter-form
       [columns]="config.columns"
       (submitItem)="onSubmitFilter($event)"
@@ -11,12 +8,16 @@
     >
     </app-dynamic-filter-form>
   </mat-card>
+ <p class="table__status">
+    Status:
+    {{ status }}
+  </p>
+
+-->
 
   <mat-card class="create-form">
+    {{ "register-form" | language }}
     <div class="create-form-wrapper">
-      <!-- <caption class="mat-subheading-title" [style.fontWeight]="500">
-        Create
-      </caption> -->
       <app-dynamic-form
         [columns]="config.columns"
         [inputData]="null"
@@ -28,11 +29,6 @@
       </app-dynamic-form>
     </div>
   </mat-card>
-
-  <p class="table__status">
-    Status:
-    {{ status }}
-  </p>
 
   <mat-card class="table-card" [class.mat-elevation-z1]="'true'">
     <table class="table">
@@ -51,6 +47,15 @@
             Actions
           </td>
         </div>
+      </tr>
+
+      <tr class="form form--filter">
+        <app-dynamic-filter-form
+          [columns]="config.columns"
+          (submitItem)="onSubmitFilter($event)"
+          (resetFilter)="onResetFilter()"
+        >
+        </app-dynamic-filter-form>
       </tr>
 
       <!-- ## Item Data rows ## -->
