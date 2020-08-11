@@ -14,7 +14,6 @@ export class CrudTableComponent implements OnInit, OnChanges {
   @Input() config: ITableConfig;
   items: BackendData[] = [];
   displayedColumns: string[];
-  width;
   currentlyEdited: null | BackendData = null;
   status: string = '';
 
@@ -23,8 +22,6 @@ export class CrudTableComponent implements OnInit, OnChanges {
   /* ## Table functions ## */
   private setupColumnHeaders(): void {
     this.displayedColumns = this.config.columns.map((col) => col.label);
-    this.width = 100 / (this.displayedColumns.length + 1);
-    console.log(this.width);
   }
 
   fetchItems(): void {

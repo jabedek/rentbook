@@ -36,6 +36,7 @@ type buttonLabels = {
 })
 export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[];
+  @Input() mode: string;
   @Input() inputData: null | BackendData;
   @Input() labels: buttonLabels = { submit: 'Submit', reset: 'Erase' };
   @Output('submitItem') submitItem = new EventEmitter<BackendData>();
