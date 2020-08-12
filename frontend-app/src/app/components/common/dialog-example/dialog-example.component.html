@@ -1,0 +1,13 @@
+<div mat-dialog-content class="dialog-content">
+  {{ data.name | language }}
+  <app-dynamic-form
+    [columns]="data.columns"
+    [inputData]="data.inputData"
+    [mode]="data.mode"
+    [displayDirection]="'column'"
+    [labels]="data.labels"
+    (submitItem)="submitItem($event)"
+    (unpickItem)="onNoClick()"
+  >
+  </app-dynamic-form>
+</div>

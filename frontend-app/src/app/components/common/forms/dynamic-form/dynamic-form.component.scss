@@ -12,7 +12,6 @@
   margin: 0;
   padding: 0;
   height: $data-cell-height;
-  // width: 100%;
   flex-basis: 100px;
   flex-shrink: 1;
   flex-grow: 1;
@@ -24,13 +23,10 @@
   &__label {
     font-weight: 500;
     color: $grey-dark;
-    // height: $data-cell-height;
   }
 }
 
 .control {
-  // height: $data-cell-height;
-  // height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -48,10 +44,13 @@
 
   &--select {
     height: 100%;
-    // width: 100%;
   }
 }
-
+.column-content {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
 .table {
   width: 100%;
   border-spacing: 0px;
@@ -64,14 +63,60 @@
   flex-direction: column;
   align-content: center;
 
+  &--vertical {
+    width: 50%;
+    width: 100%;
+    border-spacing: 0px;
+    padding: 0;
+    margin: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+
+    &__column {
+      display: flex;
+      align-items: center;
+      width: 60%;
+      flex: 1 1 60px;
+
+      &--actions {
+        justify-content: space-evenly;
+      }
+    }
+
+    &__row {
+      width: 100%;
+      height: 50%;
+      padding: 0;
+      margin: 0;
+
+      &--headers {
+        border: none;
+      }
+    }
+
+    &__data,
+    &__header {
+      height: $data-cell-height;
+      text-align: left;
+      overflow: hidden;
+
+      &--id {
+        font-size: $data-cell-fontSize--id;
+      }
+    }
+  }
+
   &__column {
-    // width: 10%;
     flex-basis: 200px;
     flex-shrink: 1;
     flex-grow: 1;
     display: flex;
     align-items: center;
-    // border: 2px solid red;
 
     &--actions {
       justify-content: space-evenly;
@@ -88,7 +133,6 @@
 
   &__row {
     width: 100%;
-    // border-top: 1px solid $grey-light;
     padding: 0;
     margin: 0;
 
@@ -105,7 +149,6 @@
 
     &--id {
       font-size: $data-cell-fontSize--id;
-      // min-width: 150px;
     }
   }
 
@@ -128,7 +171,25 @@
   align-content: center;
   align-items: center;
 
+  flex-direction: row;
+
+  &--vertical {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+  }
+
   &--headers {
     border-top: none;
   }
+}
+
+.btn-submit {
+  background-color: $submit;
+  color: #fff;
 }

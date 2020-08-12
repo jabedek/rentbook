@@ -5,6 +5,7 @@
 $custom-theme-primary: mat-palette($mat-deep-purple);
 $custom-theme-accent: mat-palette($mat-brown, A400);
 $custom-theme-warn: mat-palette($mat-red);
+$custom-theme-submit: mat-palette($mat-green, 700);
 $custom-theme-grey-light: mat-palette($mat-grey, 300);
 $custom-theme-grey-dark: mat-palette($mat-grey, 500);
 $custom-theme-admin: mat-palette($mat-yellow, A400);
@@ -18,6 +19,7 @@ $custom-theme-light: mat-light-theme(
 // custom by me
 $primary: mat-color($custom-theme-primary);
 $accent: mat-color($custom-theme-accent);
+$submit: mat-color($custom-theme-submit);
 $warn: mat-color($custom-theme-warn);
 $admin: mat-color($custom-theme-admin);
 $grey-light: mat-color($custom-theme-grey-light);

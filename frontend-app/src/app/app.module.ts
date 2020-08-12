@@ -47,6 +47,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { LanguagePipe } from './pipes/language.pipe';
 import { MyCounterComponent } from './my-counter/my-counter.component';
+import { DialogExampleComponent } from './components/common/dialog-example/dialog-example.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { MyCounterComponent } from './my-counter/my-counter.component';
     DynamicFilterFormComponent,
     LanguagePipe,
     MyCounterComponent,
+    DialogExampleComponent,
   ],
   imports: [
     BrowserModule,

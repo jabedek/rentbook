@@ -1,8 +1,26 @@
+/*
+Hiding scroll in dialog: https://github.com/angular/components/issues/8706
+"
+constructor(public dialog: MatDialog, overlay: Overlay) {
+    dialog.open(JazzDialog, {
+      scrollStrategy: overlay.scrollStrategies.noop()
+    });
+  }
+  "
+*/
+
+import { DialogExampleComponent } from './../dialog-example/dialog-example.component';
 import { BackendData } from './../../../types/BackendData';
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Inject } from '@angular/core';
 import { CrudService } from '../../../services/crud.service';
 import { ITableConfig } from '../../../interfaces/table';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { Overlay } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-crud-table',
@@ -17,7 +35,32 @@ export class CrudTableComponent implements OnInit, OnChanges {
   currentlyEdited: null | BackendData = null;
   status: string = '';
 
-  constructor(private crudService: CrudService) {}
+  constructor(
+    private crudService: CrudService,
+    public dialog: MatDialog,
+    public overlay: Overlay // for disabling scroll on dialog
+  ) {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogExampleComponent, {
+      width: '50%',
+      height: 'auto',
+      scrollStrategy: this.overlay.scrollStrategies.noop(), // // for disabling scroll on dialog
+      data: {
+        name: 'register-form',
+        columns: this.config.columns,
+        labels: { submit: 'Create', reset: 'Clear' },
+        displayDirection: 'column',
+        mode: 'create',
+        inputData: null,
+        submit: this.onCreate,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
+  }
 
   /* ## Table functions ## */
   private setupColumnHeaders(): void {
@@ -39,7 +82,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     }
   }
 
-  createUser(user: BackendData): void {
+  private createUser(user: BackendData): void {
     this.crudService
       .readByProperty(this.config.url, 'email', user['email'])
       .subscribe(
@@ -61,7 +104,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
       );
   }
 
-  createItem(item: BackendData): void {
+  private createItem(item: BackendData): void {
     this.crudService.create(this.config.url, item).subscribe(
       () => {
         this.status = `item has been created.`;
@@ -73,11 +116,11 @@ export class CrudTableComponent implements OnInit, OnChanges {
   }
 
   /* ## Form handlers ## */
-  onCreate(item: BackendData): void {
+  onCreate = (item: BackendData): void => {
     // Create item using appropriate function based on whether item is User.
     // In available backend types only User has 'email' property.
     item['email'] ? this.createUser(item) : this.createItem(item);
-  }
+  };
 
   onUpdate(item: BackendData): void {
     this.crudService.update(this.config.url, item.id, item).subscribe(

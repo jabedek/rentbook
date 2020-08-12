@@ -1,19 +1,34 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
 <div class="table__wrapper">
-  <mat-card class="create-form__card">
-    {{ "register-form" | language }}
-    <div class="create-form__wrapper">
-      <app-dynamic-form
-        [columns]="config.columns"
-        [inputData]="null"
-        [mode]="'create'"
-        [labels]="{ submit: 'Create', reset: 'Clear' }"
-        (submitItem)="onCreate($event)"
-        (unpickItem)="onUnpickTableItem()"
-      >
-      </app-dynamic-form>
-    </div>
-  </mat-card>
+  <div
+    [ngSwitch]="config.modals"
+    class="create__wrapper"
+    [class.create__wrapper--modal]="config.modals"
+  >
+    <button
+      *ngSwitchCase="true"
+      mat-raised-button
+      class="btn"
+      (click)="openDialog()"
+    >
+      CREATE
+    </button>
+
+    <mat-card *ngSwitchCase="false" class="create-form__card">
+      {{ "register-form" | language }}
+      <div class="create-form__wrapper">
+        <app-dynamic-form
+          [mode]="'create'"
+          [columns]="config.columns"
+          [labels]="{ submit: 'Create', reset: 'Clear' }"
+          [inputData]="null"
+          (submitItem)="onCreate($event)"
+          (unpickItem)="onUnpickTableItem()"
+        >
+        </app-dynamic-form>
+      </div>
+    </mat-card>
+  </div>
 
   <mat-card class="table__card" [class.mat-elevation-z1]="'true'">
     <table class="table">
@@ -57,7 +72,7 @@
           </td>
           <td class="table__column table__column--actions">
             <button
-              [class.mat-elevation-z3]="'true'"
+              [class.mat-elevation-z2]="'true'"
               mat-mini-fab
               color="primary"
               type="button"
@@ -68,7 +83,7 @@
               >
             </button>
             <button
-              [class.mat-elevation-z3]="'true'"
+              [class.mat-elevation-z2]="'true'"
               mat-mini-fab
               color="warn"
               type="button"
@@ -98,7 +113,7 @@
             </td>
             <td class="table__column table__column--actions">
               <button
-                [class.mat-elevation-z3]="'true'"
+                [class.mat-elevation-z2]="'true'"
                 mat-mini-fab
                 color="primary"
                 type="button"
@@ -109,7 +124,7 @@
                 >
               </button>
               <button
-                [class.mat-elevation-z3]="'true'"
+                [class.mat-elevation-z2]="'true'"
                 mat-mini-fab
                 color="warn"
                 type="button"

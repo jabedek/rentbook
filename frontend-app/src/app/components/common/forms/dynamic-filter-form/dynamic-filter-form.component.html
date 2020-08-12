@@ -6,26 +6,6 @@
         [style.width.%]="100"
         class="table__column table__data"
       >
-        <!-- {{ col.label }} -->
-        <!-- <div *ngIf="col.inputType === 'text' || col.inputType === 'email'">
-      <input type="text" formControlName="{{ col.name }}" />
-    </div>
-
-    <div *ngIf="col.inputType === 'number'">
-      <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-    </div>
-
-    <div *ngIf="col.inputType === 'date'">
-      <input type="{{ col.inputType }}" formControlName="{{ col.name }}" />
-    </div>
-
-    <div *ngIf="col.inputType === 'select'">
-      <select formControlName="{{ col.name }}">
-        <option *ngFor="let opt of col.options" [value]="opt.value">
-          {{ opt.value }}
-        </option>
-      </select>
-    </div> -->
         <mat-form-field
           [style.width.%]="70"
           *ngIf="col.inputType === 'text' || col.inputType === 'email'"
@@ -67,25 +47,19 @@
         <button
           [class.mat-elevation-z2]="'true'"
           mat-button
-          color="primary"
           (click)="resetForm()"
           type="button"
         >
           CLEAR
-          <!-- <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon> -->
         </button>
         <button
           [class.mat-elevation-z2]="'true'"
           mat-button
-          color="warn"
           (click)="onSubmit()"
         >
           FILTER
-          <!-- <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon> -->
         </button>
       </td>
-      <!-- <button (click)="resetForm()" type="button">Clear</button>
-      <button (click)="onSubmit()">Filter</button> -->
     </div>
   </tr>
 </form>
