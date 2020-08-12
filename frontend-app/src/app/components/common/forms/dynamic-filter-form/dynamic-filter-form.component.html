@@ -1,11 +1,7 @@
-<form [formGroup]="form" class="table" appearance="outline">
-  <tr class="table__row">
+<form [formGroup]="form" class="filter" appearance="outline">
+  <tr class="row">
     <div class="row__content">
-      <td
-        *ngFor="let col of columns"
-        [style.width.%]="100"
-        class="table__column table__data"
-      >
+      <td *ngFor="let col of columns" [style.width.%]="100" class="column">
         <mat-form-field
           [style.width.%]="70"
           *ngIf="col.inputType === 'text' || col.inputType === 'email'"
@@ -43,7 +39,7 @@
           </mat-select>
         </mat-form-field>
       </td>
-      <td class="table__column table__column--actions table__data">
+      <td class="column column--actions">
         <button
           [class.mat-elevation-z2]="'true'"
           mat-button

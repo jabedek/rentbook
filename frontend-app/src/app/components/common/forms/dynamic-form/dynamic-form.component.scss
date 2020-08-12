@@ -1,148 +1,25 @@
 @import "../../../../assets/styles/_variables.scss";
 @import "../../../../assets/styles/_theme.scss";
 
-.input--id {
-  font-size: $data-cell-fontSize--id;
-}
-
-.column {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: $data-cell-height;
-  flex-basis: 100px;
-  flex-shrink: 1;
-  flex-grow: 1;
-  width: 100%;
-  &__content {
-    width: 100%;
-  }
-
-  &__label {
-    font-weight: 500;
-    color: $grey-dark;
-  }
-}
-
-.control {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 0.8rem;
-
-  &--nonedit {
-    align-self: flex-end;
-    font-style: italic;
-    font-size: $data-cell-fontSize--id;
-  }
-
-  &--datepicker {
-    height: 100%;
-  }
-
-  &--select {
-    height: 100%;
-  }
-}
-.column-content {
+// Form Horizontal
+.form-h {
   display: flex;
   flex-direction: column;
-  height: auto;
-}
-.table {
+  align-content: center;
+
   width: 100%;
-  border-spacing: 0px;
   padding: 0;
   margin: 0;
+
   border-collapse: collapse;
+  border-spacing: 0px;
   table-layout: fixed;
 
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-
-  &--vertical {
-    width: 50%;
-    width: 100%;
-    border-spacing: 0px;
-    padding: 0;
-    margin: 0;
-    border-collapse: collapse;
-    table-layout: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-
-    &__column {
-      display: flex;
-      align-items: center;
-      width: 60%;
-      flex: 1 1 60px;
-
-      &--actions {
-        justify-content: space-evenly;
-      }
-    }
-
-    &__row {
-      width: 100%;
-      height: 50%;
-      padding: 0;
-      margin: 0;
-
-      &--headers {
-        border: none;
-      }
-    }
-
-    &__data,
-    &__header {
-      height: $data-cell-height;
-      text-align: left;
-      overflow: hidden;
-
-      &--id {
-        font-size: $data-cell-fontSize--id;
-      }
-    }
-  }
-
   &__column {
-    flex-basis: 200px;
-    flex-shrink: 1;
-    flex-grow: 1;
+    flex: 1 1 200px;
     display: flex;
     align-items: center;
 
-    &--actions {
-      justify-content: space-evenly;
-      flex-basis: 200px;
-      flex-shrink: 0;
-      flex-grow: 0;
-    }
-
-    &--header {
-      font-weight: 500;
-      color: $grey-dark;
-    }
-  }
-
-  &__row {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-
-    &--headers {
-      border: none;
-    }
-  }
-
-  &__data,
-  &__header {
     height: $data-cell-height;
     text-align: left;
     overflow: hidden;
@@ -150,46 +27,121 @@
     &--id {
       font-size: $data-cell-fontSize--id;
     }
-  }
 
-  &__status {
-    text-align: left;
-    width: 100%;
-    padding: 2rem 0 0 6rem;
+    &--actions {
+      justify-content: space-evenly;
+      flex: 0 0 200px;
+    }
+
+    &--header {
+      font-weight: 500;
+      color: $grey-dark;
+    }
   }
 }
 
-.label {
-  width: 100%;
-}
-
-.row__content {
-  width: 100%;
+// Form Vertical
+.form-v {
   display: flex;
-  justify-content: space-between;
-
+  flex-direction: column;
   align-content: center;
   align-items: center;
+  justify-content: center;
 
-  flex-direction: row;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 
-  &--vertical {
+  border-spacing: 0px;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  &__column {
+    flex: 1 1 60px;
+    display: flex;
+    align-items: center;
+
+    width: 60%;
+    height: $data-cell-height;
+    text-align: left;
+    overflow: hidden;
+
+    &--id {
+      font-size: $data-cell-fontSize--id;
+    }
+
+    &--actions {
+      justify-content: space-evenly;
+    }
+  }
+
+  &__row {
+    width: 100%;
+    height: 50%;
+    padding: 0;
+    margin: 0;
+
+    &--headers {
+      border: none;
+    }
+  }
+}
+
+.row {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  &--headers {
+    border: none;
+  }
+  &__content {
     width: 100%;
     display: flex;
     justify-content: space-between;
 
     align-content: center;
     align-items: center;
-    flex-direction: column;
-    height: 50%;
-  }
 
-  &--headers {
-    border-top: none;
+    flex-direction: row;
+
+    &--vertical {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      align-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 50%;
+    }
+
+    &--headers {
+      border-top: none;
+    }
   }
 }
 
 .btn-submit {
   background-color: $submit;
   color: #fff;
+}
+
+.input--id {
+  font-size: $data-cell-fontSize--id;
+}
+
+.non-editable {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  align-self: flex-end;
+  font-style: italic;
+  font-size: $data-cell-fontSize--id;
+}
+.column-content {
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }

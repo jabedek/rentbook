@@ -1,22 +1,20 @@
-<form [formGroup]="form" class="table" *ngIf="displayDirection === 'row'">
-  <tr class="table__row table__row--headers" *ngIf="mode === 'create'">
+<form [formGroup]="form" class="form-h" *ngIf="displayDirection === 'row'">
+  <tr class="row row--headers" *ngIf="mode === 'create'">
     <div class="row__content row__content--headers mat-small">
       <td
-        class="table__column table__column--label table__data"
+        class="form-h__column form-h__column--label"
         *ngFor="let col of columns"
       >
         {{ col.label }}
       </td>
-      <td
-        class="table__column table__column--label table__column--actions table__data"
-      >
+      <td class="form-h__column form-h__column--label form-h__column--actions">
         Actions
       </td>
     </div>
   </tr>
-  <tr class="table__row">
+  <tr class="row">
     <div class="row__content">
-      <td *ngFor="let col of columns" class="table__column table__data">
+      <td *ngFor="let col of columns" class="form-h__column">
         <section
           [style.width.%]="100"
           *ngIf="col.editable"
@@ -73,13 +71,13 @@
           [class.input--id]="col.name === 'id'"
           [class.input--id]="col.dateAdded === 'id'"
         >
-          <span class="control control--nonedit">
+          <span class="non-editable">
             [automatically assigned]
           </span>
         </section>
       </td>
 
-      <td class="table__column table__column--actions table__data">
+      <td class="form-h__column form-h__column--actions">
         <button
           [class.mat-elevation-z2]="'true'"
           mat-mini-fab
@@ -103,17 +101,10 @@
   </tr>
 </form>
 
-<form
-  [formGroup]="form"
-  class="table--vertical"
-  *ngIf="displayDirection === 'column'"
->
-  <tr class="table--vertical__row">
+<form [formGroup]="form" class="form-v" *ngIf="displayDirection === 'column'">
+  <tr class="form-v__row">
     <div class="row__content--vertical">
-      <td
-        *ngFor="let col of columns"
-        class="table--vertical__column table__data"
-      >
+      <td *ngFor="let col of columns" class="form-v__column">
         <section
           [style.width.%]="100"
           *ngIf="col.editable"
@@ -182,15 +173,13 @@
           <mat-label>
             {{ col.label }}
           </mat-label>
-          <span class="control control--nonedit">
+          <span class="non-editable">
             [automatically assigned]
           </span>
         </section>
       </td>
 
-      <td
-        class="table--vertical__column table--vertical__column--actions table--vertical__data"
-      >
+      <td class="form-v__column form-v__column--actions form-v__data">
         <button
           [class.mat-elevation-z2]="'true'"
           mat-button
