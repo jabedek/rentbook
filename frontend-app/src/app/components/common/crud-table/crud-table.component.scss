@@ -2,28 +2,11 @@
 @import "../../../assets/styles/_theme.scss";
 @import "../../../assets/styles/_variables.scss";
 
-.create__wrapper {
+// Table
+.table-wrapper {
   @include component-wrapper;
-  height: auto;
-
-  flex-direction: row;
-  // padding: 1em 0
-  padding-top: 1em;
-  // justify-content: flex-start;
-  // overflow: scroll;
-  // align-items: flex-end;
-
-  width: 100%;
-  justify-content: center;
-
-  &--modal {
-    width: 90%;
-    justify-content: flex-end;
-  }
-}
-
-.btn {
-  // align-self: flex-end;
+  justify-content: flex-start;
+  overflow: scroll;
 }
 
 .table {
@@ -32,17 +15,12 @@
   align-content: center;
 
   width: 100%;
-  border-spacing: 0px;
   padding: 0;
   margin: 0;
+
+  border-spacing: 0px;
   border-collapse: collapse;
   table-layout: fixed;
-
-  &__wrapper {
-    @include component-wrapper;
-    justify-content: flex-start;
-    overflow: scroll;
-  }
 
   &__card {
     width: 90%;
@@ -51,83 +29,91 @@
     background: #fff;
   }
 
-  &__column {
-    flex: 1 1 200px;
-    display: flex;
-    align-items: center;
-
-    &--actions {
-      justify-content: space-evenly;
-      flex: 0 0 200px;
-    }
-
-    &--label {
-      font-weight: 500;
-      color: $grey-dark;
-    }
-
-    height: $data-cell-height;
-    text-align: left;
-    overflow: hidden;
-
-    &--id {
-      font-size: $data-cell-fontSize--id;
-    }
-  }
-
-  &__row {
-    width: 100%;
-    border-top: 1px solid $grey-light;
-    padding: 0;
-    margin: 0;
-
-    &--headers {
-      border: none;
-    }
-  }
-
   &__status {
-    text-align: left;
     width: 100%;
     padding: 2rem 0 0 6rem;
+    text-align: left;
   }
 }
 
-.row__content {
+.row {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  align-content: center;
-  align-items: center;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid $grey-light;
 
   &--headers {
-    border-top: none;
+    border: none;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    align-content: center;
+    align-items: center;
   }
 }
 
-.edit-form {
+.column {
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  height: $data-cell-height;
+  text-align: left;
+  overflow: hidden;
+
+  &--header {
+    font-weight: 500;
+    color: $grey-dark;
+  }
+
+  &--actions {
+    justify-content: space-evenly;
+    flex: 0 0 200px;
+  }
+
+  &--id {
+    font-size: $data-cell-fontSize--id;
+  }
+}
+
+// Forms included in table
+.create-item-form-wrapper {
+  @include component-wrapper;
+
+  flex-direction: row;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  padding-top: 1em;
+
+  &--modal {
+    width: 90%;
+    justify-content: flex-end;
+  }
+}
+
+.edit-item-form {
   width: 100%;
   height: $data-cell-height;
 }
 
-.create-form {
+.create-item-form {
+  width: 100%;
+  height: 100%;
+
   &__card {
-    width: 90%;
-    padding: 1em 1em 1em 1em;
-    margin: 2em 0;
-    height: $data-cell-height * 3;
-    background: #fff;
     display: flex;
     align-content: center;
     align-items: center;
     flex-wrap: wrap;
-  }
 
-  &__wrapper {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
+    width: 90%;
+    height: $data-cell-height * 3;
+    padding: 1em 1em 1em 1em;
+    margin: 2em 0;
+    background: #fff;
   }
 }
