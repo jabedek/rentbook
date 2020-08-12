@@ -1,28 +1,8 @@
 @import "../../../../assets/styles/_variables.scss";
 @import "../../../../assets/styles/_theme.scss";
-.wrapper {
-  width: 100%;
-  height: 100%;
-}
 
 .input--id {
   font-size: $data-cell-fontSize--id;
-}
-
-.dynamic-form {
-  background: #fff;
-  overflow: hidden;
-  height: $data-cell-height;
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .column {
@@ -72,53 +52,6 @@
   }
 }
 
-.mat-select-panel {
-  background: red;
-}
-// .picker-toggler {
-//   height: 0;
-// }
-
-// .picker {
-//   height: 0;
-// }
-
-// .icon {
-//   height: 0;
-// }
-
-.actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-basis: 200px;
-  flex-shrink: 0;
-  flex-grow: 0;
-
-  height: $data-cell-height;
-  text-align: left;
-  overflow: hidden;
-}
-
-.actions-column {
-  // display: flex;
-  // flex-direction: column;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  align-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: $data-cell-height;
-  // width: 100%;
-  flex-basis: 100px;
-  flex-shrink: 1;
-  flex-grow: 1;
-  width: 100%;
-}
-
 .table {
   width: 100%;
   border-spacing: 0px;
@@ -151,10 +84,6 @@
       font-weight: 500;
       color: $grey-dark;
     }
-  }
-
-  &__head,
-  &__body {
   }
 
   &__row {

@@ -1,23 +1,8 @@
 <app-section-header [text]="'Admin: ' + config.name"></app-section-header>
-<div class="table-wrapper">
-  <!-- <mat-card>
-    <app-dynamic-filter-form
-      [columns]="config.columns"
-      (submitItem)="onSubmitFilter($event)"
-      (resetFilter)="onResetFilter()"
-    >
-    </app-dynamic-filter-form>
-  </mat-card>
- <p class="table__status">
-    Status:
-    {{ status }}
-  </p>
-
--->
-
-  <mat-card class="create-form">
+<div class="table__wrapper">
+  <mat-card class="create-form__card">
     {{ "register-form" | language }}
-    <div class="create-form-wrapper">
+    <div class="create-form__wrapper">
       <app-dynamic-form
         [columns]="config.columns"
         [inputData]="null"
@@ -30,19 +15,19 @@
     </div>
   </mat-card>
 
-  <mat-card class="table-card" [class.mat-elevation-z1]="'true'">
+  <mat-card class="table__card" [class.mat-elevation-z1]="'true'">
     <table class="table">
       <!-- ## Column Headers row -->
       <tr class="table__row table__row--headers">
         <div class="row__content row__content--headers mat-small">
           <td
-            class="table__column table__column--header table__data"
+            class="table__column table__column--header"
             *ngFor="let col of config.columns"
           >
             {{ col.label }}
           </td>
           <td
-            class="table__column table__column--header table__column--actions table__data"
+            class="table__column table__column--header table__column--actions"
           >
             Actions
           </td>
@@ -65,12 +50,12 @@
         <div *ngIf="!currentlyEdited" class="row__content">
           <td
             *ngFor="let col of config.columns"
-            class="table__column table__data"
-            [class.table__data--id]="col.name === 'id'"
+            class="table__column"
+            [class.table__column--id]="col.name === 'id'"
           >
             {{ item[col.name] }}
           </td>
-          <td class="table__column table__column--actions table__data">
+          <td class="table__column table__column--actions">
             <button
               [class.mat-elevation-z3]="'true'"
               mat-mini-fab
@@ -105,13 +90,13 @@
             class="row__content"
           >
             <td
-              class="table__column table__data"
+              class="table__column"
               *ngFor="let col of config.columns"
-              [class.table__data--id]="col.name === 'id'"
+              [class.table__column--id]="col.name === 'id'"
             >
               {{ item[col.name] }}
             </td>
-            <td class="table__column table__data table__column--actions">
+            <td class="table__column table__column--actions">
               <button
                 [class.mat-elevation-z3]="'true'"
                 mat-mini-fab
@@ -139,7 +124,10 @@
 
           <!-- ## Insert form into row if current item matches 
               currentlyEdited (editing) ## -->
-          <div *ngIf="item.id === (currentlyEdited.id || null)" class="form">
+          <div
+            *ngIf="item.id === (currentlyEdited.id || null)"
+            class="edit-form"
+          >
             <app-dynamic-form
               [columns]="config.columns"
               [inputData]="currentlyEdited"

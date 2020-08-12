@@ -2,26 +2,11 @@
 @import "../../../assets/styles/_theme.scss";
 @import "../../../assets/styles/_variables.scss";
 
-.table-wrapper {
-  @include component-wrapper;
-  justify-content: flex-start;
-  overflow: scroll;
-}
-
-.table-card {
-  width: 90%;
-  padding: 0 1em 1em 1em;
-  margin: 2em 0;
-  background: #fff;
-}
-
-tbody > .table__row {
-  &:hover {
-    background: rgba(190, 190, 190, 0.1);
-  }
-}
-
 .table {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
   width: 100%;
   border-spacing: 0px;
   padding: 0;
@@ -29,29 +14,40 @@ tbody > .table__row {
   border-collapse: collapse;
   table-layout: fixed;
 
-  display: flex;
-  flex-direction: column;
-  align-content: center;
+  &__wrapper {
+    @include component-wrapper;
+    justify-content: flex-start;
+    overflow: scroll;
+  }
+
+  &__card {
+    width: 90%;
+    padding: 0 1em 1em 1em;
+    margin: 2em 0;
+    background: #fff;
+  }
 
   &__column {
-    // width: 10%;
-    flex-basis: 200px;
-    flex-shrink: 1;
-    flex-grow: 1;
+    flex: 1 1 200px;
     display: flex;
     align-items: center;
-    // border: 2px solid blue;
 
     &--actions {
       justify-content: space-evenly;
-      flex-basis: 200px;
-      flex-shrink: 0;
-      flex-grow: 0;
+      flex: 0 0 200px;
     }
 
     &--label {
       font-weight: 500;
       color: $grey-dark;
+    }
+
+    height: $data-cell-height;
+    text-align: left;
+    overflow: hidden;
+
+    &--id {
+      font-size: $data-cell-fontSize--id;
     }
   }
 
@@ -66,27 +62,11 @@ tbody > .table__row {
     }
   }
 
-  &__data,
-  &__header {
-    height: $data-cell-height;
-    text-align: left;
-    overflow: hidden;
-
-    &--id {
-      font-size: $data-cell-fontSize--id;
-      // min-width: 150px;
-    }
-  }
-
   &__status {
     text-align: left;
     width: 100%;
     padding: 2rem 0 0 6rem;
   }
-}
-
-.label {
-  width: 100%;
 }
 
 .row__content {
@@ -102,33 +82,27 @@ tbody > .table__row {
   }
 }
 
-.form {
+.edit-form {
   width: 100%;
   height: $data-cell-height;
-  // border-top: 1px solid $grey-light;
-  margin: 0;
-  padding: 0;
-
-  &--filter {
-    // background: rgba(240, 240, 240, 1);
-  }
 }
 
 .create-form {
-  width: 90%;
-  padding: 1em 1em 1em 1em;
-  margin: 2em 0;
-  height: $data-cell-height * 3;
-  background: #fff;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
+  &__card {
+    width: 90%;
+    padding: 1em 1em 1em 1em;
+    margin: 2em 0;
+    height: $data-cell-height * 3;
+    background: #fff;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-.create-form-wrapper {
-  width: 100%;
-  // height: 100%;
-  padding: 0;
-  margin: 0;
+  &__wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 }
