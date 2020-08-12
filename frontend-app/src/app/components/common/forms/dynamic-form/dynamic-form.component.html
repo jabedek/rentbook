@@ -193,21 +193,23 @@
       >
         <button
           [class.mat-elevation-z2]="'true'"
-          mat-mini-fab
+          mat-button
           color="primary"
           (click)="resetForm()"
           type="button"
         >
-          <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon>
+          {{ labels.reset }}
+          <!-- <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon> -->
         </button>
         <button
           [class.mat-elevation-z2]="'true'"
-          mat-mini-fab
+          mat-button
           class="btn-submit"
           color="submit"
           (click)="onSubmit()"
         >
-          <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon>
+          {{ labels.submit }}
+          <!-- <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon> -->
         </button>
       </td>
     </div>
