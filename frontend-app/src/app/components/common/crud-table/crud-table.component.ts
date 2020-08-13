@@ -14,6 +14,7 @@ import { BackendData } from './../../../types/BackendData';
 import { Component, OnInit, Input, OnChanges, Inject } from '@angular/core';
 import { CrudService } from '../../../services/crud.service';
 import { ITableConfig } from '../../../interfaces/table';
+
 import {
   MatDialog,
   MatDialogRef,
@@ -43,13 +44,13 @@ export class CrudTableComponent implements OnInit, OnChanges {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogExampleComponent, {
-      width: '50%',
+      width: '30%',
       height: 'auto',
       scrollStrategy: this.overlay.scrollStrategies.noop(), // // for disabling scroll on dialog
       data: {
         name: 'register-form',
         columns: this.config.columns,
-        labels: { submit: 'Create', reset: 'Clear' },
+        labels: { submit: 'Create', reset: 'Cancel' },
         displayDirection: 'column',
         mode: 'create',
         inputData: null,
@@ -176,8 +177,7 @@ export class CrudTableComponent implements OnInit, OnChanges {
     this.fetchItems();
   }
 
-  /* ## Angular hooks ## */
-
+  /* ## Lifecycle hooks ## */
   ngOnInit(): void {
     this.status = '';
     this.fetchItems();

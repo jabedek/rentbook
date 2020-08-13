@@ -1,95 +1,24 @@
 <app-section-header [text]="'account-register' | language"></app-section-header>
 <div class="register-wrapper">
-  <mat-card class="register-card" [class.mat-elevation-z3]="'true'">
-    <mat-card-content class="register-card__content">
-      <form
-        class="register-form"
-        [formGroup]="registerForm"
-        (ngSubmit)="onSubmit(registerForm.value)"
+  <mat-card class="register-form__card" [class.mat-elevation-z3]="'true'">
+    <mat-card-title class="register-form__label mat-subheading-1">
+      {{ "register-form" | language }}
+    </mat-card-title>
+    <mat-card-subtitle class="register-form__status">
+      {{ status }}
+    </mat-card-subtitle>
+    <mat-card-content class="register-form__content">
+      <app-dynamic-form
+        [mode]="'create'"
+        [appearance]="'outline'"
+        [columns]="columns"
+        [labels]="{ submit: 'Submit', reset: 'Clear' }"
+        [inputData]="null"
+        [displayDirection]="'column'"
+        (submitItem)="onSubmit($event)"
+        (unpickItem)="resetForm()"
       >
-        <mat-card-title class="register-card__title">
-          {{ "register-form" | language }}
-        </mat-card-title>
-
-        <!-- Email input -->
-        <mat-form-field
-          appearance="outline"
-          [style.width.vw]="30"
-          class="register-form__item"
-        >
-          <mat-label>Email</mat-label>
-          <input
-            #inputEmail
-            matInput
-            placeholder="Email"
-            formControlName="email"
-            minLength="5"
-            maxlength="60"
-          />
-          <mat-hint align="start"
-            >min symbols: {{ inputEmail.minLength }}</mat-hint
-          >
-          <mat-hint align="end"
-            >{{ inputEmail.value?.length || 0 }}/{{
-              inputEmail.maxLength
-            }}</mat-hint
-          >
-          <mat-icon fontSet="material-icons-outlined" matSuffix color="primary"
-            >alternate_email</mat-icon
-          >
-        </mat-form-field>
-
-        <mat-form-field
-          [style.width.vw]="30"
-          appearance="outline"
-          class="register-form__item"
-        >
-          <mat-label>{{ "Password" | language }}</mat-label>
-          <input
-            #inputPassword
-            matInput
-            placeholder="Password"
-            formControlName="password"
-            minLength="8"
-            maxlength="30"
-          />
-          <mat-hint align="start"
-            >min symbols: {{ inputPassword.minLength }}</mat-hint
-          >
-          <mat-hint align="end"
-            >{{ inputPassword.value?.length || 0 }}/{{
-              inputPassword.maxLength
-            }}</mat-hint
-          >
-          <mat-icon fontSet="material-icons-outlined" matSuffix color="primary"
-            >security</mat-icon
-          >
-        </mat-form-field>
-
-        <p class="mat-subheading-2 register-form__result">
-          {{ resultMessage }}
-        </p>
-
-        <div class="register-form__buttons">
-          <button
-            mat-raised-button
-            color="accent"
-            type="button"
-            (click)="registerForm.reset()"
-          >
-            {{ "form-clear" | language }}
-          </button>
-
-          <button
-            mat-raised-button
-            color="primary"
-            type="submit"
-            [disabled]="!registerForm.valid"
-          >
-            {{ "form-submit" | language }}
-          </button>
-        </div>
-      </form>
+      </app-dynamic-form>
     </mat-card-content>
   </mat-card>
 </div>

@@ -1,14 +1,14 @@
 <form [formGroup]="form" class="form-h" *ngIf="displayDirection === 'row'">
-  <tr class="form-h__row form-h__row--headers" *ngIf="mode === 'create'">
-    <div class="form-h__column form-h__column--headers mat-small">
+  <tr class="form-h__row" *ngIf="mode === 'create'">
+    <div class="form-h__column mat-small">
       <td
-        class="form-h__content form-h__content--label"
+        class="form-h__content form-h__content--header"
         *ngFor="let col of columns"
       >
         {{ col.label }}
       </td>
       <td
-        class="form-h__content form-h__content--label form-h__content--actions"
+        class="form-h__content form-h__content--header form-h__content--actions"
       >
         Actions
       </td>
@@ -24,6 +24,7 @@
           [class.input--id]="col.dateAdded === 'id'"
         >
           <mat-form-field
+            appearance="{{ appearance }}"
             [style.width.%]="70"
             *ngIf="col.inputType === 'text' || col.inputType === 'email'"
           >
@@ -31,6 +32,7 @@
           </mat-form-field>
 
           <mat-form-field
+            appearance="{{ appearance }}"
             [style.width.%]="70"
             [style.fontSize.rem]="0.8"
             *ngIf="col.inputType === 'date'"
@@ -53,7 +55,9 @@
           </mat-form-field>
 
           <mat-form-field
+            appearance="{{ appearance }}"
             [style.width.%]="70"
+            [style.fontSize.rem]="0.8"
             *ngIf="col.inputType === 'select'"
           >
             <mat-select formControlName="{{ col.name }}">
@@ -83,20 +87,19 @@
         <button
           [class.mat-elevation-z2]="'true'"
           mat-mini-fab
-          color="primary"
+          color="accent"
           (click)="resetForm()"
           type="button"
         >
-          <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon>
+          <mat-icon fontSet="material-icons-sharp" matSuffix>clear</mat-icon>
         </button>
         <button
           [class.mat-elevation-z2]="'true'"
           mat-mini-fab
-          class="btn-submit"
-          color="submit"
+          color="accent"
           (click)="onSubmit()"
         >
-          <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon>
+          <mat-icon fontSet="material-icons-sharp" matSuffix>send</mat-icon>
         </button>
       </td>
     </div>
@@ -115,16 +118,26 @@
           [class.input--id]="col.dateAdded === 'id'"
         >
           <mat-form-field
+            appearance="{{ appearance }}"
             [style.fontSize.rem]="0.8"
-            *ngIf="col.inputType === 'text' || col.inputType === 'email'"
+            *ngIf="
+              col.inputType === 'text' ||
+              col.inputType === 'email' ||
+              col.inputType === 'password'
+            "
           >
             <mat-label>
               {{ col.label }}
             </mat-label>
-            <input matInput type="text" formControlName="{{ col.name }}" />
+            <input
+              matInput
+              type="{{ col.inputType }}"
+              formControlName="{{ col.name }}"
+            />
           </mat-form-field>
 
           <mat-form-field
+            appearance="{{ appearance }}"
             [style.fontSize.rem]="0.8"
             *ngIf="col.inputType === 'date'"
           >
@@ -149,7 +162,10 @@
             ></mat-datepicker>
           </mat-form-field>
 
-          <mat-form-field *ngIf="col.inputType === 'select'">
+          <mat-form-field
+            appearance="{{ appearance }}"
+            *ngIf="col.inputType === 'select'"
+          >
             <mat-label>
               {{ col.label }}
             </mat-label>
@@ -181,26 +197,19 @@
         </section>
       </td>
 
-      <td class="form-v__content form-v__content--actions form-v__data">
-        <button
-          [class.mat-elevation-z2]="'true'"
-          mat-button
-          color="primary"
-          (click)="resetForm()"
-          type="button"
-        >
+      <td class="form-v__content form-v__content--actions">
+        <button mat-button color="primary" (click)="resetForm()" type="button">
           {{ labels.reset }}
-          <!-- <mat-icon fontSet="material-icons-outlined" matSuffix>clear</mat-icon> -->
+          <!-- <mat-icon fontSet="material-icons-sharp" matSuffix>clear</mat-icon> -->
         </button>
         <button
           [class.mat-elevation-z2]="'true'"
-          mat-button
-          class="btn-submit"
-          color="submit"
+          mat-flat-button
+          color="primary"
           (click)="onSubmit()"
         >
           {{ labels.submit }}
-          <!-- <mat-icon fontSet="material-icons-outlined" matSuffix>send</mat-icon> -->
+          <!-- <mat-icon fontSet="material-icons-sharp" matSuffix>send</mat-icon> -->
         </button>
       </td>
     </div>

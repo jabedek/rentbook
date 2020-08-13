@@ -1,3 +1,4 @@
+import { FormLabels } from './../../../../types/form';
 import { IValidatorTemplate } from './../../../../interfaces/table';
 import { BackendData } from './../../../../types/BackendData';
 import {
@@ -24,11 +25,6 @@ import {
   MatDateFormats,
 } from '@angular/material/core';
 
-type buttonLabels = {
-  submit: string;
-  reset: string;
-};
-
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
@@ -37,9 +33,10 @@ type buttonLabels = {
 export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[];
   @Input() mode: string;
+  @Input() appearance: string = 'standard';
   @Input() displayDirection: string = 'row';
   @Input() inputData: null | BackendData;
-  @Input() labels: buttonLabels = { submit: 'Submit', reset: 'Erase' };
+  @Input() labels: FormLabels = { submit: 'Submit', reset: 'Erase' };
   @Output('submitItem') submitItem = new EventEmitter<BackendData>();
   @Output('unpickItem') unpickItem = new EventEmitter();
 
@@ -90,10 +87,12 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   resetForm(): void {
-    this.unpickItem.emit();
-
     this.form.reset();
     this.setupForm();
+
+    if (this.mode === 'edit') {
+      this.unpickItem.emit();
+    }
   }
 
   onSubmit(): void {

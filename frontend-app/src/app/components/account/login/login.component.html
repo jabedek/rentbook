@@ -1,90 +1,24 @@
 <app-section-header [text]="'account-login' | language"></app-section-header>
 <div class="login-wrapper">
-  <mat-card class="login-card" [class.mat-elevation-z3]="'true'">
-    <mat-card-content class="login-card__content">
-      <form
-        class="login-form"
-        [formGroup]="loginForm"
-        (ngSubmit)="onSubmit(loginForm.value)"
+  <mat-card class="login-form__card" [class.mat-elevation-z3]="'true'">
+    <mat-card-title class="login-form__label mat-subheading-1">
+      {{ "login-form" | language }}
+    </mat-card-title>
+    <mat-card-subtitle class="login-form__status">
+      {{ status }}
+    </mat-card-subtitle>
+    <mat-card-content class="login-form__content">
+      <app-dynamic-form
+        [mode]="'create'"
+        [appearance]="'outline'"
+        [columns]="columns"
+        [labels]="{ submit: 'Submit', reset: 'Clear' }"
+        [inputData]="null"
+        [displayDirection]="'column'"
+        (submitItem)="onSubmit($event)"
+        (unpickItem)="resetForm()"
       >
-        <mat-card-title class="login-card__title">
-          {{ "login-form" | language }}
-        </mat-card-title>
-        <mat-form-field
-          appearance="outline"
-          [style.width.vw]="30"
-          class="login-form__item"
-        >
-          <mat-label>Email</mat-label>
-          <input
-            #inputEmail
-            matInput
-            placeholder="Email"
-            formControlName="email"
-            maxlength="60"
-          />
-
-          <mat-hint align="end"
-            >{{ inputEmail.value?.length || 0 }}/{{
-              inputEmail.maxLength
-            }}</mat-hint
-          >
-          <mat-icon fontSet="material-icons-outlined" matSuffix color="primary"
-            >alternate_email</mat-icon
-          >
-        </mat-form-field>
-
-        <mat-form-field
-          [style.width.vw]="30"
-          appearance="outline"
-          class="login-form__item"
-        >
-          <mat-label>
-            <mat-label>{{ "Password" | language }}</mat-label></mat-label
-          >
-          <input
-            #inputPassword
-            matInput
-            type="password"
-            placeholder="Password"
-            formControlName="password"
-            maxlength="30"
-          />
-
-          <mat-hint align="end"
-            >{{ inputPassword.value?.length || 0 }}/{{
-              inputPassword.maxLength
-            }}</mat-hint
-          >
-          <mat-icon fontSet="material-icons-outlined" matSuffix color="primary"
-            >security</mat-icon
-          >
-        </mat-form-field>
-
-        <p class="mat-subheading-2 login-form__result">
-          {{ resultMessage }}
-        </p>
-
-        <div class="login-form__buttons">
-          <button
-            mat-raised-button
-            color="accent"
-            type="button"
-            (click)="loginForm.reset()"
-          >
-            {{ "form-clear" | language }}
-          </button>
-
-          <button
-            mat-raised-button
-            color="primary"
-            type="submit"
-            [disabled]="!loginForm.valid"
-          >
-            {{ "form-submit" | language }}
-          </button>
-        </div>
-      </form>
+      </app-dynamic-form>
     </mat-card-content>
   </mat-card>
 </div>

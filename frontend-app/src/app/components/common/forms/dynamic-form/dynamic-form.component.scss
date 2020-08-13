@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-content: center;
+  background: #fff;
 
   width: 100%;
   padding: 0;
@@ -23,6 +24,7 @@
     &--headers {
       border: none;
     }
+
     &__content {
       width: 100%;
       display: flex;
@@ -32,17 +34,6 @@
       align-items: center;
 
       flex-direction: row;
-
-      &--vertical {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-
-        align-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 50%;
-      }
 
       &--headers {
         border-top: none;
@@ -97,6 +88,9 @@
   align-content: center;
   align-items: center;
   justify-content: center;
+  background: #fff;
+
+  // border: 1px solid red;
 
   width: 100%;
   padding: 0;
@@ -106,7 +100,7 @@
   border-collapse: collapse;
   table-layout: fixed;
 
-  &__column1 {
+  &__column {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -122,12 +116,13 @@
   }
 
   &__content {
-    flex: 1 1 60px;
+    flex: 1 1 70px;
     display: flex;
     align-items: center;
+    // border: 1px solid tomato;
+    width: 75%;
+    // height: $data-cell-height;
 
-    width: 60%;
-    height: $data-cell-height;
     text-align: left;
     overflow: hidden;
 
@@ -137,6 +132,8 @@
 
     &--actions {
       justify-content: space-evenly;
+
+      // margin: 1em 0;
     }
   }
 
@@ -154,11 +151,6 @@
 
 // Common
 
-.btn-submit {
-  background-color: $submit;
-  color: #fff;
-}
-
 .input--id {
   font-size: $data-cell-fontSize--id;
 }
@@ -172,6 +164,7 @@
   font-style: italic;
   font-size: $data-cell-fontSize--id;
 }
+
 .column-content {
   display: flex;
   flex-direction: column;

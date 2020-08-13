@@ -1,3 +1,4 @@
+import { Input } from '@angular/core';
 export interface ISelectOption {
   label: string;
   value: string;
@@ -10,14 +11,45 @@ export interface IValidatorTemplate {
 }
 
 export interface ITableColumn {
-  label: string;
   name: string;
+  label: string;
   inputType: string;
   editable: boolean;
   orderable: boolean;
   filterable: boolean;
   validators: IValidatorTemplate[] | [];
   options?: ISelectOption[];
+}
+
+export class TableColumn implements ITableColumn {
+  name: string;
+  label: string;
+  inputType: string;
+  editable: boolean;
+  orderable: boolean;
+  filterable: boolean;
+  validators: IValidatorTemplate[] | [];
+  options: ISelectOption[];
+
+  constructor(
+    name: string,
+    label?: string,
+    inputType?: string,
+    editable?: boolean,
+    orderable?: boolean,
+    filterable?: boolean,
+    validators?: IValidatorTemplate[] | [],
+    options?: ISelectOption[]
+  ) {
+    this.name = name;
+    this.label = label;
+    this.inputType = inputType;
+    this.editable = editable;
+    this.orderable = orderable;
+    this.filterable = filterable;
+    this.validators = validators;
+    this.options = options;
+  }
 }
 
 export interface ITableConfig {

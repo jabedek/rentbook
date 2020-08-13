@@ -1,10 +1,21 @@
+@import "../../../assets/styles/_mixins.scss";
+@import "../../../assets/styles/_theme.scss";
+@import "../../../assets/styles/_variables.scss";
+
 .mat-dialog-content {
   height: 100%;
+  // background: $wrapper-bg-main;
 }
 
-.dialog-content {
+.dialog {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  // background: $wrapper-bg-main;
+  padding: 0;
   text-align: center;
+
+  &__title {
+    background: #fff;
+  }
 }

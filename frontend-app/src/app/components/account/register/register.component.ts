@@ -1,3 +1,4 @@
+import { authColumns } from './../../../assets/table-columns/authColumns';
 import { Subscription } from 'rxjs';
 import { CrudService } from 'src/app/services/crud.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -16,7 +17,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
-  resultMessage: string = '';
+  columns = authColumns;
+
+  status: string = '';
 
   usersServiceSub: Subscription;
 
@@ -24,6 +27,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private usersService: CrudService,
     private formBuilder: FormBuilder
   ) {}
+
+  resetForm() {
+    this.registerForm.reset();
+  }
 
   onSubmit(formValue) {
     let date = new Date().toJSON().split('T')[0];
@@ -42,20 +49,20 @@ export class RegisterComponent implements OnInit, OnDestroy {
         (users) => {
           if (users.length) {
             let msg = 'This email address is already in use.';
-            this.resultMessage = msg;
+            this.status = msg;
           } else {
             this.usersService
               .create('http://localhost:3000/users', user)
               .subscribe(
                 (user) => {
                   let msg = `User ${user.email} has been created and his id is: [${user.id}]`;
-                  this.resultMessage = msg;
+                  this.status = msg;
                 },
-                (err) => (this.resultMessage += `Error: ${err}`)
+                (err) => (this.status += `Error: ${err}`)
               );
           }
         },
-        (err) => (this.resultMessage += `Error: ${err}`)
+        (err) => (this.status += `Error: ${err}`)
       );
   }
 

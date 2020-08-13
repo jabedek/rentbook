@@ -1,51 +1,9 @@
 @import "../../../assets/styles/_mixins.scss";
-@import "../../../assets/styles/theme.scss";
 
 .login-wrapper {
   @include component-wrapper;
 }
 
-.login-card {
-  width: 40%;
-  height: 55%;
-  display: flex;
-  flex-direction: column;
-  padding: 0.5em;
-  align-items: center;
-
-  &__title {
-    padding: 0.5em;
-  }
-
-  &__content {
-    height: 100%;
-  }
-}
-
 .login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-
-  height: 100%;
-
-  &__item {
-    margin: 1em 0;
-  }
-
-  &__result {
-    color: $primary;
-    text-align: center;
-    height: 5%;
-    margin-bottom: 1em;
-  }
-
-  &__buttons {
-    display: flex;
-    justify-content: space-evenly;
-    width: 60%;
-    margin-top: 1em;
-  }
+  @include auth-form;
 }

@@ -6,7 +6,7 @@
           [style.width.%]="70"
           *ngIf="col.inputType === 'text' || col.inputType === 'email'"
         >
-          <input matInput type="text" formControlName="{{ col.name }}" />
+          <input matInput formControlName="{{ col.name }}" />
         </mat-form-field>
 
         <mat-form-field

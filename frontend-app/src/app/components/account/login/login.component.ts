@@ -1,3 +1,4 @@
+import { authColumns } from './../../../assets/table-columns/authColumns';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -19,7 +20,9 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required],
   });
 
-  resultMessage: string = '';
+  columns = authColumns;
+
+  status: string = '';
 
   constructor(
     private usersService: CrudService,
@@ -27,11 +30,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
-  onSubmit(formValue) {
-    this.auth({ email: formValue.email, password: formValue.password });
-  }
-
-  auth(loginDetails) {
+  private auth(loginDetails) {
     let authUser: IUser | null;
     this.usersService
       .readByProperty(
@@ -57,22 +56,30 @@ export class LoginComponent implements OnInit {
                 payload: authUser,
               });
 
-              this.resultMessage = 'Log in successful. Redirecting...';
+              this.status = 'Log in successful. Redirecting...';
               this.router.navigateByUrl('/');
             } else {
               authUser = null;
-              this.resultMessage = 'Wrong credentials.';
+              this.status = 'Wrong credentials.';
             }
           } else {
             // If there is no user found, return null
             authUser = null;
-            this.resultMessage = 'Wrong credentials.';
+            this.status = 'Wrong credentials.';
           }
         },
         (err) => {
           console.log(err);
         }
       );
+  }
+
+  onSubmit(formValue) {
+    this.auth({ email: formValue.email, password: formValue.password });
+  }
+
+  resetForm() {
+    this.loginForm.reset();
   }
 
   ngOnInit(): void {}
