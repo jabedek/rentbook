@@ -13,17 +13,16 @@
   border-spacing: 0px;
   border-collapse: collapse;
   table-layout: fixed;
-
-  height: $data-cell-height;
-  text-align: left;
-  overflow: hidden;
-  font-size: 0.8rem;
 }
 
 .column {
   flex: 1 1 200px;
   display: flex;
   align-items: center;
+  height: $data-cell-height;
+  text-align: left;
+  overflow: hidden;
+  font-size: 0.8rem;
 
   &--actions {
     flex: 0 0 200px;

@@ -10,7 +10,9 @@
     </button>
 
     <mat-card *ngSwitchCase="false" class="create-item-form__card">
-      {{ "register-form" | language }}
+      <mat-card-title class="mat-subheading-1">
+        {{ "register-form" | language }}
+      </mat-card-title>
       <div class="create-item-form">
         <app-dynamic-form
           [mode]="'create'"

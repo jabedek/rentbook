@@ -1,5 +1,7 @@
 <div mat-dialog-content class="dialog-content">
-  {{ data.name | language }}
+  <mat-card-title class="mat-subheading-1">
+    {{ data.name | language }}
+  </mat-card-title>
   <app-dynamic-form
     [columns]="data.columns"
     [inputData]="data.inputData"

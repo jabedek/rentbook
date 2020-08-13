@@ -1,13 +1,6 @@
 {
   "books": [
     {
-      "id": "7383707c-48e5-1baa-c5ee-bd79998e482b",
-      "dateAdded": "2020-08-06",
-      "title": "sadsdadasd",
-      "author": "dsadsadd",
-      "genre": "sadsad"
-    },
-    {
       "id": "fca85e59-b815-4996-45f6-0c532ea8e712",
       "dateAdded": "2020-08-10T07:59:12.098Z",
       "title": "gfd",
