@@ -1,20 +1,22 @@
 <form [formGroup]="form" class="form-h" *ngIf="displayDirection === 'row'">
-  <tr class="row row--headers" *ngIf="mode === 'create'">
-    <div class="row__content row__content--headers mat-small">
+  <tr class="form-h__row form-h__row--headers" *ngIf="mode === 'create'">
+    <div class="form-h__column form-h__column--headers mat-small">
       <td
-        class="form-h__column form-h__column--label"
+        class="form-h__content form-h__content--label"
         *ngFor="let col of columns"
       >
         {{ col.label }}
       </td>
-      <td class="form-h__column form-h__column--label form-h__column--actions">
+      <td
+        class="form-h__content form-h__content--label form-h__content--actions"
+      >
         Actions
       </td>
     </div>
   </tr>
-  <tr class="row">
-    <div class="row__content">
-      <td *ngFor="let col of columns" class="form-h__column">
+  <tr class="form-h__row">
+    <div class="form-h__column">
+      <td *ngFor="let col of columns" class="form-h__content">
         <section
           [style.width.%]="100"
           *ngIf="col.editable"
@@ -77,7 +79,7 @@
         </section>
       </td>
 
-      <td class="form-h__column form-h__column--actions">
+      <td class="form-h__content form-h__content--actions">
         <button
           [class.mat-elevation-z2]="'true'"
           mat-mini-fab
@@ -103,8 +105,8 @@
 
 <form [formGroup]="form" class="form-v" *ngIf="displayDirection === 'column'">
   <tr class="form-v__row">
-    <div class="row__content--vertical">
-      <td *ngFor="let col of columns" class="form-v__column">
+    <div class="form-v__column">
+      <td *ngFor="let col of columns" class="form-v__content">
         <section
           [style.width.%]="100"
           *ngIf="col.editable"
@@ -179,7 +181,7 @@
         </section>
       </td>
 
-      <td class="form-v__column form-v__column--actions form-v__data">
+      <td class="form-v__content form-v__content--actions form-v__data">
         <button
           [class.mat-elevation-z2]="'true'"
           mat-button

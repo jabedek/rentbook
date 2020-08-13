@@ -15,7 +15,57 @@
   border-spacing: 0px;
   table-layout: fixed;
 
+  &__row {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    &--headers {
+      border: none;
+    }
+    &__content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      align-content: center;
+      align-items: center;
+
+      flex-direction: row;
+
+      &--vertical {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 50%;
+      }
+
+      &--headers {
+        border-top: none;
+      }
+    }
+  }
+
   &__column {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    align-content: center;
+    align-items: center;
+
+    flex-direction: row;
+
+    &--headers {
+      border-top: none;
+    }
+  }
+
+  &__content {
     flex: 1 1 200px;
     display: flex;
     align-items: center;
@@ -56,7 +106,22 @@
   border-collapse: collapse;
   table-layout: fixed;
 
-  &__column {
+  &__column1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+
+    &--headers {
+      border-top: none;
+    }
+  }
+
+  &__content {
     flex: 1 1 60px;
     display: flex;
     align-items: center;
@@ -87,40 +152,7 @@
   }
 }
 
-.row {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-
-  &--headers {
-    border: none;
-  }
-  &__content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    align-content: center;
-    align-items: center;
-
-    flex-direction: row;
-
-    &--vertical {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-
-      align-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 50%;
-    }
-
-    &--headers {
-      border-top: none;
-    }
-  }
-}
+// Common
 
 .btn-submit {
   background-color: $submit;
