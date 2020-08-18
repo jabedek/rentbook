@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './store2/counter.reducer';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/common/header/header.component';
@@ -58,7 +57,6 @@ import { DialogComponent } from './components/common/dialog/dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
-import { DatepickerexampleComponent } from './components/datepickerexample/datepickerexample.component';
 import {
   MAT_MOMENT_DATE_FORMATS,
   MomentDateAdapter,
@@ -84,7 +82,6 @@ import {
     LanguagePipe,
     MyCounterComponent,
     DialogComponent,
-    DatepickerexampleComponent,
   ],
   imports: [
     BrowserModule,

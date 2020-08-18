@@ -1,81 +1,11 @@
 {
   "books": [
     {
-      "id": "sample0",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 3",
-      "author": "Author 3",
-      "genre": "Genre 1"
-    },
-    {
-      "id": "sample1",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 4",
-      "author": "Author 1",
-      "genre": "Genre 2"
-    },
-    {
-      "id": "sample2",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 5",
-      "author": "Author 2",
-      "genre": "Genre 2"
-    },
-    {
-      "id": "sample3",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 1",
-      "author": "Author 1",
-      "genre": "Genre 1"
-    },
-    {
-      "id": "sample4",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 2",
-      "author": "Author 2",
-      "genre": "Genre 1"
-    },
-    {
-      "id": "sample5",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 3",
-      "author": "Author 3",
-      "genre": "Genre 1"
-    },
-    {
-      "id": "sample6",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 4",
-      "author": "Author 1",
-      "genre": "Genre 2"
-    },
-    {
-      "id": "sample7",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 4",
-      "author": "Author 2",
-      "genre": "Genre 2"
-    },
-    {
-      "id": "sample8",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 2",
-      "author": "Author 3",
-      "genre": "Genre 1"
-    },
-    {
-      "id": "sample9",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 6",
-      "author": "Author 3",
-      "genre": "Genre 2"
-    },
-    {
-      "id": "sample10",
-      "dateAdded": "2020-08-17T08:27:09.393Z",
-      "title": "Book Title 7",
-      "author": "Author 1",
-      "genre": "Genre 3"
+      "id": "08dee1e0-ccf8-7a6c-f3ee-7877abbee23b",
+      "dateAdded": "2020-08-18",
+      "title": "jp",
+      "author": "jp",
+      "genre": "jp"
     }
   ],
   "users": [
