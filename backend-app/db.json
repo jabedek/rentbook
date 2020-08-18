@@ -83,7 +83,7 @@
       "id": "494eb69c-5060-d55b-c385-55181b1b20ca",
       "dateAdded": "2020-08-18",
       "password": "12345678",
-      "email": "r@r",
+      "email": "r@ra",
       "nextPayment": "2020-08-02",
       "role": "ADMIN"
     },
@@ -96,20 +96,36 @@
       "role": "USER"
     },
     {
-      "id": "ed51b9d1-e677-0ccb-2c7c-fbef9352519d",
+      "id": "1363fd7f-c187-305f-669f-b39bfe78eaf3",
       "dateAdded": "2020-08-18",
-      "password": "12345678",
-      "email": "f@F",
+      "password": "123456789",
+      "email": "t@t",
       "nextPayment": "2020-08-01",
       "role": "ADMIN"
     },
     {
-      "id": "1363fd7f-c187-305f-669f-b39bfe78eaf3",
+      "id": "4be933c2-66ea-23c6-86f8-23b4a28f32d9",
       "dateAdded": "2020-08-18",
       "password": "12345678",
-      "email": "t@t",
+      "email": "f@f",
       "nextPayment": "2020-08-01",
       "role": "ADMIN"
+    },
+    {
+      "id": "38e426ee-dfa5-7458-1455-adff637ad9c5",
+      "dateAdded": "2020-08-18",
+      "password": "12345678",
+      "email": "r@r",
+      "nextPayment": "2020-08-26",
+      "role": "USER"
+    },
+    {
+      "id": "ae460638-1ffe-09b6-fe4a-ed8b3e40e972",
+      "dateAdded": "2020-08-18",
+      "password": "12345678",
+      "email": "ra@ra",
+      "nextPayment": "2020-08-26",
+      "role": "USER"
     }
   ]
 }

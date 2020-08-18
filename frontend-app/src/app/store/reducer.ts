@@ -2,7 +2,7 @@ import { IStore } from './../interfaces/IStore';
 // made with https://www.telerik.com/blogs/managing-state-using-rxjs-subjects-in-angular-applications
 
 import { Subject } from 'rxjs';
-import { UserActionTypes } from './actions';
+import { UserActionTypes, LangActionTypes } from './actions';
 import { IUser } from '../interfaces/user';
 import { IBook } from '../interfaces/IBook';
 
@@ -34,6 +34,11 @@ eventDispatcher.subscribe((data: Event) => {
       state = { ...state, loggedUser: null };
       store.next(state);
       break;
+    }
+
+    case LangActionTypes.LANG_GET_LANG: {
+      console.log('get lang');
+      return state.language;
     }
 
     default:

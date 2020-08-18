@@ -133,11 +133,8 @@ export class DynamicFormComponent
           let format = localeData.longDateFormat('LL');
 
           let dateMoment = moment(date).format('YYYY-MM-DD');
-          console.log('>>>', col.name, dateMoment);
 
           this.form.patchValue({ [col.name]: dateMoment });
-
-          console.log(this.form.value);
         }
       });
 
@@ -160,9 +157,7 @@ export class DynamicFormComponent
     }
   }
 
-  ngAfterViewInit() {
-    console.log(this.form);
-  }
+  ngAfterViewInit() {}
 
   ngOnChanges(): void {
     if (this.inputData && this.form) {

@@ -32,6 +32,8 @@ import { Overlay } from '@angular/cdk/overlay';
 export class CrudTableComponent implements OnInit, OnChanges {
   @Input() config: ITableConfig;
   items: BackendData[] = [];
+  paginatedItems: BackendData[] = [];
+  currentPage: 1; // first page should be 1 because JSON Server follows the same rule
   displayedColumns: string[];
   currentlyEdited: null | BackendData = null;
   status: string = '';
