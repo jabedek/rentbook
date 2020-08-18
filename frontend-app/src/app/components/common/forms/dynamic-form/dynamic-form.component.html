@@ -1,5 +1,8 @@
+<!-- ## Horizontal form ## -->
+
 <form [formGroup]="form" class="form-h" *ngIf="displayDirection === 'row'">
-  <tr class="form-h__row" *ngIf="mode === 'create'">
+  <!-- <app-datepickerexample></app-datepickerexample> -->
+  <div class="form-h__row" *ngIf="mode === 'create'">
     <div class="form-h__column mat-small">
       <td
         class="form-h__content form-h__content--header"
@@ -13,8 +16,8 @@
         Actions
       </td>
     </div>
-  </tr>
-  <tr class="form-h__row">
+  </div>
+  <div class="form-h__row">
     <div class="form-h__column">
       <td *ngFor="let col of columns" class="form-h__content">
         <section
@@ -47,11 +50,7 @@
                 >keyboard_arrow_down</mat-icon
               >
             </mat-datepicker-toggle>
-            <mat-datepicker
-              #picker
-              class="picker"
-              class="move"
-            ></mat-datepicker>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field
@@ -85,29 +84,30 @@
 
       <td class="form-h__content form-h__content--actions">
         <button
-          [class.mat-elevation-z2]="'true'"
+          [class.mat-elevation-z0]="'true'"
           mat-mini-fab
-          color="accent"
+          color="white"
           (click)="resetForm()"
           type="button"
         >
           <mat-icon fontSet="material-icons-sharp" matSuffix>clear</mat-icon>
         </button>
         <button
-          [class.mat-elevation-z2]="'true'"
+          [class.mat-elevation-z0]="'true'"
           mat-mini-fab
-          color="accent"
+          color="white"
           (click)="onSubmit()"
         >
           <mat-icon fontSet="material-icons-sharp" matSuffix>send</mat-icon>
         </button>
       </td>
     </div>
-  </tr>
+  </div>
 </form>
 
+<!-- ## Vertical form ## -->
 <form [formGroup]="form" class="form-v" *ngIf="displayDirection === 'column'">
-  <tr class="form-v__row">
+  <div class="form-v__row">
     <div class="form-v__column">
       <td *ngFor="let col of columns" class="form-v__content">
         <section
@@ -198,10 +198,6 @@
       </td>
 
       <td class="form-v__content form-v__content--actions">
-        <button mat-button color="primary" (click)="resetForm()" type="button">
-          {{ labels.reset }}
-          <!-- <mat-icon fontSet="material-icons-sharp" matSuffix>clear</mat-icon> -->
-        </button>
         <button
           [class.mat-elevation-z2]="'true'"
           mat-flat-button
@@ -211,7 +207,11 @@
           {{ labels.submit }}
           <!-- <mat-icon fontSet="material-icons-sharp" matSuffix>send</mat-icon> -->
         </button>
+        <button mat-button color="primary" (click)="resetForm()" type="button">
+          {{ labels.reset }}
+          <!-- <mat-icon fontSet="material-icons-sharp" matSuffix>clear</mat-icon> -->
+        </button>
       </td>
     </div>
-  </tr>
+  </div>
 </form>

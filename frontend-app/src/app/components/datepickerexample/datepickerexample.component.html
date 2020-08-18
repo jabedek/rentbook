@@ -1,0 +1,13 @@
+<mat-form-field appearance="fill">
+  <mat-label>Moment.js datepicker</mat-label>
+  <input
+    matInput
+    [matDatepicker]="dp"
+    [(value)]="user.selectedDate"
+    (change)="onChange($event)"
+  />
+  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+  <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>
+<b>User model</b>: <br />{{ user | json }} <br /><br />
+<b>JSON Data</b>: <br />{{ model_result }}

@@ -41,19 +41,19 @@
       </td>
       <td class="column column--actions">
         <button
-          [class.mat-elevation-z2]="'true'"
-          mat-button
+          [class.mat-elevation-z0]="'true'"
+          mat-stroked-button
+          (click)="onSubmit()"
+        >
+          FILTER
+        </button>
+        <button
+          [class.mat-elevation-z0]="'true'"
+          mat-stroked-button
           (click)="resetForm()"
           type="button"
         >
           CLEAR
-        </button>
-        <button
-          [class.mat-elevation-z2]="'true'"
-          mat-button
-          (click)="onSubmit()"
-        >
-          FILTER
         </button>
       </td>
     </div>

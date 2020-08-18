@@ -7,6 +7,8 @@
   "account-login": "Log in",
   "account-logout": "Log out",
   "account-register": "Register new account",
+  "admin-users": "Admin: users",
+  "admin-books": "Admin: books",
   "form-submit": "Send",
   "form-clear": "Clear",
   "login-form": "Login form",

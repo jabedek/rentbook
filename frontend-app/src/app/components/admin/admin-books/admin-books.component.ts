@@ -12,7 +12,7 @@ export class AdminBooksComponent {
     name: 'books',
     newItemOnto: 'table-end',
     url: `http://localhost:3000/books`,
-    modals: false,
+    modals: true,
     columns: bookColumns,
   };
 }

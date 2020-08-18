@@ -4,18 +4,24 @@
 
 .mat-dialog-content {
   height: 100%;
-  // background: $wrapper-bg-main;
+  max-height: 100%;
 }
 
 .dialog {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // background: $wrapper-bg-main;
+  align-content: center;
   padding: 0;
   text-align: center;
 
   &__title {
     background: #fff;
+  }
+
+  &__close {
+    width: 20%;
+    align-self: center;
   }
 }

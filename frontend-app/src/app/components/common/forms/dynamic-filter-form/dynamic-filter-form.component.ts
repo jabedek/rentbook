@@ -20,6 +20,7 @@ import { filter } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';
 import { Subscription } from 'rxjs';
 
+import moment from 'moment';
 type buttonLabels = {
   submit: string;
   reset: string;
@@ -59,6 +60,20 @@ export class DynamicFilterFormComponent
 
   onSubmit(): void {
     if (this.form.valid) {
+      this.columns.forEach((col) => {
+        if (col.inputType === 'date') {
+          if (this.form.controls[col.name].value) {
+            let date = this.form.get(col.name).value;
+
+            let localeData = moment.localeData();
+            let format = localeData.longDateFormat('LL');
+
+            let dateMoment = moment(date).format('YYYY-MM-DD');
+
+            this.form.patchValue({ [col.name]: dateMoment });
+          }
+        }
+      });
       this.submitItem.emit(this.form.value);
     }
   }

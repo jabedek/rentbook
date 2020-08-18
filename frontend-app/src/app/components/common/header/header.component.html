@@ -53,10 +53,10 @@
     </button>
     <mat-menu #admin="matMenu">
       <button mat-menu-item [routerLink]="['admin/books/crud']">
-        admin: Books
+        {{ "admin-books" | language }}
       </button>
       <button mat-menu-item [routerLink]="['admin/users/crud']">
-        admin: Users
+        {{ "admin-users" | language }}
       </button>
     </mat-menu>
   </nav>

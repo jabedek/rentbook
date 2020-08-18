@@ -15,22 +15,45 @@ import {
   EventEmitter,
   Output,
   OnDestroy,
+  AfterViewInit,
 } from '@angular/core';
 import { ITableColumn } from 'src/app/interfaces/table';
 import { filter } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';
 import { Subscription } from 'rxjs';
+
+import moment from 'moment';
+import { Moment } from 'moment';
 import {
-  MAT_NATIVE_DATE_FORMATS,
-  MatDateFormats,
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE,
 } from '@angular/material/core';
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'YYYY-MM-DD',
+  },
+  display: {
+    dateInput: 'YYYY-MM-DD',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.scss'],
 })
-export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
+export class DynamicFormComponent
+  implements OnInit, OnChanges, OnDestroy, AfterViewInit {
   @Input() columns: ITableColumn[];
   @Input() mode: string;
   @Input() appearance: string = 'standard';
@@ -40,6 +63,7 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   @Output('submitItem') submitItem = new EventEmitter<BackendData>();
   @Output('unpickItem') unpickItem = new EventEmitter();
 
+  // dateTest = new FormControl(moment([2017, 0, 1]));
   form: FormGroup;
   formSub: Subscription;
 
@@ -47,6 +71,8 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
 
   setupForm(): void {
     let group = {};
+
+    // console.log(new Date().toJSON());
 
     this.columns.forEach((col) => {
       if (col.name === 'id') {
@@ -90,6 +116,8 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
     this.form.reset();
     this.setupForm();
 
+    // this.unpickItem.emit();
+
     if (this.mode === 'edit') {
       this.unpickItem.emit();
     }
@@ -97,6 +125,22 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
 
   onSubmit(): void {
     if (this.form.valid) {
+      this.columns.forEach((col) => {
+        if (col.inputType === 'date') {
+          let date = this.form.get(col.name).value;
+
+          let localeData = moment.localeData();
+          let format = localeData.longDateFormat('LL');
+
+          let dateMoment = moment(date).format('YYYY-MM-DD');
+          console.log('>>>', col.name, dateMoment);
+
+          this.form.patchValue({ [col.name]: dateMoment });
+
+          console.log(this.form.value);
+        }
+      });
+
       this.submitItem.emit(this.form.value);
     }
   }
@@ -116,10 +160,12 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  ngAfterViewInit() {
+    console.log(this.form);
+  }
+
   ngOnChanges(): void {
     if (this.inputData && this.form) {
-      console.log(this.inputData);
-
       this.form.setValue(this.inputData);
     }
   }

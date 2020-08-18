@@ -1,7 +1,7 @@
 @import "~@angular/material/theming";
 @include mat-core();
 
-// // custom from internet
+// ## Color theme ##
 $custom-theme-primary: mat-palette($mat-deep-purple);
 $custom-theme-accent: mat-palette($mat-brown, A400);
 $custom-theme-warn: mat-palette($mat-red);
@@ -16,7 +16,6 @@ $custom-theme-light: mat-light-theme(
   $custom-theme-warn
 );
 
-// custom by me
 $primary: mat-color($custom-theme-primary);
 $accent: mat-color($custom-theme-accent);
 $submit: mat-color($custom-theme-submit);
@@ -26,9 +25,24 @@ $grey-light: mat-color($custom-theme-grey-light);
 $grey-dark: mat-color($custom-theme-grey-dark);
 
 $wrapper-bg-main: mat-color($custom-theme-primary, 50);
-
 $subheader-bg: mat-color($custom-theme-primary, 600);
 $active-link-primary: mat-color(mat-palette($mat-amber, A200));
-
-// fonts and links colors
 $main-font-color: #fff;
+
+// ## Typography ##
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: "Roboto, monospace",
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+);
+// Create a config with the default typography levels.
+$config: mat-typography-config();
+
+// Custom header that uses only the Material `font-size` and `font-family`.
+.auth-header {
+  font-size: mat-font-size($config, headline);
+  font-family: mat-font-family($config);
+}

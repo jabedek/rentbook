@@ -1,27 +1,114 @@
 {
   "books": [
     {
-      "id": "fca85e59-b815-4996-45f6-0c532ea8e712",
-      "dateAdded": "2020-08-10T07:59:12.098Z",
-      "title": "gfd",
-      "author": "sfasddsg",
-      "genre": "sgsdgdgs"
+      "id": "sample0",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 3",
+      "author": "Author 3",
+      "genre": "Genre 1"
     },
     {
-      "id": "0ddf5a6a-60ae-04f2-1fdc-27ec761102a7",
-      "dateAdded": "2020-08-11T21:47:01.138Z",
-      "title": "sadfg",
-      "author": "gfds",
-      "genre": "ghjhgfds"
+      "id": "sample1",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 4",
+      "author": "Author 1",
+      "genre": "Genre 2"
+    },
+    {
+      "id": "sample2",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 5",
+      "author": "Author 2",
+      "genre": "Genre 2"
+    },
+    {
+      "id": "sample3",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 1",
+      "author": "Author 1",
+      "genre": "Genre 1"
+    },
+    {
+      "id": "sample4",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 2",
+      "author": "Author 2",
+      "genre": "Genre 1"
+    },
+    {
+      "id": "sample5",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 3",
+      "author": "Author 3",
+      "genre": "Genre 1"
+    },
+    {
+      "id": "sample6",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 4",
+      "author": "Author 1",
+      "genre": "Genre 2"
+    },
+    {
+      "id": "sample7",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 4",
+      "author": "Author 2",
+      "genre": "Genre 2"
+    },
+    {
+      "id": "sample8",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 2",
+      "author": "Author 3",
+      "genre": "Genre 1"
+    },
+    {
+      "id": "sample9",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 6",
+      "author": "Author 3",
+      "genre": "Genre 2"
+    },
+    {
+      "id": "sample10",
+      "dateAdded": "2020-08-17T08:27:09.393Z",
+      "title": "Book Title 7",
+      "author": "Author 1",
+      "genre": "Genre 3"
     }
   ],
   "users": [
     {
-      "id": "242a7f10-920c-d372-16f9-7cd71ec48681",
-      "dateAdded": "2020-08-13T08:09:59.260Z",
+      "id": "494eb69c-5060-d55b-c385-55181b1b20ca",
+      "dateAdded": "2020-08-18",
       "password": "12345678",
-      "email": "a@a",
-      "nextPayment": "2000-12-31T23:00:00.000Z",
+      "email": "r@r",
+      "nextPayment": "2020-08-02",
+      "role": "ADMIN"
+    },
+    {
+      "id": "13278132-a67c-5362-215e-50b712e1563f",
+      "dateAdded": "2020-08-18",
+      "password": "12345678",
+      "email": "w@w",
+      "nextPayment": "2020-08-01",
+      "role": "USER"
+    },
+    {
+      "id": "ed51b9d1-e677-0ccb-2c7c-fbef9352519d",
+      "dateAdded": "2020-08-18",
+      "password": "12345678",
+      "email": "f@F",
+      "nextPayment": "2020-08-01",
+      "role": "ADMIN"
+    },
+    {
+      "id": "1363fd7f-c187-305f-669f-b39bfe78eaf3",
+      "dateAdded": "2020-08-18",
+      "password": "12345678",
+      "email": "t@t",
+      "nextPayment": "2020-08-01",
       "role": "ADMIN"
     }
   ]

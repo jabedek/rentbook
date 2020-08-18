@@ -1,4 +1,6 @@
-<app-section-header [text]="'Admin: ' + config.name"></app-section-header>
+<app-section-header [text]="name | language" draggable="true">
+</app-section-header>
+
 <div class="table-wrapper">
   <div
     [ngSwitch]="config.modals"
@@ -6,11 +8,11 @@
     [class.create-item-form-wrapper--modal]="config.modals"
   >
     <button *ngSwitchCase="true" mat-raised-button (click)="openDialog()">
-      CREATE
+      ADD ROW
     </button>
 
     <mat-card *ngSwitchCase="false" class="create-item-form__card">
-      <mat-card-title class="create-item-form__label mat-subheading-1">
+      <mat-card-title class="create-item-form__label">
         {{ "register-form" | language }}
       </mat-card-title>
       <div class="create-item-form">

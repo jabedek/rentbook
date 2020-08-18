@@ -12,7 +12,7 @@ export class AdminUsersComponent {
     name: 'users',
     newItemOnto: 'table-end',
     url: `http://localhost:3000/users`,
-    modals: true,
+    modals: false,
     columns: userColumns,
   };
 }

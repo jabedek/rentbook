@@ -42,13 +42,28 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import {
+  DynamicFormComponent,
+  MY_FORMATS,
+} from './components/common/forms/dynamic-form/dynamic-form.component';
+import {
+  MatNativeDateModule,
+  DateAdapter,
+  MAT_DATE_LOCALE,
+} from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { LanguagePipe } from './pipes/language.pipe';
 import { MyCounterComponent } from './my-counter/my-counter.component';
-import { DialogExampleComponent } from './components/common/dialog-example/dialog-example.component';
-
+import { DialogComponent } from './components/common/dialog/dialog.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MomentDateModule } from '@angular/material-moment-adapter';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { DatepickerexampleComponent } from './components/datepickerexample/datepickerexample.component';
+import {
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +83,8 @@ import { DialogExampleComponent } from './components/common/dialog-example/dialo
     DynamicFilterFormComponent,
     LanguagePipe,
     MyCounterComponent,
-    DialogExampleComponent,
+    DialogComponent,
+    DatepickerexampleComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,9 +115,18 @@ import { DialogExampleComponent } from './components/common/dialog-example/dialo
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    StoreModule.forRoot({ count: counterReducer }),
+    MatPaginatorModule,
+    MomentDateModule,
   ],
-  providers: [MatDatepickerModule],
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  ],
   bootstrap: [AppComponent],
   entryComponents: [],
 })

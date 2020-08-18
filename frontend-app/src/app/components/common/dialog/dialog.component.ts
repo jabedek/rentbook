@@ -6,14 +6,15 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+
 @Component({
-  selector: 'app-dialog-example',
-  templateUrl: './dialog-example.component.html',
-  styleUrls: ['./dialog-example.component.scss'],
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.scss'],
 })
-export class DialogExampleComponent implements OnInit {
+export class DialogComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<DialogExampleComponent>,
+    public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {}
 
