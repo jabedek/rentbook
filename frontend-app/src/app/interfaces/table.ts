@@ -58,4 +58,5 @@ export interface ITableConfig {
   newItemOnto: 'table-end' | 'table-start';
   modals: boolean;
   columns: ITableColumn[];
+  defaulItemsPerPage: number;
 }

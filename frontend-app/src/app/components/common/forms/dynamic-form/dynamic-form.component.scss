@@ -36,7 +36,7 @@
       flex-direction: row;
 
       &--headers {
-        border-top: none;
+        border-top: transparent;
       }
     }
   }
@@ -52,7 +52,7 @@
     flex-direction: row;
 
     &--headers {
-      border-top: none;
+      border-top: transparent;
     }
   }
 
@@ -110,7 +110,7 @@
     height: 50%;
 
     &--headers {
-      border-top: none;
+      border-top: transparent;
     }
   }
 

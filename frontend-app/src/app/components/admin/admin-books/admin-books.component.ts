@@ -14,5 +14,6 @@ export class AdminBooksComponent {
     url: `http://localhost:3000/books`,
     modals: true,
     columns: bookColumns,
+    defaulItemsPerPage: 5,
   };
 }

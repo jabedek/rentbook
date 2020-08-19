@@ -3,7 +3,9 @@ import { Injectable, Inject } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+
+const defaultItemsLimit = 5;
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -70,6 +72,34 @@ export class CrudService implements CrudOperations {
   read(baseURL: string): Observable<any[]> {
     const url = baseURL;
     return this._http.get<any[]>(url);
+  }
+
+  readPages(
+    baseURL: string,
+    pageIndex: number,
+    itemsLimit?: number
+  ): Observable<any[]> {
+    let url = baseURL + '?_page=' + pageIndex;
+    if (itemsLimit) {
+      url += '&_limit=' + itemsLimit;
+    } else url += '&_limit=' + defaultItemsLimit;
+    console.log(url);
+
+    return this._http.get<any[]>(url);
+  }
+
+  readPages2(
+    baseURL: string,
+    pageIndex: number,
+    itemsLimit?: number
+  ): Observable<any> {
+    let url = baseURL + '?_page=' + pageIndex;
+    if (itemsLimit) {
+      url += '&_limit=' + itemsLimit;
+    } else url += '&_limit=' + defaultItemsLimit;
+    console.log('url', url);
+
+    return this._http.get<any[]>(url, { observe: 'response' });
   }
 
   delete(baseURL: string, id: string): Observable<any> {

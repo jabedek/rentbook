@@ -14,5 +14,6 @@ export class AdminUsersComponent {
     url: `http://localhost:3000/users`,
     modals: false,
     columns: userColumns,
+    defaulItemsPerPage: 5,
   };
 }

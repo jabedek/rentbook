@@ -57,11 +57,13 @@ import { DialogComponent } from './components/common/dialog/dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import {
   MAT_MOMENT_DATE_FORMATS,
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
+import { TablePaginatorComponent } from './components/common/table-paginator/table-paginator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,8 +84,10 @@ import {
     LanguagePipe,
     MyCounterComponent,
     DialogComponent,
+    TablePaginatorComponent,
   ],
   imports: [
+    MatTooltipModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

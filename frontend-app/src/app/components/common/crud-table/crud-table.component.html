@@ -2,34 +2,19 @@
 </app-section-header>
 
 <div class="table-wrapper">
-  <div
-    [ngSwitch]="config.modals"
-    class="create-item-form-wrapper"
-    [class.create-item-form-wrapper--modal]="config.modals"
-  >
-    <button *ngSwitchCase="true" mat-raised-button (click)="openDialog()">
-      ADD ROW
-    </button>
-
-    <mat-card *ngSwitchCase="false" class="create-item-form__card">
-      <mat-card-title class="create-item-form__label">
-        {{ "register-form" | language }}
-      </mat-card-title>
-      <div class="create-item-form">
-        <app-dynamic-form
-          [mode]="'create'"
-          [columns]="config.columns"
-          [labels]="{ submit: 'Create', reset: 'Clear' }"
-          [inputData]="null"
-          (submitItem)="onCreate($event)"
-          (unpickItem)="onUnpickTableItem()"
-        >
-        </app-dynamic-form>
-      </div>
-    </mat-card>
-  </div>
-
   <mat-card class="table__card" [class.mat-elevation-z1]="'true'">
+    <!-- <mat-paginator
+      [pageSizeOptions]="[5, 10]"
+      showFirstLastButtons
+    ></mat-paginator> -->
+
+    <div class="paginator-wrapper">
+      <app-table-paginator
+        (selectPage)="changePage($event)"
+        [currentPage]="currentPage"
+      ></app-table-paginator>
+    </div>
+
     <table class="table">
       <!-- ## Headers ## -->
       <tr class="row row--headers">
@@ -53,51 +38,14 @@
       </tr>
 
       <!-- ## Data ## -->
-      <tr *ngFor="let item of items" class="row">
-        <!-- ## Row content if currentlyEdited is not set ## -->
-        <!-- Render regular table data (displaying) -->
-        <div *ngIf="!currentlyEdited" class="row__content">
-          <td
-            *ngFor="let col of config.columns"
-            class="column"
-            [class.column--id]="col.name === 'id'"
-          >
-            {{ item[col.name] }}
-          </td>
-          <td class="column column--actions">
-            <button
-              [class.mat-elevation-z2]="'true'"
-              mat-mini-fab
-              color="primary"
-              type="button"
-              (click)="onPickTableItem(item)"
-            >
-              <mat-icon fontSet="material-icons-sharp" matSuffix>edit</mat-icon>
-            </button>
-            <button
-              [class.mat-elevation-z2]="'true'"
-              mat-mini-fab
-              color="warn"
-              type="button"
-              (click)="onDelete(item)"
-            >
-              <mat-icon fontSet="material-icons-sharp" matSuffix
-                >delete</mat-icon
-              >
-            </button>
-          </td>
-        </div>
-
-        <!-- ## Row conditional content if currentlyEdited is set ## -->
-        <div *ngIf="currentlyEdited" class="row__content">
-          <!-- If item doesn't match currentlyEdited (displaying) -->
-          <div
-            *ngIf="item.id !== (currentlyEdited.id || null)"
-            class="row__content"
-          >
+      <tr *ngFor="let item of items; let i = index" class="row">
+        <span *ngIf="lesserThan(i)">
+          <!-- ## Row content if currentlyEdited is not set ## -->
+          <!-- Render regular table data (displaying) -->
+          <div *ngIf="!currentlyEdited" class="row__content">
             <td
-              class="column"
               *ngFor="let col of config.columns"
+              class="column"
               [class.column--id]="col.name === 'id'"
             >
               {{ item[col.name] }}
@@ -128,23 +76,94 @@
             </td>
           </div>
 
-          <!-- ## If item matches currentlyEdited (editing) ## -->
-          <div
-            *ngIf="item.id === (currentlyEdited.id || null)"
-            class="edit-item-form"
-          >
-            <app-dynamic-form
-              [columns]="config.columns"
-              [inputData]="currentlyEdited"
-              [mode]="'edit'"
-              [labels]="{ submit: 'Save', reset: 'Cancel' }"
-              (submitItem)="onUpdate($event)"
-              (unpickItem)="onUnpickTableItem()"
+          <!-- ## Row conditional content if currentlyEdited is set ## -->
+          <div *ngIf="currentlyEdited" class="row__content">
+            <!-- If item doesn't match currentlyEdited (displaying) -->
+            <div
+              *ngIf="item.id !== (currentlyEdited.id || null)"
+              class="row__content"
             >
-            </app-dynamic-form>
-          </div>
-        </div>
+              <td
+                class="column"
+                *ngFor="let col of config.columns"
+                [class.column--id]="col.name === 'id'"
+              >
+                {{ item[col.name] }}
+              </td>
+              <td class="column column--actions">
+                <button
+                  [class.mat-elevation-z2]="'true'"
+                  mat-mini-fab
+                  color="primary"
+                  type="button"
+                  (click)="onPickTableItem(item)"
+                >
+                  <mat-icon fontSet="material-icons-sharp" matSuffix
+                    >edit</mat-icon
+                  >
+                </button>
+                <button
+                  [class.mat-elevation-z2]="'true'"
+                  mat-mini-fab
+                  color="warn"
+                  type="button"
+                  (click)="onDelete(item)"
+                >
+                  <mat-icon fontSet="material-icons-sharp" matSuffix
+                    >delete</mat-icon
+                  >
+                </button>
+              </td>
+            </div>
+
+            <!-- ## If item matches currentlyEdited (editing) ## -->
+            <div
+              *ngIf="item.id === (currentlyEdited.id || null)"
+              class="edit-item-form"
+            >
+              <app-dynamic-form
+                [columns]="config.columns"
+                [inputData]="currentlyEdited"
+                [mode]="'edit'"
+                [labels]="{ submit: 'Save', reset: 'Cancel' }"
+                (submitItem)="onUpdate($event)"
+                (unpickItem)="onUnpickTableItem()"
+              >
+              </app-dynamic-form>
+            </div></div
+        ></span>
       </tr>
     </table>
   </mat-card>
+  <div
+    [ngSwitch]="config.modals"
+    class="create-item-form-wrapper"
+    [class.create-item-form-wrapper--modal]="config.modals"
+  >
+    <button
+      *ngSwitchCase="true"
+      class="create-item-form__button"
+      mat-raised-button
+      (click)="openDialog()"
+    >
+      ADD ROW
+    </button>
+
+    <mat-card *ngSwitchCase="false" class="create-item-form__card">
+      <mat-card-title class="create-item-form__label">
+        {{ "register-form" | language }}
+      </mat-card-title>
+      <div class="create-item-form">
+        <app-dynamic-form
+          [mode]="'create'"
+          [columns]="config.columns"
+          [labels]="{ submit: 'Create', reset: 'Clear' }"
+          [inputData]="null"
+          (submitItem)="onCreate($event)"
+          (unpickItem)="onUnpickTableItem()"
+        >
+        </app-dynamic-form>
+      </div>
+    </mat-card>
+  </div>
 </div>
