@@ -15,25 +15,12 @@ import {
   EventEmitter,
   Output,
   OnDestroy,
-  AfterViewInit,
 } from '@angular/core';
 import { ITableColumn } from 'src/app/interfaces/table';
 import { filter } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';
 import { Subscription } from 'rxjs';
-
 import moment from 'moment';
-import { Moment } from 'moment';
-import {
-  MAT_MOMENT_DATE_FORMATS,
-  MomentDateAdapter,
-  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
-} from '@angular/material-moment-adapter';
-import {
-  DateAdapter,
-  MAT_DATE_FORMATS,
-  MAT_DATE_LOCALE,
-} from '@angular/material/core';
 
 export const MY_FORMATS = {
   parse: {
@@ -52,8 +39,7 @@ export const MY_FORMATS = {
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.scss'],
 })
-export class DynamicFormComponent
-  implements OnInit, OnChanges, OnDestroy, AfterViewInit {
+export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[];
   @Input() mode: string;
   @Input() appearance: string = 'standard';
@@ -63,7 +49,6 @@ export class DynamicFormComponent
   @Output('submitItem') submitItem = new EventEmitter<BackendData>();
   @Output('unpickItem') unpickItem = new EventEmitter();
 
-  // dateTest = new FormControl(moment([2017, 0, 1]));
   form: FormGroup;
   formSub: Subscription;
 
@@ -71,8 +56,6 @@ export class DynamicFormComponent
 
   setupForm(): void {
     let group = {};
-
-    // console.log(new Date().toJSON());
 
     this.columns.forEach((col) => {
       if (col.name === 'id') {
@@ -103,7 +86,6 @@ export class DynamicFormComponent
           validator.label === 'max'
         ) {
           let valid = Validators[validator.label](validator.parameters[0]);
-
           validators.push(valid);
         }
       }
@@ -116,8 +98,6 @@ export class DynamicFormComponent
     this.form.reset();
     this.setupForm();
 
-    // this.unpickItem.emit();
-
     if (this.mode === 'edit') {
       this.unpickItem.emit();
     }
@@ -128,12 +108,7 @@ export class DynamicFormComponent
       this.columns.forEach((col) => {
         if (col.inputType === 'date') {
           let date = this.form.get(col.name).value;
-
-          let localeData = moment.localeData();
-          let format = localeData.longDateFormat('LL');
-
           let dateMoment = moment(date).format('YYYY-MM-DD');
-
           this.form.patchValue({ [col.name]: dateMoment });
         }
       });
@@ -145,19 +120,13 @@ export class DynamicFormComponent
   ngOnInit(): void {
     this.setupForm();
     this.formSub = this.form.valueChanges
-      .pipe(
-        filter(() => {
-          return this.form.valid;
-        })
-      )
-      .subscribe((data) => {});
+      .pipe(filter(() => this.form.valid))
+      .subscribe(() => {});
 
     if (this.inputData && this.form) {
       this.form.setValue(this.inputData);
     }
   }
-
-  ngAfterViewInit() {}
 
   ngOnChanges(): void {
     if (this.inputData && this.form) {

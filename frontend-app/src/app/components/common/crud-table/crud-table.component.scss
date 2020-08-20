@@ -6,7 +6,7 @@
 .table-wrapper {
   @include component-wrapper;
   justify-content: flex-start;
-  overflow: scroll;
+  overflow: hidden;
   // justify-content: space-between;
 }
 

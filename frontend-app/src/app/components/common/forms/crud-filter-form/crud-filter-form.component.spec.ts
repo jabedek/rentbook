@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DynamicFilterFormComponent } from './dynamic-filter-form.component';
+import { CrudFilterFormComponent } from './crud-filter-form.component';
 
-describe('DynamicFilterFormComponent', () => {
-  let component: DynamicFilterFormComponent;
-  let fixture: ComponentFixture<DynamicFilterFormComponent>;
+describe('CrudFilterFormComponent', () => {
+  let component: CrudFilterFormComponent;
+  let fixture: ComponentFixture<CrudFilterFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DynamicFilterFormComponent ]
+      declarations: [ CrudFilterFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DynamicFilterFormComponent);
+    fixture = TestBed.createComponent(CrudFilterFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -27,12 +27,11 @@ type buttonLabels = {
 };
 
 @Component({
-  selector: 'app-dynamic-filter-form',
-  templateUrl: './dynamic-filter-form.component.html',
-  styleUrls: ['./dynamic-filter-form.component.scss'],
+  selector: 'app-crud-filter-form',
+  templateUrl: './crud-filter-form.component.html',
+  styleUrls: ['./crud-filter-form.component.scss'],
 })
-export class DynamicFilterFormComponent
-  implements OnInit, OnChanges, OnDestroy {
+export class CrudFilterFormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() columns: ITableColumn[];
   @Output('submitItem') submitItem = new EventEmitter<BackendData>();
   @Output('resetFilter') resetFilter = new EventEmitter();

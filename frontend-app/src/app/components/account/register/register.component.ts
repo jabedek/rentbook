@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
             this.usersService
               .create('http://localhost:3000/users', user)
               .subscribe(
-                (user) => {
+                (user: IUser) => {
                   let msg = `User ${user.email} has been created and his id is: [${user.id}]`;
                   this.status = msg;
                 },

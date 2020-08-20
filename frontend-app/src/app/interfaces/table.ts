@@ -60,3 +60,15 @@ export interface ITableConfig {
   columns: ITableColumn[];
   defaulItemsPerPage: number;
 }
+
+export interface IPaginationConfig {
+  currentPage: number;
+  lastPage: number;
+  itemsPerPage;
+  links: {
+    pageFirst: string;
+    pagePrev: string;
+    pageNext: string;
+    pageLast: string;
+  };
+}

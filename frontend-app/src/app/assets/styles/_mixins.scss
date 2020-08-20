@@ -1,4 +1,4 @@
-@import "../../../assets/styles/theme.scss";
+@import "../../../assets/styles/_theme.scss";
 
 // ## Utils
 @mixin component-wrapper {
@@ -18,8 +18,8 @@
 
 @mixin auth-form {
   &__card {
-    width: 35%;
-    height: 45%;
+    width: 45%;
+    height: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;

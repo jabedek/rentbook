@@ -1,4 +1,4 @@
-import { DynamicFilterFormComponent } from './components/common/forms/dynamic-filter-form/dynamic-filter-form.component';
+// import { DynamicFilterFormComponent } from './components/common/forms/dynamic-filter-form/dynamic-filter-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -40,6 +40,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRippleModule } from '@angular/material/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import {
   DynamicFormComponent,
@@ -64,6 +65,8 @@ import {
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
 import { TablePaginatorComponent } from './components/common/table-paginator/table-paginator.component';
+import { CrudFilterFormComponent } from './components/common/forms/crud-filter-form/crud-filter-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,15 +83,16 @@ import { TablePaginatorComponent } from './components/common/table-paginator/tab
     SectionHeaderComponent,
     CrudTableComponent,
     DynamicFormComponent,
-    DynamicFilterFormComponent,
     LanguagePipe,
     MyCounterComponent,
     DialogComponent,
     TablePaginatorComponent,
+    CrudFilterFormComponent,
   ],
   imports: [
     MatTooltipModule,
     BrowserModule,
+    MatRippleModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,

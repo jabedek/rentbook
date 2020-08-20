@@ -78,9 +78,5 @@ export class LoginComponent implements OnInit {
     this.auth({ email: formValue.email, password: formValue.password });
   }
 
-  resetForm() {
-    this.loginForm.reset();
-  }
-
   ngOnInit(): void {}
 }
