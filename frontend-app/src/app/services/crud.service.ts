@@ -1,4 +1,4 @@
-import { BackendData } from './../types/BackendData';
+import { BackendData } from '../types/backend-data';
 import { Injectable, Inject } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
@@ -87,7 +87,7 @@ export class CrudService implements CrudOperations {
 
     let url = `${baseURL}?${filterQuery}${paginationQuery}`;
 
-    console.log('[url]: ', url);
+    // console.log('[url]: ', url);
 
     return this._http.get<any[]>(url, { observe: 'response' });
   }

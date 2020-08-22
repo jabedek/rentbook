@@ -1,4 +1,4 @@
-import { BackendData } from './../../../types/BackendData';
+import { BackendData } from '../../../types/backend-data';
 import { Component, OnInit, Inject } from '@angular/core';
 
 import {

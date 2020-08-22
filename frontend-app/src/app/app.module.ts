@@ -1,3 +1,4 @@
+import { MY_FORMATS } from './assets/constants';
 // import { DynamicFilterFormComponent } from './components/common/forms/dynamic-filter-form/dynamic-filter-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -7,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
+
+import { StoreModule, ActionReducerMap } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/common/header/header.component';
@@ -42,10 +44,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import {
-  DynamicFormComponent,
-  MY_FORMATS,
-} from './components/common/forms/dynamic-form/dynamic-form.component';
+import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
 import {
   MatNativeDateModule,
   DateAdapter,
@@ -60,12 +59,18 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {
-  MAT_MOMENT_DATE_FORMATS,
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
 import { TablePaginatorComponent } from './components/common/table-paginator/table-paginator.component';
 import { CrudFilterFormComponent } from './components/common/forms/crud-filter-form/crud-filter-form.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { StoredisplayComponent } from './components/storedisplay/storedisplay.component';
+import { reducers } from './store/reducers';
+import { Language$Pipe } from './pipes/language$.pipe';
+import { LandingComponent } from './containers/landing/landing.component';
+import { LanguageSetupComponent } from './containers/language-setup/language-setup.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +93,10 @@ import { CrudFilterFormComponent } from './components/common/forms/crud-filter-f
     DialogComponent,
     TablePaginatorComponent,
     CrudFilterFormComponent,
+    StoredisplayComponent,
+    Language$Pipe,
+    LandingComponent,
+    LanguageSetupComponent,
   ],
   imports: [
     MatTooltipModule,
@@ -122,6 +131,11 @@ import { CrudFilterFormComponent } from './components/common/forms/crud-filter-f
     MatSelectModule,
     MatPaginatorModule,
     MomentDateModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [
     {

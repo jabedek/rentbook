@@ -1,2 +1,11 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div *ngIf="isLangSet == ''">
+  <app-language-setup
+    (pickLanguage)="handlePickLang($event)"
+  ></app-language-setup>
+</div>
+
+<div *ngIf="isLangSet == 'PL' || isLangSet == 'EN'">
+  <app-header></app-header>
+
+  <router-outlet></router-outlet>
+</div>

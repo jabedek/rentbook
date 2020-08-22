@@ -1,5 +1,5 @@
 import { IValidatorTemplate } from './../../../../interfaces/table';
-import { BackendData } from './../../../../types/BackendData';
+import { BackendData } from '../../../../types/backend-data';
 import {
   FormBuilder,
   FormGroup,

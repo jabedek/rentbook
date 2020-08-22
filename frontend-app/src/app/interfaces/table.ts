@@ -1,4 +1,3 @@
-import { Input } from '@angular/core';
 export interface ISelectOption {
   label: string;
   value: string;

@@ -1,6 +1,3 @@
-import { FormLabels } from './../../../../types/form';
-import { IValidatorTemplate } from './../../../../interfaces/table';
-import { BackendData } from './../../../../types/BackendData';
 import {
   FormBuilder,
   FormGroup,
@@ -16,23 +13,15 @@ import {
   Output,
   OnDestroy,
 } from '@angular/core';
-import { ITableColumn } from 'src/app/interfaces/table';
 import { filter } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';
 import { Subscription } from 'rxjs';
 import moment from 'moment';
 
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'YYYY-MM-DD',
-  },
-  display: {
-    dateInput: 'YYYY-MM-DD',
-    monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
+import { ITableColumn } from 'src/app/interfaces/table';
+import { FormLabels } from './../../../../types/form';
+import { IValidatorTemplate } from './../../../../interfaces/table';
+import { BackendData } from '../../../../types/backend-data';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -117,21 +106,23 @@ export class DynamicFormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  private setFormValue() {
+    if (this.inputData && this.form) {
+      this.form.setValue(this.inputData);
+    }
+  }
+
   ngOnInit(): void {
     this.setupForm();
     this.formSub = this.form.valueChanges
       .pipe(filter(() => this.form.valid))
       .subscribe(() => {});
 
-    if (this.inputData && this.form) {
-      this.form.setValue(this.inputData);
-    }
+    this.setFormValue();
   }
 
   ngOnChanges(): void {
-    if (this.inputData && this.form) {
-      this.form.setValue(this.inputData);
-    }
+    this.setFormValue();
   }
 
   ngOnDestroy(): void {

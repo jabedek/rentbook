@@ -4,15 +4,10 @@ import { Overlay } from '@angular/cdk/overlay';
 import { MatDialog } from '@angular/material/dialog';
 import { tap } from 'rxjs/operators';
 import { DialogComponent } from './../../common/dialog/dialog.component';
-import { BackendData } from './../../../types/BackendData';
+import { BackendData } from '../../../types/backend-data';
 import { CrudService } from '../../../services/crud.service';
 import { ITableConfig } from '../../../interfaces/table';
-import {
-  parseLinkHeader,
-  setLastPage,
-  setPagesLinks,
-} from '../../../helpers/crud-table';
-import { HttpResponse } from '@angular/common/http';
+import { setLastPage, setPagesLinks } from '../../../helpers/table.helpers';
 
 @Component({
   selector: 'app-crud-table',
@@ -151,12 +146,11 @@ export class CrudTableComponent implements OnInit {
         break;
       }
     }
-    console.log('[PAGE CHANGED TO]: ', this.pagination.currentPage);
   }
 
-  fetchItems() {
+  fetchItems(): void {
     if (this.crudService) {
-      return this.crudService
+      this.crudService
         .readPagedFiltered(
           this.config.url,
           this.currentlyFiltered,
@@ -166,16 +160,14 @@ export class CrudTableComponent implements OnInit {
         .pipe(
           tap((res: any) => {
             this.pagination.links = setPagesLinks(res);
-            console.table(this.pagination.links);
           })
         )
         .subscribe((data) => {
-          this.pagination.lastPage = setLastPage(
-            this.pagination.links.pageLast
-          );
-
-          console.log('[last page]: ', this.pagination.lastPage);
-
+          if (this.pagination.links) {
+            this.pagination.lastPage = setLastPage(
+              this.pagination.links.pageLast
+            );
+          }
           if (data.body.length > 0) {
             this.tableItems = data.body;
           } else {
@@ -193,7 +185,7 @@ export class CrudTableComponent implements OnInit {
     this.changePage('first');
   }
 
-  onResetFilter() {
+  onResetFilter(): void {
     this.currentlyFiltered = null;
     this.changePage('first');
   }

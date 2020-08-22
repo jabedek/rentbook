@@ -12,11 +12,20 @@
   <a [routerLink]="[routerLinkVariable,dynamicParameter]"></a>
  -->
 
-<mat-toolbar [color]="backgroundColor" class="nav" style="min-height: 7vh;">
+<mat-toolbar color="primary" class="nav" style="min-height: 7vh;">
   <div class="mat-title title">
     Rentbook
   </div>
 
+  <!-- <section>
+    <span *ngIf="lang$">{{ lang$ }}</span>
+    <button class="nav__item" mat-button (click)="setLang('EN')">
+      EN
+    </button>
+    <button class="nav__item" mat-button (click)="setLang('PL')">
+      PL
+    </button>
+  </section> -->
   <nav>
     <button class="nav__item" mat-button [routerLink]="['']">
       {{ "nav-home" | language }}
@@ -27,8 +36,8 @@
 
     <!-- Account Menu -->
     <button class="nav__item" mat-stroked-button [matMenuTriggerFor]="account">
-      <div *ngIf="username">{{ username }}</div>
-      <div *ngIf="!username">{{ "nav-account" | language }}</div>
+      <div *ngIf="authUser && authUser.email">{{ authUser.email }}</div>
+      <div *ngIf="!authUser">{{ "nav-account" | language }}</div>
     </button>
     <mat-menu #account="matMenu">
       <button mat-menu-item [routerLink]="['account/login']">

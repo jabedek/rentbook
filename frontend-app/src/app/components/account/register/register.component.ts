@@ -11,14 +11,14 @@ import { IUser } from 'src/app/interfaces/user';
   styleUrls: ['./register.component.scss'],
   providers: [CrudService],
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class RegisterComponent implements OnInit {
   registerForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
+  formName: string = 'register-form';
   columns = authColumns;
-
   status: string = '';
 
   usersServiceSub: Subscription;
@@ -27,10 +27,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private usersService: CrudService,
     private formBuilder: FormBuilder
   ) {}
-
-  resetForm() {
-    this.registerForm.reset();
-  }
 
   onSubmit(formValue) {
     let date = new Date().toJSON().split('T')[0];
@@ -67,9 +63,4 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {}
-
-  ngOnDestroy(): void {
-    // this.userService.un
-    // this.usersServiceSub.unsubscribe();
-  }
 }

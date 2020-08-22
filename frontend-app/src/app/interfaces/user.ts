@@ -1,5 +1,3 @@
-import { ISelectOption } from './table';
-
 export interface IUser {
   id: string;
   email: string;

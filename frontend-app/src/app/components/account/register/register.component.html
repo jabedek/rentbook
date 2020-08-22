@@ -2,7 +2,7 @@
 <div class="register-wrapper">
   <mat-card class="register-form__card" [class.mat-elevation-z3]="'true'">
     <mat-card-title class="register-form__label mat-subheading-1">
-      {{ "register-form" | language }}
+      {{ formName | language }}
     </mat-card-title>
     <mat-card-subtitle class="register-form__status">
       {{ status }}
@@ -16,7 +16,6 @@
         [inputData]="null"
         [displayDirection]="'column'"
         (submitItem)="onSubmit($event)"
-        (unpickItem)="resetForm()"
       >
       </app-dynamic-form>
     </mat-card-content>

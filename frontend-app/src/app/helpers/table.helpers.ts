@@ -33,8 +33,6 @@ export function setPagesLinks(response: HttpResponse<any>) {
 export function setLastPage(lastPageLink: string): number {
   let urlParts = lastPageLink.split('&');
   let params = urlParts[urlParts.length - 2].split('=');
-  console.log('[params]: ', params);
-
   let lastPage: number = +params[1];
 
   return lastPage;
