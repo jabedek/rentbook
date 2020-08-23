@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IBook } from 'src/app/interfaces/IBook';
+import { Book } from 'src/app/interfaces/book';
 
 @Component({
   selector: 'app-book-item',
@@ -7,13 +7,13 @@ import { IBook } from 'src/app/interfaces/IBook';
   styleUrls: ['./book-item.component.scss'],
 })
 export class BookItemComponent implements OnInit {
-  @Input() book: IBook;
+  @Input() book: Book;
 
-  @Output() rentBook: EventEmitter<IBook> = new EventEmitter();
+  @Output() rentBook: EventEmitter<Book> = new EventEmitter();
 
   ngOnInit(): void {}
 
-  onRent(book: IBook) {
+  onRent(book: Book) {
     this.rentBook.emit(book);
   }
 }

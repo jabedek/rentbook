@@ -13,31 +13,26 @@
  -->
 
 <mat-toolbar color="primary" class="nav" style="min-height: 7vh;">
-  <div class="mat-title title">
-    Rentbook
-  </div>
-
-  <!-- <section>
-    <span *ngIf="lang$">{{ lang$ }}</span>
-    <button class="nav__item" mat-button (click)="setLang('EN')">
-      EN
-    </button>
-    <button class="nav__item" mat-button (click)="setLang('PL')">
-      PL
-    </button>
-  </section> -->
+  <app-logo></app-logo>
   <nav>
     <button class="nav__item" mat-button [routerLink]="['']">
       {{ "nav-home" | language }}
     </button>
-    <button class="nav__item" mat-button [routerLink]="['rental/books']">
+    <button class="nav__item" mat-button [routerLink]="['rental']">
       {{ "nav-rental" | language }}
     </button>
 
     <!-- Account Menu -->
     <button class="nav__item" mat-stroked-button [matMenuTriggerFor]="account">
-      <div *ngIf="authUser && authUser.email">{{ authUser.email }}</div>
-      <div *ngIf="!authUser">{{ "nav-account" | language }}</div>
+      <!-- <div *ngIf="authUser && authUser.email">{{ authUser.email }}</div>
+      <div *ngIf="!authUser">{{ "nav-account" | language }}</div> -->
+
+      <div *ngIf="auth">
+        <div>{{ auth.email }}</div>
+      </div>
+      <div *ngIf="!auth">
+        <div>{{ "nav-account" | language }}</div>
+      </div>
     </button>
     <mat-menu #account="matMenu">
       <button mat-menu-item [routerLink]="['account/login']">
@@ -53,6 +48,10 @@
     </mat-menu>
 
     <!-- Admin Menu -->
+    <button class="nav__item" mat-button [routerLink]="['admin']">
+      Admin
+    </button>
+    <!-- 
     <button
       class="nav__item nav__item--admin"
       mat-raised-button
@@ -61,12 +60,12 @@
       {{ "nav-admin" | language }}
     </button>
     <mat-menu #admin="matMenu">
-      <button mat-menu-item [routerLink]="['admin/books/crud']">
+      <button mat-menu-item [routerLink]="['admin/books']">
         {{ "admin-books" | language }}
       </button>
-      <button mat-menu-item [routerLink]="['admin/users/crud']">
+      <button mat-menu-item [routerLink]="['admin/users']">
         {{ "admin-users" | language }}
       </button>
-    </mat-menu>
+    </mat-menu> -->
   </nav>
 </mat-toolbar>

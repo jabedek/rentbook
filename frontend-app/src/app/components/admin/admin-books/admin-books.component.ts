@@ -1,4 +1,4 @@
-import { bookColumns } from '../../../assets/table-columns/bookColumns';
+import * as CONSTANTS from '../../../assets/constants/index';
 import { Component } from '@angular/core';
 import { ITableConfig } from '../../../interfaces/table';
 
@@ -13,7 +13,7 @@ export class AdminBooksComponent {
     newItemOnto: 'table-end',
     url: `http://localhost:3000/books`,
     modals: true,
-    columns: bookColumns,
+    columns: CONSTANTS.table.BOOK_COLUMNS,
     defaulItemsPerPage: 5,
   };
 }

@@ -1,0 +1,107 @@
+<form [formGroup]="form" class="form-v" *ngIf="displayDirection === 'column'">
+  <div class="form-v__row">
+    <div class="form-v__column">
+      <td *ngFor="let col of columns" class="form-v__content">
+        <section
+          [style.width.%]="100"
+          *ngIf="col.editable"
+          class="column-content"
+          [class.input--id]="col.name === 'id'"
+          [class.input--id]="col.dateAdded === 'id'"
+        >
+          <mat-form-field
+            appearance="{{ appearance }}"
+            [style.fontSize.rem]="0.8"
+            *ngIf="
+              col.inputType === 'text' ||
+              col.inputType === 'email' ||
+              col.inputType === 'password'
+            "
+          >
+            <mat-label>
+              {{ col.label }}
+            </mat-label>
+            <input
+              matInput
+              type="{{ col.inputType }}"
+              formControlName="{{ col.name }}"
+            />
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="{{ appearance }}"
+            [style.fontSize.rem]="0.8"
+            *ngIf="col.inputType === 'date'"
+          >
+            <mat-label>
+              {{ col.label }}
+            </mat-label>
+            <input
+              matInput
+              [style.fontSize.rem]="0.8"
+              [matDatepicker]="picker"
+              formControlName="{{ col.name }}"
+            />
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon class="icon" matDatepickerToggleIcon
+                >keyboard_arrow_down</mat-icon
+              >
+            </mat-datepicker-toggle>
+            <mat-datepicker
+              #picker
+              class="picker"
+              class="move"
+            ></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field
+            appearance="{{ appearance }}"
+            *ngIf="col.inputType === 'select'"
+          >
+            <mat-label>
+              {{ col.label }}
+            </mat-label>
+            <mat-select formControlName="{{ col.name }}">
+              <mat-option
+                [style.fontSize.rem]="0.8"
+                *ngFor="let opt of col.options"
+                [value]="opt.value"
+              >
+                {{ opt.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </section>
+
+        <section
+          *ngIf="!col.editable"
+          [class.input--id]="col.name === 'id'"
+          [class.input--id]="col.dateAdded === 'id'"
+          class="column-content"
+          [style.width.%]="100"
+        >
+          <mat-label>
+            {{ col.label }}
+          </mat-label>
+          <span class="non-editable">
+            [automatically assigned]
+          </span>
+        </section>
+      </td>
+
+      <td class="form-v__content form-v__content--actions">
+        <button
+          [class.mat-elevation-z2]="'true'"
+          mat-flat-button
+          color="primary"
+          (click)="onSubmit()"
+        >
+          {{ labels.submit }}
+        </button>
+        <button mat-button color="primary" (click)="resetForm()" type="button">
+          {{ labels.reset }}
+        </button>
+      </td>
+    </div>
+  </div>
+</form>

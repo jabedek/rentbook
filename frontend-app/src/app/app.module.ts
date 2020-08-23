@@ -1,4 +1,5 @@
-import { MY_FORMATS } from './assets/constants';
+import { AdminModule } from './admin/admin.module';
+import { MY_FORMATS } from './assets/constants/common.constants';
 // import { DynamicFilterFormComponent } from './components/common/forms/dynamic-filter-form/dynamic-filter-form.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,6 @@ import { StoreModule, ActionReducerMap } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/common/header/header.component';
 import { BooksComponent } from './components/rental/books/books.component';
-import { BooksRentComponent } from './components/rental/books-rent/books-rent.component';
 import { BookItemComponent } from './components/rental/book-item/book-item.component';
 import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
 import { HomeComponent } from './components/main/home/home.component';
@@ -22,7 +22,6 @@ import { SectionHeaderComponent } from './components/common/section-header/secti
 
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
-import { PasswordResetComponent } from './components/account/password-reset/password-reset.component';
 import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -44,7 +43,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { DynamicFormComponent } from './components/common/forms/dynamic-form/dynamic-form.component';
 import {
   MatNativeDateModule,
   DateAdapter,
@@ -52,7 +50,6 @@ import {
 } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { LanguagePipe } from './pipes/language.pipe';
-import { MyCounterComponent } from './my-counter/my-counter.component';
 import { DialogComponent } from './components/common/dialog/dialog.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MomentDateModule } from '@angular/material-moment-adapter';
@@ -66,17 +63,16 @@ import { TablePaginatorComponent } from './components/common/table-paginator/tab
 import { CrudFilterFormComponent } from './components/common/forms/crud-filter-form/crud-filter-form.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { StoredisplayComponent } from './components/storedisplay/storedisplay.component';
 import { reducers } from './store/reducers';
-import { Language$Pipe } from './pipes/language$.pipe';
-import { LandingComponent } from './containers/landing/landing.component';
 import { LanguageSetupComponent } from './containers/language-setup/language-setup.component';
+import { LogoComponent } from './components/common/logo/logo.component';
+import { FormHorizontalComponent } from './components/common/forms/form-horizontal/form-horizontal.component';
+import { FormVerticalComponent } from './components/common/forms/form-vertical/form-vertical.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
-    BooksRentComponent,
     BookItemComponent,
     AdminBooksComponent,
     AdminUsersComponent,
@@ -84,32 +80,30 @@ import { LanguageSetupComponent } from './containers/language-setup/language-set
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    PasswordResetComponent,
     SectionHeaderComponent,
     CrudTableComponent,
-    DynamicFormComponent,
     LanguagePipe,
-    MyCounterComponent,
     DialogComponent,
     TablePaginatorComponent,
     CrudFilterFormComponent,
-    StoredisplayComponent,
-    Language$Pipe,
-    LandingComponent,
     LanguageSetupComponent,
+    LogoComponent,
+    FormHorizontalComponent,
+    FormVerticalComponent,
   ],
   imports: [
-    MatTooltipModule,
+    MomentDateModule,
     BrowserModule,
-    MatRippleModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatDialogModule,
     ReactiveFormsModule,
+    MatRippleModule,
+    MatDialogModule,
     MatButtonModule,
+    MatTooltipModule,
     MatButtonToggleModule,
     MatIconModule,
     MatBadgeModule,
@@ -130,7 +124,7 @@ import { LanguageSetupComponent } from './containers/language-setup/language-set
     MatNativeDateModule,
     MatSelectModule,
     MatPaginatorModule,
-    MomentDateModule,
+    AdminModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

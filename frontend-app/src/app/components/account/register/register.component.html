@@ -8,7 +8,7 @@
       {{ status }}
     </mat-card-subtitle>
     <mat-card-content class="register-form__content">
-      <app-dynamic-form
+      <app-form-vertical
         [mode]="'create'"
         [appearance]="'outline'"
         [columns]="columns"
@@ -17,7 +17,7 @@
         [displayDirection]="'column'"
         (submitItem)="onSubmit($event)"
       >
-      </app-dynamic-form>
+      </app-form-vertical>
     </mat-card-content>
   </mat-card>
 </div>

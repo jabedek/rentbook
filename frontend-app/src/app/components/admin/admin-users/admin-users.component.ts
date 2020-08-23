@@ -1,4 +1,4 @@
-import { userColumns } from '../../../assets/table-columns/userColumns';
+import * as CONSTANTS from '../../../assets/constants/index';
 import { Component } from '@angular/core';
 import { ITableConfig } from '../../../interfaces/table';
 
@@ -13,7 +13,7 @@ export class AdminUsersComponent {
     newItemOnto: 'table-end',
     url: `http://localhost:3000/users`,
     modals: false,
-    columns: userColumns,
+    columns: CONSTANTS.table.USER_COLUMNS,
     defaulItemsPerPage: 5,
   };
 }

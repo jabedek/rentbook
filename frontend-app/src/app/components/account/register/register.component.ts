@@ -1,15 +1,15 @@
-import { authColumns } from './../../../assets/table-columns/authColumns';
+import { User } from './../../../interfaces/user';
+import { AuthService } from './../../../services/auth.service';
+import * as CONSTANTS from '../../../assets/constants/index';
 import { Subscription } from 'rxjs';
-import { CrudService } from 'src/app/services/crud.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IUser } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  providers: [CrudService],
+  providers: [AuthService],
 })
 export class RegisterComponent implements OnInit {
   registerForm = this.formBuilder.group({
@@ -18,48 +18,46 @@ export class RegisterComponent implements OnInit {
   });
 
   formName: string = 'register-form';
-  columns = authColumns;
+  columns = CONSTANTS.table.AUTH_COLUMNS;
   status: string = '';
 
   usersServiceSub: Subscription;
 
   constructor(
-    private usersService: CrudService,
+    private authService: AuthService,
     private formBuilder: FormBuilder
   ) {}
 
-  onSubmit(formValue) {
+  formatFormDetails(formValue): User {
     let date = new Date().toJSON().split('T')[0];
 
-    const user: IUser = {
+    const user: User = {
       ...formValue,
       role: 'USER',
       nextPayment: date,
     };
 
-    console.log('submit');
+    return user;
+  }
 
-    this.usersServiceSub = this.usersService
-      .readByProperty('http://localhost:3000/users', 'email', user.email)
-      .subscribe(
-        (users) => {
-          if (users.length) {
-            let msg = 'This email address is already in use.';
-            this.status = msg;
-          } else {
-            this.usersService
-              .create('http://localhost:3000/users', user)
-              .subscribe(
-                (user: IUser) => {
-                  let msg = `User ${user.email} has been created and his id is: [${user.id}]`;
-                  this.status = msg;
-                },
-                (err) => (this.status += `Error: ${err}`)
-              );
-          }
-        },
-        (err) => (this.status += `Error: ${err}`)
-      );
+  onSubmit(formValue) {
+    const user: User = this.formatFormDetails(formValue);
+
+    this.authService.checkExistingUser(user).subscribe(
+      (users) => {
+        if (users.length) {
+          this.status = 'This email address is already in use.';
+        } else {
+          this.authService.register(user).subscribe(
+            (addedUser: User) => {
+              this.status = `User ${addedUser.email} has been created and his id is: [${addedUser.id}]`;
+            },
+            (err) => (this.status += `Error: ${err}`)
+          );
+        }
+      },
+      (err) => (this.status += `Error: ${err}`)
+    );
   }
 
   ngOnInit(): void {}

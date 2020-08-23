@@ -1,9 +1,9 @@
 <app-section-header [text]="'nav-rental' | language"></app-section-header>
-<div>
-  <mat-grid-list cols="5" rowHeight="40vh">
-    <mat-grid-tile *ngFor="let book of books">
+<div class="books-wrapper">
+  <ul class="list">
+    <li *ngFor="let book of books" class="list__item">
       <app-book-item [book]="book" (rentBook)="rentBook($event)">
       </app-book-item>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </li>
+  </ul>
 </div>

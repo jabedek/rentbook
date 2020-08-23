@@ -1,4 +1,4 @@
-import { IBook } from './../interfaces/IBook';
-import { IUser } from './../interfaces/user';
+import { Book } from '../interfaces/book';
+import { User } from './../interfaces/user';
 
-export type BackendData = IUser | IBook;
+export type BackendData = User | Book;

@@ -1,5 +1,27 @@
-<p>landing works!</p>
-<div *ngIf="store">
-  <button (click)="selectLang('PL')">PL</button>
-  <button (click)="selectLang('EN')">EN</button>
+<div class="language-setup__wrapper">
+  <section
+    class="mat-subheading-2 language-setup__welcome language-setup__section"
+  >
+    Welcome to
+    <app-logo [fontSizeRem]="2.6"></app-logo>
+  </section>
+  <mat-card class="language-setup__section">
+    <!-- <p></p> -->
+    <div *ngIf="store">
+      <button
+        class="language-setup__choice"
+        mat-stroked-button
+        (click)="selectLang('EN')"
+      >
+        EN
+      </button>
+      <button
+        class="language-setup__choice"
+        mat-stroked-button
+        (click)="selectLang('PL')"
+      >
+        PL
+      </button>
+    </div>
+  </mat-card>
 </div>

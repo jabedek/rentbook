@@ -1,10 +1,10 @@
-import { AppState } from './../store/reducers/index';
-import { Store, State, select } from '@ngrx/store';
+import { AppState } from './../interfaces/app-state';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Pipe, PipeTransform, Input, Inject } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
-import * as PL from '../assets/json/languagePL.json';
-import * as EN from '../assets/json/languageEN.json';
+import * as PL from '../assets/json/language-PL.json';
+import * as EN from '../assets/json/language-EN.json';
 
 @Pipe({
   name: 'language',
@@ -15,16 +15,13 @@ export class LanguagePipe implements PipeTransform {
     select((state: AppState) => state.language.lang)
   );
 
-  constructor(private store: Store<AppState>) {
-    // this.store.dispatch({ type: 'EN' });
-  }
+  constructor(private store: Store<AppState>) {}
 
   transform(label: string): unknown {
     label = label.toLowerCase();
 
     this.chosenLang$.subscribe((data) => {
       this.cachedLang = data;
-      console.log(this.cachedLang);
     });
 
     switch (this.cachedLang) {

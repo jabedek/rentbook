@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/services/crud.service';
-import { IBook } from 'src/app/interfaces/IBook';
+import { Book } from 'src/app/interfaces/book';
 
 @Component({
   selector: 'app-books',
@@ -8,7 +8,7 @@ import { IBook } from 'src/app/interfaces/IBook';
   styleUrls: ['./books.component.scss'],
 })
 export class BooksComponent implements OnInit {
-  books: IBook[];
+  books: Book[];
 
   constructor(private booksService: CrudService) {}
 

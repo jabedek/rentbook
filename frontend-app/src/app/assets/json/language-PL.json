@@ -1,0 +1,16 @@
+{
+  "password": "Hasło",
+  "nav-home": "Główna",
+  "nav-rental": "Wypożyczalnia",
+  "nav-admin": "Zarządzanie",
+  "nav-account": "Konto",
+  "account-login": "Logowanie",
+  "account-logout": "Wyloguj",
+  "account-register": "Rejestracja",
+  "admin-users": "Użytkownicy",
+  "admin-books": "Książki",
+  "form-submit": "Wyślij",
+  "form-clear": "Wyczyść",
+  "login-form": "Formularz logowania",
+  "register-form": "Formularz rejestracji"
+}

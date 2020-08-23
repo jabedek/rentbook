@@ -2,7 +2,7 @@
   <mat-card-title class="dialog__title">
     {{ data.name | language }}
   </mat-card-title>
-  <app-dynamic-form
+  <app-form-vertical
     [columns]="data.columns"
     [inputData]="data.inputData"
     [mode]="data.mode"
@@ -11,7 +11,7 @@
     (submitItem)="submitItem($event)"
     (unpickItem)="onNoClick()"
   >
-  </app-dynamic-form>
+  </app-form-vertical>
   <button mat-button mat-dialog-close class="dialog__close">
     <mat-icon fontSet="material-icons-sharp" matSuffix>clear</mat-icon>
   </button>

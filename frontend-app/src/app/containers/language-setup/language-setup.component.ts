@@ -1,6 +1,6 @@
+import { AppState } from './../../interfaces/app-state';
 import { LanguageCode } from './../../types/language-code';
 import { Store } from '@ngrx/store';
-import { AppState } from './../../store/reducers/index';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -16,8 +16,10 @@ export class LanguageSetupComponent implements OnInit {
 
   selectLang(lang: LanguageCode) {
     this.chosenLang = lang;
-    this.store.dispatch({ type: this.chosenLang });
-    console.log('emiting', this.chosenLang);
+    this.store.dispatch({
+      type: '[LANG SETUP] SET LANG',
+      payload: this.chosenLang,
+    });
 
     this.pickLanguage.emit(this.chosenLang);
   }

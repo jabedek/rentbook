@@ -1,14 +1,9 @@
+import { AuthService } from './../../../services/auth.service';
 import { Subscription } from 'rxjs';
-import { authColumns } from './../../../assets/table-columns/authColumns';
+import * as CONSTANTS from '../../../assets/constants/index';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CrudService } from '../../../services/crud.service';
-
-import { InitState } from './../../../interfaces/store';
-import { Store } from '@ngrx/store';
-
-import { IUser } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-login',
@@ -23,63 +18,20 @@ export class LoginComponent implements OnInit {
   });
 
   formName: string = 'login-form';
-  columns = authColumns;
+  columns = CONSTANTS.table.AUTH_COLUMNS;
   status: string = '';
 
   usersServiceSub: Subscription;
 
   constructor(
-    private usersService: CrudService,
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private store: Store<InitState>
+    private authService: AuthService,
+    private formBuilder: FormBuilder
   ) {}
 
   onSubmit(formValue) {
-    let authUser: IUser | null;
-    this.usersServiceSub = this.usersService
-      .readByProperty('http://localhost:3000/users', 'email', formValue.email)
-      .subscribe(
-        (users) => {
-          // # If there are user(s) found with provided email, find a user with matching password and return it
-          if (users.length) {
-            let matchingUser = users.find(
-              (user) => user.password === formValue.password
-            );
-
-            if (matchingUser) {
-              authUser = matchingUser;
-
-              // # Save user to global state
-              // eventDispatcher.next({
-              //   type: UserActionTypes.USER_LOGIN,
-              //   payload: authUser,
-              // });
-              this.saveToStore(authUser);
-
-              this.status = 'Log in successful. Redirecting...';
-              this.router.navigateByUrl('/');
-            } else {
-              authUser = null;
-              this.status = 'There is no user with these credentials.';
-            }
-          } else {
-            // # If there is no user found, return null
-            authUser = null;
-            this.status = 'Wrong credentials.';
-          }
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+    this.status = 'Processing...';
+    this.authService.login(formValue);
   }
-  saveToStore(user: IUser) {
-    console.log('saving to store');
 
-    // this.store.dispatch(new SetAuthAction(user));
-  }
   ngOnInit(): void {}
-
-  ngOnDestroy(): void {}
 }

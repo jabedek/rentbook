@@ -1,10 +1,6 @@
-// import { SetLangAction } from './../../../store3/actions';
-import { LanguageCode } from './../../../types/language-code';
-import { InitState } from '../../../interfaces/store';
-import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../../services/auth.service';
 
-// import { DelAuthAction } from 'src/app/store3/actions';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -12,28 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  auth$: any;
-  lang$: any;
-  authUser: any;
-  wholeStore: any;
-  stuff;
+  auth = null;
 
-  constructor(private store: Store<InitState>) {}
+  constructor(public authService: AuthService) {}
 
   logout() {
-    // this.store.dispatch(new DelAuthAction());
+    this.authService.logout();
   }
 
-  public setLang(lang: LanguageCode) {
-    // this.store.dispatch(new SetLangAction(lang));
+  getRole() {
+    this.authService.getRole();
   }
 
   ngOnInit() {
-    // this.auth$ = this.store.select((store: InitState) => store.auth);
-    // this.auth$.subscribe((data: any) => {
-    //   this.authUser = data.auth;
-    // });
-    // this.wholeStore = this.store.select((store: InitState) => store.lang);
-    // this.stuff = this.wholeStore.subscribe((data) => console.log(data));
+    this.authService.auth$.subscribe((data) => {
+      this.auth = data.auth;
+    });
   }
 }
