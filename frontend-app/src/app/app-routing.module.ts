@@ -29,14 +29,14 @@ const appRoutes: Routes = [
   // },
   { path: 'admin/books', component: AdminBooksComponent },
   { path: 'admin/users', component: AdminUsersComponent },
-  {
-    path: 'rental',
-    loadChildren: () =>
-      import('./rental/rental.module').then((m) => m.RentalModule),
-    // data: { preload: true },
-  },
-  // { path: '', component: HomeComponent, pathMatch: 'full' },
-  // { path: '**', redirectTo: '/' },
+  // {
+  //   path: 'rental',
+  //   loadChildren: () =>
+  //     import('./rental/rental.module').then((m) => m.RentalModule),
+  //   // data: { preload: true },
+  // },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  // { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
