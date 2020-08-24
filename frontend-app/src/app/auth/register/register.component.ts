@@ -1,12 +1,12 @@
-import { User } from './../../../interfaces/user';
-import { AuthService } from './../../../auth/auth.service';
-import * as CONSTANTS from '../../../assets/constants/index';
+import { User } from './../../interfaces/user';
+import { AuthService } from './../../auth/auth.service';
+import * as CONSTANTS from '../../assets/constants/index';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-register1',
+  selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   providers: [AuthService],

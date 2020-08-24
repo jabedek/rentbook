@@ -1,4 +1,4 @@
-import { AuthService } from './../../../services/auth.service';
+import { AuthService } from './../../../auth/auth.service';
 import { Subscription } from 'rxjs';
 import * as CONSTANTS from '../../../assets/constants/index';
 import { Component, OnInit } from '@angular/core';

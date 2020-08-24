@@ -1,10 +1,10 @@
-@import "../../assets/styles/mixins";
+@import "../../assets/styles/_mixins.scss";
 
-.login-wrapper {
+.register-wrapper {
   @include component-wrapper;
 }
 
-.login-form {
+.register-form {
   @include auth-form;
 
   &__label {
@@ -12,9 +12,5 @@
     align-items: center;
     justify-content: center;
     padding-top: 0.5em;
-  }
-
-  &__status {
-    color: $warn;
   }
 }

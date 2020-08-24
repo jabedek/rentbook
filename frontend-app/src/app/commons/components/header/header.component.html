@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="nav" style="min-height: 7vh;">
+  <app-logo></app-logo>
+  <nav>
+    <button class="nav__item" mat-button [routerLink]="['']">
+      {{ "nav-home" | language }}
+    </button>
+    <button class="nav__item" mat-button [routerLink]="['rental']">
+      {{ "nav-rental" | language }}
+    </button>
+
+    <button class="nav__item" mat-button [routerLink]="['login']">
+      <div *ngIf="auth">
+        <div>{{ auth.email }}</div>
+      </div>
+      <div *ngIf="!auth">
+        <div>{{ "nav-account" | language }}</div>
+      </div>
+    </button>
+
+    <button class="nav__item" mat-button [routerLink]="['admin']">
+      Admin
+    </button>
+  </nav>
+</mat-toolbar>

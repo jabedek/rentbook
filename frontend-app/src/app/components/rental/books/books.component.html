@@ -1,9 +1,0 @@
-<app-section-header [text]="'nav-rental' | language"></app-section-header>
-<div class="books-wrapper">
-  <ul class="list">
-    <li *ngFor="let book of books" class="list__item">
-      <app-book-item [book]="book" (rentBook)="rentBook($event)">
-      </app-book-item>
-    </li>
-  </ul>
-</div>

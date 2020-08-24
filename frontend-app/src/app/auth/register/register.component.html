@@ -1,0 +1,23 @@
+<app-section-header [text]="'account-register' | language"></app-section-header>
+<div class="register-wrapper">
+  <mat-card class="register-form__card" [class.mat-elevation-z3]="'true'">
+    <mat-card-title class="register-form__label mat-subheading-1">
+      {{ formName | language }}
+    </mat-card-title>
+    <mat-card-subtitle class="register-form__status">
+      {{ status }}
+    </mat-card-subtitle>
+    <mat-card-content class="register-form__content">
+      <app-form-vertical
+        [mode]="'create'"
+        [appearance]="'outline'"
+        [columns]="columns"
+        [labels]="{ submit: 'Submit', reset: 'Clear' }"
+        [inputData]="null"
+        [displayDirection]="'column'"
+        (submitItem)="onSubmit($event)"
+      >
+      </app-form-vertical>
+    </mat-card-content>
+  </mat-card>
+</div>

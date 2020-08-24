@@ -1,3 +1,12 @@
+import { CrudTableModule } from './crud-table/crud-table.module';
+import { RentalModule } from './rental/rental.module';
+import { MaterialModule } from './material/material.module';
+import { AuthModule } from './auth/auth.module';
+import { CommonsModule } from './commons/commons.module';
+// import { HeaderModule } from './header/header.module';
+// import { HeaderComponent } from './header/header/header.component';
+
+import { LoginComponent } from './auth/login/login.component';
 import { AdminModule } from './admin/admin.module';
 import { MY_FORMATS } from './assets/constants/common.constants';
 // import { DynamicFilterFormComponent } from './components/common/forms/dynamic-filter-form/dynamic-filter-form.component';
@@ -13,16 +22,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule, ActionReducerMap } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/common/header/header.component';
-import { BooksComponent } from './components/rental/books/books.component';
-import { BookItemComponent } from './components/rental/book-item/book-item.component';
+// import { HeaderComponent } from './components/common/header/header.component';
+// HeaderComponent
 import { AdminBooksComponent } from './components/admin/admin-books/admin-books.component';
 import { HomeComponent } from './components/main/home/home.component';
-import { SectionHeaderComponent } from './components/common/section-header/section-header.component';
+// import { SectionHeaderComponent } from './components/common/section-header/section-header.component';
 
-import { LoginComponent } from './components/account/login/login.component';
+// import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from './components/account/register/register.component';
-import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
+// import { CrudTableComponent } from './components/common/crud-table/crud-table.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
@@ -49,8 +57,7 @@ import {
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { LanguagePipe } from './pipes/language.pipe';
-import { DialogComponent } from './components/common/dialog/dialog.component';
+// import { LanguagePipe } from './pipes/language.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
@@ -59,72 +66,77 @@ import {
   MomentDateAdapter,
   MAT_MOMENT_DATE_ADAPTER_OPTIONS,
 } from '@angular/material-moment-adapter';
-import { TablePaginatorComponent } from './components/common/table-paginator/table-paginator.component';
-import { CrudFilterFormComponent } from './components/common/forms/crud-filter-form/crud-filter-form.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers } from './store/reducers';
-import { LanguageSetupComponent } from './containers/language-setup/language-setup.component';
-import { LogoComponent } from './components/common/logo/logo.component';
-import { FormHorizontalComponent } from './components/common/forms/form-horizontal/form-horizontal.component';
-import { FormVerticalComponent } from './components/common/forms/form-vertical/form-vertical.component';
+// import { LanguageSetupComponent } from './containers/language-setup/language-setup.component';
+// import { LogoComponent } from './components/common/logo/logo.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BooksComponent,
-    BookItemComponent,
+    // BookItemComponent,
     AdminBooksComponent,
     AdminUsersComponent,
-    HeaderComponent,
+
     HomeComponent,
     RegisterComponent,
-    LoginComponent,
-    SectionHeaderComponent,
-    CrudTableComponent,
-    LanguagePipe,
-    DialogComponent,
-    TablePaginatorComponent,
-    CrudFilterFormComponent,
-    LanguageSetupComponent,
-    LogoComponent,
-    FormHorizontalComponent,
-    FormVerticalComponent,
+    // LoginComponent,
+    // SectionHeaderComponent,
+    // CrudTableComponent,
+    // TablePaginatorComponent,
+    // CrudFilterFormComponent,
+    // LanguagePipe,
+    // DialogComponent,
+    // LanguageSetupComponent,
+    // LogoComponent,
+    // FormHorizontalComponent,
+    // FormVerticalComponent,
+    // LanguageComponent,
   ],
   imports: [
-    MomentDateModule,
+    CommonModule,
+
     BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    MatRippleModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatButtonToggleModule,
-    MatIconModule,
-    MatBadgeModule,
-    MatCardModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatListModule,
-    MatTableModule,
-    MatStepperModule,
-    MatMenuModule,
-    MatChipsModule,
-    MatDialogModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatPaginatorModule,
+    AppRoutingModule,
+    RentalModule,
+    CommonsModule,
+    MomentDateModule,
+
+    // MatRippleModule,
+    // MatDialogModule,
+    // MatButtonModule,
+    // MatTooltipModule,
+    // MatButtonToggleModule,
+    // MatIconModule,
+    // MatBadgeModule,
+    // MatCardModule,
+    // MatInputModule,
+    // MatToolbarModule,
+    // MatGridListModule,
+    // MatListModule,
+    // MatTableModule,
+    // MatStepperModule,
+    // MatMenuModule,
+    // MatChipsModule,
+    // MatDialogModule,
+    // MatRadioModule,
+    // MatCheckboxModule,
+    // MatDialogModule,
+    // MatDatepickerModule,
+    // MatNativeDateModule,
+    // MatSelectModule,
+    // MatPaginatorModule,
+    MaterialModule,
     AdminModule,
+    AuthModule,
+    CrudTableModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
@@ -142,5 +154,6 @@ import { FormVerticalComponent } from './components/common/forms/form-vertical/f
   ],
   bootstrap: [AppComponent],
   entryComponents: [],
+  exports: [],
 })
 export class AppModule {}
