@@ -1,11 +1,7 @@
 import { BackendData } from '../../../types/backend-data';
 import { Component, OnInit, Inject } from '@angular/core';
 
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
@@ -19,9 +15,7 @@ export class DialogComponent implements OnInit {
   ) {}
 
   submitItem(item: BackendData) {
-    console.log('submitting');
-    // console.log(this.data);
-
+    console.log('DIALOG submitting');
     this.data.submit(item);
   }
 
@@ -29,5 +23,8 @@ export class DialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('DIALOG init');
+    console.log(this.data);
+  }
 }

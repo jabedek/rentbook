@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     // data: { preload: true },
   },
   // { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: '**', redirectTo: '/' },
+  // { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({

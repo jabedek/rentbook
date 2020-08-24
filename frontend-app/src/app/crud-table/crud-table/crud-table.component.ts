@@ -3,7 +3,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Overlay } from '@angular/cdk/overlay';
 import { MatDialog } from '@angular/material/dialog';
 import { tap } from 'rxjs/operators';
-// import { DialogComponent } from './../..common/dialog/dialog.component';
 import { BackendData } from '../../types/backend-data';
 import { CrudService } from '../../services/crud.service';
 import { IPaginationConfig } from './../../interfaces/table';
@@ -60,6 +59,8 @@ export class CrudTableComponent implements OnInit {
   }
 
   private createItem(item: BackendData): void {
+    console.log('creating item', item);
+
     this.crudService.create(this.config.url, item).subscribe(
       () => {
         this.changePage('last');
@@ -84,9 +85,40 @@ export class CrudTableComponent implements OnInit {
       );
   }
 
+  onCreate2(item: BackendData) {
+    if (item['password']) {
+      this.crudService
+        .readByProperty(this.config.url, 'email', item['email'])
+        .subscribe(
+          (items) => {
+            if (items.length) {
+              console.log('This email address is already in use.');
+            } else {
+              this.createItem(item);
+            }
+          },
+          (msg) => console.log(msg)
+        );
+    } else {
+      console.log('REGULAR ITEM');
+
+      this.crudService.create(this.config.url, item).subscribe(
+        () => {
+          console.log('created');
+
+          // this.changePage('last');
+          this.currentlyEdited = null;
+        },
+        (msg) => console.log(msg)
+      );
+    }
+  }
+
   /* ## Form handlers ## */
   onCreate = (item: BackendData): void => {
-    item['password'] ? this.createUser(item) : this.createItem(item);
+    console.log('onCreate');
+
+    return item['password'] ? this.createUser(item) : this.createItem(item);
   };
 
   onUpdate(item: BackendData): void {

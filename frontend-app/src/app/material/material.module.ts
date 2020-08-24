@@ -35,7 +35,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 const material = [
-  MatCheckboxModule,
+  CommonModule,
   MatCheckboxModule,
   MatButtonModule,
   MatInputModule,
