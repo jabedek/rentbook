@@ -93,8 +93,6 @@ export class FormHorizontalComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('submitting', this.form.value);
-
     if (this.form.valid) {
       this.columns.forEach((col) => {
         if (col.inputType === 'date') {
@@ -115,8 +113,6 @@ export class FormHorizontalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('init', this.inputData);
-
     this.setupForm();
     this.formSub = this.form.valueChanges
       .pipe(filter(() => this.form.valid))

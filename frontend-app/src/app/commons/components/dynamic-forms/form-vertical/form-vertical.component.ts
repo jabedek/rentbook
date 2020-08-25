@@ -93,8 +93,6 @@ export class FormVerticalComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('CLICKED', this.form.value);
-
     if (this.form.valid) {
       this.columns.forEach((col) => {
         if (col.inputType === 'date') {

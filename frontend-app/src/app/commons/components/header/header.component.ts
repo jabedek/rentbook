@@ -21,8 +21,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('header');
-
     this.authService.auth$.subscribe((data) => {
       this.auth = data.auth;
     });

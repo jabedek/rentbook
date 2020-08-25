@@ -1,0 +1,14 @@
+@import "../../../assets/styles/mixins";
+
+.pnf-wrapper {
+  @include component-wrapper;
+}
+
+.pnf {
+  font: 800 1.8rem "Poppins";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}

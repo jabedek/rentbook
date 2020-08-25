@@ -59,8 +59,6 @@ export class CrudTableComponent implements OnInit {
   }
 
   private createItem(item: BackendData): void {
-    console.log('creating item', item);
-
     this.crudService.create(this.config.url, item).subscribe(
       () => {
         this.changePage('last');
@@ -100,13 +98,8 @@ export class CrudTableComponent implements OnInit {
           (msg) => console.log(msg)
         );
     } else {
-      console.log('REGULAR ITEM');
-
       this.crudService.create(this.config.url, item).subscribe(
         () => {
-          console.log('created');
-
-          // this.changePage('last');
           this.currentlyEdited = null;
         },
         (msg) => console.log(msg)
@@ -116,14 +109,10 @@ export class CrudTableComponent implements OnInit {
 
   /* ## Form handlers ## */
   onCreate = (item: BackendData): void => {
-    console.log('onCreate');
-
     return item['password'] ? this.createUser(item) : this.createItem(item);
   };
 
   onUpdate(item: BackendData): void {
-    console.log('updating...');
-
     this.crudService.update(this.config.url, item.id, item).subscribe(
       () => {
         this.tableItems = this.tableItems.map((i: BackendData) =>
@@ -149,7 +138,6 @@ export class CrudTableComponent implements OnInit {
   }
 
   setEdited(item) {
-    console.log(item);
     this.currentlyEdited = item;
   }
 
@@ -235,6 +223,5 @@ export class CrudTableComponent implements OnInit {
     this.pagination.itemsPerPage = this.config.defaulItemsPerPage;
     this.fetchItems();
     this.tableName = 'admin-' + this.config.name;
-    console.log('elo');
   }
 }

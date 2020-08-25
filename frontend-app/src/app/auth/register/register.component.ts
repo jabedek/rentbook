@@ -4,6 +4,7 @@ import * as CONSTANTS from '../../assets/constants/index';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,12 +21,14 @@ export class RegisterComponent implements OnInit {
   formName: string = 'register-form';
   columns = CONSTANTS.table.AUTH_COLUMNS;
   status: string = '';
+  isLoading: boolean = false;
 
   usersServiceSub: Subscription;
 
   constructor(
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public router: Router
   ) {}
 
   formatFormDetails(formValue): User {
@@ -41,6 +44,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(formValue) {
+    this.isLoading = true;
     const user: User = this.formatFormDetails(formValue);
 
     this.authService.checkExistingUser(user).subscribe(
@@ -50,7 +54,12 @@ export class RegisterComponent implements OnInit {
         } else {
           this.authService.register(user).subscribe(
             (addedUser: User) => {
+              this.isLoading = false;
               this.status = `User ${addedUser.email} has been created and his id is: [${addedUser.id}]`;
+
+              setTimeout(() => {
+                this.router.navigate(['account/login']);
+              }, 700);
             },
             (err) => (this.status += `Error: ${err}`)
           );

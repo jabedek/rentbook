@@ -20,6 +20,7 @@ export class AccountComponent implements OnInit {
   formName: string = 'login-form';
   columns = CONSTANTS.table.AUTH_COLUMNS;
   status: string = '';
+  isLoading: boolean = false;
 
   constructor(
     public authService: AuthService,
@@ -28,7 +29,7 @@ export class AccountComponent implements OnInit {
   ) {}
 
   onSubmit(formValue) {
-    this.status = 'Processing...';
+    this.isLoading = true;
 
     this.authService.login(formValue).subscribe(
       (users) => {
@@ -40,7 +41,7 @@ export class AccountComponent implements OnInit {
           if (matchingUser) {
             this.authService.toStore(matchingUser);
             this.authService.isLogged = matchingUser;
-            this.status = '';
+            this.isLoading = false;
 
             this.router.navigate([this.authService.redirectUrl]);
           }

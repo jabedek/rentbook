@@ -1,6 +1,6 @@
 <mat-toolbar class="nav" style="min-height: 7vh;">
   <mat-toolbar-row class="row">
-    <div class="mat-title subtitle">{{ "admin" | language }}</div>
+    <div class="mat-title subtitle">{{ "nav-admin" | language }}</div>
     <nav class="admin-nav">
       <button
         mat-button
@@ -9,7 +9,7 @@
         [routerLinkActiveOptions]="{ exact: true }"
         class="admin-nav__item"
       >
-        DASHBOARD
+        {{ "admin-dashboard" | language }}
       </button>
       <button
         mat-button
@@ -17,7 +17,7 @@
         routerLinkActive="active"
         class="admin-nav__item"
       >
-        MANAGE USERS
+        {{ "admin-users" | language }}
       </button>
       <button
         mat-button
@@ -25,7 +25,7 @@
         routerLinkActive="active"
         class="admin-nav__item"
       >
-        MANAGE BOOKS
+        {{ "admin-prods" | language }}
       </button>
     </nav>
   </mat-toolbar-row>

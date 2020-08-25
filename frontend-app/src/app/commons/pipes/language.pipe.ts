@@ -5,8 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 import * as PL from '../../assets/json/language-PL.json';
 import * as EN from '../../assets/json/language-EN.json';
-
-
+import { translate } from './language.helpers';
 
 @Pipe({
   name: 'language',
@@ -20,8 +19,6 @@ export class LanguagePipe implements PipeTransform {
   constructor(private store: Store<AppState>) {}
 
   transform(label: string): unknown {
-    label = label.toLowerCase();
-
     this.chosenLang$.subscribe((data) => {
       this.cachedLang = data;
     });
@@ -29,17 +26,20 @@ export class LanguagePipe implements PipeTransform {
     switch (this.cachedLang) {
       case 'PL': {
         let languageJSON = (PL as any).default;
-        return languageJSON[label];
+        let translation = translate(languageJSON, label);
+        return translation;
       }
 
       case 'EN': {
         let languageJSON = (EN as any).default;
-        return languageJSON[label];
+        let translation = translate(languageJSON, label);
+        return translation;
       }
 
       default: {
         let languageJSON = (EN as any).default;
-        return languageJSON[label];
+        let translation = translate(languageJSON, label);
+        return translation;
       }
     }
   }

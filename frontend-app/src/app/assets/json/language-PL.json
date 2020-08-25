@@ -7,10 +7,15 @@
   "account-login": "Logowanie",
   "account-logout": "Wyloguj",
   "account-register": "Rejestracja",
+  "admin-dashboard": "Podgląd",
   "admin-users": "Użytkownicy",
-  "admin-books": "Książki",
+  "admin-prods": "Produkty",
   "form-submit": "Wyślij",
   "form-clear": "Wyczyść",
   "login-form": "Formularz logowania",
-  "register-form": "Formularz rejestracji"
+  "register-form": "Formularz rejestracji",
+  "btn-rent": "Wypożycz",
+  "btn-register": "Rejestracja",
+  "btn-submit": "Wyślij",
+  "btn-clear": "Wyczyść"
 }

@@ -9,7 +9,7 @@
       {{ "login-form" | language }}
     </mat-card-title>
     <mat-card-subtitle class="login-form__status">
-      {{ status }}
+      {{ status }}<mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
     </mat-card-subtitle>
     <mat-card-content class="login-form__content">
       <app-form-vertical
@@ -25,7 +25,7 @@
     </mat-card-content>
 
     <button mat-flat-button (click)="router.navigate(['account/register'])">
-      Register
+      {{ "btn-register" | language }}
     </button>
   </mat-card>
 

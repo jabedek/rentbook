@@ -14,9 +14,11 @@
 }
 
 .admin-nav {
-  background: $wrapper-bg-main;
+  // align-self: flex-end; // background: $wrapper-bg-main;
   display: flex;
   width: 100%;
+  justify-content: flex-end;
+
   //   justify-contnt: ;
 
   &__item {

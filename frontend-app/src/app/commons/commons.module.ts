@@ -15,6 +15,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { FormHorizontalComponent } from './components/dynamic-forms/form-horizontal/form-horizontal.component';
 import { FormVerticalComponent } from './components/dynamic-forms/form-vertical/form-vertical.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     FormHorizontalComponent,
     FormVerticalComponent,
     SidenavComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,
