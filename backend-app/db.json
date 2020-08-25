@@ -272,6 +272,13 @@
       "title": "u",
       "author": "u",
       "genre": "u"
+    },
+    {
+      "id": "36153889-6616-e7b1-10c7-057eb440d9bc",
+      "dateAdded": "2020-08-25",
+      "title": "aaaa",
+      "author": "aaaa",
+      "genre": "aaaaa"
     }
   ],
   "users": [
@@ -618,6 +625,14 @@
       "role": "USER",
       "nextPayment": "2020-08-25",
       "dateAdded": "2020-08-25"
+    },
+    {
+      "id": "8910b166-f8f6-b2af-0a54-6db5d5b22093",
+      "dateAdded": "2020-08-25",
+      "password": "12345678",
+      "email": "ddd@ddd",
+      "nextPayment": "2020-08-18",
+      "role": "ADMIN"
     }
   ]
 }

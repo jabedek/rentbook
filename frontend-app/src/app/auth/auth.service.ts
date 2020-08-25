@@ -1,4 +1,4 @@
-import { CrudService } from 'src/app/services/crud.service';
+import { CrudService } from 'src/app/crud-table/crud.service';
 import { AppState } from './../interfaces/app-state';
 import { User } from 'src/app/interfaces/user';
 import { Store, select } from '@ngrx/store';

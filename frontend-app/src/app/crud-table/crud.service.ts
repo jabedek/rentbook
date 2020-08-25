@@ -44,6 +44,8 @@ export class CrudService implements CrudOperations {
   }
 
   update(baseURL: string, id: string, data: BackendData): Observable<any> {
+    console.log('update');
+
     const url = baseURL + '/' + id;
     return this._http.put<any>(url, data, httpOptions);
   }
@@ -84,19 +86,21 @@ export class CrudService implements CrudOperations {
 
     let limit = itemsLimit ? itemsLimit : defaultItemsLimit;
     let paginationQuery = `&_page=${pageIndex}&_limit=${limit}`;
+
     let url = `${baseURL}?${filterQuery}${paginationQuery}`;
 
     return this._http.get<any[]>(url, { observe: 'response' });
   }
 
   private prepackNewItem(item): BackendData {
-    let dateAdded = new Date().toJSON().split('T')[0];
-    let id = UUID.UUID();
+    let date = new Date().toJSON().split('T')[0];
     let prepackedItem: BackendData = {
-      id,
-      dateAdded,
+      id: '',
       ...item,
+      dateAdded: date,
     };
+
+    prepackedItem.id = UUID.UUID();
 
     return prepackedItem;
   }

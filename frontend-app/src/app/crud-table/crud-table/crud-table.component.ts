@@ -1,13 +1,13 @@
+import { CrudService } from './../../crud-table/crud.service';
 import { DialogComponent } from '../../commons/components/dialog/dialog.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { Overlay } from '@angular/cdk/overlay';
 import { MatDialog } from '@angular/material/dialog';
 import { tap } from 'rxjs/operators';
 import { BackendData } from '../../types/backend-data';
-import { CrudService } from '../../services/crud.service';
 import { IPaginationConfig } from './../../interfaces/table';
 import { ITableConfig } from '../../interfaces/table';
-import { setLastPage, setPagesLinks } from '../../helpers/table.helpers';
+import { setLastPage, setPagesLinks } from './crud-table.helpers';
 
 @Component({
   selector: 'app-crud-table',
