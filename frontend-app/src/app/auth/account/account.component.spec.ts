@@ -1,3 +1,9 @@
+import { LanguagePipe } from './../../shared/pipes/language.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from './../../../environments/environment';
+import { reducers } from './../../shared/store/reducers/index';
+import { StoreModule } from '@ngrx/store';
+import { RouterTestingModule } from '@angular/router/testing';
 import { RegisterComponent } from './../register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -8,6 +14,7 @@ import { SectionHeaderComponent } from './../../shared/components/section-header
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccountComponent } from './account.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 describe('AccountComponent', () => {
   const routes: Routes = [
@@ -28,15 +35,23 @@ describe('AccountComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AccountComponent,
-        SectionHeaderComponent,
-        FormVerticalComponent,
-        UserCardComponent,
+        RegisterComponent,
+        // SectionHeaderComponent,
+        // FormVerticalComponent,
+        // UserCardComponent,
+        LanguagePipe,
       ],
       imports: [
-        AuthModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(routes),
+        HttpClientModule,
+        StoreModule.forRoot(reducers),
+        StoreDevtoolsModule.instrument({
+          maxAge: 25,
+          logOnly: environment.production,
+        }),
+
+        RouterTestingModule.withRoutes(routes),
       ],
     }).compileComponents();
   }));

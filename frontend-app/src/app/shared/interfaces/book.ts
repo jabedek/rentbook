@@ -3,5 +3,5 @@ export interface Book {
   title: string;
   author: string;
   genre: string;
-  dateAdded: Date;
+  dateAdded: Date | string;
 }
