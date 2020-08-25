@@ -1,6 +1,6 @@
-import * as CONSTANTS from '../../assets/constants/index';
 import { Component } from '@angular/core';
-import { ITableConfig } from '../../interfaces/table';
+import * as CONSTANTS from './../../shared/assets/constants';
+import { ITableConfig } from './../../shared/interfaces/table';
 
 @Component({
   selector: 'app-admin-books',

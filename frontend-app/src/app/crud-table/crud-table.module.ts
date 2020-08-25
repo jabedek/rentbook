@@ -1,6 +1,6 @@
-import { CommonsModule } from './../commons/commons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../material/material.module';
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrudTableComponent } from './crud-table/crud-table.component';
@@ -19,13 +19,13 @@ import { CrudService } from './crud.service';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    CommonsModule,
+    SharedModule,
   ],
   exports: [
     CrudTableComponent,
     CrudTableFilterComponent,
     CrudTablePaginatorComponent,
   ],
-  providers: [CrudService]
+  providers: [CrudService],
 })
 export class CrudTableModule {}

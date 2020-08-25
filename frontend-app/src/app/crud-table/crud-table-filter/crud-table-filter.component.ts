@@ -1,11 +1,4 @@
-import { IValidatorTemplate } from './../../interfaces/table';
-import { BackendData } from '../../types/backend-data';
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import {
   Component,
   OnInit,
@@ -15,10 +8,10 @@ import {
   Output,
   OnDestroy,
 } from '@angular/core';
-import { ITableColumn } from 'src/app/interfaces/table';
 import { filter } from 'rxjs/operators';
-import { UUID } from 'angular2-uuid';
 import { Subscription } from 'rxjs';
+import { BackendData } from './../../shared/types/backend-data';
+import { ITableColumn } from './../../shared/interfaces/table';
 
 import moment from 'moment';
 type buttonLabels = {
@@ -54,7 +47,6 @@ export class CrudTableFilterComponent implements OnInit, OnChanges, OnDestroy {
   resetForm(): void {
     this.resetFilter.emit();
     this.form.reset();
-    // this.setupForm();
   }
 
   onSubmit(): void {
@@ -65,7 +57,6 @@ export class CrudTableFilterComponent implements OnInit, OnChanges, OnDestroy {
             let date = this.form.get(col.name).value;
 
             let localeData = moment.localeData();
-            let format = localeData.longDateFormat('LL');
 
             let dateMoment = moment(date).format('YYYY-MM-DD');
 

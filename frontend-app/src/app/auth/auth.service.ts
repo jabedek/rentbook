@@ -1,10 +1,10 @@
-import { CrudService } from 'src/app/crud-table/crud.service';
-import { AppState } from './../interfaces/app-state';
-import { User } from 'src/app/interfaces/user';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import * as fromAuth from './../store/actions/auth.actions';
+import * as fromAuth from './../shared/store/actions/auth.actions';
+import { CrudService } from 'src/app/crud-table/crud.service';
+import { AppState } from './../shared/interfaces/app-state';
+import { User } from './../shared/interfaces/user';
 
 @Injectable({
   providedIn: 'root',

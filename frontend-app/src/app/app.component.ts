@@ -1,4 +1,4 @@
-import { LanguageCode } from './types/language-code';
+import { LanguageCode } from './shared/types/language-code';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

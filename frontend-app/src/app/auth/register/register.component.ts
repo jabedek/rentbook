@@ -1,6 +1,6 @@
-import { User } from './../../interfaces/user';
+import { User } from 'src/app/shared/interfaces/user';
 import { AuthService } from './../../auth/auth.service';
-import * as CONSTANTS from '../../assets/constants/index';
+import * as CONSTANTS from './../../shared/assets/constants';
 import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';

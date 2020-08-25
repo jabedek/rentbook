@@ -1,7 +1,7 @@
 import { AuthModule } from './../auth/auth.module';
 import { MaterialModule } from './../material/material.module';
 import { CrudTableModule } from './../crud-table/crud-table.module';
-import { CommonsModule } from './../commons/commons.module';
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -23,7 +23,7 @@ import { AdminNavigationComponent } from './components/admin-navigation/admin-na
   imports: [
     CommonModule,
     AdminRoutingModule,
-    CommonsModule,
+    SharedModule,
     CrudTableModule,
     MaterialModule,
     AuthModule,

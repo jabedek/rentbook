@@ -1,4 +1,4 @@
-import { AppState } from './../../interfaces/app-state';
+import { AppState } from './../interfaces/app-state';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';

@@ -16,14 +16,14 @@ import { CrudTableModule } from './crud-table/crud-table.module';
 import { RentalModule } from './rental/rental.module';
 import { MaterialModule } from './material/material.module';
 import { AuthModule } from './auth/auth.module';
-import { CommonsModule } from './commons/commons.module';
+import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 // ## other imports
 import { AppComponent } from './app.component';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
-import { MY_FORMATS } from './assets/constants/common.constants';
+import { MY_FORMATS } from './shared/assets/constants/common.constants';
 import { environment } from '../environments/environment';
-import { reducers } from './store/reducers';
+import { reducers } from './shared/store/reducers';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 
 import {
@@ -43,7 +43,7 @@ import {
     ReactiveFormsModule,
     AppRoutingModule,
     RentalModule,
-    CommonsModule,
+    SharedModule,
     MomentDateModule,
     HomeModule,
     MaterialModule,

@@ -1,4 +1,4 @@
-import { AuthState } from './../../interfaces/app-state';
+import { AuthState } from './../../../shared/interfaces/app-state';
 import { AUTH_ACTION } from '../actions/auth.actions';
 
 export const initialState: AuthState = {

@@ -1,5 +1,5 @@
-import { EMAIL_REGEX } from './common.constants';
-import { ITableColumn } from '../../interfaces/table';
+import { EMAIL_REGEX } from './../constants/common.constants';
+import { ITableColumn } from './../../interfaces/table';
 
 export const AUTH_COLUMNS: ITableColumn[] = [
   {

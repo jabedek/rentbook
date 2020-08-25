@@ -1,5 +1,5 @@
 import { MaterialModule } from './../material/material.module';
-import { CommonsModule } from './../commons/commons.module';
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +10,7 @@ import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [RegisterComponent, UserCardComponent, AccountComponent],
-  imports: [CommonModule, AuthRoutingModule, CommonsModule, MaterialModule],
+  imports: [CommonModule, AuthRoutingModule, SharedModule, MaterialModule],
   exports: [RegisterComponent, AccountComponent],
 })
 export class AuthModule {}

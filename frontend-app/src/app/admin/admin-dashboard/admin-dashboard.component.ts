@@ -1,8 +1,5 @@
-import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/crud-table/crud.service';
-import { AppState } from 'src/app/interfaces/app-state';
 
 @Component({
   selector: 'app-admin-dashboard',

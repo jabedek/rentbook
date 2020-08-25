@@ -18,10 +18,10 @@ import { UUID } from 'angular2-uuid';
 import { Subscription } from 'rxjs';
 import moment from 'moment';
 
-import { ITableColumn } from 'src/app/interfaces/table';
-import { FormLabels } from '../../../../types/form-labels';
-import { IValidatorTemplate } from './../../../../interfaces/table';
-import { BackendData } from '../../../../types/backend-data';
+import { ITableColumn } from './../../../../shared/interfaces/table';
+import { FormLabels } from './../../../../shared/types/form-labels';
+import { IValidatorTemplate } from './../../../../shared/interfaces/table';
+import { BackendData } from './../../../../shared/types/backend-data';
 
 @Component({
   selector: 'app-form-vertical',

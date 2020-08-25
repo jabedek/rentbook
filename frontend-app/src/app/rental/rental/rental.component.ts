@@ -1,6 +1,6 @@
 import { CrudService } from 'src/app/crud-table/crud.service';
 import { Component, OnInit } from '@angular/core';
-import { Book } from 'src/app/interfaces/book';
+import { Book } from './../../shared/interfaces/book';
 
 @Component({
   selector: 'app-rental',

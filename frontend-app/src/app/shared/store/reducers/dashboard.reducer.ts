@@ -1,5 +1,5 @@
 import { DASHBOARD_ACTION } from './../actions/dashboard.actions';
-import { AuthState, DashboardState } from './../../interfaces/app-state';
+import { DashboardState } from './../../../shared/interfaces/app-state';
 
 export const initialState: DashboardState = {
   users: 0,

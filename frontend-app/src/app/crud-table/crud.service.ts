@@ -1,9 +1,9 @@
-import { BackendData } from '../types/backend-data';
-import { Injectable, Inject } from '@angular/core';
+import { BackendData } from './../shared/types/backend-data';
+import { Injectable } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const defaultItemsLimit = 5;
 

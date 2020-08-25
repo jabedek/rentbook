@@ -1,5 +1,5 @@
 import { User } from './user';
-import { LanguageCode } from './../types/language-code';
+import { LanguageCode } from '../types/language-code';
 
 export interface LanguageState {
   lang: LanguageCode;

@@ -1,4 +1,4 @@
-import { User } from './../../../interfaces/user';
+import { User } from '../../../shared/interfaces/user';
 import { Component, OnInit, Input } from '@angular/core';
 
 const passwordDefault = '********';

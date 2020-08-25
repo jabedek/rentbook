@@ -1,4 +1,4 @@
-import { LanguageState } from '../../interfaces/app-state';
+import { LanguageState } from './../../../shared/interfaces/app-state';
 
 export const initialState: LanguageState = {
   lang: 'EN',

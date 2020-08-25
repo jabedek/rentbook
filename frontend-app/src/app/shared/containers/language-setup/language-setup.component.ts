@@ -1,5 +1,5 @@
-import { AppState } from '../../../interfaces/app-state';
-import { LanguageCode } from '../../../types/language-code';
+import { AppState } from './../../interfaces/app-state';
+import { LanguageCode } from './../../types/language-code';
 import { Store } from '@ngrx/store';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 

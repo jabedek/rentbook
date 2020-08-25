@@ -1,6 +1,6 @@
 import { MaterialModule } from './../material/material.module';
 import { RouterModule } from '@angular/router';
-import { CommonsModule } from './../commons/commons.module';
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { HomeComponent } from './home/home.component';
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    CommonsModule,
+    SharedModule,
     RouterModule,
     MaterialModule,
     HomeRoutingModule,
