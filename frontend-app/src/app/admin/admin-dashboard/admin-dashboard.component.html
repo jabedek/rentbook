@@ -1,3 +1,26 @@
 <div class="dashboard-wrapper">
-  Books: {{ booksNumber }} Books:{{ usersNumber }}
+  <mat-card class="dashboard__stats">
+    <div class="item item--link" routerLink="./users" routerLinkActive="active">
+      <p class="item__label">Users:</p>
+      <p class="item__value">{{ booksNumber }}</p>
+    </div>
+    <div class="item item--link" routerLink="./books" routerLinkActive="active">
+      <p class="item__label">Books:</p>
+      <p class="item__value">{{ usersNumber }}</p>
+    </div>
+
+    <div class="item">
+      <p class="item__label">Last added user:</p>
+      <p class="item__value">
+        <span class="name">{{ userEmail }}</span> on {{ userLastAdded }}
+      </p>
+    </div>
+
+    <div class="item">
+      <p class="item__label">Last added book:</p>
+      <p class="item__value">
+        <span class="name">{{ bookTitle }}</span> on {{ bookLastAdded }}
+      </p>
+    </div>
+  </mat-card>
 </div>

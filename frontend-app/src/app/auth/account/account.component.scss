@@ -20,7 +20,9 @@
 }
 
 .logins {
-  margin-top: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  margin: 0 auto;
 
   &__buttons {
     display: flex;
