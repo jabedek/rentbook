@@ -2,9 +2,8 @@ import { AppState } from './../interfaces/app-state';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
-
-import * as PL from '../../assets/json/language-PL.json';
-import * as EN from '../../assets/json/language-EN.json';
+import * as PL from './../assets/json/language-PL.json';
+import * as EN from './../assets/json/language-EN.json';
 import { translate } from './language.helpers';
 
 @Pipe({

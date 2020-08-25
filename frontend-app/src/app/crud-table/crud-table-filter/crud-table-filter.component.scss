@@ -1,5 +1,6 @@
-@import "../../assets/styles/_variables.scss";
-@import "../../assets/styles/_theme.scss";
+@import "../../shared/assets/styles/mixins";
+@import "../../shared/assets/styles/variables";
+@import "../../shared/assets/styles/theme";
 
 .filter {
   display: flex;
