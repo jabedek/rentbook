@@ -1,13 +1,3 @@
-<p>admin works!</p>
-<h3>ADMIN</h3>
-<nav>
-  <a
-    routerLink="./"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    >Dashboard</a
-  >
-  <a routerLink="./crises" routerLinkActive="active">Manage Crises</a>
-  <a routerLink="./heroes" routerLinkActive="active">Manage Heroes</a>
-</nav>
+<app-section-header [text]="'nav-admin'"> </app-section-header>
+<app-admin-navigation></app-admin-navigation>
 <router-outlet></router-outlet>

@@ -14,6 +14,7 @@ import { LanguageSetupComponent } from './containers/language-setup/language-set
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FormHorizontalComponent } from './components/dynamic-forms/form-horizontal/form-horizontal.component';
 import { FormVerticalComponent } from './components/dynamic-forms/form-vertical/form-vertical.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -25,15 +26,13 @@ import { FormVerticalComponent } from './components/dynamic-forms/form-vertical/
     DialogComponent,
     FormHorizontalComponent,
     FormVerticalComponent,
+    SidenavComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule,
-    FormsModule,
     ReactiveFormsModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     FormsModule,
   ],
   exports: [
@@ -45,6 +44,7 @@ import { FormVerticalComponent } from './components/dynamic-forms/form-vertical/
     DialogComponent,
     FormHorizontalComponent,
     FormVerticalComponent,
+    SidenavComponent,
   ],
 })
 export class CommonsModule {}

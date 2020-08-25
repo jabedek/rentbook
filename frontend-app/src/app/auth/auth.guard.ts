@@ -6,12 +6,13 @@ import {
   RouterStateSnapshot,
   UrlTree,
   Router,
+  CanActivateChild,
 } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
@@ -20,9 +21,7 @@ export class AuthGuard implements CanActivate {
   ): true | UrlTree {
     const url: string = state.url;
 
-    if (this.authService.isLogged) {
-      console.log('GUARD', this.authService.isLogged);
-
+    if (this.authService.isLogged && this.authService.getRole() === 'ADMIN') {
       return true;
     }
 
@@ -30,6 +29,13 @@ export class AuthGuard implements CanActivate {
     this.authService.redirectUrl = url;
 
     // Redirect to the login page
-    return this.router.parseUrl('/login');
+    return this.router.parseUrl('/account/login');
+  }
+
+  canActivateChild(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): true | UrlTree {
+    return this.canActivate(next, state);
   }
 }

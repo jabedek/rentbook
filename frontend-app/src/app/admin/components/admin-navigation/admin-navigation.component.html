@@ -1,0 +1,32 @@
+<mat-toolbar class="nav" style="min-height: 7vh;">
+  <mat-toolbar-row class="row">
+    <div class="mat-title subtitle">{{ "admin" | language }}</div>
+    <nav class="admin-nav">
+      <button
+        mat-button
+        routerLink="./"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="admin-nav__item"
+      >
+        DASHBOARD
+      </button>
+      <button
+        mat-button
+        routerLink="./users"
+        routerLinkActive="active"
+        class="admin-nav__item"
+      >
+        MANAGE USERS
+      </button>
+      <button
+        mat-button
+        routerLink="./books"
+        routerLinkActive="active"
+        class="admin-nav__item"
+      >
+        MANAGE BOOKS
+      </button>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>

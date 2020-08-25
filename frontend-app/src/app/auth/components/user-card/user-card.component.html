@@ -1,0 +1,24 @@
+<mat-card-content *ngIf="user">
+  <p>
+    <mat-card-title>{{ user.email }}</mat-card-title>
+  </p>
+  <p>
+    <mat-card-subtitle>{{ user.id }}</mat-card-subtitle>
+  </p>
+  <p
+    class="user-card__role"
+    [class.user-card__role--ADMIN]="user.role === 'ADMIN'"
+    [class.user-card__role--USER]="user.role === 'USER'"
+  >
+    {{ user.role }}
+  </p>
+  <p>Joined: {{ user.dateAdded }}</p>
+  <p>Next payment: {{ user.nextPayment }}</p>
+  <p (click)="togglePassword()" class="user-card__pwd-toggle">
+    Password: <span>{{ password }} </span>
+  </p>
+</mat-card-content>
+<!-- <mat-card-actions>
+  <button mat-button>LIKE</button>
+  <button mat-button>SHARE</button>
+</mat-card-actions> -->

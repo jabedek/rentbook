@@ -8,16 +8,30 @@
       {{ "nav-rental" | language }}
     </button>
 
-    <button class="nav__item" mat-button [routerLink]="['login']">
-      <div *ngIf="auth">
-        <div>{{ auth.email }}</div>
-      </div>
-      <div *ngIf="!auth">
-        <div>{{ "nav-account" | language }}</div>
-      </div>
+    <button
+      *ngIf="auth"
+      class="nav__item"
+      mat-stroked-button
+      [routerLink]="['account/login']"
+    >
+      {{ auth.email }}
     </button>
 
-    <button class="nav__item" mat-button [routerLink]="['admin']">
+    <button
+      *ngIf="!auth"
+      class="nav__item"
+      mat-button
+      [routerLink]="['account/login']"
+    >
+      {{ "nav-account" | language }}
+    </button>
+
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['admin']"
+      *ngIf="authService.getRole() === 'ADMIN'"
+    >
       Admin
     </button>
   </nav>

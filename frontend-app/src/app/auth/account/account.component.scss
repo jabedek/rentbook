@@ -1,0 +1,30 @@
+@import "../../assets/styles/mixins";
+
+.login-wrapper {
+  @include component-wrapper;
+}
+
+.login-form {
+  @include auth-form;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.5em;
+  }
+
+  &__status {
+    color: $warn;
+  }
+}
+
+.logins {
+  margin-top: 1rem;
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}

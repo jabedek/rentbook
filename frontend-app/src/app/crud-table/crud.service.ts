@@ -33,6 +33,9 @@ interface CrudOperations {
 export class CrudService implements CrudOperations {
   constructor(protected _http: HttpClient) {}
 
+  users = 0;
+  books = 0;
+
   create(baseURL: string, data: BackendData): Observable<BackendData> {
     const url = baseURL;
     return this._http.post<any>(url, this.prepackNewItem(data));

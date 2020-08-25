@@ -1,0 +1,56 @@
+<app-section-header [text]="'nav-account'"></app-section-header>
+<div class="login-wrapper">
+  <mat-card
+    class="login-form__card"
+    *ngIf="!authService.isLogged"
+    [class.mat-elevation-z3]="'true'"
+  >
+    <mat-card-title class="login-form__label mat-subheading-1">
+      {{ "login-form" | language }}
+    </mat-card-title>
+    <mat-card-subtitle class="login-form__status">
+      {{ status }}
+    </mat-card-subtitle>
+    <mat-card-content class="login-form__content">
+      <app-form-vertical
+        [mode]="'create'"
+        [appearance]="'outline'"
+        [columns]="columns"
+        [labels]="{ submit: 'Submit', reset: 'Clear' }"
+        [inputData]="null"
+        [displayDirection]="'column'"
+        (submitItem)="onSubmit($event)"
+      >
+      </app-form-vertical>
+    </mat-card-content>
+
+    <button mat-flat-button (click)="router.navigate(['account/register'])">
+      Register
+    </button>
+  </mat-card>
+
+  <mat-card class="logins" *ngIf="!authService.isLogged">
+    <section class="logins__buttons">
+      <button
+        [style.fontSize.rem]="0.7"
+        mat-stroked-button
+        (click)="onSubmit({ email: 'a@a', password: '12345678' })"
+      >
+        Login as: [ a@a / 12345678 / ADMIN ]
+      </button>
+
+      <button
+        [style.fontSize.rem]="0.7"
+        mat-stroked-button
+        (click)="onSubmit({ email: 'b@b', password: '12345678' })"
+      >
+        Login as: [ b@b / 12345678 / USER ]
+      </button>
+    </section>
+  </mat-card>
+
+  <mat-card *ngIf="authService.isLogged" [class.mat-elevation-z3]="'true'">
+    <app-user-card [user]="getAuthDetails()"></app-user-card>
+    <button mat-stroked-button (click)="authService.logout()">Logout</button>
+  </mat-card>
+</div>

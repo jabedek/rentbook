@@ -9,7 +9,13 @@ export interface AuthState {
   auth: User | null;
 }
 
+export interface DashboardState {
+  users: number;
+  books: number;
+}
+
 export interface AppState {
   language: LanguageState;
   auth: AuthState;
+  dashboard: DashboardState;
 }

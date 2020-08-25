@@ -235,5 +235,6 @@ export class CrudTableComponent implements OnInit {
     this.pagination.itemsPerPage = this.config.defaulItemsPerPage;
     this.fetchItems();
     this.tableName = 'admin-' + this.config.name;
+    console.log('elo');
   }
 }

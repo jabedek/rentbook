@@ -1,18 +1,39 @@
+import { AuthModule } from './../auth/auth.module';
+import { MaterialModule } from './../material/material.module';
+import { CrudTableModule } from './../crud-table/crud-table.module';
+import { CommonsModule } from './../commons/commons.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
-import { ManageCrisesComponent } from './manage-crises/manage-crises.component';
-import { ManageHeroesComponent } from './manage-heroes/manage-heroes.component';
-
+import { AdminBooksComponent } from './admin-books/admin-books.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminNavigationComponent } from './components/admin-navigation/admin-navigation.component';
 
 @NgModule({
-  declarations: [AdminDashboardComponent, AdminComponent, ManageCrisesComponent, ManageHeroesComponent],
+  declarations: [
+    AdminDashboardComponent,
+    AdminComponent,
+    AdminBooksComponent,
+    AdminUsersComponent,
+    AdminNavigationComponent,
+  ],
   imports: [
     CommonModule,
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    CommonsModule,
+    CrudTableModule,
+    MaterialModule,
+    AuthModule,
+  ],
+  exports: [
+    AdminDashboardComponent,
+    AdminComponent,
+    AdminBooksComponent,
+    AdminUsersComponent,
+    AdminNavigationComponent,
+  ],
 })
-export class AdminModule { }
+export class AdminModule {}

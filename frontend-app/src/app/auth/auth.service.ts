@@ -12,33 +12,13 @@ import * as fromAuth from './../store/actions/auth.actions';
 export class AuthService {
   auth$: Observable<any> = this.store.pipe(select((state: any) => state.auth));
   redirectUrl: string = '';
-  isLogged: boolean = false;
+  isLogged: null | User = null;
   constructor(
     private store: Store<AppState>,
     private crudService: CrudService
   ) {}
 
   login(formValue) {
-    this.checkExistingUser(formValue).subscribe(
-      (users) => {
-        // # If there are user(s) found with provided email, find a user with matching password and return it
-        if (users.length) {
-          let matchingUser = users.find(
-            (user) => user.password === formValue.password
-          );
-
-          if (matchingUser) {
-            this.toStore(matchingUser);
-
-            this.isLogged = true;
-          }
-        }
-      },
-      (err) => console.log(err)
-    );
-  }
-
-  login$(formValue) {
     return this.checkExistingUser(formValue);
   }
 
@@ -55,7 +35,7 @@ export class AuthService {
 
   logout() {
     this.store.dispatch({ type: fromAuth.CLEAR_AUTH });
-    this.isLogged = false;
+    this.isLogged = null;
   }
 
   checkExistingUser(formValue) {
@@ -66,14 +46,7 @@ export class AuthService {
     );
   }
 
-  getRole() {
-    let role = '';
-    this.auth$.subscribe((data) => {
-      if (data.auth) {
-        role += data.auth.role;
-        console.log(role);
-        return role;
-      }
-    });
+  getRole(): null | string {
+    return this.isLogged ? this.isLogged.role : null;
   }
 }

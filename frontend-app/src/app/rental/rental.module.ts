@@ -1,6 +1,5 @@
 import { MaterialModule } from './../material/material.module';
 import { CommonsModule } from './../commons/commons.module';
-// import { SectionHeaderComponent } from './../components/common/section-header/section-header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

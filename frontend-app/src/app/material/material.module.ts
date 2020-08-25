@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 //Angular Material Components
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -33,10 +31,24 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
+import { MatDividerModule } from '@angular/material/divider';
+
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+
+import { MatTreeModule } from '@angular/material/tree';
 
 const material = [
   CommonModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatDividerModule,
+  MatNativeDateModule,
   MatCheckboxModule,
+  MatRippleModule,
+  MatTreeModule,
   MatButtonModule,
   MatInputModule,
   MatAutocompleteModule,

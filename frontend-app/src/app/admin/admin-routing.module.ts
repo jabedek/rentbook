@@ -1,22 +1,23 @@
+import { AdminBooksComponent } from './admin-books/admin-books.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AuthGuard } from './../auth/auth.guard';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { ManageHeroesComponent } from './manage-heroes/manage-heroes.component';
-import { ManageCrisesComponent } from './manage-crises/manage-crises.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const adminRoutes: Routes = [
+const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     canActivate: [AuthGuard],
     children: [
       {
         path: '',
+        canActivateChild: [AuthGuard],
         children: [
-          { path: 'crises', component: ManageCrisesComponent },
-          { path: 'heroes', component: ManageHeroesComponent },
+          { path: 'users', component: AdminUsersComponent },
+          { path: 'books', component: AdminBooksComponent },
           { path: '', component: AdminDashboardComponent },
         ],
       },
@@ -25,7 +26,7 @@ const adminRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(adminRoutes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
 export class AdminRoutingModule {}
