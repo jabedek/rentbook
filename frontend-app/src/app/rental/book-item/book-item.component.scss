@@ -1,9 +1,7 @@
 .book-item {
-  width: 14vw;
+  min-width: 160px;
   height: 34vh;
-  // margin: 1em;
   background: #fff;
-
   display: flex;
   flex-direction: column;
   align-items: center;

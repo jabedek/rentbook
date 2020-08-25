@@ -4,8 +4,11 @@
   text-decoration: none;
   list-style: none;
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  gap: 3rem;
+
+  grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
   grid-template-rows: repeat(2, 1fr);
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
