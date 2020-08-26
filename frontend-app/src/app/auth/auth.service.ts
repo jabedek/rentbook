@@ -1,3 +1,4 @@
+import { BackendData } from './../shared/types/backend-data';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -38,7 +39,7 @@ export class AuthService {
     this.isLogged = null;
   }
 
-  checkExistingUser(formValue) {
+  checkExistingUser(formValue): Observable<BackendData[]> {
     return this.crudService.readByProperty(
       'http://localhost:3000/users',
       'email',

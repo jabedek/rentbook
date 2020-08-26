@@ -46,8 +46,6 @@ export class CrudService implements CrudOperations {
   }
 
   update(baseURL: string, id: string, data: BackendData): Observable<any> {
-    console.log('update');
-
     const url = baseURL + '/' + id;
     return this._http.put<any>(url, data, httpOptions);
   }
@@ -66,9 +64,9 @@ export class CrudService implements CrudOperations {
     baseURL: string,
     searchKey: string,
     searchValue: string
-  ): Observable<any[]> {
+  ): Observable<BackendData[]> {
     const url = `${baseURL}?${searchKey}=${searchValue}`;
-    return this._http.get<any[]>(url);
+    return this._http.get<BackendData[]>(url);
   }
 
   readPagedFiltered(

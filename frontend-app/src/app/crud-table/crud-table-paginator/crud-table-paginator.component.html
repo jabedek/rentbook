@@ -22,7 +22,7 @@
       >chevron_left</mat-icon
     >
   </button>
-  <span class="paginator__action">{{ currentPage }}</span>
+  <span class="paginator__action" #page>{{ currentPage }}</span>
   <button
     [class.mat-elevation-z0]="'true'"
     mat-mini-fab

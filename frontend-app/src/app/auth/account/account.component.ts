@@ -37,7 +37,7 @@ export class AccountComponent implements OnInit {
     this.isLoading = true;
 
     this.authService.login(formValue).subscribe(
-      (users) => {
+      (users: User[]) => {
         if (users.length) {
           let matchingUser = users.find(
             (user) => user.password === formValue.password
