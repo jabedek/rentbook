@@ -334,7 +334,7 @@
       "password": "123123213132",
       "email": "fff@ffff",
       "nextPayment": "2020-08-24",
-      "role": "ADMIN"
+      "role": "USER"
     },
     {
       "id": "dcb0f13e-62f6-f16b-9488-e1146b9e71e9",
@@ -742,6 +742,22 @@
       "password": "12345678",
       "email": "plpllp@lff",
       "nextPayment": "2020-08-26",
+      "role": "ADMIN"
+    },
+    {
+      "id": "d1c44db8-8ef0-3c19-47fc-09dfba21d60b",
+      "email": "kllkokok@fdsdsdsf",
+      "password": "12345678",
+      "role": "USER",
+      "nextPayment": "2020-08-26",
+      "dateAdded": "2020-08-26"
+    },
+    {
+      "id": "ce60e3f8-0328-5df4-9af3-e790e80467eb",
+      "dateAdded": "2020-08-26",
+      "password": "12345678",
+      "email": "kllklk@k",
+      "nextPayment": "2020-08-24",
       "role": "ADMIN"
     }
   ]
