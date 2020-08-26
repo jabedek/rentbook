@@ -1,4 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  tick,
+  fakeAsync,
+} from '@angular/core/testing';
 
 import { CrudTablePaginatorComponent } from './crud-table-paginator.component';
 import { DebugElement } from '@angular/core';
@@ -34,11 +40,12 @@ describe('CrudTablePaginatorComponent', () => {
     expect(pageEl.nativeElement.innerText).toBe(`${component.currentPage}`);
   });
 
-  fit('#emitSelection emits selectPage event with page value', () => {
-    let selectedPage = '2';
-    component.emitSelection(selectedPage);
-    component.selectPage.subscribe((value) => {
-      expect(value).toBe('2');
-    });
-  });
+  fit('#emitSelection should be triggered by clicking a button', fakeAsync(() => {
+    spyOn(component, 'emitSelection');
+    let btn = fixture.debugElement.nativeElement.querySelector('button.first');
+    btn.click();
+    tick();
+
+    expect(component.emitSelection).toHaveBeenCalled();
+  }));
 });
