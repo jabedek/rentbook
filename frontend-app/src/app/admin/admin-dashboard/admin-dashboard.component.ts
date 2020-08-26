@@ -34,12 +34,10 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.crudService
       .read('http://localhost:3000/books')
-      // .subscribe((data) => (this.booksNumber = data.length));
       .subscribe((data) => this.setDetails(data, 'books'));
 
     this.crudService
       .read('http://localhost:3000/users')
-      // .subscribe((data) => (this.usersNumber = data.length));
       .subscribe((data) => this.setDetails(data, 'users'));
   }
 }

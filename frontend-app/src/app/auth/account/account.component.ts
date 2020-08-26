@@ -28,6 +28,11 @@ export class AccountComponent implements OnInit {
     public router: Router
   ) {}
 
+  onClear() {
+    this.status = '';
+    this.isLoading = false;
+  }
+
   onSubmit(formValue) {
     this.isLoading = true;
 
@@ -45,9 +50,15 @@ export class AccountComponent implements OnInit {
 
             this.router.navigate([this.authService.redirectUrl]);
           }
+        } else {
+          this.isLoading = false;
+          this.status = 'There is no user with provided credentials.';
         }
       },
-      (err) => console.log(err)
+      (err) => {
+        console.log(err);
+        this.isLoading = false;
+      }
     );
   }
 

@@ -33,6 +33,11 @@ export class RegisterComponent implements OnInit {
     public router: Router
   ) {}
 
+  onClear() {
+    this.status = '';
+    this.isLoading = false;
+  }
+
   onSubmit(formValue: InputUser) {
     this.isLoading = true;
     const user: FormSubmitUser = extendUserDetails(formValue);

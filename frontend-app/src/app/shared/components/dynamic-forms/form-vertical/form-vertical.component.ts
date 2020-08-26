@@ -90,6 +90,10 @@ export class FormVerticalComponent implements OnInit {
     if (this.mode === 'edit') {
       this.unpickItem.emit();
     }
+
+    if (this.unpickItem) {
+      this.unpickItem.emit();
+    }
   }
 
   onSubmit(): void {

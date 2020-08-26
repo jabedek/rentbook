@@ -1,10 +1,7 @@
-@import "../../shared/assets/styles/_theme.scss";
 @import "../../shared/assets/styles/_mixins.scss";
-@import "../../shared/assets/styles/_variables.scss";
 
 .books-wrapper {
   @include component-wrapper;
-  background: $wrapper-bg-main;
 }
 .books {
   width: 100%;

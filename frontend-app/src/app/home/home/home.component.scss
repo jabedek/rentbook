@@ -1,5 +1,24 @@
 @import "../../shared/assets/styles/_mixins.scss";
+@import "../../shared/assets/styles/_variables.scss";
 
 .home-wrapper {
   @include component-wrapper;
+}
+
+.home {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  &__welcome {
+    font: 800 2rem "Poppins";
+  }
+}
+
+.image-device {
+  width: 60%;
 }

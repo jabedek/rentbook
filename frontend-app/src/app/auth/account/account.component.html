@@ -20,37 +20,53 @@
         [inputData]="null"
         [displayDirection]="'column'"
         (submitItem)="onSubmit($event)"
+        (unpickItem)="onClear()"
       >
       </app-form-vertical>
     </mat-card-content>
+  </mat-card>
 
-    <button mat-flat-button (click)="router.navigate(['account/register'])">
-      {{ "btn-register" | language }}
+  <mat-card
+    *ngIf="authService.isLogged"
+    class="login-form__card"
+    [class.mat-elevation-z3]="'true'"
+  >
+    <app-user-card [user]="getAuthDetails()" class="user-card"></app-user-card>
+    <button mat-stroked-button (click)="authService.logout()">
+      {{ "logout" | uppercase }}
     </button>
   </mat-card>
 
-  <mat-card class="logins" *ngIf="!authService.isLogged">
+  <button
+    class="register-btn"
+    mat-raised-button
+    (click)="router.navigate(['account/register'])"
+    *ngIf="!authService.isLogged"
+  >
+    {{ "btn-register" | language | uppercase }}
+  </button>
+
+  <div class="logins" *ngIf="!authService.isLogged">
     <section class="logins__buttons">
       <button
-        [style.fontSize.rem]="0.7"
+        [style.fontSize.rem]="0.6"
         mat-stroked-button
+        color="warn"
+        class="login-btn"
         (click)="onSubmit({ email: 'a@a', password: '12345678' })"
       >
         Login as: [ a@a / 12345678 / ADMIN ]
       </button>
 
       <button
-        [style.fontSize.rem]="0.7"
+        [style.fontSize.rem]="0.6"
         mat-stroked-button
+        color="primary"
+        class="login-btn"
         (click)="onSubmit({ email: 'b@b', password: '12345678' })"
       >
         Login as: [ b@b / 12345678 / USER ]
       </button>
     </section>
-  </mat-card>
-
-  <mat-card *ngIf="authService.isLogged" [class.mat-elevation-z3]="'true'">
-    <app-user-card [user]="getAuthDetails()"></app-user-card>
-    <button mat-stroked-button (click)="authService.logout()">Logout</button>
-  </mat-card>
+  </div>
 </div>

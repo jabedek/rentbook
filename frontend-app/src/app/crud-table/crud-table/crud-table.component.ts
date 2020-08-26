@@ -106,16 +106,18 @@ export class CrudTableComponent implements OnInit {
   }
 
   onDelete(item: BackendData): void {
-    this.crudService.delete(this.config.url, item.id).subscribe(
-      () => {
-        this.tableItems = this.tableItems.filter((i) => i.id !== item.id);
+    if (confirm(`Are you sure to delete user ${item.id}?`)) {
+      this.crudService.delete(this.config.url, item.id).subscribe(
+        () => {
+          this.tableItems = this.tableItems.filter((i) => i.id !== item.id);
 
-        if (this.tableItems.length === 0) {
-          console.log('No items in this table.');
-        }
-      },
-      (msg) => console.log(msg)
-    );
+          if (this.tableItems.length === 0) {
+            console.log('No items in this table.');
+          }
+        },
+        (msg) => console.log(msg)
+      );
+    }
   }
 
   setEdited(item) {

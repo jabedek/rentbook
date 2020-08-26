@@ -5,9 +5,9 @@
   list-style: none;
   display: grid;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
 
-  grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 320px));
   grid-template-rows: repeat(2, 1fr);
   overflow-y: scroll;
   overflow-x: hidden;

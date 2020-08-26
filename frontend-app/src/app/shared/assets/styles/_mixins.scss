@@ -16,10 +16,17 @@
 // ## RWD
 // TODO
 
+@mixin form-status {
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
 @mixin auth-form {
   &__card {
     width: 45%;
-    height: 55%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
