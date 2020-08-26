@@ -1,3 +1,4 @@
+import { FormSubmitUser, InputUser } from './../../shared/interfaces/user';
 import { User } from 'src/app/shared/interfaces/user';
 import { AuthService } from './../../auth/auth.service';
 import * as CONSTANTS from './../../shared/assets/constants';
@@ -5,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { extendUserDetails } from './register.helpers';
 
 @Component({
   selector: 'app-register',
@@ -31,25 +33,14 @@ export class RegisterComponent implements OnInit {
     public router: Router
   ) {}
 
-  formatFormDetails(formValue): User {
-    let date = new Date().toJSON().split('T')[0];
-
-    const user: User = {
-      ...formValue,
-      role: 'USER',
-      nextPayment: date,
-    };
-
-    return user;
-  }
-
-  onSubmit(formValue) {
+  onSubmit(formValue: InputUser) {
     this.isLoading = true;
-    const user: User = this.formatFormDetails(formValue);
+    const user: FormSubmitUser = extendUserDetails(formValue);
 
     this.authService.checkExistingUser(user).subscribe(
-      (users) => {
+      (users: User[]) => {
         if (users.length) {
+          this.isLoading = false;
           this.status = 'This email address is already in use.';
         } else {
           this.authService.register(user).subscribe(
@@ -59,7 +50,7 @@ export class RegisterComponent implements OnInit {
 
               setTimeout(() => {
                 this.router.navigate(['account/login']);
-              }, 700);
+              }, 500);
             },
             (err) => (this.status += `Error: ${err}`)
           );

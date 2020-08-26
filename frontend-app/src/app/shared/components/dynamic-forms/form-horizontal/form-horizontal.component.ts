@@ -4,15 +4,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  EventEmitter,
-  Output,
-  OnDestroy,
-} from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { UUID } from 'angular2-uuid';
 import { Subscription } from 'rxjs';

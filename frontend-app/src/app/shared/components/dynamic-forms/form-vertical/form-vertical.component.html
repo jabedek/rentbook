@@ -95,6 +95,7 @@
           mat-flat-button
           color="primary"
           (click)="onSubmit()"
+          [disabled]="!form.valid"
         >
           {{ "btn-submit" | language }}
         </button>

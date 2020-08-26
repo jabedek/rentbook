@@ -1,3 +1,4 @@
+import { MY_FORMATS } from './../shared/assets/constants/common.constants';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //Angular Material Components
@@ -36,9 +37,19 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { MatDividerModule } from '@angular/material/divider';
 
-import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
+import {
+  MatNativeDateModule,
+  MatRippleModule,
+  DateAdapter,
+  MAT_DATE_LOCALE,
+  MAT_DATE_FORMATS,
+} from '@angular/material/core';
 
 import { MatTreeModule } from '@angular/material/tree';
+import {
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
 
 const material = [
   CommonModule,
@@ -82,5 +93,14 @@ const material = [
 @NgModule({
   imports: material,
   exports: material,
+  providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  ],
 })
 export class MaterialModule {}

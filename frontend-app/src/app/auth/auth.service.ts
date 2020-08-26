@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import * as fromAuth from './../shared/store/actions/auth.actions';
 import { CrudService } from 'src/app/crud-table/crud.service';
 import { AppState } from './../shared/interfaces/app-state';
-import { User } from './../shared/interfaces/user';
+import { User, FormSubmitUser } from './../shared/interfaces/user';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +29,7 @@ export class AuthService {
     });
   }
 
-  register(user: User) {
+  register(user: FormSubmitUser) {
     return this.crudService.create('http://localhost:3000/users', user);
   }
 

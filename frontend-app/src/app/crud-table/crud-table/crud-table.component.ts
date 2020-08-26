@@ -1,3 +1,5 @@
+import { FormData } from './../../shared/types/form-data';
+import { FormSubmitUser } from './../../shared/interfaces/user';
 import { Component, OnInit, Input } from '@angular/core';
 import { Overlay } from '@angular/cdk/overlay';
 import { MatDialog } from '@angular/material/dialog';
@@ -59,7 +61,7 @@ export class CrudTableComponent implements OnInit {
     });
   }
 
-  private createItem(item: BackendData): void {
+  private createItem(item: FormData): void {
     this.crudService.create(this.config.url, item).subscribe(
       () => {
         this.changePage('last');
@@ -69,7 +71,7 @@ export class CrudTableComponent implements OnInit {
     );
   }
 
-  private createUser(user: BackendData): void {
+  private createUser(user: FormSubmitUser): void {
     this.crudService
       .readByProperty(this.config.url, 'email', user['email'])
       .subscribe(
@@ -84,32 +86,10 @@ export class CrudTableComponent implements OnInit {
       );
   }
 
-  onCreate2(item: BackendData) {
-    if (item['password']) {
-      this.crudService
-        .readByProperty(this.config.url, 'email', item['email'])
-        .subscribe(
-          (items) => {
-            if (items.length) {
-              console.log('This email address is already in use.');
-            } else {
-              this.createItem(item);
-            }
-          },
-          (msg) => console.log(msg)
-        );
-    } else {
-      this.crudService.create(this.config.url, item).subscribe(
-        () => {
-          this.currentlyEdited = null;
-        },
-        (msg) => console.log(msg)
-      );
-    }
-  }
-
   /* ## Form handlers ## */
-  onCreate = (item: BackendData): void => {
+  onCreate = (item: any): void => {
+    console.log('item', item);
+
     return item['password'] ? this.createUser(item) : this.createItem(item);
   };
 
@@ -169,7 +149,7 @@ export class CrudTableComponent implements OnInit {
 
       case 'last': {
         this.pagination.currentPage = this.pagination.lastPage;
-        console.log('lastpage', this.pagination.lastPage);
+        // console.log('lastpage', this.pagination.lastPage);
 
         this.fetchItems();
         break;

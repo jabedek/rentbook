@@ -1,5 +1,7 @@
+import { InputUser } from './../shared/interfaces/user';
+import { FormData } from './../shared/types/form-data';
 import { BackendData } from './../shared/types/backend-data';
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 
 import { Observable } from 'rxjs';
@@ -33,7 +35,7 @@ interface CrudOperations {
 export class CrudService implements CrudOperations {
   constructor(protected _http: HttpClient) {}
 
-  create(baseURL: string, data: BackendData): Observable<BackendData> {
+  create(baseURL: string, data: FormData): Observable<BackendData> {
     const url = baseURL;
     return this._http.post<any>(url, this.prepackNewItem(data));
   }
@@ -92,7 +94,7 @@ export class CrudService implements CrudOperations {
     return this._http.get<any[]>(url, { observe: 'response' });
   }
 
-  private prepackNewItem(item): BackendData {
+  private prepackNewItem(item: FormData): BackendData {
     let date = new Date().toJSON().split('T')[0];
     let prepackedItem: BackendData = {
       id: '',

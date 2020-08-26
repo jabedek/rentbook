@@ -84,18 +84,19 @@
           [class.mat-elevation-z0]="'true'"
           mat-mini-fab
           color="white"
-          (click)="resetForm()"
-          type="button"
+          (click)="onSubmit()"
+          [disabled]="!form.valid"
         >
-          <mat-icon fontSet="material-icons-sharp" matSuffix>clear</mat-icon>
+          <mat-icon fontSet="material-icons-sharp" matSuffix>send</mat-icon>
         </button>
         <button
           [class.mat-elevation-z0]="'true'"
           mat-mini-fab
           color="white"
-          (click)="onSubmit()"
+          (click)="resetForm()"
+          type="button"
         >
-          <mat-icon fontSet="material-icons-sharp" matSuffix>send</mat-icon>
+          <mat-icon fontSet="material-icons-sharp" matSuffix>clear</mat-icon>
         </button>
       </td>
     </div>
