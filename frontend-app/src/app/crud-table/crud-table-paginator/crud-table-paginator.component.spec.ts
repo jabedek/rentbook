@@ -27,11 +27,18 @@ describe('CrudTablePaginatorComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('Changing currentPage changes templates #page to the same value', () => {
+  it('Changing currentPage changes templates #page to same text value', () => {
     component.currentPage = 2;
     fixture.detectChanges();
     console.log(pageEl);
-
     expect(pageEl.nativeElement.innerText).toBe(`${component.currentPage}`);
+  });
+
+  fit('#emitSelection emits selectPage event with page value', () => {
+    let selectedPage = '2';
+    component.emitSelection(selectedPage);
+    component.selectPage.subscribe((value) => {
+      expect(value).toBe('2');
+    });
   });
 });
