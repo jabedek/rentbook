@@ -1,0 +1,23 @@
+{
+  "home-welcome": "GET YOUR FAVORITE BOOKS NOW",
+  "password": "Password",
+  "nav-home": "Main",
+  "nav-rental": "Rental",
+  "nav-admin": "Admin",
+  "nav-account": "Account",
+  "account-login": "Log in",
+  "account-logout": "Log out",
+  "account-register": "Register new account",
+  "admin-dashboard": "Dashboard",
+  "admin-users": "Manage Users",
+  "admin-books": "Manage Books",
+  "admin-prods": "Manage Products",
+  "form-submit": "Send",
+  "form-clear": "Clear",
+  "login-form": "Login form",
+  "register-form": "Register form",
+  "btn-rent": "Rent",
+  "btn-register": "Register",
+  "btn-submit": "Submit",
+  "btn-clear": "Clear"
+}

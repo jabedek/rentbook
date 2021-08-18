@@ -1,0 +1,23 @@
+{
+  "home-welcome": "JUŻ TERAZ KUP SWOJE ULUBIONE KSIĄŻKI",
+  "password": "Hasło",
+  "nav-home": "Główna",
+  "nav-rental": "Wypożyczalnia",
+  "nav-admin": "Zarządzanie",
+  "nav-account": "Konto",
+  "account-login": "Logowanie",
+  "account-logout": "Wyloguj",
+  "account-register": "Rejestracja",
+  "admin-dashboard": "Podgląd",
+  "admin-users": "Użytkownicy",
+  "admin-books": "Książki",
+  "admin-prods": "Produkty",
+  "form-submit": "Wyślij",
+  "form-clear": "Wyczyść",
+  "login-form": "Formularz logowania",
+  "register-form": "Formularz rejestracji",
+  "btn-rent": "Wypożycz",
+  "btn-register": "Rejestracja",
+  "btn-submit": "Wyślij",
+  "btn-clear": "Wyczyść"
+}

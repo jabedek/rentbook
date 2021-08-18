@@ -1,0 +1,9 @@
+@import "../../shared/assets/styles/_mixins.scss";
+
+.books-wrapper {
+  @include component-wrapper;
+}
+.books {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,10 @@
+<mat-card class="book-item">
+  <mat-card-content>
+    <mat-card-title>{{ book.title }}</mat-card-title>
+    <mat-card-subtitle>{{ book.genre }}</mat-card-subtitle
+    >{{ book.author }}</mat-card-content
+  >
+  <button mat-raised-button color="primary" (click)="onRent(book)">
+    Rent
+  </button>
+</mat-card>

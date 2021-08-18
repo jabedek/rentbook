@@ -1,0 +1,5 @@
+@import "../../shared/assets/styles/_mixins.scss";
+
+.admin-wrapper {
+  @include component-wrapper;
+}

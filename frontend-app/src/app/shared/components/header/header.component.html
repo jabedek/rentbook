@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="nav" style="min-height: 7vh;">
+  <app-logo></app-logo>
+  <nav>
+    <button class="nav__item" mat-button [routerLink]="['']">
+      {{ "nav-home" | language }}
+    </button>
+    <button class="nav__item" mat-button [routerLink]="['rental']">
+      {{ "nav-rental" | language }}
+    </button>
+
+    <button
+      *ngIf="auth"
+      class="nav__item"
+      mat-stroked-button
+      [routerLink]="['account/login']"
+    >
+      {{ auth.email }}
+    </button>
+
+    <button
+      *ngIf="!auth"
+      class="nav__item"
+      mat-button
+      [routerLink]="['account/login']"
+    >
+      {{ "nav-account" | language }}
+    </button>
+
+    <button
+      class="nav__item"
+      mat-button
+      [routerLink]="['admin']"
+      *ngIf="authService.getRole() === 'ADMIN'"
+    >
+      Admin
+    </button>
+  </nav>
+</mat-toolbar>

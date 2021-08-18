@@ -1,0 +1,72 @@
+<app-section-header [text]="'nav-account'"></app-section-header>
+<div class="login-wrapper">
+  <mat-card
+    class="login-form__card"
+    *ngIf="!authService.isLogged"
+    [class.mat-elevation-z3]="'true'"
+  >
+    <mat-card-title class="login-form__label mat-subheading-1">
+      {{ "login-form" | language }}
+    </mat-card-title>
+    <mat-card-subtitle class="login-form__status">
+      {{ status }}<mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+    </mat-card-subtitle>
+    <mat-card-content class="login-form__content">
+      <app-form-vertical
+        [mode]="'create'"
+        [appearance]="'outline'"
+        [columns]="columns"
+        [labels]="{ submit: 'Submit', reset: 'Clear' }"
+        [inputData]="null"
+        [displayDirection]="'column'"
+        (submitItem)="onSubmit($event)"
+        (unpickItem)="onClear()"
+      >
+      </app-form-vertical>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card
+    *ngIf="authService.isLogged"
+    class="login-form__card"
+    [class.mat-elevation-z3]="'true'"
+  >
+    <app-user-card [user]="getAuthDetails()" class="user-card"></app-user-card>
+    <button mat-stroked-button (click)="authService.logout()">
+      {{ "logout" | uppercase }}
+    </button>
+  </mat-card>
+
+  <button
+    class="register-btn"
+    mat-raised-button
+    (click)="router.navigate(['account/register'])"
+    *ngIf="!authService.isLogged"
+  >
+    {{ "btn-register" | language | uppercase }}
+  </button>
+
+  <div class="logins" *ngIf="!authService.isLogged">
+    <section class="logins__buttons">
+      <button
+        [style.fontSize.rem]="0.6"
+        mat-stroked-button
+        color="warn"
+        class="login-btn"
+        (click)="onSubmit({ email: 'a@a', password: '12345678' })"
+      >
+        Login as: [ a@a / 12345678 / ADMIN ]
+      </button>
+
+      <button
+        [style.fontSize.rem]="0.6"
+        mat-stroked-button
+        color="primary"
+        class="login-btn"
+        (click)="onSubmit({ email: 'b@b', password: '12345678' })"
+      >
+        Login as: [ b@b / 12345678 / USER ]
+      </button>
+    </section>
+  </div>
+</div>

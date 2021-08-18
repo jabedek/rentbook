@@ -1,0 +1,14 @@
+@import "./../../assets/styles/theme.scss";
+
+.nav {
+  color: $main-font-color;
+  background: $subheader-bg;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  margin: 0 1.5em 0 0;
+}

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~normalize.css";
+@import "./app/shared/assets/styles/theme";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  @include angular-material-theme($custom-theme-light);
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}

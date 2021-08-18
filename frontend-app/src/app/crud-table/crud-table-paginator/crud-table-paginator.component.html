@@ -1,0 +1,49 @@
+<div class="paginator">
+  <button
+    [class.mat-elevation-z0]="'true'"
+    mat-mini-fab
+    color="white"
+    type="button"
+    class="first"
+    (click)="emitSelection('first')"
+  >
+    <mat-icon fontSet="material-icons-sharp" class="paginator__action" matSuffix
+      >first_page</mat-icon
+    >
+  </button>
+
+  <button
+    [class.mat-elevation-z0]="'true'"
+    mat-mini-fab
+    color="white"
+    type="button"
+    (click)="emitSelection('prev')"
+  >
+    <mat-icon fontSet="material-icons-sharp" class="paginator__action" matSuffix
+      >chevron_left</mat-icon
+    >
+  </button>
+  <span class="paginator__action" #page>{{ currentPage }}</span>
+  <button
+    [class.mat-elevation-z0]="'true'"
+    mat-mini-fab
+    color="white"
+    type="button"
+    (click)="emitSelection('next')"
+  >
+    <mat-icon fontSet="material-icons-sharp" class="paginator__action" matSuffix
+      >chevron_right</mat-icon
+    >
+  </button>
+  <button
+    [class.mat-elevation-z0]="'true'"
+    mat-mini-fab
+    color="white"
+    type="button"
+    (click)="emitSelection('last')"
+  >
+    <mat-icon fontSet="material-icons-sharp" class="paginator__action" matSuffix
+      >last_page</mat-icon
+    >
+  </button>
+</div>

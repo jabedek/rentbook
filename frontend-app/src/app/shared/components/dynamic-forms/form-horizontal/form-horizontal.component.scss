@@ -1,0 +1,102 @@
+@import "../../../../shared/assets/styles/_variables.scss";
+@import "../../../../shared/assets/styles/_theme.scss";
+
+// Form Horizontal
+.form-h {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background: #fff;
+
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  border-collapse: collapse;
+  border-spacing: 0px;
+  table-layout: fixed;
+
+  &__row {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    &--headers {
+      border: none;
+    }
+
+    &__content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      align-content: center;
+      align-items: center;
+
+      flex-direction: row;
+
+      &--headers {
+        border-top: transparent;
+      }
+    }
+  }
+
+  &__column {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    align-content: center;
+    align-items: center;
+
+    flex-direction: row;
+
+    &--headers {
+      border-top: transparent;
+    }
+  }
+
+  &__content {
+    flex: 1 1 200px;
+    display: flex;
+    align-items: center;
+
+    height: $data-cell-height;
+    text-align: left;
+    overflow: hidden;
+
+    &--id {
+      font-size: $data-cell-fontSize--id;
+    }
+
+    &--actions {
+      justify-content: space-evenly;
+      flex: 0 0 200px;
+    }
+
+    &--header {
+      font-weight: 500;
+      color: $grey-dark;
+    }
+  }
+}
+
+.input--id {
+  font-size: $data-cell-fontSize--id;
+}
+
+.non-editable {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  align-self: flex-end;
+  font-style: italic;
+  font-size: $data-cell-fontSize--id;
+}
+
+.column-content {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}

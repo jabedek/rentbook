@@ -1,0 +1,52 @@
+<div class="dashboard-wrapper">
+  <mat-card class="dashboard__stats">
+    <div class="item">
+      <p class="item__label">Users:</p>
+      <p class="item__value">
+        <span *ngIf="booksNumber > 0">{{ booksNumber }}</span>
+        <mat-spinner diameter="20" *ngIf="booksNumber === 0"></mat-spinner>
+      </p>
+    </div>
+    <div class="item">
+      <p class="item__label">Books:</p>
+      <p class="item__value">
+        <!-- {{ usersNumber }} -->
+
+        <span *ngIf="usersNumber > 0">{{ usersNumber }}</span>
+        <mat-spinner diameter="20" *ngIf="usersNumber === 0"></mat-spinner>
+      </p>
+    </div>
+
+    <div class="item">
+      <p class="item__label">Last added user:</p>
+      <p class="item__value">
+        <span class="name" *ngIf="userEmail.length && userLastAdded.length">
+          {{ userEmail }}
+        </span>
+        on {{ userLastAdded }}
+        <mat-spinner
+          diameter="20"
+          *ngIf="!(userEmail.length && userLastAdded.length)"
+        >
+        </mat-spinner>
+      </p>
+    </div>
+
+    <div class="item">
+      <p class="item__label">Last added book:</p>
+      <p class="item__value">
+        <!-- <span class="name">{{ bookTitle }}</span> on {{ bookLastAdded }} -->
+
+        <span class="name" *ngIf="bookTitle.length && bookLastAdded.length">
+          {{ bookTitle }}
+        </span>
+        on {{ bookLastAdded }}
+        <mat-spinner
+          diameter="20"
+          *ngIf="!(bookTitle.length && bookLastAdded.length)"
+        >
+        </mat-spinner>
+      </p>
+    </div>
+  </mat-card>
+</div>

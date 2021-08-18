@@ -1,0 +1,19 @@
+<app-section-header [text]="'nav-home'"></app-section-header>
+<div class="home-wrapper">
+  <div class="home">
+    <div class="home__welcome mat-subheading-2">
+      {{ "home-welcome" | language }}
+    </div>
+
+    <button
+      mat-flat-button
+      color="primary"
+      mat-button
+      [routerLink]="['rental']"
+    >
+      {{ "nav-rental" | language | uppercase }}
+    </button>
+
+    <img src="assets/devices.png" class="image-device" />
+  </div>
+</div>

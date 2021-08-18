@@ -1,0 +1,61 @@
+<form [formGroup]="form" class="filter" appearance="outline">
+  <tr class="row">
+    <div class="row__content">
+      <td *ngFor="let col of columns" [style.width.%]="100" class="column">
+        <mat-form-field
+          [style.width.%]="70"
+          *ngIf="col.inputType === 'text' || col.inputType === 'email'"
+        >
+          <input matInput formControlName="{{ col.name }}" />
+        </mat-form-field>
+
+        <mat-form-field
+          [style.width.%]="70"
+          [style.fontSize.rem]="0.8"
+          *ngIf="col.inputType === 'date'"
+        >
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="{{ col.name }}"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon class="icon" matDatepickerToggleIcon
+              >keyboard_arrow_down</mat-icon
+            >
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker class="picker" class="move"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field
+          [style.width.%]="70"
+          [style.fontSize.rem]="0.8"
+          *ngIf="col.inputType === 'select'"
+        >
+          <mat-select formControlName="{{ col.name }}">
+            <mat-option *ngFor="let opt of col.options" [value]="opt.value">
+              {{ opt.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td class="column column--actions">
+        <button
+          [class.mat-elevation-z0]="'true'"
+          mat-stroked-button
+          (click)="onSubmit()"
+        >
+          FILTER
+        </button>
+        <button
+          [class.mat-elevation-z0]="'true'"
+          mat-stroked-button
+          (click)="resetForm()"
+          type="button"
+        >
+          CLEAR
+        </button>
+      </td>
+    </div>
+  </tr>
+</form>

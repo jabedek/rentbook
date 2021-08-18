@@ -1,0 +1,30 @@
+[
+  {
+    "id": "4131e51a-de86-c4c3-596b-e0173e41ad6e",
+    "dateAdded": "2020-08-17",
+    "title": "Book Title 1",
+    "author": "Author 1",
+    "genre": "Genre 1"
+  },
+  {
+    "id": "bdc161ce-e6b9-2e1a-4f2a-102640bfc115",
+    "dateAdded": "2020-08-17",
+    "title": "Book Title 2",
+    "author": "Author 2",
+    "genre": "Genre 1"
+  },
+  {
+    "id": "6ce34004-2ffc-cc7d-7f79-a419b6a9994d",
+    "dateAdded": "2020-08-17",
+    "title": "Book Title 3",
+    "author": "Author 3",
+    "genre": "Genre 2"
+  },
+  {
+    "id": "00cb9505-b538-9398-3699-c74ecfa8eb74",
+    "dateAdded": "2020-08-17",
+    "title": "Book Title 4",
+    "author": "Author 1",
+    "genre": "Genre 3"
+  }
+]

@@ -1,0 +1,13 @@
+@import "../../shared/assets/styles/_theme.scss";
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &__action {
+    color: $grey-dark;
+    margin: 0 0.2em;
+  }
+}
